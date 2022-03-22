@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.net;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.http.b;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.input.ReturnKeyType;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -45,9 +44,9 @@ public class NetInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,7 +54,7 @@ public class NetInfo {
             }
             if (jSONObject != null) {
                 this.mJSONObject = jSONObject;
-                this.mNetType = JSONObjectUtils.getInt(jSONObject, "nettype");
+                this.mNetType = JSONObjectUtils.getInt(jSONObject, FpsTracer.UBC_KEY_NET_TYPE);
                 this.mRequestStart = JSONObjectUtils.getDouble(this.mJSONObject, "request_start");
                 this.mStatus = JSONObjectUtils.getInt(this.mJSONObject, "status");
                 this.mUrl = JSONObjectUtils.getString(this.mJSONObject, "url");
@@ -66,7 +65,7 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Base{mJSONObject=" + this.mJSONObject + ", mNetType=" + this.mNetType + ", mRequestStart=" + this.mRequestStart + ", mStatus=" + this.mStatus + ", mUrl='" + this.mUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "Base{mJSONObject=" + this.mJSONObject + ", mNetType=" + this.mNetType + ", mRequestStart=" + this.mRequestStart + ", mStatus=" + this.mStatus + ", mUrl='" + this.mUrl + "'}";
             }
             return (String) invokeV.objValue;
         }
@@ -88,9 +87,9 @@ public class NetInfo {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -108,9 +107,9 @@ public class NetInfo {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -125,9 +124,9 @@ public class NetInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -147,9 +146,9 @@ public class NetInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -269,9 +268,9 @@ public class NetInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -308,9 +307,9 @@ public class NetInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -341,7 +340,7 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Response{mJSONObject=" + this.mJSONObject + ", mBackupJob=" + this.mBackupJob + ", mCached=" + this.mCached + ", mCode=" + this.mCode + ", mConnectionInfo=" + this.mConnectionInfo + ", mDnsSource=" + this.mDnsSource + ", mNetworkAccessed=" + this.mNetworkAccessed + ", mQuicSend=" + this.mQuicSend + ", mQuicType=" + this.mQuicType + ", mRaceResult=" + this.mRaceResult + ", mReceivedBytes=" + this.mReceivedBytes + ", mResolveType=" + this.mResolveType + ", mSentBytes=" + this.mSentBytes + ", mUseQuic=" + this.mUseQuic + ", mViaProxy=" + this.mViaProxy + ", mWeakNqe=" + this.mWeakNqe + ", mWeakRtt=" + this.mWeakRtt + ExtendedMessageFormat.END_FE;
+                return "Response{mJSONObject=" + this.mJSONObject + ", mBackupJob=" + this.mBackupJob + ", mCached=" + this.mCached + ", mCode=" + this.mCode + ", mConnectionInfo=" + this.mConnectionInfo + ", mDnsSource=" + this.mDnsSource + ", mNetworkAccessed=" + this.mNetworkAccessed + ", mQuicSend=" + this.mQuicSend + ", mQuicType=" + this.mQuicType + ", mRaceResult=" + this.mRaceResult + ", mReceivedBytes=" + this.mReceivedBytes + ", mResolveType=" + this.mResolveType + ", mSentBytes=" + this.mSentBytes + ", mUseQuic=" + this.mUseQuic + ", mViaProxy=" + this.mViaProxy + ", mWeakNqe=" + this.mWeakNqe + ", mWeakRtt=" + this.mWeakRtt + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -365,9 +364,9 @@ public class NetInfo {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -382,9 +381,9 @@ public class NetInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -401,7 +400,7 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Socket{mJSONObject=" + this.mJSONObject + ", mQuic=" + this.mQuic + ", mReused=" + this.mReused + ExtendedMessageFormat.END_FE;
+                return "Socket{mJSONObject=" + this.mJSONObject + ", mQuic=" + this.mQuic + ", mReused=" + this.mReused + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -425,9 +424,9 @@ public class NetInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -447,7 +446,7 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Ssl{mJSONObject=" + this.mJSONObject + ", mClientCertSent=" + this.mClientCertSent + ", mConnectionStatus=" + this.mConnectionStatus + ", mHandshakeType=" + this.mHandshakeType + ", mIsIssuedByKnownRoot=" + this.mIsIssuedByKnownRoot + ", mKeyExchangeInfo=" + this.mKeyExchangeInfo + ExtendedMessageFormat.END_FE;
+                return "Ssl{mJSONObject=" + this.mJSONObject + ", mClientCertSent=" + this.mClientCertSent + ", mConnectionStatus=" + this.mConnectionStatus + ", mHandshakeType=" + this.mHandshakeType + ", mIsIssuedByKnownRoot=" + this.mIsIssuedByKnownRoot + ", mKeyExchangeInfo=" + this.mKeyExchangeInfo + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -470,9 +469,9 @@ public class NetInfo {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -487,9 +486,9 @@ public class NetInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -529,9 +528,9 @@ public class NetInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -540,7 +539,7 @@ public class NetInfo {
             if (jSONObject != null) {
                 this.mJSONObject = jSONObject;
                 this.mConnect = JSONObjectUtils.getLong(jSONObject, "connect");
-                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, b.c.f31217b);
+                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, "dns");
                 this.mDurationTime = JSONObjectUtils.getLong(this.mJSONObject, "duration_time");
                 this.mHeadRecv = JSONObjectUtils.getInt(this.mJSONObject, "head_recv");
                 this.mRedirect = JSONObjectUtils.getInt(this.mJSONObject, "redirect");
@@ -554,7 +553,7 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Timing{mJSONObject=" + this.mJSONObject + ", mConnect=" + this.mConnect + ", mDns=" + this.mDns + ", mDurationTime=" + this.mDurationTime + ", mHeadRecv=" + this.mHeadRecv + ", mRedirect=" + this.mRedirect + ", mSend=" + this.mSend + ", mSsl=" + this.mSsl + ", mTTfb=" + this.mTTfb + ExtendedMessageFormat.END_FE;
+                return "Timing{mJSONObject=" + this.mJSONObject + ", mConnect=" + this.mConnect + ", mDns=" + this.mDns + ", mDurationTime=" + this.mDurationTime + ", mHeadRecv=" + this.mHeadRecv + ", mRedirect=" + this.mRedirect + ", mSend=" + this.mSend + ", mSsl=" + this.mSsl + ", mTTfb=" + this.mTTfb + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -567,9 +566,9 @@ public class NetInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, swanExtra};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -669,7 +668,7 @@ public class NetInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "NetInfo{mBase=" + this.mBase + ", mTiming=" + this.mTiming + ", mResponse=" + this.mResponse + ", mSocket=" + this.mSocket + ", mSsl=" + this.mSsl + ", mSwanExtra=" + this.mSwanExtra + ", mJSONObject=" + this.mJSONObject + ExtendedMessageFormat.END_FE;
+            return "NetInfo{mBase=" + this.mBase + ", mTiming=" + this.mTiming + ", mResponse=" + this.mResponse + ", mSocket=" + this.mSocket + ", mSsl=" + this.mSsl + ", mSwanExtra=" + this.mSwanExtra + ", mJSONObject=" + this.mJSONObject + '}';
         }
         return (String) invokeV.objValue;
     }

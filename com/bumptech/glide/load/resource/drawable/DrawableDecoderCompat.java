@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DrawableDecoderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile boolean shouldCallAppCompatResources = true;
@@ -43,57 +43,57 @@ public final class DrawableDecoderCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i2) {
+    public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, context2, i2)) == null) ? getDrawable(context, context2, i2, null) : (Drawable) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, context2, i)) == null) ? getDrawable(context, context2, i, null) : (Drawable) invokeLLI.objValue;
     }
 
-    public static Drawable loadDrawableV4(Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
+    public static Drawable loadDrawableV4(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, context, i2, theme)) == null) ? ResourcesCompat.getDrawable(context.getResources(), i2, theme) : (Drawable) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, context, i, theme)) == null) ? ResourcesCompat.getDrawable(context.getResources(), i, theme) : (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable loadDrawableV7(Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
+    public static Drawable loadDrawableV7(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, context, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, context, i, theme)) == null) {
             if (theme != null) {
                 context = new ContextThemeWrapper(context, theme);
             }
-            return AppCompatResources.getDrawable(context, i2);
+            return AppCompatResources.getDrawable(context, i);
         }
         return (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable getDrawable(Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
+    public static Drawable getDrawable(Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i2, theme)) == null) ? getDrawable(context, context, i2, theme) : (Drawable) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i, theme)) == null) ? getDrawable(context, context, i, theme) : (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i2, @Nullable Resources.Theme theme) {
+    public static Drawable getDrawable(Context context, Context context2, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, context2, i2, theme)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, context2, i, theme)) == null) {
             try {
                 if (shouldCallAppCompatResources) {
-                    return loadDrawableV7(context2, i2, theme);
+                    return loadDrawableV7(context2, i, theme);
                 }
             } catch (Resources.NotFoundException unused) {
             } catch (IllegalStateException e2) {
                 if (!context.getPackageName().equals(context2.getPackageName())) {
-                    return ContextCompat.getDrawable(context2, i2);
+                    return ContextCompat.getDrawable(context2, i);
                 }
                 throw e2;
             } catch (NoClassDefFoundError unused2) {
@@ -102,7 +102,7 @@ public final class DrawableDecoderCompat {
             if (theme == null) {
                 theme = context2.getTheme();
             }
-            return loadDrawableV4(context2, i2, theme);
+            return loadDrawableV4(context2, i, theme);
         }
         return (Drawable) invokeLLIL.objValue;
     }

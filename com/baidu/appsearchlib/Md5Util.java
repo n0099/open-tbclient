@@ -39,9 +39,9 @@ public class Md5Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,12 +55,12 @@ public class Md5Util {
             byte[] digest = md5.digest(str.getBytes());
             StringBuilder sb = new StringBuilder(40);
             for (byte b2 : digest) {
-                int i2 = b2 & 255;
-                if ((i2 >> 4) == 0) {
+                int i = b2 & 255;
+                if ((i >> 4) == 0) {
                     sb.append("0");
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 } else {
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
             }
             return sb.toString();

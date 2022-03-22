@@ -13,7 +13,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CachedContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public final class CachedContent {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataInputStream};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;
@@ -50,29 +50,29 @@ public final class CachedContent {
         }
     }
 
-    public long getCachedBytes(long j2, long j3) {
+    public long getCachedBytes(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            SimpleCacheSpan span = getSpan(j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            SimpleCacheSpan span = getSpan(j);
             if (span.isHoleSpan()) {
-                return -Math.min(span.isOpenEnded() ? Long.MAX_VALUE : span.length, j3);
+                return -Math.min(span.isOpenEnded() ? Long.MAX_VALUE : span.length, j2);
             }
-            long j4 = j2 + j3;
-            long j5 = span.position + span.length;
-            if (j5 < j4) {
+            long j3 = j + j2;
+            long j4 = span.position + span.length;
+            if (j4 < j3) {
                 for (SimpleCacheSpan simpleCacheSpan : this.cachedSpans.tailSet(span, false)) {
-                    long j6 = simpleCacheSpan.position;
-                    if (j6 > j5) {
+                    long j5 = simpleCacheSpan.position;
+                    if (j5 > j4) {
                         break;
                     }
-                    j5 = Math.max(j5, j6 + simpleCacheSpan.length);
-                    if (j5 >= j4) {
+                    j4 = Math.max(j4, j5 + simpleCacheSpan.length);
+                    if (j4 >= j3) {
                         break;
                     }
                 }
             }
-            return Math.min(j5 - j2, j3);
+            return Math.min(j4 - j, j2);
         }
         return invokeCommon.longValue;
     }
@@ -83,18 +83,18 @@ public final class CachedContent {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.length : invokeV.longValue;
     }
 
-    public SimpleCacheSpan getSpan(long j2) {
+    public SimpleCacheSpan getSpan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            SimpleCacheSpan createLookup = SimpleCacheSpan.createLookup(this.key, j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            SimpleCacheSpan createLookup = SimpleCacheSpan.createLookup(this.key, j);
             SimpleCacheSpan floor = this.cachedSpans.floor(createLookup);
-            if (floor == null || floor.position + floor.length <= j2) {
+            if (floor == null || floor.position + floor.length <= j) {
                 SimpleCacheSpan ceiling = this.cachedSpans.ceiling(createLookup);
                 if (ceiling == null) {
-                    return SimpleCacheSpan.createOpenHole(this.key, j2);
+                    return SimpleCacheSpan.createOpenHole(this.key, j);
                 }
-                return SimpleCacheSpan.createClosedHole(this.key, j2, ceiling.position - j2);
+                return SimpleCacheSpan.createClosedHole(this.key, j, ceiling.position - j);
             }
             return floor;
         }
@@ -111,8 +111,8 @@ public final class CachedContent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j2 = this.length;
-            return (((this.id * 31) + this.key.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)));
+            long j = this.length;
+            return (((this.id * 31) + this.key.hashCode()) * 31) + ((int) (j ^ (j >>> 32)));
         }
         return invokeV.intValue;
     }
@@ -136,10 +136,10 @@ public final class CachedContent {
         return invokeL.booleanValue;
     }
 
-    public void setLength(long j2) {
+    public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.length = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.length = j;
         }
     }
 
@@ -167,24 +167,24 @@ public final class CachedContent {
         }
     }
 
-    public CachedContent(int i2, String str, long j2) {
+    public CachedContent(int i, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.id = i2;
+        this.id = i;
         this.key = str;
-        this.length = j2;
+        this.length = j;
         this.cachedSpans = new TreeSet<>();
     }
 }

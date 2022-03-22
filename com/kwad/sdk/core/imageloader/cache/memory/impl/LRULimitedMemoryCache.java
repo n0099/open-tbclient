@@ -14,8 +14,8 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     public static final float LOAD_FACTOR = 1.1f;
     public final Map<String, DecodedResult> lruCache;
 
-    public LRULimitedMemoryCache(int i2) {
-        super(i2);
+    public LRULimitedMemoryCache(int i) {
+        super(i);
         this.lruCache = Collections.synchronizedMap(new LinkedHashMap(10, 1.1f, true));
     }
 

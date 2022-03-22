@@ -2,7 +2,7 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebSettings;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ISailorWebSettingsExt extends INoProGuard {
     boolean getAdBlockEnabledExt();
 
@@ -78,7 +78,7 @@ public interface ISailorWebSettingsExt extends INoProGuard {
 
     void setHtml5VideoEnabledExt(boolean z);
 
-    void setImageMaxWidthExt(int i2);
+    void setImageMaxWidthExt(int i);
 
     void setImagesEnabledExt(boolean z);
 
@@ -110,5 +110,5 @@ public interface ISailorWebSettingsExt extends INoProGuard {
 
     void setUserSelectEnabled(boolean z);
 
-    void setWiseSearchFirstScreenOptTypeEX(int i2);
+    void setWiseSearchFirstScreenOptTypeEX(int i);
 }

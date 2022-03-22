@@ -25,23 +25,23 @@ public class IntHashMap {
         public Entry next;
         public Object value;
 
-        public Entry(int i2, int i3, Object obj, Entry entry) {
+        public Entry(int i, int i2, Object obj, Entry entry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), obj, entry};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), obj, entry};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.hash = i2;
-            this.key = i3;
+            this.hash = i;
+            this.key = i2;
             this.value = obj;
             this.next = entry;
         }
@@ -54,9 +54,9 @@ public class IntHashMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Integer) objArr[0]).intValue(), ((Float) objArr[1]).floatValue());
                 newInitContext.thisArg = this;
@@ -94,29 +94,29 @@ public class IntHashMap {
             Entry[] entryArr = this.table;
             int length = entryArr.length;
             while (true) {
-                int i2 = length - 1;
+                int i = length - 1;
                 if (length <= 0) {
                     return false;
                 }
-                for (Entry entry = entryArr[i2]; entry != null; entry = entry.next) {
+                for (Entry entry = entryArr[i]; entry != null; entry = entry.next) {
                     if (entry.value.equals(obj)) {
                         return true;
                     }
                 }
-                length = i2;
+                length = i;
             }
         } else {
             throw null;
         }
     }
 
-    public boolean containsKey(int i2) {
+    public boolean containsKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             Entry[] entryArr = this.table;
-            for (Entry entry = entryArr[(Integer.MAX_VALUE & i2) % entryArr.length]; entry != null; entry = entry.next) {
-                if (entry.hash == i2) {
+            for (Entry entry = entryArr[(Integer.MAX_VALUE & i) % entryArr.length]; entry != null; entry = entry.next) {
+                if (entry.hash == i) {
                     return true;
                 }
             }
@@ -131,13 +131,13 @@ public class IntHashMap {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? contains(obj) : invokeL.booleanValue;
     }
 
-    public Object get(int i2) {
+    public Object get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             Entry[] entryArr = this.table;
-            for (Entry entry = entryArr[(Integer.MAX_VALUE & i2) % entryArr.length]; entry != null; entry = entry.next) {
-                if (entry.hash == i2) {
+            for (Entry entry = entryArr[(Integer.MAX_VALUE & i) % entryArr.length]; entry != null; entry = entry.next) {
+                if (entry.hash == i) {
                     return entry.value;
                 }
             }
@@ -152,15 +152,15 @@ public class IntHashMap {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.count == 0 : invokeV.booleanValue;
     }
 
-    public Object put(int i2, Object obj) {
+    public Object put(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, obj)) == null) {
             Entry[] entryArr = this.table;
-            int i3 = Integer.MAX_VALUE & i2;
-            int length = i3 % entryArr.length;
+            int i2 = Integer.MAX_VALUE & i;
+            int length = i2 % entryArr.length;
             for (Entry entry = entryArr[length]; entry != null; entry = entry.next) {
-                if (entry.hash == i2) {
+                if (entry.hash == i) {
                     Object obj2 = entry.value;
                     entry.value = obj;
                     return obj2;
@@ -169,9 +169,9 @@ public class IntHashMap {
             if (this.count >= this.threshold) {
                 rehash();
                 entryArr = this.table;
-                length = i3 % entryArr.length;
+                length = i2 % entryArr.length;
             }
-            entryArr[length] = new Entry(i2, i2, obj, entryArr[length]);
+            entryArr[length] = new Entry(i, i, obj, entryArr[length]);
             this.count++;
             return null;
         }
@@ -185,36 +185,36 @@ public class IntHashMap {
         }
         Entry[] entryArr = this.table;
         int length = entryArr.length;
-        int i2 = (length * 2) + 1;
-        Entry[] entryArr2 = new Entry[i2];
-        this.threshold = (int) (i2 * this.loadFactor);
+        int i = (length * 2) + 1;
+        Entry[] entryArr2 = new Entry[i];
+        this.threshold = (int) (i * this.loadFactor);
         this.table = entryArr2;
         while (true) {
-            int i3 = length - 1;
+            int i2 = length - 1;
             if (length <= 0) {
                 return;
             }
-            Entry entry = entryArr[i3];
+            Entry entry = entryArr[i2];
             while (entry != null) {
                 Entry entry2 = entry.next;
-                int i4 = (entry.hash & Integer.MAX_VALUE) % i2;
-                entry.next = entryArr2[i4];
-                entryArr2[i4] = entry;
+                int i3 = (entry.hash & Integer.MAX_VALUE) % i;
+                entry.next = entryArr2[i3];
+                entryArr2[i3] = entry;
                 entry = entry2;
             }
-            length = i3;
+            length = i2;
         }
     }
 
-    public Object remove(int i2) {
+    public Object remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             Entry[] entryArr = this.table;
-            int length = (Integer.MAX_VALUE & i2) % entryArr.length;
+            int length = (Integer.MAX_VALUE & i) % entryArr.length;
             Entry entry = null;
             for (Entry entry2 = entryArr[length]; entry2 != null; entry2 = entry2.next) {
-                if (entry2.hash == i2) {
+                if (entry2.hash == i) {
                     if (entry != null) {
                         entry.next = entry2.next;
                     } else {
@@ -239,17 +239,17 @@ public class IntHashMap {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IntHashMap(int i2) {
-        this(i2, 0.75f);
+    public IntHashMap(int i) {
+        this(i, 0.75f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Float) objArr2[1]).floatValue());
                 newInitContext.thisArg = this;
@@ -259,28 +259,28 @@ public class IntHashMap {
         }
     }
 
-    public IntHashMap(int i2, float f2) {
+    public IntHashMap(int i, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        if (i2 < 0) {
-            throw new IllegalArgumentException("Illegal Capacity: " + i2);
+        if (i < 0) {
+            throw new IllegalArgumentException("Illegal Capacity: " + i);
         } else if (f2 > 0.0f) {
-            i2 = i2 == 0 ? 1 : i2;
+            i = i == 0 ? 1 : i;
             this.loadFactor = f2;
-            this.table = new Entry[i2];
-            this.threshold = (int) (i2 * f2);
+            this.table = new Entry[i];
+            this.threshold = (int) (i * f2);
         } else {
             throw new IllegalArgumentException("Illegal Load: " + f2);
         }

@@ -8,7 +8,7 @@ import io.reactivex.Flowable;
 import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFlatMapPublisher<T, U> extends Flowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,16 +18,16 @@ public final class FlowableFlatMapPublisher<T, U> extends Flowable<U> {
     public final int maxConcurrency;
     public final Publisher<T> source;
 
-    public FlowableFlatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends U>> function, boolean z, int i2, int i3) {
+    public FlowableFlatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends U>> function, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, function, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {publisher, function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,8 +36,8 @@ public final class FlowableFlatMapPublisher<T, U> extends Flowable<U> {
         this.source = publisher;
         this.mapper = function;
         this.delayErrors = z;
-        this.maxConcurrency = i2;
-        this.bufferSize = i3;
+        this.maxConcurrency = i;
+        this.bufferSize = i2;
     }
 
     @Override // io.reactivex.Flowable

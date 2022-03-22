@@ -43,16 +43,16 @@ public class a {
             if (bundle2 != null) {
                 Bundle bundle3 = bundle2.getBundle("ll");
                 if (bundle3 != null) {
-                    aVar.f34120b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                    aVar.f26356b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
                 }
                 Bundle bundle4 = bundle2.getBundle("ru");
                 if (bundle4 != null) {
-                    aVar.f34121c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
+                    aVar.f26357c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
                 }
             }
             for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-                if (aVar.f34122d == null) {
-                    aVar.f34122d = new ArrayList<>();
+                if (aVar.f26358d == null) {
+                    aVar.f26358d = new ArrayList<>();
                 }
                 Bundle bundle5 = parcelItem.getBundle();
                 if (bundle5 != null) {
@@ -65,10 +65,10 @@ public class a {
                         }
                     }
                     arrayList.trimToSize();
-                    aVar.f34122d.add(arrayList);
+                    aVar.f26358d.add(arrayList);
                 }
             }
-            aVar.f34122d.trimToSize();
+            aVar.f26358d.trimToSize();
             aVar.a = (int) bundle.getDouble("type");
             return aVar;
         }
@@ -81,10 +81,10 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? JNITools.GetToken() : (String) invokeV.objValue;
     }
 
-    public static void a(boolean z, int i2) {
+    public static void a(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            JNITools.openLogEnable(z, i2);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            JNITools.openLogEnable(z, i);
         }
     }
 

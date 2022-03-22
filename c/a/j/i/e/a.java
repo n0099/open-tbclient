@@ -30,9 +30,9 @@ public final class a extends d<TaskStatus> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,51 +52,51 @@ public final class a extends d<TaskStatus> {
     /* renamed from: c */
     public TaskStatus a(String str) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int i2 = jSONObject.getInt(TaskStatus.keyCurStatus);
-                int i3 = jSONObject.getInt(TaskStatus.keyCurStatusCode);
+                int i = jSONObject.getInt(TaskStatus.keyCurStatus);
+                int i2 = jSONObject.getInt(TaskStatus.keyCurStatusCode);
                 String curStatusCodeMsg = jSONObject.getString(TaskStatus.keyCurStatusCodeMsg);
-                int i4 = jSONObject.getInt(TaskStatus.keyInterruptErrorNo);
-                long j3 = jSONObject.getLong(TaskStatus.keyCurActiveTime);
+                int i3 = jSONObject.getInt(TaskStatus.keyInterruptErrorNo);
+                long j2 = jSONObject.getLong(TaskStatus.keyCurActiveTime);
                 JSONObject jSONObject2 = jSONObject.getJSONObject("process");
-                int i5 = jSONObject2.getInt(TaskProcess.keyClickNumber);
-                long j4 = jSONObject2.getLong(TaskProcess.keyStayDurTimeMs);
-                long j5 = jSONObject2.getLong(TaskProcess.keyMaxStayTime);
-                int i6 = jSONObject2.getInt(TaskProcess.keyMaxRepeatTimes);
-                int i7 = jSONObject2.getInt(TaskProcess.keyMaxNoClickTimes);
-                int i8 = jSONObject2.getInt(TaskProcess.keyCurNoClickTimes);
+                int i4 = jSONObject2.getInt(TaskProcess.keyClickNumber);
+                long j3 = jSONObject2.getLong(TaskProcess.keyStayDurTimeMs);
+                long j4 = jSONObject2.getLong(TaskProcess.keyMaxStayTime);
+                int i5 = jSONObject2.getInt(TaskProcess.keyMaxRepeatTimes);
+                int i6 = jSONObject2.getInt(TaskProcess.keyMaxNoClickTimes);
+                int i7 = jSONObject2.getInt(TaskProcess.keyCurNoClickTimes);
                 JSONArray optJSONArray = jSONObject2.optJSONArray(TaskProcess.keyDuplicateIds);
                 HashSet hashSet = new HashSet();
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    j2 = j3;
-                    for (int i9 = 0; i9 < length; i9++) {
-                        hashSet.add(optJSONArray.optString(i9));
+                    j = j2;
+                    for (int i8 = 0; i8 < length; i8++) {
+                        hashSet.add(optJSONArray.optString(i8));
                     }
                 } else {
-                    j2 = j3;
+                    j = j2;
                 }
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("tags");
                 HashSet hashSet2 = new HashSet();
                 if (optJSONArray2 != null) {
                     int length2 = optJSONArray2.length();
-                    int i10 = 0;
-                    while (i10 < length2) {
-                        int i11 = length2;
-                        TaskEnvTag b2 = TaskEnvTag.Companion.b(optJSONArray2.optString(i10));
+                    int i9 = 0;
+                    while (i9 < length2) {
+                        int i10 = length2;
+                        TaskEnvTag b2 = TaskEnvTag.Companion.b(optJSONArray2.optString(i9));
                         if (b2 != null) {
                             hashSet2.add(b2);
                         }
-                        i10++;
-                        length2 = i11;
+                        i9++;
+                        length2 = i10;
                     }
                 }
                 Intrinsics.checkExpressionValueIsNotNull(curStatusCodeMsg, "curStatusCodeMsg");
-                return new TaskStatus(i2, i3, curStatusCodeMsg, i4, j2, TaskStatusRuntime.Companion.a(), new TaskProcess(i5, j4, i8, j5, i6, i7, hashSet2, hashSet));
+                return new TaskStatus(i, i2, curStatusCodeMsg, i3, j, TaskStatusRuntime.Companion.a(), new TaskProcess(i4, j3, i7, j4, i5, i6, hashSet2, hashSet));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;

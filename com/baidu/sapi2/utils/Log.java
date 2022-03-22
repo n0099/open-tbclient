@@ -36,9 +36,9 @@ public final class Log implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -56,10 +56,10 @@ public final class Log implements NoProguard {
                     }
                     StringBuffer stringBuffer = new StringBuffer();
                     int length = objArr.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        Object obj = objArr[i2];
+                    for (int i = 0; i < length; i++) {
+                        Object obj = objArr[i];
                         if (obj != null) {
-                            if (i2 != 0) {
+                            if (i != 0) {
                                 stringBuffer.append("|");
                             }
                             try {
@@ -72,9 +72,10 @@ public final class Log implements NoProguard {
                             }
                         }
                     }
-                    return stringBuffer.toString();
+                    str = stringBuffer.toString();
+                    return str;
                 } catch (Throwable th) {
-                    String str2 = "converArrayToString t: " + th.toString();
+                    android.util.Log.e(str, "converArrayToString t: " + th.toString());
                     return "converArrayToString null";
                 }
             }
@@ -86,7 +87,7 @@ public final class Log implements NoProguard {
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && enabled) {
-            converArrayToString(str, objArr);
+            android.util.Log.d(str, converArrayToString(str, objArr));
         }
     }
 
@@ -107,14 +108,14 @@ public final class Log implements NoProguard {
     public static void i(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && enabled) {
-            converArrayToString(str, objArr);
+            android.util.Log.i(str, converArrayToString(str, objArr));
         }
     }
 
     public static void w(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && enabled) {
-            converArrayToString(str, objArr);
+            android.util.Log.w(str, converArrayToString(str, objArr));
         }
     }
 
@@ -135,7 +136,7 @@ public final class Log implements NoProguard {
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, null, str, objArr) == null) && enabled) {
-            converArrayToString(str, objArr);
+            android.util.Log.e(str, converArrayToString(str, objArr));
         }
     }
 

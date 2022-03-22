@@ -31,7 +31,7 @@ public class MediaControllerCompatApi21 {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void onAudioInfoChanged(int i2, int i3, int i4, int i5, int i6);
+        void onAudioInfoChanged(int i, int i2, int i3, int i4, int i5);
 
         void onExtrasChanged(Bundle bundle);
 
@@ -61,9 +61,9 @@ public class MediaControllerCompatApi21 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -152,9 +152,9 @@ public class MediaControllerCompatApi21 {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -244,9 +244,9 @@ public class MediaControllerCompatApi21 {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -295,10 +295,10 @@ public class MediaControllerCompatApi21 {
             }
         }
 
-        public static void seekTo(Object obj, long j2) {
+        public static void seekTo(Object obj, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j2) == null) {
-                ((MediaController.TransportControls) obj).seekTo(j2);
+            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j) == null) {
+                ((MediaController.TransportControls) obj).seekTo(j);
             }
         }
 
@@ -330,10 +330,10 @@ public class MediaControllerCompatApi21 {
             }
         }
 
-        public static void skipToQueueItem(Object obj, long j2) {
+        public static void skipToQueueItem(Object obj, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j2) == null) {
-                ((MediaController.TransportControls) obj).skipToQueueItem(j2);
+            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j) == null) {
+                ((MediaController.TransportControls) obj).skipToQueueItem(j);
             }
         }
 
@@ -350,19 +350,19 @@ public class MediaControllerCompatApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void adjustVolume(Object obj, int i2, int i3) {
+    public static void adjustVolume(Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65537, null, obj, i2, i3) == null) {
-            ((MediaController) obj).adjustVolume(i2, i3);
+        if (interceptable == null || interceptable.invokeLII(65537, null, obj, i, i2) == null) {
+            ((MediaController) obj).adjustVolume(i, i2);
         }
     }
 
@@ -490,10 +490,10 @@ public class MediaControllerCompatApi21 {
         }
     }
 
-    public static void setVolumeTo(Object obj, int i2, int i3) {
+    public static void setVolumeTo(Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65557, null, obj, i2, i3) == null) {
-            ((MediaController) obj).setVolumeTo(i2, i3);
+        if (interceptable == null || interceptable.invokeLII(65557, null, obj, i, i2) == null) {
+            ((MediaController) obj).setVolumeTo(i, i2);
         }
     }
 

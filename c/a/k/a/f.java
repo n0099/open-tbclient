@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,10 +23,10 @@ public final class f {
     public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3884b;
+    public static b f3349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f3885c;
+    public static volatile boolean f3350c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -48,7 +49,7 @@ public final class f {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
                 f.d();
-                f.f3884b.sendEmptyMessageDelayed(0, 15000L);
+                f.f3349b.sendEmptyMessageDelayed(0, 15000L);
             }
         }
 
@@ -61,9 +62,9 @@ public final class f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -87,9 +88,9 @@ public final class f {
             }
         }
         a = new ConcurrentHashMap<>();
-        f3885c = false;
+        f3350c = false;
         b bVar = new b(c.a.k.a.i.b.a("PreferenceQueue").getLooper(), null);
-        f3884b = bVar;
+        f3349b = bVar;
         bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
@@ -123,12 +124,12 @@ public final class f {
     }
 
     public static void d() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f3885c) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f3350c) {
             return;
         }
-        f3885c = true;
+        f3350c = true;
         try {
             try {
                 Context baseContext = c.a.k.a.b.a().getBaseContext();
@@ -136,10 +137,10 @@ public final class f {
                 for (String str : a.keySet()) {
                     ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
-                        i2 = 0;
+                        i = 0;
                     } else {
                         SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
-                        i2 = 0;
+                        i = 0;
                         for (String str2 : concurrentHashMap.keySet()) {
                             Object obj = concurrentHashMap.get(str2);
                             if (obj != null) {
@@ -156,21 +157,21 @@ public final class f {
                                 } else if (obj instanceof Set) {
                                     edit.putStringSet(str2, (Set) obj);
                                 }
-                                i2++;
+                                i++;
                             }
                         }
                         edit.commit();
                     }
                     concurrentHashMap.clear();
-                    if (i2 > 0) {
-                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i2 + " items have been wroten");
+                    if (i > 0) {
+                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
                     }
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         } finally {
-            f3885c = false;
+            f3350c = false;
         }
     }
 
@@ -185,16 +186,17 @@ public final class f {
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || f3884b.hasMessages(0)) {
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || f3349b.hasMessages(0)) {
             return;
         }
-        f3884b.sendEmptyMessageDelayed(0, 15000L);
+        f3349b.sendEmptyMessageDelayed(0, 15000L);
     }
 
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f3884b.removeMessages(0);
+            Log.d("BdPreferenceQueueWorker", "wait to finish");
+            f3349b.removeMessages(0);
             d();
             f();
         }

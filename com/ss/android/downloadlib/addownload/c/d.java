@@ -10,21 +10,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static volatile d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f58043b = 0;
+    public long f42791b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, e> f58044c = new ConcurrentHashMap<>();
+    public ConcurrentHashMap<String, e> f42792c = new ConcurrentHashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Integer> f58045d = new HashMap<>();
+    public HashMap<String, Integer> f42793d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f58046e = new CopyOnWriteArrayList();
+    public List<String> f42794e = new CopyOnWriteArrayList();
 
     public static d a() {
         if (a == null) {
@@ -38,22 +38,22 @@ public class d {
     }
 
     public long b() {
-        return this.f58043b;
+        return this.f42791b;
     }
 
     public void c() {
-        this.f58043b = System.currentTimeMillis();
+        this.f42791b = System.currentTimeMillis();
     }
 
     public int b(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        if (this.f58045d == null) {
-            this.f58045d = new HashMap<>();
+        if (this.f42793d == null) {
+            this.f42793d = new HashMap<>();
         }
-        if (this.f58045d.containsKey(str)) {
-            return this.f58045d.get(str).intValue();
+        if (this.f42793d.containsKey(str)) {
+            return this.f42793d.get(str).intValue();
         }
         return 0;
     }
@@ -62,14 +62,14 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f58044c.put(str, eVar);
+        this.f42792c.put(str, eVar);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f58044c.remove(str);
+        this.f42792c.remove(str);
     }
 
     @WorkerThread

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
+import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -97,9 +98,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {modernAsyncTask, dataArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -122,9 +123,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -140,10 +141,10 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 AsyncTaskResult asyncTaskResult = (AsyncTaskResult) message.obj;
-                int i2 = message.what;
-                if (i2 == 1) {
+                int i = message.what;
+                if (i == 1) {
                     asyncTaskResult.mTask.finish(asyncTaskResult.mData[0]);
-                } else if (i2 != 2) {
+                } else if (i != 2) {
                 } else {
                     asyncTaskResult.mTask.onProgressUpdate(asyncTaskResult.mData);
                 }
@@ -181,16 +182,16 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             $VALUES = new Status[]{PENDING, RUNNING, status};
         }
 
-        public Status(String str, int i2) {
+        public Status(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -224,9 +225,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -257,9 +258,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -289,9 +290,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -312,9 +313,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -356,9 +357,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Callable) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -374,11 +375,12 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
                         this.this$0.postResultIfNotInvoked(get());
-                    } catch (InterruptedException unused) {
-                    } catch (CancellationException unused2) {
+                    } catch (InterruptedException e2) {
+                        Log.w(ModernAsyncTask.LOG_TAG, e2);
+                    } catch (CancellationException unused) {
                         this.this$0.postResultIfNotInvoked(null);
-                    } catch (ExecutionException e2) {
-                        throw new RuntimeException("An error occurred while executing doInBackground()", e2.getCause());
+                    } catch (ExecutionException e3) {
+                        throw new RuntimeException("An error occurred while executing doInBackground()", e3.getCause());
                     } catch (Throwable th) {
                         throw new RuntimeException("An error occurred while executing doInBackground()", th);
                     }
@@ -434,9 +436,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, executor, paramsArr)) == null) {
             if (this.mStatus != Status.PENDING) {
-                int i2 = AnonymousClass4.$SwitchMap$androidx$loader$content$ModernAsyncTask$Status[this.mStatus.ordinal()];
-                if (i2 != 1) {
-                    if (i2 != 2) {
+                int i = AnonymousClass4.$SwitchMap$androidx$loader$content$ModernAsyncTask$Status[this.mStatus.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
                         throw new IllegalStateException("We should never reach this state");
                     }
                     throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
@@ -546,9 +548,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     }
 
-    public final Result get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public final Result get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j2, timeUnit)) == null) ? this.mFuture.get(j2, timeUnit) : (Result) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) ? this.mFuture.get(j, timeUnit) : (Result) invokeJL.objValue;
     }
 }

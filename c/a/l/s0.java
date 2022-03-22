@@ -24,27 +24,27 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class s0 extends h {
     public static /* synthetic */ Interceptable $ic;
-    public static final int v;
-    public static int w;
+    public static final int r;
+    public static int s;
     public transient /* synthetic */ FieldHolder $fh;
-    public int l;
-    public int m;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f3478h;
+    public int i;
+    public int j;
+    public Context k;
+    public c.a.o0.r.r.a l;
+    public VideoImageNoPlayerLayout m;
     public int n;
-    public Context o;
-    public c.a.q0.r.r.a p;
-    public VideoImageNoPlayerLayout q;
-    public int r;
-    public String s;
-    public int t;
-    public c.a.l.x0.a u;
+    public String o;
+    public int p;
+    public c.a.l.x0.a q;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f4075e;
+        public final /* synthetic */ s0 a;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -53,26 +53,26 @@ public class s0 extends h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {s0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f4075e = s0Var;
+            this.a = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0201a interfaceC0201a;
+            a.InterfaceC0194a interfaceC0194a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0201a = (s0Var = this.f4075e).f4010i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0194a = (s0Var = this.a).f3395e) == null) {
                 return;
             }
-            interfaceC0201a.a(s0Var.p);
+            interfaceC0194a.a(s0Var.l);
         }
     }
 
@@ -89,9 +89,9 @@ public class s0 extends h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {s0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -101,12 +101,12 @@ public class s0 extends h {
         }
 
         @Override // c.a.l.x0.a
-        public void a(c.a.q0.r.r.a aVar) {
+        public void a(c.a.o0.r.r.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.a.u == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.a.q == null) {
                 return;
             }
-            this.a.u.a(this.a.p);
+            this.a.q.a(this.a.l);
         }
     }
 
@@ -123,8 +123,8 @@ public class s0 extends h {
                 return;
             }
         }
-        v = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
-        w = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+        r = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
+        s = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,57 +136,57 @@ public class s0 extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int i4 = w;
-        this.l = i4;
-        this.m = i4 / 2;
-        this.n = i4 / 3;
-        this.r = 0;
-        this.t = 3;
-        this.o = context;
-        this.q = new VideoImageNoPlayerLayout(context);
-        m(Boolean.TRUE);
+        int i3 = s;
+        this.f3478h = i3;
+        this.i = i3 / 2;
+        this.j = i3 / 3;
+        this.n = 0;
+        this.p = 3;
+        this.k = context;
+        this.m = new VideoImageNoPlayerLayout(context);
+        n(Boolean.TRUE);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.q : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
+    public void l(c.a.p0.h0.b0<c.a.o0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
-            super.k(b0Var);
-            this.q.setOnCardSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
+            super.l(b0Var);
+            this.m.setOnCardSubClickListener(b0Var);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            if (this.t != i2) {
-                this.q.onChangeSkinType(tbPageContext, i2);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.p != i) {
+                this.m.h(tbPageContext, i);
             }
-            this.t = i2;
+            this.p = i;
         }
     }
 
-    public Rect t() {
+    public Rect u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ThreadCardUtils.computeViewArea(this.q.mVideoThumbnail) : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ThreadCardUtils.computeViewArea(this.m.f25208c) : (Rect) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -203,111 +203,111 @@ public class s0 extends h {
         r1 = com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper.handleTransmitVerticalVideoSize(r11, r0, r2, r3, r5);
      */
     @Override // c.a.l.p
-    /* renamed from: u */
+    /* renamed from: v */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
-            if (k != this.r) {
-                w = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
-                if (!"pb".equals(this.s)) {
-                    this.l = w - v;
+            if (k != this.n) {
+                s = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
+                if (!"pb".equals(this.o)) {
+                    this.f3478h = s - r;
                 } else {
-                    this.l = w;
+                    this.f3478h = s;
                 }
-                int i2 = this.l;
-                this.m = i2 / 2;
-                this.n = i2 / 3;
-                this.r = k;
+                int i = this.f3478h;
+                this.i = i / 2;
+                this.j = i / 3;
+                this.n = k;
             }
-            this.p = aVar;
-            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().z1 != null && !this.p.getThreadData().z1.m && !this.p.getThreadData().Q4()) {
-                this.q.setVisibility(0);
-                this.q.onBindDataToView(aVar);
-                ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
-                ViewGroup.LayoutParams layoutParams2 = this.q.mContainerView.getLayoutParams();
-                int i3 = layoutParams.width;
-                int i4 = layoutParams.height;
+            this.l = aVar;
+            if (aVar != null && aVar.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+                this.m.setVisibility(0);
+                this.m.a(aVar);
+                ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
+                int i2 = layoutParams.width;
+                int i3 = layoutParams.height;
                 boolean z = true;
-                if (this.p.getThreadData().z1.r.is_vertical.intValue() == 1) {
-                    VideoInfo videoInfo = this.p.getThreadData().z1.r;
+                if (this.l.getThreadData().originalThreadData.r.is_vertical.intValue() == 1) {
+                    VideoInfo videoInfo = this.l.getThreadData().originalThreadData.r;
                     if (videoInfo == null) {
                         return;
                     }
-                    int i5 = (this.m / 9) * 16;
-                    int i6 = this.n;
+                    int i4 = (this.i / 9) * 16;
+                    int i5 = this.j;
                     int intValue = videoInfo.video_width.intValue();
                     int intValue2 = videoInfo.video_height.intValue();
-                    layoutParams.width = this.l;
-                    layoutParams2.width = this.m;
-                    r1 = i3 != layoutParams.width;
+                    layoutParams.width = this.f3478h;
+                    layoutParams2.width = this.i;
+                    r1 = i2 != layoutParams.width;
                     if (intValue != 0 && intValue2 != 0) {
-                        int i7 = (int) (((intValue2 * 1.0f) / intValue) * this.m);
-                        if (i7 < i6) {
-                            i5 = i6;
-                        } else if (i7 <= i5) {
-                            i5 = i7;
+                        int i6 = (int) (((intValue2 * 1.0f) / intValue) * this.i);
+                        if (i6 < i5) {
+                            i4 = i5;
+                        } else if (i6 <= i4) {
+                            i4 = i6;
                         }
-                        layoutParams.height = i5;
-                        layoutParams2.height = i5;
+                        layoutParams.height = i4;
+                        layoutParams2.height = i4;
                     } else {
-                        layoutParams.height = i5;
-                        layoutParams2.height = i5;
+                        layoutParams.height = i4;
+                        layoutParams2.height = i4;
                     }
                 } else {
-                    int i8 = this.l;
-                    layoutParams.width = i8;
-                    layoutParams2.width = i8;
-                    layoutParams.height = ((i8 / 16) * 9) - c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                    layoutParams2.height = ((this.l / 16) * 9) - c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                    if (i4 != layoutParams.height || i3 != layoutParams.width) {
+                    int i7 = this.f3478h;
+                    layoutParams.width = i7;
+                    layoutParams2.width = i7;
+                    layoutParams.height = ((i7 / 16) * 9) - c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                    layoutParams2.height = ((this.f3478h / 16) * 9) - c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                    if (i3 != layoutParams.height || i2 != layoutParams.width) {
                         r1 = true;
                     }
                 }
                 if (r1) {
-                    this.q.setLayoutParams(layoutParams);
-                    this.q.mContainerView.setLayoutParams(layoutParams2);
+                    this.m.setLayoutParams(layoutParams);
+                    this.m.j.setLayoutParams(layoutParams2);
                 }
-                this.q.setJumpToPbListener(new a(this));
-                this.q.setData(this.p);
-                c();
+                this.m.setJumpToPbListener(new a(this));
+                this.m.setData(this.l);
+                d();
                 return;
             }
-            this.q.setVisibility(8);
+            this.m.setVisibility(8);
         }
     }
 
-    public void v(String str) {
+    public void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.s = str;
+            this.o = str;
         }
     }
 
-    public void w(a.InterfaceC0201a interfaceC0201a) {
+    public void x(a.InterfaceC0194a interfaceC0194a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0201a) == null) {
-            this.f4010i = interfaceC0201a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0194a) == null) {
+            this.f3395e = interfaceC0194a;
         }
     }
 
-    public void x(c.a.l.x0.a aVar) {
+    public void y(c.a.l.x0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.u = aVar;
+            this.q = aVar;
             if (aVar != null) {
-                y();
+                z();
             }
         }
     }
 
-    public final void y() {
+    public final void z() {
         VideoImageNoPlayerLayout videoImageNoPlayerLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (videoImageNoPlayerLayout = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (videoImageNoPlayerLayout = this.m) == null) {
             return;
         }
         videoImageNoPlayerLayout.setVideoAreaClickListener(new b(this));

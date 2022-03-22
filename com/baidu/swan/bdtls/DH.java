@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DH {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class DH {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -51,10 +51,10 @@ public class DH {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getGroupId() : invokeV.intValue;
     }
 
-    public static int getDHPublicKey(int i2, int i3) {
+    public static int getDHPublicKey(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? getPublicKey(i2, i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? getPublicKey(i, i2) : invokeII.intValue;
     }
 
     public static int getDHSecret() {
@@ -63,21 +63,21 @@ public class DH {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? getSecret() : invokeV.intValue;
     }
 
-    public static byte[] getDHSecretKey(int i2, int i3, int i4) {
+    public static byte[] getDHSecretKey(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i2, i3, i4)) == null) ? getSecretKey(i2, i3, i4) : (byte[]) invokeIII.objValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i, i2, i3)) == null) ? getSecretKey(i, i2, i3) : (byte[]) invokeIII.objValue;
     }
 
     @Keep
     public static native int getGroupId();
 
     @Keep
-    public static native int getPublicKey(int i2, int i3);
+    public static native int getPublicKey(int i, int i2);
 
     @Keep
     public static native int getSecret();
 
     @Keep
-    public static native byte[] getSecretKey(int i2, int i3, int i4);
+    public static native byte[] getSecretKey(int i, int i2, int i3);
 }

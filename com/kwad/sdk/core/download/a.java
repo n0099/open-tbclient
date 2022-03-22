@@ -13,11 +13,11 @@ public class a extends com.ksad.download.c {
     }
 
     @Override // com.ksad.download.c
-    public void a(DownloadTask downloadTask, int i2, int i3) {
+    public void a(DownloadTask downloadTask, int i, int i2) {
     }
 
     @Override // com.ksad.download.c
-    public void a(DownloadTask downloadTask, String str, boolean z, int i2, int i3) {
+    public void a(DownloadTask downloadTask, String str, boolean z, int i, int i2) {
     }
 
     @Override // com.ksad.download.c
@@ -37,8 +37,8 @@ public class a extends com.ksad.download.c {
     }
 
     @Override // com.ksad.download.c
-    public void b(DownloadTask downloadTask, int i2, int i3) {
-        b.a(g(downloadTask), i3 > 0 ? (int) ((i2 * 100.0f) / i3) : 0, i2, i3);
+    public void b(DownloadTask downloadTask, int i, int i2) {
+        b.a(g(downloadTask), i2 > 0 ? (int) ((i * 100.0f) / i2) : 0, i, i2);
     }
 
     @Override // com.ksad.download.c
@@ -49,7 +49,7 @@ public class a extends com.ksad.download.c {
     }
 
     @Override // com.ksad.download.c
-    public void c(DownloadTask downloadTask, int i2, int i3) {
+    public void c(DownloadTask downloadTask, int i, int i2) {
         b.b(g(downloadTask));
     }
 
@@ -58,7 +58,7 @@ public class a extends com.ksad.download.c {
     }
 
     @Override // com.ksad.download.c
-    public void d(DownloadTask downloadTask, int i2, int i3) {
+    public void d(DownloadTask downloadTask, int i, int i2) {
         b.c(g(downloadTask));
     }
 

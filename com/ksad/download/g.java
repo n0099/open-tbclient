@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +26,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, downloadTask)) == null) {
             File file = new File(downloadTask.getTargetFilePath());
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.addFlags(3);
             Context a = b.a();
             Uri a2 = a(a, file);
@@ -41,12 +42,12 @@ public class g {
         return (PendingIntent) invokeL.objValue;
     }
 
-    public static PendingIntent a(File file, int i2, boolean z) {
+    public static PendingIntent a(File file, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.addFlags(3);
             Context a = b.a();
             Uri a2 = a(a, file);
@@ -57,21 +58,21 @@ public class g {
             if (z && KsAdSDKImpl.get().isEnableInstallPermission()) {
                 intent = a(intent);
             }
-            return PendingIntent.getActivity(a, i2, intent, 134217728);
+            return PendingIntent.getActivity(a, i, intent, 134217728);
         }
         return (PendingIntent) invokeCommon.objValue;
     }
 
-    public static PendingIntent a(String str, int i2) {
+    public static PendingIntent a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             Context a = b.a();
             Intent launchIntentForPackage = a.getPackageManager().getLaunchIntentForPackage(str);
             if (launchIntentForPackage == null) {
                 return null;
             }
-            return PendingIntent.getActivity(a, i2, launchIntentForPackage, 134217728);
+            return PendingIntent.getActivity(a, i, launchIntentForPackage, 134217728);
         }
         return (PendingIntent) invokeLI.objValue;
     }
@@ -83,7 +84,7 @@ public class g {
             Intent intent2 = new Intent("intent.action.requestInstallPermission");
             intent2.putExtra("fromNotification", true);
             intent2.putExtra("pendingIntent", intent);
-            intent2.addFlags(268435456);
+            intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             return intent2;
         }
         return (Intent) invokeL.objValue;

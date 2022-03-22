@@ -24,9 +24,9 @@ public class RemitSyncToDBHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {remitAgent};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((RemitSyncExecutor) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,40 +35,40 @@ public class RemitSyncToDBHelper {
         }
     }
 
-    public void discard(int i2) {
+    public void discard(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.executor.removePostWithId(i2);
-            this.executor.postRemoveInfo(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.executor.removePostWithId(i);
+            this.executor.postRemoveInfo(i);
         }
     }
 
-    public void endAndEnsureToDB(int i2) {
+    public void endAndEnsureToDB(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.executor.removePostWithId(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.executor.removePostWithId(i);
             try {
-                if (this.executor.isFreeToDatabase(i2)) {
+                if (this.executor.isFreeToDatabase(i)) {
                     return;
                 }
-                this.executor.postSync(i2);
+                this.executor.postSync(i);
             } finally {
-                this.executor.postRemoveFreeId(i2);
+                this.executor.postRemoveFreeId(i);
             }
         }
     }
 
-    public boolean isNotFreeToDatabase(int i2) {
+    public boolean isNotFreeToDatabase(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? !this.executor.isFreeToDatabase(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? !this.executor.isFreeToDatabase(i) : invokeI.booleanValue;
     }
 
-    public void onTaskStart(int i2) {
+    public void onTaskStart(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.executor.removePostWithId(i2);
-            this.executor.postSyncInfoDelay(i2, this.delayMillis);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.executor.removePostWithId(i);
+            this.executor.postSyncInfoDelay(i, this.delayMillis);
         }
     }
 
@@ -86,9 +86,9 @@ public class RemitSyncToDBHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {remitSyncExecutor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

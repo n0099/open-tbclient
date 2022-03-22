@@ -7,34 +7,34 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f33256b;
+    public Object f25609b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33257c;
+    public boolean f25610c;
 
     public m() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f33256b = new Object();
-        this.f33257c = false;
+        this.f25609b = new Object();
+        this.f25610c = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,9 +46,9 @@ public class m extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -56,8 +56,8 @@ public class m extends Thread {
             }
         }
         this.a = null;
-        this.f33256b = new Object();
-        this.f33257c = false;
+        this.f25609b = new Object();
+        this.f25610c = false;
     }
 
     public void a() {
@@ -73,10 +73,10 @@ public class m extends Thread {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f33256b) {
+            synchronized (this.f25609b) {
                 try {
-                    if (!this.f33257c) {
-                        this.f33256b.wait();
+                    if (!this.f25610c) {
+                        this.f25609b.wait();
                     }
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -88,9 +88,9 @@ public class m extends Thread {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.f33256b) {
-                this.f33257c = true;
-                this.f33256b.notifyAll();
+            synchronized (this.f25609b) {
+                this.f25610c = true;
+                this.f25609b.notifyAll();
             }
         }
     }

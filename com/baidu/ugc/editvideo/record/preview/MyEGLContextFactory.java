@@ -19,16 +19,16 @@ public class MyEGLContextFactory implements GLSurfaceView.EGLContextFactory {
     public int EGL_CONTEXT_CLIENT_VERSION;
     public int mEGLContextClientVersion;
 
-    public MyEGLContextFactory(int i2) {
+    public MyEGLContextFactory(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,7 +36,7 @@ public class MyEGLContextFactory implements GLSurfaceView.EGLContextFactory {
         }
         this.EGL_CONTEXT_CLIENT_VERSION = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
         this.mEGLContextClientVersion = 2;
-        this.mEGLContextClientVersion = i2;
+        this.mEGLContextClientVersion = i;
     }
 
     @Override // android.opengl.GLSurfaceView.EGLContextFactory

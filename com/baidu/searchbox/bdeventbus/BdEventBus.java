@@ -37,9 +37,9 @@ public final class BdEventBus {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -87,9 +87,9 @@ public final class BdEventBus {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -127,9 +127,9 @@ public final class BdEventBus {
             newInitContext.initArgs = r2;
             Object[] objArr = {bdEventBusCore};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -140,13 +140,13 @@ public final class BdEventBus {
     }
 
     @Deprecated(message = "请直接调用register方法")
-    public final <T> void lazyRegister(Object subscriber, Class<T> eventType, int i2, Action<T> action) {
+    public final <T> void lazyRegister(Object subscriber, Class<T> eventType, int i, Action<T> action) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, subscriber, eventType, i2, action) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, subscriber, eventType, i, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");
             Intrinsics.checkNotNullParameter(eventType, "eventType");
             Intrinsics.checkNotNullParameter(action, "action");
-            this.bdEventBusCore.subscribe$lib_bd_event_bus_release(subscriber, eventType, i2, action);
+            this.bdEventBusCore.subscribe$lib_bd_event_bus_release(subscriber, eventType, i, action);
         }
     }
 
@@ -178,13 +178,13 @@ public final class BdEventBus {
         }
     }
 
-    public final <T> void register(Object subscriber, Class<T> eventType, int i2, Action<T> action) {
+    public final <T> void register(Object subscriber, Class<T> eventType, int i, Action<T> action) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, subscriber, eventType, i2, action) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, subscriber, eventType, i, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");
             Intrinsics.checkNotNullParameter(eventType, "eventType");
             Intrinsics.checkNotNullParameter(action, "action");
-            this.bdEventBusCore.subscribe$lib_bd_event_bus_release(subscriber, eventType, i2, action);
+            this.bdEventBusCore.subscribe$lib_bd_event_bus_release(subscriber, eventType, i, action);
         }
     }
 

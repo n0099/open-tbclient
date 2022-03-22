@@ -1,7 +1,7 @@
 package com.qq.e.ads.nativ;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface NativeADMediaListener {
     void onVideoClicked();
 
@@ -11,7 +11,7 @@ public interface NativeADMediaListener {
 
     void onVideoInit();
 
-    void onVideoLoaded(int i2);
+    void onVideoLoaded(int i);
 
     void onVideoLoading();
 

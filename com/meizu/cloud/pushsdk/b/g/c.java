@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface c extends l {
     long a(m mVar) throws IOException;
 
@@ -13,7 +13,7 @@ public interface c extends l {
 
     c c(byte[] bArr) throws IOException;
 
-    c c(byte[] bArr, int i2, int i3) throws IOException;
+    c c(byte[] bArr, int i, int i2) throws IOException;
 
-    c e(long j2) throws IOException;
+    c e(long j) throws IOException;
 }

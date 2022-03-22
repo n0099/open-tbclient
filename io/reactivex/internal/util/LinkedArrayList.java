@@ -17,22 +17,22 @@ public class LinkedArrayList {
     public volatile int size;
     public Object[] tail;
 
-    public LinkedArrayList(int i2) {
+    public LinkedArrayList(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.capacityHint = i2;
+        this.capacityHint = i;
     }
 
     public void add(Object obj) {
@@ -47,19 +47,19 @@ public class LinkedArrayList {
                 this.size = 1;
                 return;
             }
-            int i2 = this.indexInTail;
-            int i3 = this.capacityHint;
-            if (i2 == i3) {
-                Object[] objArr2 = new Object[i3 + 1];
+            int i = this.indexInTail;
+            int i2 = this.capacityHint;
+            if (i == i2) {
+                Object[] objArr2 = new Object[i2 + 1];
                 objArr2[0] = obj;
-                this.tail[i3] = objArr2;
+                this.tail[i2] = objArr2;
                 this.tail = objArr2;
                 this.indexInTail = 1;
                 this.size++;
                 return;
             }
-            this.tail[i2] = obj;
-            this.indexInTail = i2 + 1;
+            this.tail[i] = obj;
+            this.indexInTail = i + 1;
             this.size++;
         }
     }
@@ -82,23 +82,23 @@ public class LinkedArrayList {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
             return (String) invokeV.objValue;
         }
-        int i2 = this.capacityHint;
-        int i3 = this.size;
-        ArrayList arrayList = new ArrayList(i3 + 1);
+        int i = this.capacityHint;
+        int i2 = this.size;
+        ArrayList arrayList = new ArrayList(i2 + 1);
         Object[] head = head();
-        int i4 = 0;
+        int i3 = 0;
         while (true) {
-            int i5 = 0;
-            while (i4 < i3) {
-                arrayList.add(head[i5]);
+            int i4 = 0;
+            while (i3 < i2) {
+                arrayList.add(head[i4]);
+                i3++;
                 i4++;
-                i5++;
-                if (i5 == i2) {
+                if (i4 == i) {
                     break;
                 }
             }
             return arrayList.toString();
-            head = head[i2];
+            head = head[i];
         }
     }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetOfficialSwitch.DataRes;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,11 +44,11 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || bArr == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null) {
             return;
         }
         GetOfficialSwitchResIdl getOfficialSwitchResIdl = (GetOfficialSwitchResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOfficialSwitchResIdl.class);
@@ -68,9 +68,9 @@ public class OfficialAccountPushSocketResponseMessage extends SocketResponsedMes
             return;
         }
         this.official_list = new ArrayList<>();
-        for (int i3 = 0; i3 < getOfficialSwitchResIdl.data.official_list.size(); i3++) {
+        for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
             OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
-            officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i3));
+            officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));
             this.official_list.add(officialAccountPushInfo);
         }
     }

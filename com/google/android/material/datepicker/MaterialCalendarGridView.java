@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialCalendarGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public final class MaterialCalendarGridView extends GridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -50,15 +50,15 @@ public final class MaterialCalendarGridView extends GridView {
         }
     }
 
-    private void gainFocus(int i2, Rect rect) {
+    private void gainFocus(int i, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, this, i2, rect) == null) {
-            if (i2 == 33) {
+        if (interceptable == null || interceptable.invokeIL(65539, this, i, rect) == null) {
+            if (i == 33) {
                 setSelection(getAdapter2().lastPositionInMonth());
-            } else if (i2 == 130) {
+            } else if (i == 130) {
                 setSelection(getAdapter2().firstPositionInMonth());
             } else {
-                super.onFocusChanged(true, i2, rect);
+                super.onFocusChanged(true, i, rect);
             }
         }
     }
@@ -148,27 +148,27 @@ public final class MaterialCalendarGridView extends GridView {
     }
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onFocusChanged(boolean z, int i2, Rect rect) {
+    public void onFocusChanged(boolean z, int i, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), rect}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
             if (z) {
-                gainFocus(i2, rect);
+                gainFocus(i, rect);
             } else {
-                super.onFocusChanged(false, i2, rect);
+                super.onFocusChanged(false, i, rect);
             }
         }
     }
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, keyEvent)) == null) {
-            if (super.onKeyDown(i2, keyEvent)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+            if (super.onKeyDown(i, keyEvent)) {
                 if (getSelectedItemPosition() == -1 || getSelectedItemPosition() >= getAdapter2().firstPositionInMonth()) {
                     return true;
                 }
-                if (19 == i2) {
+                if (19 == i) {
                     setSelection(getAdapter2().firstPositionInMonth());
                     return true;
                 }
@@ -180,13 +180,13 @@ public final class MaterialCalendarGridView extends GridView {
     }
 
     @Override // android.widget.GridView, android.widget.AdapterView
-    public void setSelection(int i2) {
+    public void setSelection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 < getAdapter2().firstPositionInMonth()) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i < getAdapter2().firstPositionInMonth()) {
                 super.setSelection(getAdapter2().firstPositionInMonth());
             } else {
-                super.setSelection(i2);
+                super.setSelection(i);
             }
         }
     }
@@ -200,9 +200,9 @@ public final class MaterialCalendarGridView extends GridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -226,17 +226,17 @@ public final class MaterialCalendarGridView extends GridView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialCalendarGridView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MaterialCalendarGridView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -246,8 +246,8 @@ public final class MaterialCalendarGridView extends GridView {
         }
         this.dayCompute = UtcDates.getUtcCalendar();
         if (MaterialDatePicker.isFullscreen(getContext())) {
-            setNextFocusLeftId(R.id.cancel_button);
-            setNextFocusRightId(R.id.confirm_button);
+            setNextFocusLeftId(R.id.obfuscated_res_0x7f09048f);
+            setNextFocusRightId(R.id.obfuscated_res_0x7f0906bc);
         }
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.datepicker.MaterialCalendarGridView.1
             public static /* synthetic */ Interceptable $ic;
@@ -261,9 +261,9 @@ public final class MaterialCalendarGridView extends GridView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

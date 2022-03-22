@@ -2,7 +2,7 @@ package com.baidu.tieba.barselect;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.r0.c0.b.f;
+import c.a.p0.e0.b.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,9 +23,9 @@ public class VoteViewHolder extends RecyclerView.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,12 +37,12 @@ public class VoteViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public void setData(int i2, f fVar) {
+    public void a(int i, f fVar) {
         VoteCandidateCard voteCandidateCard;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, fVar) == null) || (voteCandidateCard = this.a) == null) {
             return;
         }
-        voteCandidateCard.setData(i2, fVar);
+        voteCandidateCard.setData(i, fVar);
     }
 }

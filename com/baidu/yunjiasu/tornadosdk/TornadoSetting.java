@@ -48,9 +48,9 @@ public final class TornadoSetting implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,10 +77,10 @@ public final class TornadoSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public TornadoSetting[] newArray(int i2) {
+        public TornadoSetting[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new TornadoSetting[i2] : (TornadoSetting[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new TornadoSetting[i] : (TornadoSetting[]) invokeI.objValue;
         }
     }
 
@@ -105,9 +105,9 @@ public final class TornadoSetting implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -357,9 +357,9 @@ public final class TornadoSetting implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048609, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048609, this, parcel, i) == null) {
             Intrinsics.checkNotNullParameter(parcel, "parcel");
             parcel.writeString(this.appPackageName);
             parcel.writeByte(this.printLog ? (byte) 1 : (byte) 0);
@@ -389,9 +389,9 @@ public final class TornadoSetting implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

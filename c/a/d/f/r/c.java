@@ -13,23 +13,23 @@ public abstract class c implements f0 {
     public volatile byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f2855b;
+    public volatile boolean f2371b;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2855b = false;
+        this.f2371b = false;
     }
 
     public abstract byte[] d();
@@ -39,8 +39,8 @@ public abstract class c implements f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (!this.f2855b) {
-                    this.f2855b = true;
+                if (!this.f2371b) {
+                    this.f2371b = true;
                     this.a = d();
                 }
             }

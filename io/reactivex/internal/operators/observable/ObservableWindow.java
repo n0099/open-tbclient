@@ -37,24 +37,24 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
         public long size;
         public UnicastSubject<T> window;
 
-        public WindowExactObserver(Observer<? super Observable<T>> observer, long j2, int i2) {
+        public WindowExactObserver(Observer<? super Observable<T>> observer, long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Integer.valueOf(i2)};
+                Object[] objArr = {observer, Long.valueOf(j), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.count = j2;
-            this.capacityHint = i2;
+            this.count = j;
+            this.capacityHint = i;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -110,9 +110,9 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
                 }
                 if (unicastSubject != null) {
                     unicastSubject.onNext(t);
-                    long j2 = this.size + 1;
-                    this.size = j2;
-                    if (j2 >= this.count) {
+                    long j = this.size + 1;
+                    this.size = j;
+                    if (j >= this.count) {
                         this.size = 0L;
                         this.window = null;
                         unicastSubject.onComplete();
@@ -158,16 +158,16 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
         public final ArrayDeque<UnicastSubject<T>> windows;
         public final AtomicInteger wip;
 
-        public WindowSkipObserver(Observer<? super Observable<T>> observer, long j2, long j3, int i2) {
+        public WindowSkipObserver(Observer<? super Observable<T>> observer, long j, long j2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -175,9 +175,9 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
             }
             this.wip = new AtomicInteger();
             this.actual = observer;
-            this.count = j2;
-            this.skip = j3;
-            this.capacityHint = i2;
+            this.count = j;
+            this.skip = j2;
+            this.capacityHint = i;
             this.windows = new ArrayDeque<>();
         }
 
@@ -225,30 +225,30 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 ArrayDeque<UnicastSubject<T>> arrayDeque = this.windows;
-                long j2 = this.index;
-                long j3 = this.skip;
-                if (j2 % j3 == 0 && !this.cancelled) {
+                long j = this.index;
+                long j2 = this.skip;
+                if (j % j2 == 0 && !this.cancelled) {
                     this.wip.getAndIncrement();
                     UnicastSubject<T> create = UnicastSubject.create(this.capacityHint, this);
                     arrayDeque.offer(create);
                     this.actual.onNext(create);
                 }
-                long j4 = this.firstEmission + 1;
+                long j3 = this.firstEmission + 1;
                 Iterator<UnicastSubject<T>> it = arrayDeque.iterator();
                 while (it.hasNext()) {
                     it.next().onNext(t);
                 }
-                if (j4 >= this.count) {
+                if (j3 >= this.count) {
                     arrayDeque.poll().onComplete();
                     if (arrayDeque.isEmpty() && this.cancelled) {
                         this.s.dispose();
                         return;
                     }
-                    this.firstEmission = j4 - j3;
+                    this.firstEmission = j3 - j2;
                 } else {
-                    this.firstEmission = j4;
+                    this.firstEmission = j3;
                 }
-                this.index = j2 + 1;
+                this.index = j + 1;
             }
         }
 
@@ -271,26 +271,26 @@ public final class ObservableWindow<T> extends AbstractObservableWithUpstream<T,
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindow(ObservableSource<T> observableSource, long j2, long j3, int i2) {
+    public ObservableWindow(ObservableSource<T> observableSource, long j, long j2, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.count = j2;
-        this.skip = j3;
-        this.capacityHint = i2;
+        this.count = j;
+        this.skip = j2;
+        this.capacityHint = i;
     }
 
     @Override // io.reactivex.Observable

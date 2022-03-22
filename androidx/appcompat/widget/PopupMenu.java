@@ -56,9 +56,9 @@ public class PopupMenu {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -95,9 +95,9 @@ public class PopupMenu {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((View) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -175,17 +175,17 @@ public class PopupMenu {
         return (ListView) invokeV.objValue;
     }
 
-    public void inflate(@MenuRes int i2) {
+    public void inflate(@MenuRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            getMenuInflater().inflate(i2, this.mMenu);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            getMenuInflater().inflate(i, this.mMenu);
         }
     }
 
-    public void setGravity(int i2) {
+    public void setGravity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mPopup.setGravity(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mPopup.setGravity(i);
         }
     }
 
@@ -211,17 +211,17 @@ public class PopupMenu {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PopupMenu(@NonNull Context context, @NonNull View view, int i2) {
-        this(context, view, i2, R$attr.popupMenuStyle, 0);
+    public PopupMenu(@NonNull Context context, @NonNull View view, int i) {
+        this(context, view, i, R$attr.popupMenuStyle, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, Integer.valueOf(i2)};
+            Object[] objArr = {context, view, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -231,16 +231,16 @@ public class PopupMenu {
         }
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view, int i2, @AttrRes int i3, @StyleRes int i4) {
+    public PopupMenu(@NonNull Context context, @NonNull View view, int i, @AttrRes int i2, @StyleRes int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -262,9 +262,9 @@ public class PopupMenu {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i7 = newInitContext2.flag;
-                    if ((i7 & 1) != 0) {
-                        int i8 = i7 & 2;
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -294,9 +294,9 @@ public class PopupMenu {
                 }
             }
         });
-        MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view, false, i3, i4);
+        MenuPopupHelper menuPopupHelper = new MenuPopupHelper(context, this.mMenu, view, false, i2, i3);
         this.mPopup = menuPopupHelper;
-        menuPopupHelper.setGravity(i2);
+        menuPopupHelper.setGravity(i);
         this.mPopup.setOnDismissListener(new PopupWindow.OnDismissListener(this) { // from class: androidx.appcompat.widget.PopupMenu.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -309,9 +309,9 @@ public class PopupMenu {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i7 = newInitContext2.flag;
-                    if ((i7 & 1) != 0) {
-                        int i8 = i7 & 2;
+                    int i6 = newInitContext2.flag;
+                    if ((i6 & 1) != 0) {
+                        int i7 = i6 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

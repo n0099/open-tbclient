@@ -80,9 +80,9 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {androidApplication};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -119,9 +119,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AndroidApplication f29681e;
+        public final /* synthetic */ AndroidApplication a;
 
         public b(AndroidApplication androidApplication) {
             Interceptable interceptable = $ic;
@@ -130,22 +128,22 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {androidApplication};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29681e = androidApplication;
+            this.a = androidApplication;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29681e.finish();
+                this.a.finish();
             }
         }
     }
@@ -171,9 +169,9 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -202,7 +200,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 }
                 k kVar = new k(this, bVar, cVar2);
                 this.graphics = kVar;
-                this.input = createInput(this, this, kVar.f27172e, bVar);
+                this.input = createInput(this, this, kVar.a, bVar);
                 this.audio = createAudio(this, bVar);
                 this.files = createFiles();
                 this.net = new q(this, bVar);
@@ -214,9 +212,9 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 addLifecycleListener(new a(this));
                 c.b.b.f.a = this;
                 getInput();
-                c.b.b.f.f27075c = getAudio();
-                c.b.b.f.f27076d = getFiles();
-                c.b.b.f.f27074b = getGraphics();
+                c.b.b.f.f22332c = getAudio();
+                c.b.b.f.f22333d = getFiles();
+                c.b.b.f.f22331b = getGraphics();
                 getNet();
                 if (!z) {
                     try {
@@ -235,7 +233,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                     new u().a(this);
                 }
                 if (getResources().getConfiguration().keyboard != 1) {
-                    this.input.c(true);
+                    this.input.i(true);
                     return;
                 }
                 return;
@@ -281,7 +279,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
     public m createInput(Application application, Context context, Object obj, c.b.b.l.a.b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.f27172e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.a, bVar) : (m) invokeLLLL.objValue;
     }
 
     public FrameLayout.LayoutParams createLayoutParams() {
@@ -480,13 +478,13 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048616, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048616, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             synchronized (this.androidEventListeners) {
-                for (int i4 = 0; i4 < this.androidEventListeners.f27499f; i4++) {
-                    this.androidEventListeners.get(i4).onActivityResult(i2, i3, intent);
+                for (int i3 = 0; i3 < this.androidEventListeners.f22717b; i3++) {
+                    this.androidEventListeners.get(i3).onActivityResult(i, i2, intent);
                 }
             }
         }
@@ -497,7 +495,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.input.c(configuration.hardKeyboardHidden == 1);
+            this.input.i(configuration.hardKeyboardHidden == 1);
         }
     }
 
@@ -523,8 +521,8 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             boolean d2 = this.graphics.d();
-            boolean z = k.A;
-            k.A = true;
+            boolean z = k.w;
+            k.w = true;
             this.graphics.u(true);
             this.graphics.r();
             this.input.onPause();
@@ -532,7 +530,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 this.graphics.h();
                 this.graphics.j();
             }
-            k.A = z;
+            k.w = z;
             this.graphics.u(d2);
             this.graphics.p();
             super.onPause();
@@ -545,9 +543,9 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             c.b.b.f.a = this;
             getInput();
-            c.b.b.f.f27075c = getAudio();
-            c.b.b.f.f27076d = getFiles();
-            c.b.b.f.f27074b = getGraphics();
+            c.b.b.f.f22332c = getAudio();
+            c.b.b.f.f22333d = getFiles();
+            c.b.b.f.f22331b = getGraphics();
             getNet();
             this.input.onResume();
             k kVar = this.graphics;
@@ -560,8 +558,8 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
                 this.firstResume = false;
             }
             this.isWaitingForAudio = true;
-            int i2 = this.wasFocusChanged;
-            if (i2 == 1 || i2 == -1) {
+            int i = this.wasFocusChanged;
+            if (i == 1 || i == -1) {
                 this.audio.resume();
                 this.isWaitingForAudio = false;
             }
@@ -595,7 +593,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeL(1048623, this, runnable) == null) {
             synchronized (this.runnables) {
                 this.runnables.a(runnable);
-                c.b.b.f.f27074b.c();
+                c.b.b.f.f22331b.c();
             }
         }
     }
@@ -604,7 +602,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, fVar) == null) {
             synchronized (this.androidEventListeners) {
-                this.androidEventListeners.i(fVar, true);
+                this.androidEventListeners.j(fVar, true);
             }
         }
     }
@@ -613,7 +611,7 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, hVar) == null) {
             synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.i(hVar, true);
+                this.lifecycleListeners.j(hVar, true);
             }
         }
     }
@@ -625,10 +623,10 @@ public class AndroidApplication extends Activity implements c.b.b.l.a.a {
         }
     }
 
-    public void setLogLevel(int i2) {
+    public void setLogLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
-            this.logLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
+            this.logLevel = i;
         }
     }
 

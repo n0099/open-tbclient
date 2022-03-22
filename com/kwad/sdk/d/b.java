@@ -11,39 +11,39 @@ import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends AlertDialog {
     public com.kwad.sdk.d.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f55172b;
+    public AdTemplate f40243b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsAdVideoPlayConfig f55173c;
+    public KsAdVideoPlayConfig f40244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f55174d;
+    public Activity f40245d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f55175e;
+    public KsInterstitialAd.AdInteractionListener f40246e;
 
     public b(@NonNull Activity activity, @NonNull AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
         super(Wrapper.wrapContextIfNeed(activity));
-        this.f55174d = activity;
-        this.f55175e = adInteractionListener;
-        this.f55173c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.sdk.core.config.b.p()).build();
+        this.f40245d = activity;
+        this.f40246e = adInteractionListener;
+        this.f40244c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(com.kwad.sdk.core.config.b.p()).build();
         setOwnerActivity(activity);
-        this.f55172b = adTemplate;
+        this.f40243b = adTemplate;
         if (this.a == null) {
             com.kwad.sdk.d.a.a aVar = new com.kwad.sdk.d.a.a(Wrapper.wrapContextIfNeed(activity));
             this.a = aVar;
-            aVar.a(this.f55172b, this, this.f55173c, adInteractionListener, ksVideoPlayConfig != null && ksVideoPlayConfig.isShowLandscape());
+            aVar.a(this.f40243b, this, this.f40244c, adInteractionListener, ksVideoPlayConfig != null && ksVideoPlayConfig.isShowLandscape());
         }
     }
 
     public void a(KsInterstitialAd.AdInteractionListener adInteractionListener) {
-        this.f55175e = adInteractionListener;
+        this.f40246e = adInteractionListener;
         com.kwad.sdk.d.a.a aVar = this.a;
         if (aVar != null) {
             aVar.setAdInteractionListener(adInteractionListener);
@@ -52,12 +52,12 @@ public class b extends AlertDialog {
 
     public boolean a() {
         try {
-            if (isShowing() || this.f55174d == null || this.f55174d.isFinishing()) {
+            if (isShowing() || this.f40245d == null || this.f40245d.isFinishing()) {
                 return true;
             }
             show();
-            this.f55175e.onAdShow();
-            com.kwad.sdk.core.report.a.a(this.f55172b, (JSONObject) null);
+            this.f40246e.onAdShow();
+            com.kwad.sdk.core.report.a.a(this.f40243b, (JSONObject) null);
             return true;
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
@@ -68,7 +68,7 @@ public class b extends AlertDialog {
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f55175e;
+        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f40246e;
         if (adInteractionListener != null) {
             adInteractionListener.onPageDismiss();
         }

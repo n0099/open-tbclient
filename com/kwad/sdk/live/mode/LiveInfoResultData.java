@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LiveInfoResultData extends BaseResultData {
     public static final long serialVersionUID = -2695767546208947458L;
     public List<LiveInfo> liveInfoList = new ArrayList();
@@ -24,8 +24,8 @@ public class LiveInfoResultData extends BaseResultData {
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
             if (optJSONObject != null) {
                 LiveInfo liveInfo = new LiveInfo();
                 liveInfo.pcursor = this.pcursor;

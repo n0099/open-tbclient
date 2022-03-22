@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.exception.WeiboHttpException;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -26,7 +27,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOUNDARY;
@@ -59,9 +60,9 @@ public class HttpManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -114,7 +115,7 @@ public class HttpManager {
 
     public static synchronized String downloadFile(Context context, String str, String str2, String str3) throws WeiboException {
         InterceptResult invokeLLLL;
-        long j2;
+        long j;
         long contentLength;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
@@ -138,12 +139,12 @@ public class HttpManager {
                     }
                     try {
                         if (file3.exists()) {
-                            j2 = file3.length();
+                            j = file3.length();
                         } else {
                             file3.createNewFile();
-                            j2 = 0;
+                            j = 0;
                         }
-                        createConnect.setRequestProperty("RANGE", "bytes=" + j2);
+                        createConnect.setRequestProperty("RANGE", "bytes=" + j);
                         int responseCode = createConnect.getResponseCode();
                         if (responseCode == 206) {
                             contentLength = 0;
@@ -191,12 +192,12 @@ public class HttpManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i2 = 1; i2 < 12; i2++) {
-                long currentTimeMillis = System.currentTimeMillis() + i2;
-                long j2 = currentTimeMillis % 3;
-                if (j2 == 0) {
+            for (int i = 1; i < 12; i++) {
+                long currentTimeMillis = System.currentTimeMillis() + i;
+                long j = currentTimeMillis % 3;
+                if (j == 0) {
                     stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j2 == 1) {
+                } else if (j == 1) {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
                 } else {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 97));
@@ -257,7 +258,7 @@ public class HttpManager {
                     }
                     return str;
                 }
-                str = createConnect.getHeaderField("Location");
+                str = createConnect.getHeaderField(Headers.LOCATION);
                 return str;
             } catch (Exception unused) {
                 return "";

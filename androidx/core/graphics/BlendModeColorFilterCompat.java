@@ -23,9 +23,9 @@ public class BlendModeColorFilterCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,20 +33,20 @@ public class BlendModeColorFilterCompat {
     }
 
     @Nullable
-    public static ColorFilter createBlendModeColorFilterCompat(int i2, @NonNull BlendModeCompat blendModeCompat) {
+    public static ColorFilter createBlendModeColorFilterCompat(int i, @NonNull BlendModeCompat blendModeCompat) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, blendModeCompat)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, blendModeCompat)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 BlendMode obtainBlendModeFromCompat = BlendModeUtils.obtainBlendModeFromCompat(blendModeCompat);
                 if (obtainBlendModeFromCompat != null) {
-                    return new BlendModeColorFilter(i2, obtainBlendModeFromCompat);
+                    return new BlendModeColorFilter(i, obtainBlendModeFromCompat);
                 }
                 return null;
             }
             PorterDuff.Mode obtainPorterDuffFromCompat = BlendModeUtils.obtainPorterDuffFromCompat(blendModeCompat);
             if (obtainPorterDuffFromCompat != null) {
-                return new PorterDuffColorFilter(i2, obtainPorterDuffFromCompat);
+                return new PorterDuffColorFilter(i, obtainPorterDuffFromCompat);
             }
             return null;
         }

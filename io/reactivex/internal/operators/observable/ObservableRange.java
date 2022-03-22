@@ -27,24 +27,24 @@ public final class ObservableRange extends Observable<Integer> {
         public boolean fused;
         public long index;
 
-        public RangeDisposable(Observer<? super Integer> observer, long j2, long j3) {
+        public RangeDisposable(Observer<? super Integer> observer, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.index = j2;
-            this.end = j3;
+            this.index = j;
+            this.end = j2;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -79,11 +79,11 @@ public final class ObservableRange extends Observable<Integer> {
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                if ((i2 & 1) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                if ((i & 1) != 0) {
                     this.fused = true;
                     return 1;
                 }
@@ -98,9 +98,9 @@ public final class ObservableRange extends Observable<Integer> {
                 return;
             }
             Observer<? super Integer> observer = this.actual;
-            long j2 = this.end;
-            for (long j3 = this.index; j3 != j2 && get() == 0; j3++) {
-                observer.onNext(Integer.valueOf((int) j3));
+            long j = this.end;
+            for (long j2 = this.index; j2 != j && get() == 0; j2++) {
+                observer.onNext(Integer.valueOf((int) j2));
             }
             if (get() == 0) {
                 lazySet(1);
@@ -115,10 +115,10 @@ public final class ObservableRange extends Observable<Integer> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                long j2 = this.index;
-                if (j2 != this.end) {
-                    this.index = 1 + j2;
-                    return Integer.valueOf((int) j2);
+                long j = this.index;
+                if (j != this.end) {
+                    this.index = 1 + j;
+                    return Integer.valueOf((int) j);
                 }
                 lazySet(1);
                 return null;
@@ -127,23 +127,23 @@ public final class ObservableRange extends Observable<Integer> {
         }
     }
 
-    public ObservableRange(int i2, int i3) {
+    public ObservableRange(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.start = i2;
-        this.end = i2 + i3;
+        this.start = i;
+        this.end = i + i2;
     }
 
     @Override // io.reactivex.Observable

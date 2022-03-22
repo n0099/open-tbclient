@@ -33,9 +33,9 @@ public class ReserveHandleData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -139,10 +139,10 @@ public class ReserveHandleData {
         }
     }
 
-    public void setByteDataSize(int i2) {
+    public void setByteDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mByteDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mByteDataSize = i;
         }
     }
 
@@ -174,10 +174,10 @@ public class ReserveHandleData {
         }
     }
 
-    public void setCharDataSize(int i2) {
+    public void setCharDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mCharDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mCharDataSize = i;
         }
     }
 
@@ -188,10 +188,10 @@ public class ReserveHandleData {
         }
     }
 
-    public void setDoubleDataSize(int i2) {
+    public void setDoubleDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mDoubleDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mDoubleDataSize = i;
         }
     }
 
@@ -202,10 +202,10 @@ public class ReserveHandleData {
         }
     }
 
-    public void setFloatDataSize(int i2) {
+    public void setFloatDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.mFloatDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mFloatDataSize = i;
         }
     }
 
@@ -216,10 +216,10 @@ public class ReserveHandleData {
         }
     }
 
-    public void setIntDataSize(int i2) {
+    public void setIntDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.mIntDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.mIntDataSize = i;
         }
     }
 
@@ -230,10 +230,10 @@ public class ReserveHandleData {
         }
     }
 
-    public void setLongDataSize(int i2) {
+    public void setLongDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.mLongDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.mLongDataSize = i;
         }
     }
 }

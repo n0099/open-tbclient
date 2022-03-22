@@ -25,9 +25,9 @@ public class o0 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {o0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,7 +44,7 @@ public class o0 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     d dVar = new d(this.a.a);
-                    if (dVar.a(d.b0, 1) != 1 || (a = (d1Var = new d1(q0.f53774d, q0.f53776f)).a(this.a.a)) == null) {
+                    if (dVar.a(d.b0, 1) != 1 || (a = (d1Var = new d1(q0.f38951d, q0.f38953f)).a(this.a.a)) == null) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
@@ -69,9 +69,9 @@ public class o0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

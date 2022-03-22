@@ -61,9 +61,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {retrieveFileJob, context, retrieveFileBean, str, file, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,11 +78,11 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-        public void onGenBosObjectUrlListener(int i2, String str, String str2, String str3, Map<String, String> map) {
+        public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
             String str4;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3, map}) == null) {
-                if (i2 == 0) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+                if (i == 0) {
                     if (map != null) {
                         str4 = map.get(AsyncChatTask.PUT_URL);
                         map.get(AsyncChatTask.GET_URL);
@@ -103,9 +103,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, str5};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -116,11 +116,11 @@ public class RetrieveFileJob extends IRetrieveJob {
                         }
 
                         @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                        public void onFailed(int i3, String str6) {
+                        public void onFailed(int i2, String str6) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str6) == null) {
-                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i3 + ", failedMsg:" + str6);
-                                if (i3 != 1005) {
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str6) == null) {
+                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i2 + ", failedMsg:" + str6);
+                                if (i2 != 1005) {
                                     this.this$1.this$0.mRetryCount.incrementAndGet();
                                     AnonymousClass2 anonymousClass2 = this.this$1;
                                     anonymousClass2.this$0.startRetrieveFile(anonymousClass2.val$fileBean, anonymousClass2.val$context);
@@ -134,11 +134,11 @@ public class RetrieveFileJob extends IRetrieveJob {
                         }
 
                         @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                        public void onFinished(int i3) {
+                        public void onFinished(int i2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3) == null) {
+                            if (interceptable2 == null || interceptable2.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                                 LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFinished");
-                                if (i3 == 0) {
+                                if (i2 == 0) {
                                     this.this$1.this$0.mRetryCount.set(0);
                                     RetrieveReportImpl retrieveReportImpl = RetrieveReportImpl.getInstance(this.this$1.val$context);
                                     AnonymousClass2 anonymousClass2 = this.this$1;
@@ -155,9 +155,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i4 = newInitContext.flag;
-                                                if ((i4 & 1) != 0) {
-                                                    int i5 = i4 & 2;
+                                                int i3 = newInitContext.flag;
+                                                if ((i3 & 1) != 0) {
+                                                    int i4 = i3 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -188,9 +188,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                         }
 
                         @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                        public void onProgress(int i3) {
+                        public void onProgress(int i2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i3) == null) {
+                            if (interceptable2 == null || interceptable2.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
                             }
                         }
                     };
@@ -215,9 +215,9 @@ public class RetrieveFileJob extends IRetrieveJob {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -236,11 +236,11 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
     }
 
-    private void genBosObjectUrl(Context context, String str, String str2, String str3, int i2, int i3, int i4, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
+    private void genBosObjectUrl(Context context, String str, String str2, String str3, int i, int i2, int i3, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iGenBosObjectUrlListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iGenBosObjectUrlListener}) == null) {
             LogUtils.d(TAG, "filePath=" + str);
-            IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(context, str, str2, str3, i2, i3, i4, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
+            IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(context, str, str2, str3, i, i2, i3, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
             HttpHelper.executor(context, iMGenBosObjectUrlRequest, iMGenBosObjectUrlRequest);
         }
     }
@@ -267,7 +267,7 @@ public class RetrieveFileJob extends IRetrieveJob {
         String replace;
         File[] listFiles;
         File[] fileArr;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, this, list, jSONObject, retrieveFileBean, context)) == null) {
             String str3 = "internal:";
@@ -275,8 +275,8 @@ public class RetrieveFileJob extends IRetrieveJob {
             String str5 = null;
             try {
                 ArrayList arrayList = new ArrayList(list.size());
-                long j3 = 0;
-                long j4 = retrieveFileBean.mMaxFileSize * 1000;
+                long j2 = 0;
+                long j3 = retrieveFileBean.mMaxFileSize * 1000;
                 Iterator<String> it2 = list.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
@@ -313,8 +313,8 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 generateMetaInfo(replace, "1", replace + " not exist", null, null, true, jSONObject);
                             } else {
                                 if (file.isFile()) {
-                                    j3 += file.length();
-                                    if (j3 > j4) {
+                                    j2 += file.length();
+                                    if (j2 > j3) {
                                         generateMetaInfo(replace, "3", replace + " size exceed maxFileSize ", null, null, true, jSONObject);
                                         break;
                                     }
@@ -332,23 +332,23 @@ public class RetrieveFileJob extends IRetrieveJob {
                                     int length = listFiles.length;
                                     boolean z = false;
                                     str2 = str4;
-                                    int i2 = 0;
-                                    while (i2 < length) {
-                                        File file2 = listFiles[i2];
-                                        long length2 = j3 + file2.length();
+                                    int i = 0;
+                                    while (i < length) {
+                                        File file2 = listFiles[i];
+                                        long length2 = j2 + file2.length();
                                         if (file2.exists()) {
                                             fileArr = listFiles;
-                                            j2 = length2;
+                                            j = length2;
                                             arrayList2.add(new FileZipUtil.ZipSrc(file2, file2.getName()));
                                         } else {
                                             fileArr = listFiles;
-                                            j2 = length2;
+                                            j = length2;
                                         }
-                                        i2++;
+                                        i++;
                                         listFiles = fileArr;
-                                        j3 = j2;
+                                        j2 = j;
                                     }
-                                    if (j3 > j4) {
+                                    if (j2 > j3) {
                                         generateMetaInfo(replace, "3", file.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                                         break;
                                     }
@@ -472,9 +472,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, jSONObject, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -505,9 +505,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, parseJsonContent};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;

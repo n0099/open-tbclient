@@ -24,9 +24,9 @@ public class DeviceInfoParam {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,9 +69,9 @@ public class DeviceInfoParam {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             String str = this.mModel;
             String str2 = this.mOSVersion;
-            int i2 = Build.VERSION.SDK_INT;
+            int i = Build.VERSION.SDK_INT;
             String str3 = this.mManufacturer;
-            return str + "_" + str2 + "_" + i2 + "_" + str3;
+            return str + "_" + str2 + "_" + i + "_" + str3;
         }
         return (String) invokeV.objValue;
     }

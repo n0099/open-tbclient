@@ -22,11 +22,11 @@ public class a {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
                 StringBuilder sb = new StringBuilder();
                 for (byte b2 : digest) {
-                    int i2 = b2 & 255;
-                    if (i2 < 16) {
+                    int i = b2 & 255;
+                    if (i < 16) {
                         sb.append(0);
                     }
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
                 return sb.toString();
             } catch (NoSuchAlgorithmException e2) {
@@ -38,9 +38,9 @@ public class a {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static String a(Context context, String str, long j2) {
+    public static String a(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? a(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j2))) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? a(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j))) : (String) invokeCommon.objValue;
     }
 }

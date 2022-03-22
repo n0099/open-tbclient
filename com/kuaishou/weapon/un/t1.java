@@ -14,13 +14,13 @@ public class t1 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t1 f53819b;
+    public static final t1 f38990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f53820c = 1;
+    public static final int f38991c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f53821d = 1;
+    public static final int f38992d = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
@@ -37,7 +37,7 @@ public class t1 {
                 return;
             }
         }
-        f53819b = new t1();
+        f38990b = new t1();
     }
 
     public t1() {
@@ -45,9 +45,9 @@ public class t1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -59,7 +59,7 @@ public class t1 {
     public static t1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f53819b : (t1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38990b : (t1) invokeV.objValue;
     }
 
     public void a(Runnable runnable) {

@@ -46,9 +46,9 @@ public final class ViewStubCompat extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -104,9 +104,9 @@ public final class ViewStubCompat extends View {
                         layoutInflater = LayoutInflater.from(getContext());
                     }
                     View inflate = layoutInflater.inflate(this.mLayoutResource, viewGroup, false);
-                    int i2 = this.mInflatedId;
-                    if (i2 != -1) {
-                        inflate.setId(i2);
+                    int i = this.mInflatedId;
+                    if (i != -1) {
+                        inflate.setId(i);
                     }
                     int indexOfChild = viewGroup.indexOfChild(this);
                     viewGroup.removeViewInLayout(this);
@@ -131,17 +131,17 @@ public final class ViewStubCompat extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
             setMeasuredDimension(0, 0);
         }
     }
 
-    public void setInflatedId(int i2) {
+    public void setInflatedId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mInflatedId = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mInflatedId = i;
         }
     }
 
@@ -152,10 +152,10 @@ public final class ViewStubCompat extends View {
         }
     }
 
-    public void setLayoutResource(int i2) {
+    public void setLayoutResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mLayoutResource = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mLayoutResource = i;
         }
     }
 
@@ -167,37 +167,37 @@ public final class ViewStubCompat extends View {
     }
 
     @Override // android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             WeakReference<View> weakReference = this.mInflatedViewRef;
             if (weakReference != null) {
                 View view = weakReference.get();
                 if (view != null) {
-                    view.setVisibility(i2);
+                    view.setVisibility(i);
                     return;
                 }
                 throw new IllegalStateException("setVisibility called on un-referenced view");
             }
-            super.setVisibility(i2);
-            if (i2 == 0 || i2 == 4) {
+            super.setVisibility(i);
+            if (i == 0 || i == 4) {
                 inflate();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewStubCompat(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ViewStubCompat(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -206,7 +206,7 @@ public final class ViewStubCompat extends View {
             }
         }
         this.mLayoutResource = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ViewStubCompat, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ViewStubCompat, i, 0);
         this.mInflatedId = obtainStyledAttributes.getResourceId(R$styleable.ViewStubCompat_android_inflatedId, -1);
         this.mLayoutResource = obtainStyledAttributes.getResourceId(R$styleable.ViewStubCompat_android_layout, 0);
         setId(obtainStyledAttributes.getResourceId(R$styleable.ViewStubCompat_android_id, -1));

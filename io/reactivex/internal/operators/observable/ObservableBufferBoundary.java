@@ -65,9 +65,9 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bufferBoundaryObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -133,9 +133,9 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, observableSource, function, callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -161,10 +161,10 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             }
         }
 
-        public void close(BufferCloseObserver<T, C> bufferCloseObserver, long j2) {
+        public void close(BufferCloseObserver<T, C> bufferCloseObserver, long j) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferCloseObserver, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferCloseObserver, j) == null) {
                 this.observers.delete(bufferCloseObserver);
                 if (this.observers.size() == 0) {
                     DisposableHelper.dispose(this.upstream);
@@ -176,7 +176,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     if (this.buffers == null) {
                         return;
                     }
-                    this.queue.offer(this.buffers.remove(Long.valueOf(j2)));
+                    this.queue.offer(this.buffers.remove(Long.valueOf(j)));
                     if (z) {
                         this.done = true;
                     }
@@ -205,7 +205,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
                 Observer<? super C> observer = this.actual;
                 SpscLinkedArrayQueue<C> spscLinkedArrayQueue = this.queue;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     boolean z = this.done;
                     if (z && this.errors.get() != null) {
@@ -219,8 +219,8 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                         observer.onComplete();
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -309,15 +309,15 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                 try {
                     Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
                     ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.bufferClose.apply(open), "The bufferClose returned a null ObservableSource");
-                    long j2 = this.index;
-                    this.index = 1 + j2;
+                    long j = this.index;
+                    this.index = 1 + j;
                     synchronized (this) {
                         Map<Long, C> map = this.buffers;
                         if (map == 0) {
                             return;
                         }
-                        map.put(Long.valueOf(j2), collection);
-                        BufferCloseObserver bufferCloseObserver = new BufferCloseObserver(this, j2);
+                        map.put(Long.valueOf(j), collection);
+                        BufferCloseObserver bufferCloseObserver = new BufferCloseObserver(this, j);
                         this.observers.add(bufferCloseObserver);
                         observableSource.subscribe(bufferCloseObserver);
                     }
@@ -350,23 +350,23 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         public final long index;
         public final BufferBoundaryObserver<T, C, ?, ?> parent;
 
-        public BufferCloseObserver(BufferBoundaryObserver<T, C, ?, ?> bufferBoundaryObserver, long j2) {
+        public BufferCloseObserver(BufferBoundaryObserver<T, C, ?, ?> bufferBoundaryObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bufferBoundaryObserver, Long.valueOf(j2)};
+                Object[] objArr = {bufferBoundaryObserver, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = bufferBoundaryObserver;
-            this.index = j2;
+            this.index = j;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -443,9 +443,9 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, observableSource2, function, callable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

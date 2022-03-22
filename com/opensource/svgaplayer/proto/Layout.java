@@ -1,8 +1,8 @@
 package com.opensource.svgaplayer.proto;
 
-import c.n.a.c;
-import c.n.a.d;
-import c.n.a.h.a;
+import c.k.a.c;
+import c.k.a.d;
+import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,8 +17,7 @@ import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Layout extends Message<Layout, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Layout> ADAPTER;
@@ -37,7 +36,7 @@ public final class Layout extends Message<Layout, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<Layout, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +50,9 @@ public final class Layout extends Message<Layout, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -110,7 +109,7 @@ public final class Layout extends Message<Layout, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_Layout extends ProtoAdapter<Layout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +121,9 @@ public final class Layout extends Message<Layout, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     super((FieldEncoding) objArr[0], (Class) objArr[1]);
                     newInitContext.thisArg = this;
@@ -252,9 +251,9 @@ public final class Layout extends Message<Layout, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {f2, f3, f4, f5};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Float) objArr2[0], (Float) objArr2[1], (Float) objArr2[2], (Float) objArr2[3], (ByteString) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -284,8 +283,8 @@ public final class Layout extends Message<Layout, Builder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 == 0) {
+            int i = this.hashCode;
+            if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 Float f2 = this.x;
                 int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
@@ -298,7 +297,7 @@ public final class Layout extends Message<Layout, Builder> {
                 this.hashCode = hashCode5;
                 return hashCode5;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -326,7 +325,7 @@ public final class Layout extends Message<Layout, Builder> {
                 sb.append(this.height);
             }
             StringBuilder replace = sb.replace(0, 2, "Layout{");
-            replace.append(ExtendedMessageFormat.END_FE);
+            replace.append('}');
             return replace.toString();
         }
         return (String) invokeV.objValue;
@@ -341,9 +340,9 @@ public final class Layout extends Message<Layout, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {f2, f3, f4, f5, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;

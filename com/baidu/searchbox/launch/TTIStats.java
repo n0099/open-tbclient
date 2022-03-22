@@ -2,6 +2,7 @@ package com.baidu.searchbox.launch;
 
 import android.os.Environment;
 import android.os.Looper;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -24,7 +25,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -51,23 +51,23 @@ public class TTIStats {
         public long duration;
         public long startTs;
 
-        public TTIData(long j2, long j3) {
+        public TTIData(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.duration = j2;
-            this.startTs = j3;
+            this.duration = j;
+            this.startTs = j2;
         }
     }
 
@@ -94,9 +94,9 @@ public class TTIStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,7 +109,9 @@ public class TTIStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) {
             if (jSONObject != null && jSONObject.length() > 0 && SpeedStatsUtils.hasPermission(AppRuntime.getAppContext(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "have sdcard permission! delay task execute.");
+                }
                 ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, jSONObject) { // from class: com.baidu.searchbox.launch.TTIStats.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +125,9 @@ public class TTIStats {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, jSONObject};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -135,7 +137,7 @@ public class TTIStats {
                         this.val$jsonObject = jSONObject;
                     }
 
-                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0094 -> B:39:0x0097). Please submit an issue!!! */
+                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x009f -> B:41:0x00a2). Please submit an issue!!! */
                     @Override // java.lang.Runnable
                     public void run() {
                         BufferedWriter bufferedWriter;
@@ -160,20 +162,20 @@ public class TTIStats {
                                 e3.printStackTrace();
                             }
                             try {
-                                bufferedWriter.write("starttime：" + System.currentTimeMillis() + StringUtils.LF);
+                                bufferedWriter.write("starttime：" + System.currentTimeMillis() + "\n");
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(this.val$jsonObject.toString());
-                                sb.append(StringUtils.LF);
+                                sb.append("\n");
                                 bufferedWriter.write(sb.toString());
                                 if (TTIStats.DEBUG) {
-                                    String str = "write info to cold_start_tti.txt: " + this.val$jsonObject.toString();
+                                    Log.d(TTIStats.TAG, "write info to cold_start_tti.txt: " + this.val$jsonObject.toString());
                                 }
                                 bufferedWriter.close();
                             } catch (IOException e4) {
                                 e = e4;
                                 bufferedWriter2 = bufferedWriter;
                                 e.printStackTrace();
-                                e.toString();
+                                Log.e(TTIStats.TAG, e.toString());
                                 if (bufferedWriter2 != null) {
                                     bufferedWriter2.close();
                                 }
@@ -192,15 +194,15 @@ public class TTIStats {
                         }
                     }
                 }, "asyncWriteTtiInfoToSdcard", 3, 10000L);
-                return;
+            } else if (DEBUG) {
+                Log.d(TAG, "do not have sdcard permission!");
             }
-            boolean z2 = DEBUG;
         }
     }
 
-    public static void record(String str, long j2) {
+    public static void record(String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) || SmartLaunchStats.getIdleTaskStartTime() > 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) || SmartLaunchStats.getIdleTaskStartTime() > 0) {
             return;
         }
         if (sAppCreateTimeStamp < 0) {
@@ -211,13 +213,13 @@ public class TTIStats {
         }
         TTIData tTIData = mRecordMap.get(str);
         if (tTIData != null) {
-            tTIData.duration += j2;
+            tTIData.duration += j;
         } else {
-            tTIData = new TTIData(j2, (System.currentTimeMillis() - j2) - sAppCreateTimeStamp);
+            tTIData = new TTIData(j, (System.currentTimeMillis() - j) - sAppCreateTimeStamp);
             mRecordMap.put(str, tTIData);
         }
         if (DEBUG) {
-            String str2 = "name:" + str + " time:" + j2 + " startTs:" + tTIData.startTs;
+            Log.d(TAG, "name:" + str + " time:" + j + " startTs:" + tTIData.startTs);
         }
     }
 
@@ -244,7 +246,7 @@ public class TTIStats {
                 this.mUbcManager.onEvent(UBC_START_LAUNCH_ID, jSONObject);
                 if (DEBUG) {
                     asyncWriteTtiInfoToSdcard(jSONObject);
-                    jSONObject.toString();
+                    Log.d(TAG, jSONObject.toString());
                 }
                 mRecordMap.clear();
             } catch (JSONException e2) {

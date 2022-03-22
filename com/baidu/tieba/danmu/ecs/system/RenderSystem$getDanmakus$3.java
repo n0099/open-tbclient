@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import android.graphics.RectF;
-import c.a.r0.l0.i.b;
+import c.a.p0.n0.i.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,9 +28,9 @@ public final class RenderSystem$getDanmakus$3 extends Lambda implements Function
             newInitContext.initArgs = r2;
             Object[] objArr = {rectF};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

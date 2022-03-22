@@ -36,9 +36,9 @@ public class DownloadStatus {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -133,24 +133,24 @@ public class DownloadStatus {
         }
     }
 
-    public void setFinished(long j2) {
+    public void setFinished(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.finished = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.finished = j;
         }
     }
 
-    public void setLength(long j2) {
+    public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.length = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.length = j;
         }
     }
 
-    public void setPercent(int i2) {
+    public void setPercent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.percent = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.percent = i;
         }
     }
 
@@ -161,17 +161,17 @@ public class DownloadStatus {
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.status = i;
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.time = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.time = j;
         }
     }
 }

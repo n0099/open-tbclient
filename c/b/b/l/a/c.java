@@ -1,5 +1,6 @@
 package c.b.b.l.a;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,9 +16,9 @@ public class c implements c.b.b.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,6 +29,7 @@ public class c implements c.b.b.d {
     public void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, th) == null) {
+            Log.d(str, str2, th);
         }
     }
 
@@ -35,6 +37,7 @@ public class c implements c.b.b.d {
     public void debug(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            Log.d(str, str2);
         }
     }
 
@@ -42,13 +45,7 @@ public class c implements c.b.b.d {
     public void error(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-        }
-    }
-
-    @Override // c.b.b.d
-    public void error(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) {
+            Log.e(str, str2);
         }
     }
 
@@ -56,6 +53,15 @@ public class c implements c.b.b.d {
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            Log.i(str, str2);
+        }
+    }
+
+    @Override // c.b.b.d
+    public void error(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) {
+            Log.e(str, str2, th);
         }
     }
 
@@ -63,6 +69,7 @@ public class c implements c.b.b.d {
     public void log(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, th) == null) {
+            Log.i(str, str2, th);
         }
     }
 }

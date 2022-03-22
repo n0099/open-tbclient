@@ -12,9 +12,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.r0.o4.l.c;
-import c.a.r0.o4.l.d;
-import c.a.r0.o4.l.g;
+import c.a.p0.q4.m.c;
+import c.a.p0.q4.m.d;
+import c.a.p0.q4.m.g;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
@@ -23,6 +23,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.CommonPagerSlidingTabStrip;
@@ -44,7 +45,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b, d, g {
+public class CloudMusicActivity extends SuspendedActivity implements c.a.o0.x0.b, d, g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b mCloudMusicPageAdapter;
@@ -67,17 +68,17 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         public final /* synthetic */ CloudMusicActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(CloudMusicActivity cloudMusicActivity, int i2) {
-            super(i2);
+        public a(CloudMusicActivity cloudMusicActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cloudMusicActivity, Integer.valueOf(i2)};
+                Object[] objArr = {cloudMusicActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -92,7 +93,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.z() && this.a.mICloudMusicPresenter != null) {
-                this.a.mICloudMusicPresenter.a();
+                this.a.mICloudMusicPresenter.b();
             }
         }
     }
@@ -112,9 +113,9 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cloudMusicActivity, fragmentManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((FragmentManager) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -138,25 +139,25 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
-        public Fragment getItem(int i2) {
+        public Fragment getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.a.mFragments) || this.a.mFragments.size() <= i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (ListUtils.isEmpty(this.a.mFragments) || this.a.mFragments.size() <= i) {
                     return null;
                 }
-                CloudMusicListFragment cloudMusicListFragment = (CloudMusicListFragment) this.a.mFragments.get(i2);
-                new c.a.r0.o4.l.a(new CloudMusicListModel(this.a.getPageContext()), cloudMusicListFragment);
+                CloudMusicListFragment cloudMusicListFragment = (CloudMusicListFragment) this.a.mFragments.get(i);
+                new c.a.p0.q4.m.a(new CloudMusicListModel(this.a.getPageContext()), cloudMusicListFragment);
                 return cloudMusicListFragment;
             }
             return (Fragment) invokeI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public CharSequence getPageTitle(int i2) {
+        public CharSequence getPageTitle(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i) : (CharSequence) invokeI.objValue;
         }
     }
 
@@ -165,9 +166,9 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -184,20 +185,20 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
     }
 
-    @Override // c.a.r0.o4.l.d
+    @Override // c.a.p0.q4.m.d
     public void displayLoading(boolean z) {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z && (view = this.mRootView) != null) {
-                showLoadingView(view, false, n.f(getPageContext().getPageActivity(), R.dimen.ds400));
+                showLoadingView(view, false, n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702b0));
             } else {
                 hideLoadingView(this.mRootView);
             }
         }
     }
 
-    @Override // c.a.r0.o4.l.d
+    @Override // c.a.p0.q4.m.d
     public void displayNoDataView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -217,7 +218,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
     }
 
-    @Override // c.a.q0.x0.b
+    @Override // c.a.o0.x0.b
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,22 +226,22 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.q0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.o0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, linearLayout, navigationBar)) == null) {
-            LayoutInflater.from(this).inflate(R.layout.activity_cloud_music, (ViewGroup) linearLayout, true);
-            new c.a.r0.o4.l.b(new CloudMusicModel(getPageContext()), this);
-            this.mRootView = findViewById(R.id.cloud_music_activity_root_view);
+            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0030, (ViewGroup) linearLayout, true);
+            new c.a.p0.q4.m.b(new CloudMusicModel(getPageContext()), this);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f090670);
             this.mNavigationBar = navigationBar;
-            SkinManager.setViewTextColor(navigationBar.setCenterTextTitle(getString(R.string.music_cloud)), (int) R.color.CAM_X0105);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(getPageContext().getPageActivity(), R.dimen.ds200)), NoDataViewFactory.e.a(R.string.no_data_text), null);
+            SkinManager.setViewTextColor(navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0b0c)), (int) R.color.CAM_X0105);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070263)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c2d), null);
             this.mNoDataView = a2;
-            a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.cloud_music_nav);
+            a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090672);
             this.mTabStrip = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.build(n.f(getPageContext().getPageActivity(), R.dimen.ds30), n.f(getPageContext().getPageActivity(), R.dimen.ds24), n.f(getPageContext().getPageActivity(), R.dimen.ds16), n.f(getPageContext().getPageActivity(), R.dimen.ds24), n.f(getPageContext().getPageActivity(), R.dimen.ds20), n.f(getPageContext().getPageActivity(), R.dimen.ds4), n.f(getPageContext().getPageActivity(), R.dimen.ds64), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.cloud_music_view_pager);
+            commonPagerSlidingTabStrip.k(n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201), n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be), n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d5), n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224), n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090673);
             this.mViewPager = bdBaseViewPager;
             bdBaseViewPager.setOffscreenPageLimit(2);
             b bVar = new b(this, getSupportFragmentManager());
@@ -250,14 +251,14 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
             registerListener(this.mNetworkChangedMessageListener);
             c cVar = this.mICloudMusicPresenter;
             if (cVar != null) {
-                cVar.a();
+                cVar.b();
             }
             return this;
         }
-        return (c.a.q0.x0.b) invokeLL.objValue;
+        return (c.a.o0.x0.b) invokeLL.objValue;
     }
 
-    @Override // c.a.q0.x0.b
+    @Override // c.a.o0.x0.b
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -267,7 +268,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.x0.b
+    @Override // c.a.o0.x0.b
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -286,15 +287,15 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mSkinType = i2;
-            getLayoutMode().k(i2 == 1);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mSkinType = i;
+            getLayoutMode().k(i == 1);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.mTabStrip;
             if (commonPagerSlidingTabStrip != null) {
-                commonPagerSlidingTabStrip.onChangeSkinType(i2);
+                commonPagerSlidingTabStrip.n(i);
             }
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         }
@@ -306,14 +307,14 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            TbMusicData tbMusicData = (TbMusicData) getIntent().getSerializableExtra("music_data");
+            TbMusicData tbMusicData = (TbMusicData) getIntent().getSerializableExtra(CloudMusicActivityConfig.MUSIC_DATA);
             this.mCurrentMusicData = tbMusicData;
             if (tbMusicData != null) {
                 if (this.mResultIntent == null) {
                     this.mResultIntent = new Intent();
                 }
-                this.mResultIntent.putExtra("music_id", StringUtils.string(this.mCurrentMusicData.id));
-                this.mResultIntent.putExtra("music_data", this.mCurrentMusicData);
+                this.mResultIntent.putExtra(CloudMusicActivityConfig.MUSIC_ID, StringUtils.string(this.mCurrentMusicData.id));
+                this.mResultIntent.putExtra(CloudMusicActivityConfig.MUSIC_DATA, this.mCurrentMusicData);
             }
         }
     }
@@ -323,9 +324,9 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            this.mICloudMusicPresenter.cancelLoadData();
+            this.mICloudMusicPresenter.a();
             MusicPlayer.c().f();
-            c.a.r0.w0.c.d.a.h().d();
+            c.a.p0.y0.c.d.a.h().d();
         }
     }
 
@@ -343,7 +344,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onRestart();
-            c.a.r0.w0.c.d.a.h().e();
+            c.a.p0.y0.c.d.a.h().e();
         }
     }
 
@@ -356,7 +357,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
     }
 
-    @Override // c.a.r0.o4.l.g
+    @Override // c.a.p0.q4.m.g
     public void onSetResult(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
@@ -364,10 +365,10 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
     }
 
-    @Override // c.a.q0.x0.b
-    public void onViewChangeSkinType(int i2) {
+    @Override // c.a.o0.x0.b
+    public void onViewChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
         }
     }
 
@@ -378,7 +379,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
     }
 
-    @Override // c.a.r0.o4.l.d
+    @Override // c.a.p0.q4.m.d
     public void setPresenter(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) {
@@ -386,21 +387,21 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.q0.x0.b
         }
     }
 
-    @Override // c.a.r0.o4.l.d
+    @Override // c.a.p0.q4.m.d
     public void showCloudMusicWithTagData(CloudMusicData cloudMusicData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, cloudMusicData) == null) {
             this.mFragments = new ArrayList(cloudMusicData.tag_list.size());
             this.mTitles = new ArrayList(cloudMusicData.tag_list.size());
-            for (int i2 = 0; i2 < cloudMusicData.tag_list.size(); i2++) {
-                this.mTitles.add(cloudMusicData.tag_list.get(i2).name);
-                CloudMusicListFragment newInstance = CloudMusicListFragment.newInstance(cloudMusicData.music_tag_list.get(i2));
-                newInstance.setCloudMusicResultIntentCallBack(this);
-                newInstance.setCurrentMusicData(this.mCurrentMusicData);
-                this.mFragments.add(newInstance);
+            for (int i = 0; i < cloudMusicData.tag_list.size(); i++) {
+                this.mTitles.add(cloudMusicData.tag_list.get(i).name);
+                CloudMusicListFragment E0 = CloudMusicListFragment.E0(cloudMusicData.music_tag_list.get(i));
+                E0.F0(this);
+                E0.G0(this.mCurrentMusicData);
+                this.mFragments.add(E0);
             }
             this.mCloudMusicPageAdapter.notifyDataSetChanged();
-            this.mTabStrip.notifyDataSetChanged();
+            this.mTabStrip.m();
         }
     }
 }

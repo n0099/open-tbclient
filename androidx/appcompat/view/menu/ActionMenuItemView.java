@@ -59,9 +59,9 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuItemView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -109,9 +109,9 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -130,9 +130,9 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -147,8 +147,8 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             Configuration configuration = getContext().getResources().getConfiguration();
-            int i2 = configuration.screenWidthDp;
-            return i2 >= 480 || (i2 >= 640 && configuration.screenHeightDp >= 480) || configuration.orientation == 2;
+            int i = configuration.screenWidthDp;
+            return i >= 480 || (i >= 640 && configuration.screenHeightDp >= 480) || configuration.orientation == 2;
         }
         return invokeV.booleanValue;
     }
@@ -192,9 +192,9 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(MenuItemImpl menuItemImpl, int i2) {
+    public void initialize(MenuItemImpl menuItemImpl, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i) == null) {
             this.mItemData = menuItemImpl;
             setIcon(menuItemImpl.getIcon());
             setTitle(menuItemImpl.getTitleForItemView(this));
@@ -242,26 +242,26 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             boolean hasText = hasText();
-            if (hasText && (i5 = this.mSavedPaddingLeft) >= 0) {
-                super.setPadding(i5, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+            if (hasText && (i4 = this.mSavedPaddingLeft) >= 0) {
+                super.setPadding(i4, getPaddingTop(), getPaddingRight(), getPaddingBottom());
             }
-            super.onMeasure(i2, i3);
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+            super.onMeasure(i, i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             int measuredWidth = getMeasuredWidth();
             if (mode == Integer.MIN_VALUE) {
-                i4 = Math.min(size, this.mMinWidth);
+                i3 = Math.min(size, this.mMinWidth);
             } else {
-                i4 = this.mMinWidth;
+                i3 = this.mMinWidth;
             }
-            if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < i4) {
-                super.onMeasure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), i3);
+            if (mode != 1073741824 && this.mMinWidth > 0 && measuredWidth < i3) {
+                super.onMeasure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), i2);
             }
             if (hasText || this.mIcon == null) {
                 return;
@@ -336,15 +336,15 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
             if (drawable != null) {
                 int intrinsicWidth = drawable.getIntrinsicWidth();
                 int intrinsicHeight = drawable.getIntrinsicHeight();
-                int i2 = this.mMaxIconSize;
-                if (intrinsicWidth > i2) {
-                    intrinsicHeight = (int) (intrinsicHeight * (i2 / intrinsicWidth));
-                    intrinsicWidth = i2;
+                int i = this.mMaxIconSize;
+                if (intrinsicWidth > i) {
+                    intrinsicHeight = (int) (intrinsicHeight * (i / intrinsicWidth));
+                    intrinsicWidth = i;
                 }
-                int i3 = this.mMaxIconSize;
-                if (intrinsicHeight > i3) {
-                    intrinsicWidth = (int) (intrinsicWidth * (i3 / intrinsicHeight));
-                    intrinsicHeight = i3;
+                int i2 = this.mMaxIconSize;
+                if (intrinsicHeight > i2) {
+                    intrinsicWidth = (int) (intrinsicWidth * (i2 / intrinsicHeight));
+                    intrinsicHeight = i2;
                 }
                 drawable.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
             }
@@ -361,11 +361,11 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void setPadding(int i2, int i3, int i4, int i5) {
+    public void setPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048592, this, i2, i3, i4, i5) == null) {
-            this.mSavedPaddingLeft = i2;
-            super.setPadding(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
+            this.mSavedPaddingLeft = i;
+            super.setPadding(i, i2, i3, i4);
         }
     }
 
@@ -411,9 +411,9 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -424,17 +424,17 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionMenuItemView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ActionMenuItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -444,7 +444,7 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         }
         Resources resources = context.getResources();
         this.mAllowTextWithIcon = shouldAllowTextWithIcon();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ActionMenuItemView, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ActionMenuItemView, i, 0);
         this.mMinWidth = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ActionMenuItemView_android_minWidth, 0);
         obtainStyledAttributes.recycle();
         this.mMaxIconSize = (int) ((resources.getDisplayMetrics().density * 32.0f) + 0.5f);

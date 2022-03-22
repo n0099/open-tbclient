@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.ExtractorOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ElementaryStreamReader {
     void consume(ParsableByteArray parsableByteArray) throws ParserException;
 
@@ -12,7 +12,7 @@ public interface ElementaryStreamReader {
 
     void packetFinished();
 
-    void packetStarted(long j2, boolean z);
+    void packetStarted(long j, boolean z);
 
     void seek();
 }

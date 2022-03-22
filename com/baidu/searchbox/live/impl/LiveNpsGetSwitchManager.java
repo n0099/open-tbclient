@@ -2,8 +2,8 @@ package com.baidu.searchbox.live.impl;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.w.g.a;
-import c.a.w.j.c;
+import c.a.v.g.a;
+import c.a.v.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.live.net.LiveNetwork;
@@ -64,9 +64,9 @@ public final class LiveNpsGetSwitchManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -210,9 +210,9 @@ public final class LiveNpsGetSwitchManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {iMasterSwitchCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -222,7 +222,7 @@ public final class LiveNpsGetSwitchManager {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.w.g.a
+                @Override // c.a.v.g.a
                 public void onNetResponse(NetResponse netResponse, LiveMasterSwitchBean liveMasterSwitchBean) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netResponse, liveMasterSwitchBean) == null) {
@@ -238,7 +238,7 @@ public final class LiveNpsGetSwitchManager {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.w.g.a
+                @Override // c.a.v.g.a
                 public LiveMasterSwitchBean onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -249,13 +249,13 @@ public final class LiveNpsGetSwitchManager {
                             if (!StringsKt__StringsJVMKt.isBlank(str2)) {
                                 try {
                                     JSONObject jSONObject = new JSONObject(netResponse.decodedResponseStr);
-                                    int i2 = jSONObject.getInt("errno");
+                                    int i = jSONObject.getInt("errno");
                                     String errmsg = jSONObject.getString("errmsg");
                                     String string = jSONObject.getJSONObject("data").getString("show_switch");
                                     Intrinsics.checkExpressionValueIsNotNull(string, "dataBean.getString(\"show_switch\")");
                                     Data data = new Data(string);
                                     Intrinsics.checkExpressionValueIsNotNull(errmsg, "errmsg");
-                                    return new LiveMasterSwitchBean(data, errmsg, i2);
+                                    return new LiveMasterSwitchBean(data, errmsg, i);
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
                                 }

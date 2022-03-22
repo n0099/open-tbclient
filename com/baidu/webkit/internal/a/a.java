@@ -21,7 +21,7 @@ public final class a {
         if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, activity)) != null) {
             return invokeL.intValue;
         }
-        int i2 = -1;
+        int i = -1;
         if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
             return -1;
         }
@@ -31,23 +31,23 @@ public final class a {
             Object obj = declaredField.get(activity);
             Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
             declaredField2.setAccessible(true);
-            int i3 = declaredField2.getInt(obj);
-            if (i3 != -1) {
+            int i2 = declaredField2.getInt(obj);
+            if (i2 != -1) {
                 try {
                     declaredField2.setInt(obj, -1);
                 } catch (IllegalAccessException e2) {
                     e = e2;
-                    i2 = i3;
+                    i = i2;
                     e.printStackTrace();
-                    return i2;
+                    return i;
                 } catch (NoSuchFieldException e3) {
                     e = e3;
-                    i2 = i3;
+                    i = i2;
                     e.printStackTrace();
-                    return i2;
+                    return i;
                 }
             }
-            return i3;
+            return i2;
         } catch (IllegalAccessException e4) {
             e = e4;
         } catch (NoSuchFieldException e5) {

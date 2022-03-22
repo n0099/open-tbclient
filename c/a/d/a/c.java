@@ -16,17 +16,17 @@ public class c<T> extends d<T> {
     public View a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(f<T> fVar, int i2) {
+    public c(f<T> fVar, int i) {
         super(fVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, Integer.valueOf(i2)};
+            Object[] objArr = {fVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,15 +34,15 @@ public class c<T> extends d<T> {
             }
         }
         this.a = null;
-        View inflate = LayoutInflater.from(fVar.getContext()).inflate(i2, (ViewGroup) null);
+        View inflate = LayoutInflater.from(fVar.getContext()).inflate(i, (ViewGroup) null);
         this.a = inflate;
         inflate.setTag(this);
     }
 
-    public View c(int i2) {
+    public View c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.a.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.findViewById(i) : (View) invokeI.objValue;
     }
 
     public View d() {

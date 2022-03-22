@@ -12,7 +12,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class GzipSource implements Source {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte FCOMMENT = 4;
@@ -37,9 +37,9 @@ public final class GzipSource implements Source {
             newInitContext.initArgs = r2;
             Object[] objArr = {source};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,10 +57,10 @@ public final class GzipSource implements Source {
         throw new IllegalArgumentException("source == null");
     }
 
-    private void checkEqual(String str, int i2, int i3) throws IOException {
+    private void checkEqual(String str, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, this, str, i2, i3) == null) && i3 != i2) {
-            throw new IOException(String.format("%s: actual 0x%08x != expected 0x%08x", str, Integer.valueOf(i3), Integer.valueOf(i2)));
+        if ((interceptable == null || interceptable.invokeLII(65537, this, str, i, i2) == null) && i2 != i) {
+            throw new IOException(String.format("%s: actual 0x%08x != expected 0x%08x", str, Integer.valueOf(i2), Integer.valueOf(i)));
         }
     }
 
@@ -124,26 +124,26 @@ public final class GzipSource implements Source {
         }
     }
 
-    private void updateCrc(Buffer buffer, long j2, long j3) {
-        int i2;
+    private void updateCrc(Buffer buffer, long j, long j2) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{buffer, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{buffer, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             Segment segment = buffer.head;
             while (true) {
-                int i3 = segment.limit;
-                int i4 = segment.pos;
-                if (j2 < i3 - i4) {
+                int i2 = segment.limit;
+                int i3 = segment.pos;
+                if (j < i2 - i3) {
                     break;
                 }
-                j2 -= i3 - i4;
+                j -= i2 - i3;
                 segment = segment.next;
             }
-            while (j3 > 0) {
-                int min = (int) Math.min(segment.limit - i2, j3);
-                this.crc.update(segment.data, (int) (segment.pos + j2), min);
-                j3 -= min;
+            while (j2 > 0) {
+                int min = (int) Math.min(segment.limit - i, j2);
+                this.crc.update(segment.data, (int) (segment.pos + j), min);
+                j2 -= min;
                 segment = segment.next;
-                j2 = 0;
+                j = 0;
             }
         }
     }
@@ -157,14 +157,14 @@ public final class GzipSource implements Source {
     }
 
     @Override // okio.Source
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j2);
-            } else if (i2 == 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
+                throw new IllegalArgumentException("byteCount < 0: " + j);
+            } else if (i == 0) {
                 return 0L;
             } else {
                 if (this.section == 0) {
@@ -172,10 +172,10 @@ public final class GzipSource implements Source {
                     this.section = 1;
                 }
                 if (this.section == 1) {
-                    long j3 = buffer.size;
-                    long read = this.inflaterSource.read(buffer, j2);
+                    long j2 = buffer.size;
+                    long read = this.inflaterSource.read(buffer, j);
                     if (read != -1) {
-                        updateCrc(buffer, j3, read);
+                        updateCrc(buffer, j2, read);
                         return read;
                     }
                     this.section = 2;

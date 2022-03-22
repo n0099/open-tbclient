@@ -30,25 +30,25 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 65536;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f56841b = 2000;
+    public static long f41705b = 2000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f56842c;
+    public static String f41706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Boolean f56843d;
+    public static Boolean f41707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f56844e;
+    public static Boolean f41708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f56845f;
+    public static final Pattern f41709f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,7 +64,7 @@ public class f {
                 return;
             }
         }
-        f56845f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        f41709f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
     }
 
     public f() {
@@ -72,9 +72,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -93,14 +93,14 @@ public class f {
         return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) ? com.kwai.filedownloader.download.b.a().b().a(str, str2, z) : invokeLLZ.intValue;
     }
 
-    public static String a(int i2, com.kwai.filedownloader.kwai.b bVar) {
+    public static String a(int i, com.kwai.filedownloader.kwai.b bVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, bVar)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, bVar)) == null) {
             if (bVar != null) {
                 String a2 = bVar.a(Util.ETAG);
                 if (d.a) {
-                    d.c(f.class, "etag find %s for task(%d)", a2, Integer.valueOf(i2));
+                    d.c(f.class, "etag find %s for task(%d)", a2, Integer.valueOf(i));
                 }
                 return a2;
             }
@@ -161,60 +161,60 @@ public class f {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, objArr)) == null) ? String.format(Locale.ENGLISH, str, objArr) : (String) invokeLL.objValue;
     }
 
-    public static void a(int i2) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
             if (!a(c.a())) {
                 throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-step'.");
             }
-            a = i2;
+            a = i;
         }
     }
 
-    public static void a(long j2) {
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65546, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65546, null, j) == null) {
             if (!a(c.a())) {
                 throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-time'.");
             }
-            f56841b = j2;
+            f41705b = j;
         }
     }
 
-    public static boolean a(int i2, com.kwai.filedownloader.c.c cVar) {
+    public static boolean a(int i, com.kwai.filedownloader.c.c cVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i2, cVar)) == null) ? a(i2, cVar, (Boolean) null) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, cVar)) == null) ? a(i, cVar, (Boolean) null) : invokeIL.booleanValue;
     }
 
-    public static boolean a(int i2, com.kwai.filedownloader.c.c cVar, Boolean bool) {
+    public static boolean a(int i, com.kwai.filedownloader.c.c cVar, Boolean bool) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65548, null, i2, cVar, bool)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65548, null, i, cVar, bool)) == null) {
             if (cVar == null) {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d model == null", Integer.valueOf(i2));
+                    d.c(f.class, "can't continue %d model == null", Integer.valueOf(i));
                 }
                 return false;
             } else if (cVar.e() == null) {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d temp path == null", Integer.valueOf(i2));
+                    d.c(f.class, "can't continue %d temp path == null", Integer.valueOf(i));
                 }
                 return false;
             } else {
-                return a(i2, cVar, cVar.e(), bool);
+                return a(i, cVar, cVar.e(), bool);
             }
         }
         return invokeILL.booleanValue;
     }
 
-    public static boolean a(int i2, com.kwai.filedownloader.c.c cVar, String str, Boolean bool) {
+    public static boolean a(int i, com.kwai.filedownloader.c.c cVar, String str, Boolean bool) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), cVar, str, bool})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), cVar, str, bool})) == null) {
             if (str == null) {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d path = null", Integer.valueOf(i2));
+                    d.c(f.class, "can't continue %d path = null", Integer.valueOf(i));
                     return false;
                 }
                 return false;
@@ -224,7 +224,7 @@ public class f {
             boolean isDirectory = file.isDirectory();
             if (!exists || isDirectory) {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d file not suit, exists[%B], directory[%B]", Integer.valueOf(i2), Boolean.valueOf(exists), Boolean.valueOf(isDirectory));
+                    d.c(f.class, "can't continue %d file not suit, exists[%B], directory[%B]", Integer.valueOf(i), Boolean.valueOf(exists), Boolean.valueOf(isDirectory));
                     return false;
                 }
                 return false;
@@ -233,7 +233,7 @@ public class f {
             long g2 = cVar.g();
             if (cVar.n() <= 1 && g2 == 0) {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d the downloaded-record is zero.", Integer.valueOf(i2));
+                    d.c(f.class, "can't continue %d the downloaded-record is zero.", Integer.valueOf(i));
                     return false;
                 }
                 return false;
@@ -241,7 +241,7 @@ public class f {
             long h2 = cVar.h();
             if (length < g2 || (h2 != -1 && (length > h2 || g2 >= h2))) {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d dirty data fileLength[%d] sofar[%d] total[%d]", Integer.valueOf(i2), Long.valueOf(length), Long.valueOf(g2), Long.valueOf(h2));
+                    d.c(f.class, "can't continue %d dirty data fileLength[%d] sofar[%d] total[%d]", Integer.valueOf(i), Long.valueOf(length), Long.valueOf(g2), Long.valueOf(h2));
                     return false;
                 }
                 return false;
@@ -249,7 +249,7 @@ public class f {
                 return true;
             } else {
                 if (d.a) {
-                    d.c(f.class, "can't continue %d, because of the output stream doesn't support seek, but the task has already pre-allocated, so we only can download it from the very beginning.", Integer.valueOf(i2));
+                    d.c(f.class, "can't continue %d, because of the output stream doesn't support seek, but the task has already pre-allocated, so we only can download it from the very beginning.", Integer.valueOf(i));
                     return false;
                 }
                 return false;
@@ -258,22 +258,22 @@ public class f {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean a(long j2, long j3) {
+    public static boolean a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 > ((long) a()) && j3 > b() : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j > ((long) a()) && j2 > b() : invokeCommon.booleanValue;
     }
 
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            Boolean bool = f56843d;
+            Boolean bool = f41707d;
             if (bool != null) {
                 return bool.booleanValue();
             }
             boolean z = false;
-            if (!e.a().f56837d) {
+            if (!e.a().f41701d) {
                 int myPid = Process.myPid();
                 ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
                 if (activityManager != null) {
@@ -302,7 +302,7 @@ public class f {
                 z = true;
             }
             Boolean valueOf = Boolean.valueOf(z);
-            f56843d = valueOf;
+            f41707d = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -326,22 +326,22 @@ public class f {
     public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f56841b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f41705b : invokeV.longValue;
     }
 
-    public static long b(int i2, com.kwai.filedownloader.kwai.b bVar) {
+    public static long b(int i, com.kwai.filedownloader.kwai.b bVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, null, i2, bVar)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, null, i, bVar)) == null) {
             long k = k(bVar.a("Content-Length"));
             String a2 = bVar.a("Transfer-Encoding");
             if (k < 0) {
                 if (!(a2 != null && a2.equals("chunked"))) {
-                    if (!e.a().f56836c) {
+                    if (!e.a().f41700c) {
                         throw new FileDownloadGiveUpRetryException("can't know the size of the download file, and its Transfer-Encoding is not Chunked either.\nyou can ignore such exception by add http.lenient=true to the filedownloader.properties");
                     }
                     if (d.a) {
-                        d.c(f.class, "%d response header is not legal but HTTP lenient is true, so handle as the case of transfer encoding chunk", Integer.valueOf(i2));
+                        d.c(f.class, "%d response header is not legal but HTTP lenient is true, so handle as the case of transfer encoding chunk", Integer.valueOf(i));
                     }
                 }
                 return -1L;
@@ -383,10 +383,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            if (TextUtils.isEmpty(f56842c)) {
+            if (TextUtils.isEmpty(f41706c)) {
                 return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
             }
-            return f56842c;
+            return f41706c;
         }
         return (String) invokeV.objValue;
     }
@@ -440,11 +440,11 @@ public class f {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
                 StringBuilder sb = new StringBuilder(digest.length * 2);
                 for (byte b2 : digest) {
-                    int i2 = b2 & 255;
-                    if (i2 < 16) {
+                    int i = b2 & 255;
+                    if (i < 16) {
                         sb.append("0");
                     }
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
                 return sb.toString();
             } catch (UnsupportedEncodingException e2) {
@@ -474,7 +474,7 @@ public class f {
                 return null;
             }
             try {
-                Matcher matcher = f56845f.matcher(str);
+                Matcher matcher = f41709f.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(1);
                 }
@@ -490,19 +490,19 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
             int length = str.length();
-            int i2 = 2;
-            int i3 = (File.separatorChar == '\\' && length > 2 && str.charAt(1) == ':') ? 2 : 0;
+            int i = 2;
+            int i2 = (File.separatorChar == '\\' && length > 2 && str.charAt(1) == ':') ? 2 : 0;
             int lastIndexOf = str.lastIndexOf(File.separatorChar);
-            if (lastIndexOf != -1 || i3 <= 0) {
-                i2 = lastIndexOf;
+            if (lastIndexOf != -1 || i2 <= 0) {
+                i = lastIndexOf;
             }
-            if (i2 != -1) {
+            if (i != -1) {
                 char charAt = str.charAt(length - 1);
                 char c2 = File.separatorChar;
                 if (charAt == c2) {
                     return null;
                 }
-                return (str.indexOf(c2) == i2 && str.charAt(i3) == File.separatorChar) ? str.substring(0, i2 + 1) : str.substring(0, i2);
+                return (str.indexOf(c2) == i && str.charAt(i2) == File.separatorChar) ? str.substring(0, i + 1) : str.substring(0, i);
             }
             return null;
         }

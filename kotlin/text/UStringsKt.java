@@ -14,20 +14,20 @@ import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000,\n\u0000\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0013\u001a\u001e\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u001a\u001e\u0010\u0000\u001a\u00020\u0001*\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001e\u0010\u0000\u001a\u00020\u0001*\u00020\n2\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\f\u001a\u001e\u0010\u0000\u001a\u00020\u0001*\u00020\r2\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001a\u0014\u0010\u0010\u001a\u00020\u0002*\u00020\u0001H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0011\u001a\u001c\u0010\u0010\u001a\u00020\u0002*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0012\u001a\u0011\u0010\u0013\u001a\u0004\u0018\u00010\u0002*\u00020\u0001H\u0007ø\u0001\u0000\u001a\u0019\u0010\u0013\u001a\u0004\u0018\u00010\u0002*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000\u001a\u0014\u0010\u0014\u001a\u00020\u0007*\u00020\u0001H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0015\u001a\u001c\u0010\u0014\u001a\u00020\u0007*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0016\u001a\u0011\u0010\u0017\u001a\u0004\u0018\u00010\u0007*\u00020\u0001H\u0007ø\u0001\u0000\u001a\u0019\u0010\u0017\u001a\u0004\u0018\u00010\u0007*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000\u001a\u0014\u0010\u0018\u001a\u00020\n*\u00020\u0001H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u0019\u001a\u001c\u0010\u0018\u001a\u00020\n*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u001a\u001a\u0011\u0010\u001b\u001a\u0004\u0018\u00010\n*\u00020\u0001H\u0007ø\u0001\u0000\u001a\u0019\u0010\u001b\u001a\u0004\u0018\u00010\n*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000\u001a\u0014\u0010\u001c\u001a\u00020\r*\u00020\u0001H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u001d\u001a\u001c\u0010\u001c\u001a\u00020\r*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000¢\u0006\u0002\u0010\u001e\u001a\u0011\u0010\u001f\u001a\u0004\u0018\u00010\r*\u00020\u0001H\u0007ø\u0001\u0000\u001a\u0019\u0010\u001f\u001a\u0004\u0018\u00010\r*\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\u0007ø\u0001\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006 "}, d2 = {"toString", "", "Lkotlin/UByte;", "radix", "", "toString-LxnNnR4", "(BI)Ljava/lang/String;", "Lkotlin/UInt;", "toString-V7xB4Y4", "(II)Ljava/lang/String;", "Lkotlin/ULong;", "toString-JSWoG40", "(JI)Ljava/lang/String;", "Lkotlin/UShort;", "toString-olVBNx4", "(SI)Ljava/lang/String;", "toUByte", "(Ljava/lang/String;)B", "(Ljava/lang/String;I)B", "toUByteOrNull", "toUInt", "(Ljava/lang/String;)I", "(Ljava/lang/String;I)I", "toUIntOrNull", "toULong", "(Ljava/lang/String;)J", "(Ljava/lang/String;I)J", "toULongOrNull", "toUShort", "(Ljava/lang/String;)S", "(Ljava/lang/String;I)S", "toUShortOrNull", "kotlin-stdlib"}, k = 2, mv = {1, 5, 1})
 @JvmName(name = "UStringsKt")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class UStringsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: toString-JSWoG40  reason: not valid java name */
-    public static final String m1984toStringJSWoG40(long j2, int i2) {
-        return UnsignedKt.ulongToString(j2, CharsKt__CharJVMKt.checkRadix(i2));
+    public static final String m1963toStringJSWoG40(long j, int i) {
+        return UnsignedKt.ulongToString(j, CharsKt__CharJVMKt.checkRadix(i));
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: toString-LxnNnR4  reason: not valid java name */
-    public static final String m1985toStringLxnNnR4(byte b2, int i2) {
-        String num = Integer.toString(b2 & 255, CharsKt__CharJVMKt.checkRadix(i2));
+    public static final String m1964toStringLxnNnR4(byte b2, int i) {
+        String num = Integer.toString(b2 & 255, CharsKt__CharJVMKt.checkRadix(i));
         Intrinsics.checkNotNullExpressionValue(num, "java.lang.Integer.toStri…(this, checkRadix(radix))");
         return num;
     }
@@ -35,8 +35,8 @@ public final class UStringsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: toString-V7xB4Y4  reason: not valid java name */
-    public static final String m1986toStringV7xB4Y4(int i2, int i3) {
-        String l = Long.toString(i2 & 4294967295L, CharsKt__CharJVMKt.checkRadix(i3));
+    public static final String m1965toStringV7xB4Y4(int i, int i2) {
+        String l = Long.toString(i & 4294967295L, CharsKt__CharJVMKt.checkRadix(i2));
         Intrinsics.checkNotNullExpressionValue(l, "java.lang.Long.toString(this, checkRadix(radix))");
         return l;
     }
@@ -44,8 +44,8 @@ public final class UStringsKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     /* renamed from: toString-olVBNx4  reason: not valid java name */
-    public static final String m1987toStringolVBNx4(short s, int i2) {
-        String num = Integer.toString(s & UShort.MAX_VALUE, CharsKt__CharJVMKt.checkRadix(i2));
+    public static final String m1966toStringolVBNx4(short s, int i) {
+        String num = Integer.toString(s & UShort.MAX_VALUE, CharsKt__CharJVMKt.checkRadix(i));
         Intrinsics.checkNotNullExpressionValue(num, "java.lang.Integer.toStri…(this, checkRadix(radix))");
         return num;
     }
@@ -56,7 +56,7 @@ public final class UStringsKt {
         Intrinsics.checkNotNullParameter(toUByte, "$this$toUByte");
         UByte uByteOrNull = toUByteOrNull(toUByte);
         if (uByteOrNull != null) {
-            return uByteOrNull.m780unboximpl();
+            return uByteOrNull.m759unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toUByte);
         throw new KotlinNothingValueException();
@@ -75,7 +75,7 @@ public final class UStringsKt {
         Intrinsics.checkNotNullParameter(toUInt, "$this$toUInt");
         UInt uIntOrNull = toUIntOrNull(toUInt);
         if (uIntOrNull != null) {
-            return uIntOrNull.m858unboximpl();
+            return uIntOrNull.m837unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toUInt);
         throw new KotlinNothingValueException();
@@ -94,7 +94,7 @@ public final class UStringsKt {
         Intrinsics.checkNotNullParameter(toULong, "$this$toULong");
         ULong uLongOrNull = toULongOrNull(toULong);
         if (uLongOrNull != null) {
-            return uLongOrNull.m936unboximpl();
+            return uLongOrNull.m915unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toULong);
         throw new KotlinNothingValueException();
@@ -113,7 +113,7 @@ public final class UStringsKt {
         Intrinsics.checkNotNullParameter(toUShort, "$this$toUShort");
         UShort uShortOrNull = toUShortOrNull(toUShort);
         if (uShortOrNull != null) {
-            return uShortOrNull.m1040unboximpl();
+            return uShortOrNull.m1019unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toUShort);
         throw new KotlinNothingValueException();
@@ -128,11 +128,11 @@ public final class UStringsKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final byte toUByte(String toUByte, int i2) {
+    public static final byte toUByte(String toUByte, int i) {
         Intrinsics.checkNotNullParameter(toUByte, "$this$toUByte");
-        UByte uByteOrNull = toUByteOrNull(toUByte, i2);
+        UByte uByteOrNull = toUByteOrNull(toUByte, i);
         if (uByteOrNull != null) {
-            return uByteOrNull.m780unboximpl();
+            return uByteOrNull.m759unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toUByte);
         throw new KotlinNothingValueException();
@@ -140,26 +140,26 @@ public final class UStringsKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final UByte toUByteOrNull(String toUByteOrNull, int i2) {
+    public static final UByte toUByteOrNull(String toUByteOrNull, int i) {
         Intrinsics.checkNotNullParameter(toUByteOrNull, "$this$toUByteOrNull");
-        UInt uIntOrNull = toUIntOrNull(toUByteOrNull, i2);
+        UInt uIntOrNull = toUIntOrNull(toUByteOrNull, i);
         if (uIntOrNull != null) {
-            int m858unboximpl = uIntOrNull.m858unboximpl();
-            if (UnsignedKt.uintCompare(m858unboximpl, UInt.m807constructorimpl(255)) > 0) {
+            int m837unboximpl = uIntOrNull.m837unboximpl();
+            if (UnsignedKt.uintCompare(m837unboximpl, UInt.m786constructorimpl(255)) > 0) {
                 return null;
             }
-            return UByte.m725boximpl(UByte.m731constructorimpl((byte) m858unboximpl));
+            return UByte.m704boximpl(UByte.m710constructorimpl((byte) m837unboximpl));
         }
         return null;
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final int toUInt(String toUInt, int i2) {
+    public static final int toUInt(String toUInt, int i) {
         Intrinsics.checkNotNullParameter(toUInt, "$this$toUInt");
-        UInt uIntOrNull = toUIntOrNull(toUInt, i2);
+        UInt uIntOrNull = toUIntOrNull(toUInt, i);
         if (uIntOrNull != null) {
-            return uIntOrNull.m858unboximpl();
+            return uIntOrNull.m837unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toUInt);
         throw new KotlinNothingValueException();
@@ -167,54 +167,54 @@ public final class UStringsKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final UInt toUIntOrNull(String toUIntOrNull, int i2) {
+    public static final UInt toUIntOrNull(String toUIntOrNull, int i) {
         Intrinsics.checkNotNullParameter(toUIntOrNull, "$this$toUIntOrNull");
-        CharsKt__CharJVMKt.checkRadix(i2);
+        CharsKt__CharJVMKt.checkRadix(i);
         int length = toUIntOrNull.length();
         if (length == 0) {
             return null;
         }
-        int i3 = 0;
+        int i2 = 0;
         char charAt = toUIntOrNull.charAt(0);
-        int i4 = 1;
+        int i3 = 1;
         if (Intrinsics.compare((int) charAt, 48) >= 0) {
-            i4 = 0;
+            i3 = 0;
         } else if (length == 1 || charAt != '+') {
             return null;
         }
-        int m807constructorimpl = UInt.m807constructorimpl(i2);
-        int i5 = 119304647;
-        while (i4 < length) {
-            int digitOf = CharsKt__CharJVMKt.digitOf(toUIntOrNull.charAt(i4), i2);
+        int m786constructorimpl = UInt.m786constructorimpl(i);
+        int i4 = 119304647;
+        while (i3 < length) {
+            int digitOf = CharsKt__CharJVMKt.digitOf(toUIntOrNull.charAt(i3), i);
             if (digitOf < 0) {
                 return null;
             }
-            if (UnsignedKt.uintCompare(i3, i5) > 0) {
-                if (i5 == 119304647) {
-                    i5 = UnsignedKt.m1060uintDivideJ1ME1BU(-1, m807constructorimpl);
-                    if (UnsignedKt.uintCompare(i3, i5) > 0) {
+            if (UnsignedKt.uintCompare(i2, i4) > 0) {
+                if (i4 == 119304647) {
+                    i4 = UnsignedKt.m1039uintDivideJ1ME1BU(-1, m786constructorimpl);
+                    if (UnsignedKt.uintCompare(i2, i4) > 0) {
                     }
                 }
                 return null;
             }
-            int m807constructorimpl2 = UInt.m807constructorimpl(i3 * m807constructorimpl);
-            int m807constructorimpl3 = UInt.m807constructorimpl(UInt.m807constructorimpl(digitOf) + m807constructorimpl2);
-            if (UnsignedKt.uintCompare(m807constructorimpl3, m807constructorimpl2) < 0) {
+            int m786constructorimpl2 = UInt.m786constructorimpl(i2 * m786constructorimpl);
+            int m786constructorimpl3 = UInt.m786constructorimpl(UInt.m786constructorimpl(digitOf) + m786constructorimpl2);
+            if (UnsignedKt.uintCompare(m786constructorimpl3, m786constructorimpl2) < 0) {
                 return null;
             }
-            i4++;
-            i3 = m807constructorimpl3;
+            i3++;
+            i2 = m786constructorimpl3;
         }
-        return UInt.m801boximpl(i3);
+        return UInt.m780boximpl(i2);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final long toULong(String toULong, int i2) {
+    public static final long toULong(String toULong, int i) {
         Intrinsics.checkNotNullParameter(toULong, "$this$toULong");
-        ULong uLongOrNull = toULongOrNull(toULong, i2);
+        ULong uLongOrNull = toULongOrNull(toULong, i);
         if (uLongOrNull != null) {
-            return uLongOrNull.m936unboximpl();
+            return uLongOrNull.m915unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toULong);
         throw new KotlinNothingValueException();
@@ -222,57 +222,57 @@ public final class UStringsKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final ULong toULongOrNull(String toULongOrNull, int i2) {
+    public static final ULong toULongOrNull(String toULongOrNull, int i) {
         int digitOf;
         Intrinsics.checkNotNullParameter(toULongOrNull, "$this$toULongOrNull");
-        CharsKt__CharJVMKt.checkRadix(i2);
+        CharsKt__CharJVMKt.checkRadix(i);
         int length = toULongOrNull.length();
         if (length == 0) {
             return null;
         }
-        long j2 = -1;
-        int i3 = 0;
+        long j = -1;
+        int i2 = 0;
         char charAt = toULongOrNull.charAt(0);
         if (Intrinsics.compare((int) charAt, 48) < 0) {
             if (length == 1 || charAt != '+') {
                 return null;
             }
-            i3 = 1;
+            i2 = 1;
         }
-        long m885constructorimpl = ULong.m885constructorimpl(i2);
-        long j3 = 0;
-        long j4 = 512409557603043100L;
-        while (i3 < length) {
-            if (CharsKt__CharJVMKt.digitOf(toULongOrNull.charAt(i3), i2) < 0) {
+        long m864constructorimpl = ULong.m864constructorimpl(i);
+        long j2 = 0;
+        long j3 = 512409557603043100L;
+        while (i2 < length) {
+            if (CharsKt__CharJVMKt.digitOf(toULongOrNull.charAt(i2), i) < 0) {
                 return null;
             }
-            if (UnsignedKt.ulongCompare(j3, j4) > 0) {
-                if (j4 == 512409557603043100L) {
-                    j4 = UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl);
-                    if (UnsignedKt.ulongCompare(j3, j4) > 0) {
+            if (UnsignedKt.ulongCompare(j2, j3) > 0) {
+                if (j3 == 512409557603043100L) {
+                    j3 = UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl);
+                    if (UnsignedKt.ulongCompare(j2, j3) > 0) {
                     }
                 }
                 return null;
             }
-            long m885constructorimpl2 = ULong.m885constructorimpl(j3 * m885constructorimpl);
-            long m885constructorimpl3 = ULong.m885constructorimpl(ULong.m885constructorimpl(UInt.m807constructorimpl(digitOf) & 4294967295L) + m885constructorimpl2);
-            if (UnsignedKt.ulongCompare(m885constructorimpl3, m885constructorimpl2) < 0) {
+            long m864constructorimpl2 = ULong.m864constructorimpl(j2 * m864constructorimpl);
+            long m864constructorimpl3 = ULong.m864constructorimpl(ULong.m864constructorimpl(UInt.m786constructorimpl(digitOf) & 4294967295L) + m864constructorimpl2);
+            if (UnsignedKt.ulongCompare(m864constructorimpl3, m864constructorimpl2) < 0) {
                 return null;
             }
-            i3++;
-            j3 = m885constructorimpl3;
-            j2 = -1;
+            i2++;
+            j2 = m864constructorimpl3;
+            j = -1;
         }
-        return ULong.m879boximpl(j3);
+        return ULong.m858boximpl(j2);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final short toUShort(String toUShort, int i2) {
+    public static final short toUShort(String toUShort, int i) {
         Intrinsics.checkNotNullParameter(toUShort, "$this$toUShort");
-        UShort uShortOrNull = toUShortOrNull(toUShort, i2);
+        UShort uShortOrNull = toUShortOrNull(toUShort, i);
         if (uShortOrNull != null) {
-            return uShortOrNull.m1040unboximpl();
+            return uShortOrNull.m1019unboximpl();
         }
         StringsKt__StringNumberConversionsKt.numberFormatError(toUShort);
         throw new KotlinNothingValueException();
@@ -280,15 +280,15 @@ public final class UStringsKt {
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
-    public static final UShort toUShortOrNull(String toUShortOrNull, int i2) {
+    public static final UShort toUShortOrNull(String toUShortOrNull, int i) {
         Intrinsics.checkNotNullParameter(toUShortOrNull, "$this$toUShortOrNull");
-        UInt uIntOrNull = toUIntOrNull(toUShortOrNull, i2);
+        UInt uIntOrNull = toUIntOrNull(toUShortOrNull, i);
         if (uIntOrNull != null) {
-            int m858unboximpl = uIntOrNull.m858unboximpl();
-            if (UnsignedKt.uintCompare(m858unboximpl, UInt.m807constructorimpl(65535)) > 0) {
+            int m837unboximpl = uIntOrNull.m837unboximpl();
+            if (UnsignedKt.uintCompare(m837unboximpl, UInt.m786constructorimpl(65535)) > 0) {
                 return null;
             }
-            return UShort.m985boximpl(UShort.m991constructorimpl((short) m858unboximpl));
+            return UShort.m964boximpl(UShort.m970constructorimpl((short) m837unboximpl));
         }
         return null;
     }

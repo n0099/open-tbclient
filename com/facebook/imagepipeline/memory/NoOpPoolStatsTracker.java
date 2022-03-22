@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NoOpPoolStatsTracker implements PoolStatsTracker {
     public static /* synthetic */ Interceptable $ic;
     public static NoOpPoolStatsTracker sInstance;
@@ -34,9 +34,9 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,16 +60,16 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onAlloc(int i2) {
+    public void onAlloc(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onFree(int i2) {
+    public void onFree(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
@@ -88,16 +88,16 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onValueRelease(int i2) {
+    public void onValueRelease(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onValueReuse(int i2) {
+    public void onValueReuse(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
     }
 

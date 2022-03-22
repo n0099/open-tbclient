@@ -16,9 +16,9 @@ public class v1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,9 +66,9 @@ public class v1 {
             int length = str.length() / 2;
             byte[] bArr = new byte[length];
             byte[] bytes = str.getBytes();
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i2 * 2;
-                bArr[i2] = a(bytes[i3], bytes[i3 + 1]);
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                bArr[i] = a(bytes[i2], bytes[i2 + 1]);
             }
             return bArr;
         }
@@ -81,15 +81,15 @@ public class v1 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, str)) == null) {
             byte[] b2 = b(str);
             byte[] bArr2 = new byte[bArr.length];
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < bArr.length; i4++) {
-                i2 = (i2 + 1) & 255;
-                i3 = ((b2[i2] & 255) + i3) & 255;
-                byte b3 = b2[i2];
-                b2[i2] = b2[i3];
-                b2[i3] = b3;
-                bArr2[i4] = (byte) (b2[((b2[i2] & 255) + (b2[i3] & 255)) & 255] ^ bArr[i4]);
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((b2[i] & 255) + i2) & 255;
+                byte b3 = b2[i];
+                b2[i] = b2[i2];
+                b2[i2] = b3;
+                bArr2[i3] = (byte) (b2[((b2[i] & 255) + (b2[i2] & 255)) & 255] ^ bArr[i3]);
             }
             return bArr2;
         }
@@ -108,20 +108,20 @@ public class v1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             byte[] bytes = str.getBytes();
             byte[] bArr = new byte[256];
-            for (int i2 = 0; i2 < 256; i2++) {
-                bArr[i2] = (byte) i2;
+            for (int i = 0; i < 256; i++) {
+                bArr[i] = (byte) i;
             }
             if (bytes == null || bytes.length == 0) {
                 return null;
             }
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            for (int i5 = 0; i5 < 256; i5++) {
-                i4 = ((bytes[i3] & 255) + (bArr[i5] & 255) + i4) & 255;
-                byte b2 = bArr[i5];
-                bArr[i5] = bArr[i4];
-                bArr[i4] = b2;
-                i3 = (i3 + 1) % bytes.length;
+            for (int i4 = 0; i4 < 256; i4++) {
+                i3 = ((bytes[i2] & 255) + (bArr[i4] & 255) + i3) & 255;
+                byte b2 = bArr[i4];
+                bArr[i4] = bArr[i3];
+                bArr[i3] = b2;
+                i2 = (i2 + 1) % bytes.length;
             }
             return bArr;
         }
@@ -157,8 +157,8 @@ public class v1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             String str2 = "";
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                String hexString = Integer.toHexString(str.charAt(i2) & 255);
+            for (int i = 0; i < str.length(); i++) {
+                String hexString = Integer.toHexString(str.charAt(i) & 255);
                 if (hexString.length() == 1) {
                     hexString = '0' + hexString;
                 }

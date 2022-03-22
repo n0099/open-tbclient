@@ -9,28 +9,28 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countLeadingZeroBits(int i2) {
-        return Integer.numberOfLeadingZeros(i2);
+    public static final int countLeadingZeroBits(int i) {
+        return Integer.numberOfLeadingZeros(i);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countOneBits(int i2) {
-        return Integer.bitCount(i2);
+    public static final int countOneBits(int i) {
+        return Integer.bitCount(i);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countTrailingZeroBits(int i2) {
-        return Integer.numberOfTrailingZeros(i2);
+    public static final int countTrailingZeroBits(int i) {
+        return Integer.numberOfTrailingZeros(i);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double fromBits(DoubleCompanionObject doubleCompanionObject, long j2) {
-        return Double.longBitsToDouble(j2);
+    public static final double fromBits(DoubleCompanionObject doubleCompanionObject, long j) {
+        return Double.longBitsToDouble(j);
     }
 
     @InlineOnly
@@ -51,29 +51,29 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
     @InlineOnly
-    public static final int rotateLeft(int i2, int i3) {
-        return Integer.rotateLeft(i2, i3);
+    public static final int rotateLeft(int i, int i2) {
+        return Integer.rotateLeft(i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
     @InlineOnly
-    public static final int rotateRight(int i2, int i3) {
-        return Integer.rotateRight(i2, i3);
+    public static final int rotateRight(int i, int i2) {
+        return Integer.rotateRight(i, i2);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int takeHighestOneBit(int i2) {
-        return Integer.highestOneBit(i2);
+    public static final int takeHighestOneBit(int i) {
+        return Integer.highestOneBit(i);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int takeLowestOneBit(int i2) {
-        return Integer.lowestOneBit(i2);
+    public static final int takeLowestOneBit(int i) {
+        return Integer.lowestOneBit(i);
     }
 
     @SinceKotlin(version = "1.2")
@@ -91,28 +91,28 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countLeadingZeroBits(long j2) {
-        return Long.numberOfLeadingZeros(j2);
+    public static final int countLeadingZeroBits(long j) {
+        return Long.numberOfLeadingZeros(j);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countOneBits(long j2) {
-        return Long.bitCount(j2);
+    public static final int countOneBits(long j) {
+        return Long.bitCount(j);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countTrailingZeroBits(long j2) {
-        return Long.numberOfTrailingZeros(j2);
+    public static final int countTrailingZeroBits(long j) {
+        return Long.numberOfTrailingZeros(j);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float fromBits(FloatCompanionObject floatCompanionObject, int i2) {
-        return Float.intBitsToFloat(i2);
+    public static final float fromBits(FloatCompanionObject floatCompanionObject, int i) {
+        return Float.intBitsToFloat(i);
     }
 
     @InlineOnly
@@ -133,29 +133,29 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
     @InlineOnly
-    public static final long rotateLeft(long j2, int i2) {
-        return Long.rotateLeft(j2, i2);
+    public static final long rotateLeft(long j, int i) {
+        return Long.rotateLeft(j, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
     @InlineOnly
-    public static final long rotateRight(long j2, int i2) {
-        return Long.rotateRight(j2, i2);
+    public static final long rotateRight(long j, int i) {
+        return Long.rotateRight(j, i);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final long takeHighestOneBit(long j2) {
-        return Long.highestOneBit(j2);
+    public static final long takeHighestOneBit(long j) {
+        return Long.highestOneBit(j);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final long takeLowestOneBit(long j2) {
-        return Long.lowestOneBit(j2);
+    public static final long takeLowestOneBit(long j) {
+        return Long.lowestOneBit(j);
     }
 
     @SinceKotlin(version = "1.2")

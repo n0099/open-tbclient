@@ -21,14 +21,14 @@ public class c extends b<Integer> {
         return sharedPreferences.getInt("batchReportCacheType", 2);
     }
 
-    public static void a(@Nullable Context context, int i2) {
+    public static void a(@Nullable Context context, int i) {
         SharedPreferences sharedPreferences;
         com.kwad.sdk.core.d.a.a("BatchReportCacheTypeConfigItem", "saveBatchReportCacheType");
         if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putInt("batchReportCacheType", i2);
+        edit.putInt("batchReportCacheType", i);
         edit.apply();
     }
 

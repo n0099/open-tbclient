@@ -11,38 +11,38 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f56835b;
+    public final long f41699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f56836c;
+    public final boolean f41700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f56837d;
+    public final boolean f41701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f56838e;
+    public final int f41702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f56839f;
+    public final boolean f41703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f56840g;
+    public final boolean f41704g;
 
     /* renamed from: com.kwai.filedownloader.e.e$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
@@ -101,20 +101,20 @@ public class e {
         String str7;
         String str8;
         Object obj;
-        int i2;
+        int i;
         Object obj2;
-        long j2;
+        long j;
         Object obj3;
-        long j3;
-        int i3;
+        long j2;
+        int i2;
         ?? r6;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -160,12 +160,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f56837d = true;
+                    this.f41701d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f56835b = j3;
+                    this.f41699b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -192,12 +192,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f56837d = true;
+                    this.f41701d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f56835b = j3;
+                    this.f41699b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -223,12 +223,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f56837d = true;
+                    this.f41701d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f56835b = j3;
+                    this.f41699b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -262,12 +262,12 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f56837d = true;
+                        this.f41701d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f56835b = j3;
+                        this.f41699b = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
@@ -291,12 +291,12 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f56837d = true;
+                        this.f41701d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f56835b = j3;
+                        this.f41699b = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
@@ -319,12 +319,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f56837d = true;
+                    this.f41701d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f56835b = j3;
+                    this.f41699b = j2;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -359,55 +359,55 @@ public class e {
         }
         if (str6 == null) {
             obj = "download.max-network-thread-count";
-            i2 = 0;
-            this.f56836c = false;
+            i = 0;
+            this.f41700c = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
-            i2 = 0;
-            this.f56836c = str6.equals("true");
+            i = 0;
+            this.f41700c = str6.equals("true");
         }
-        this.f56837d = true;
+        this.f41701d = true;
         if (str2 != null) {
-            this.a = Math.max(i2, Integer.valueOf(str2).intValue());
+            this.a = Math.max(i, Integer.valueOf(str2).intValue());
         } else {
             this.a = 65536;
         }
         if (str3 != null) {
             obj2 = "download.min-progress-time";
-            j2 = currentTimeMillis;
+            j = currentTimeMillis;
             obj3 = "http.lenient";
-            j3 = Math.max(0L, Long.valueOf(str3).longValue());
+            j2 = Math.max(0L, Long.valueOf(str3).longValue());
         } else {
             obj2 = "download.min-progress-time";
-            j2 = currentTimeMillis;
+            j = currentTimeMillis;
             obj3 = "http.lenient";
-            j3 = 2000;
+            j2 = 2000;
         }
-        this.f56835b = j3;
+        this.f41699b = j2;
         if (str4 != null) {
-            this.f56838e = a(Integer.valueOf(str4).intValue());
-            i3 = 3;
+            this.f41702e = a(Integer.valueOf(str4).intValue());
+            i2 = 3;
         } else {
-            i3 = 3;
-            this.f56838e = 3;
+            i2 = 3;
+            this.f41702e = 3;
         }
         if (str7 == null) {
             r6 = 0;
-            this.f56839f = false;
+            this.f41703f = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
-            Object[] objArr = new Object[i3];
+            Object[] objArr = new Object[i2];
             objArr[0] = "file.non-pre-allocation";
             objArr[1] = "true";
             objArr[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r6 = 0;
-            this.f56839f = str7.equals("true");
+            this.f41703f = str7.equals("true");
         }
         if (str8 == null) {
-            this.f56840g = r6;
+            this.f41704g = r6;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r6] = "broadcast.completed";
@@ -415,21 +415,21 @@ public class e {
             objArr2[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.f56840g = str8.equals("true");
+            this.f41704g = str8.equals("true");
         }
         if (d.a) {
             Object[] objArr3 = new Object[11];
-            objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j2);
+            objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.f56836c);
+            objArr3[2] = Boolean.valueOf(this.f41700c);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.f56837d);
+            objArr3[4] = Boolean.valueOf(this.f41701d);
             objArr3[5] = "download.min-progress-step";
             objArr3[6] = Integer.valueOf(this.a);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.f56835b);
+            objArr3[8] = Long.valueOf(this.f41699b);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.f56838e);
+            objArr3[10] = Integer.valueOf(this.f41702e);
             d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }
@@ -438,18 +438,18 @@ public class e {
         this();
     }
 
-    public static int a(int i2) {
+    public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 > 12) {
-                d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 12, 12);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i > 12) {
+                d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i), 12, 12);
                 return 12;
-            } else if (i2 < 1) {
-                d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 1, 1);
+            } else if (i < 1) {
+                d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i), 1, 1);
                 return 1;
             } else {
-                return i2;
+                return i;
             }
         }
         return invokeI.intValue;

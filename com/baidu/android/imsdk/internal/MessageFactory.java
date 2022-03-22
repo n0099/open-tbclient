@@ -46,9 +46,9 @@ public class MessageFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,19 +72,19 @@ public class MessageFactory {
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: java.lang.reflect.Method */
     /* JADX WARN: Multi-variable type inference failed */
-    private Message invokeMethod(Context context, String str, int i2, Class<?>[] clsArr, Object[] objArr, Intent intent) {
+    private Message invokeMethod(Context context, String str, int i, Class<?>[] clsArr, Object[] objArr, Intent intent) {
         InterceptResult invokeCommon;
         Message message;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, str, Integer.valueOf(i2), clsArr, objArr, intent})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, str, Integer.valueOf(i), clsArr, objArr, intent})) == null) {
             synchronized (mInstance) {
                 Message message2 = null;
                 if (this.classMap.isEmpty()) {
                     return null;
                 }
-                Class<?> cls = this.classMap.get(Integer.valueOf(i2));
+                Class<?> cls = this.classMap.get(Integer.valueOf(i));
                 if (cls == null) {
-                    LogUtils.d(TAG, ": don't hava class ,type=" + i2);
+                    LogUtils.d(TAG, ": don't hava class ,type=" + i);
                     return null;
                 }
                 try {
@@ -116,12 +116,12 @@ public class MessageFactory {
         return (Message) invokeCommon.objValue;
     }
 
-    public void addType(int i2, Class<?> cls) {
+    public void addType(int i, Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, cls) == null) {
             synchronized (mInstance) {
                 try {
-                    this.classMap.put(Integer.valueOf(i2), cls);
+                    this.classMap.put(Integer.valueOf(i), cls);
                 } catch (SecurityException e2) {
                     LogUtils.e(LogUtils.TAG, "", e2);
                 }
@@ -129,15 +129,15 @@ public class MessageFactory {
         }
     }
 
-    public Message createNewMessage(Context context, int i2, Intent intent) {
+    public Message createNewMessage(Context context, int i, Intent intent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, intent)) == null) ? invokeMethod(context, "newInstance", i2, new Class[]{Context.class, Intent.class}, new Object[]{context, intent}, intent) : (Message) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, intent)) == null) ? invokeMethod(context, "newInstance", i, new Class[]{Context.class, Intent.class}, new Object[]{context, intent}, intent) : (Message) invokeLIL.objValue;
     }
 
-    public Message parseMessage(Context context, int i2, String str, String str2, String str3) {
+    public Message parseMessage(Context context, int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i2), str, str2, str3})) == null) ? invokeMethod(context, "parseBody", i2, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null) : (Message) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), str, str2, str3})) == null) ? invokeMethod(context, "parseBody", i, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null) : (Message) invokeCommon.objValue;
     }
 }

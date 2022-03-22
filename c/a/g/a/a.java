@@ -22,14 +22,14 @@ public class a {
                 int length = Array.getLength(obj);
                 StringBuilder sb = new StringBuilder();
                 sb.append('[');
-                int i2 = 0;
-                while (i2 < length) {
-                    sb.append(Array.get(obj, i2));
+                int i = 0;
+                while (i < length) {
+                    sb.append(Array.get(obj, i));
                     sb.append(',');
                     sb.append(WebvttCueParser.CHAR_SPACE);
-                    i2++;
+                    i++;
                 }
-                if (i2 > 0) {
+                if (i > 0) {
                     sb.delete(sb.length() - 2, sb.length());
                 }
                 sb.append(']');

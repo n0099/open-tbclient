@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CertificatePinner {
     public static /* synthetic */ Interceptable $ic;
     public static final CertificatePinner DEFAULT;
@@ -32,7 +31,7 @@ public final class CertificatePinner {
     public final CertificateChainCleaner certificateChainCleaner;
     public final Set<Pin> pins;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +42,9 @@ public final class CertificatePinner {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,7 +75,7 @@ public final class CertificatePinner {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Pin {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WILDCARD = "*.";
@@ -94,9 +93,9 @@ public final class CertificatePinner {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,7 +141,7 @@ public final class CertificatePinner {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.pattern.hashCode()) * 31) + this.hashAlgorithm.hashCode()) * 31) + this.hash.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((((527 + this.pattern.hashCode()) * 31) + this.hashAlgorithm.hashCode()) * 31) + this.hash.hashCode() : invokeV.intValue;
         }
 
         public boolean matches(String str) {
@@ -197,9 +196,9 @@ public final class CertificatePinner {
             newInitContext.initArgs = r2;
             Object[] objArr = {set, certificateChainCleaner};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -245,13 +244,13 @@ public final class CertificatePinner {
                 list = certificateChainCleaner.clean(list, str);
             }
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                X509Certificate x509Certificate = (X509Certificate) list.get(i2);
+            for (int i = 0; i < size; i++) {
+                X509Certificate x509Certificate = (X509Certificate) list.get(i);
                 int size2 = findMatchingPins.size();
                 ByteString byteString = null;
                 ByteString byteString2 = null;
-                for (int i3 = 0; i3 < size2; i3++) {
-                    Pin pin = findMatchingPins.get(i3);
+                for (int i2 = 0; i2 < size2; i2++) {
+                    Pin pin = findMatchingPins.get(i2);
                     if (pin.hashAlgorithm.equals("sha256/")) {
                         if (byteString == null) {
                             byteString = sha256(x509Certificate);
@@ -275,8 +274,8 @@ public final class CertificatePinner {
             sb.append("Certificate pinning failure!");
             sb.append("\n  Peer certificate chain:");
             int size3 = list.size();
-            for (int i4 = 0; i4 < size3; i4++) {
-                X509Certificate x509Certificate2 = (X509Certificate) list.get(i4);
+            for (int i3 = 0; i3 < size3; i3++) {
+                X509Certificate x509Certificate2 = (X509Certificate) list.get(i3);
                 sb.append("\n    ");
                 sb.append(pin(x509Certificate2));
                 sb.append(": ");
@@ -286,9 +285,9 @@ public final class CertificatePinner {
             sb.append(str);
             sb.append(":");
             int size4 = findMatchingPins.size();
-            for (int i5 = 0; i5 < size4; i5++) {
+            for (int i4 = 0; i4 < size4; i4++) {
                 sb.append("\n    ");
-                sb.append(findMatchingPins.get(i5));
+                sb.append(findMatchingPins.get(i4));
             }
             throw new SSLPeerUnverifiedException(sb.toString());
         }

@@ -1,7 +1,7 @@
 package com.ss.android.download.api.download;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface DownloadEventConfig {
     String getClickButtonTag();
 
@@ -33,7 +33,7 @@ public interface DownloadEventConfig {
 
     boolean isEnableV3Event();
 
-    void setDownloadScene(int i2);
+    void setDownloadScene(int i);
 
     void setRefer(String str);
 }

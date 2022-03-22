@@ -11,7 +11,6 @@ import com.airbnb.lottie.model.content.Mask;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 import java.util.Locale;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class Layer {
     public final LottieComposition composition;
@@ -62,23 +61,23 @@ public class Layer {
         UNKNOWN
     }
 
-    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j2, LayerType layerType, long j3, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i2, int i3, int i4, float f2, float f3, int i5, int i6, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
+    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i, int i2, int i3, float f2, float f3, int i4, int i5, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
         this.shapes = list;
         this.composition = lottieComposition;
         this.layerName = str;
-        this.layerId = j2;
+        this.layerId = j;
         this.layerType = layerType;
-        this.parentId = j3;
+        this.parentId = j2;
         this.refId = str2;
         this.masks = list2;
         this.transform = animatableTransform;
-        this.solidWidth = i2;
-        this.solidHeight = i3;
-        this.solidColor = i4;
+        this.solidWidth = i;
+        this.solidHeight = i2;
+        this.solidColor = i3;
         this.timeStretch = f2;
         this.startFrame = f3;
-        this.preCompWidth = i5;
-        this.preCompHeight = i6;
+        this.preCompWidth = i4;
+        this.preCompHeight = i5;
         this.text = animatableTextFrame;
         this.textProperties = animatableTextProperties;
         this.inOutKeyframes = list3;
@@ -187,7 +186,7 @@ public class Layer {
         StringBuilder sb = new StringBuilder();
         sb.append(str);
         sb.append(getName());
-        sb.append(StringUtils.LF);
+        sb.append("\n");
         Layer layerModelForId = this.composition.layerModelForId(getParentId());
         if (layerModelForId != null) {
             sb.append("\t\tParents: ");
@@ -199,13 +198,13 @@ public class Layer {
                 layerModelForId2 = this.composition.layerModelForId(layerModelForId2.getParentId());
             }
             sb.append(str);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
         }
         if (!getMasks().isEmpty()) {
             sb.append(str);
             sb.append("\tMasks: ");
             sb.append(getMasks().size());
-            sb.append(StringUtils.LF);
+            sb.append("\n");
         }
         if (getSolidWidth() != 0 && getSolidHeight() != 0) {
             sb.append(str);
@@ -219,7 +218,7 @@ public class Layer {
                 sb.append(str);
                 sb.append("\t\t");
                 sb.append(contentModel);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
         }
         return sb.toString();

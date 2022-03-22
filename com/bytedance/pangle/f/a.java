@@ -1,6 +1,7 @@
 package com.bytedance.pangle.f;
 
 import android.content.pm.Signature;
+import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicReference<byte[]> a;
@@ -58,7 +59,7 @@ public final class a {
             }
             try {
                 ArrayList<JarEntry> arrayList = new ArrayList();
-                JarEntry jarEntry = jarFile.getJarEntry("AndroidManifest.xml");
+                JarEntry jarEntry = jarFile.getJarEntry(CommonMethods.ANDROID_MANIFEST_FILENAME);
                 if (jarEntry != null) {
                     Certificate[][] a2 = a(jarFile, jarEntry);
                     if (!com.bytedance.pangle.util.b.a(a2)) {
@@ -68,7 +69,7 @@ public final class a {
                             JarEntry nextElement = entries.nextElement();
                             if (!nextElement.isDirectory()) {
                                 String name = nextElement.getName();
-                                if (!name.startsWith("META-INF/") && !name.equals("AndroidManifest.xml")) {
+                                if (!name.startsWith("META-INF/") && !name.equals(CommonMethods.ANDROID_MANIFEST_FILENAME)) {
                                     arrayList.add(nextElement);
                                 }
                             }

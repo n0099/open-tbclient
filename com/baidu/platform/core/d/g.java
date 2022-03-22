@@ -20,9 +20,9 @@ public class g extends com.baidu.platform.base.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {indoorRoutePlanOption};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,7 +45,7 @@ public class g extends com.baidu.platform.base.e {
             GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
             if (ll2mc2 != null) {
                 String format2 = String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6()));
-                this.a.a(com.baidu.fsg.base.statistics.h.a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+                this.a.a("en", (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
             }
         }
     }

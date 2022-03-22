@@ -1,7 +1,7 @@
 package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.u.a.e.e;
+import c.a.t.a.e.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$ChunkInfo;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
@@ -28,7 +28,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCEPT_COMPRESS_TYPE_FIELD_NUMBER = 9;
@@ -57,7 +57,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     public RpcMetaPb$RpcRequestMeta request_;
     public RpcMetaPb$RpcResponseMeta response_;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcMeta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,9 +67,9 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -86,51 +86,53 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcMeta, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public RpcMetaPb$RpcRequestMeta f25640b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public RpcMetaPb$RpcResponseMeta f25641c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f25642d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33289e;
+        public long f25643e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RpcMetaPb$RpcRequestMeta f33290f;
+        public int f25644f;
 
         /* renamed from: g  reason: collision with root package name */
-        public RpcMetaPb$RpcResponseMeta f33291g;
+        public RpcMetaPb$ChunkInfo f25645g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f33292h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public long f33293i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f33294j;
-        public RpcMetaPb$ChunkInfo k;
-        public ByteString l;
-        public RpcMetaPb$RpcNotifyMeta m;
-        public int n;
+        public ByteString f25646h;
+        public RpcMetaPb$RpcNotifyMeta i;
+        public int j;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33290f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
-            this.f33291g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
-            this.k = RpcMetaPb$ChunkInfo.getDefaultInstance();
-            this.l = ByteString.EMPTY;
-            this.m = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
+            this.f25640b = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+            this.f25641c = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+            this.f25645g = RpcMetaPb$ChunkInfo.getDefaultInstance();
+            this.f25646h = ByteString.EMPTY;
+            this.i = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
             maybeForceBuilderInitialization();
         }
 
@@ -140,23 +142,23 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new b() : (b) invokeV.objValue;
         }
 
-        public b A(int i2) {
+        public b A(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f33289e |= 256;
-                this.n = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.a |= 256;
+                this.j = i;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b B(int i2) {
+        public b B(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f33289e |= 16;
-                this.f33294j = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.a |= 16;
+                this.f25644f = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -167,8 +169,8 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f33289e |= 64;
-                    this.l = byteString;
+                    this.a |= 64;
+                    this.f25646h = byteString;
                     return this;
                 }
                 throw null;
@@ -176,23 +178,23 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             return (b) invokeL.objValue;
         }
 
-        public b D(int i2) {
+        public b D(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.f33289e |= 4;
-                this.f33292h = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.a |= 4;
+                this.f25642d = i;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b E(long j2) {
+        public b E(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                this.f33289e |= 8;
-                this.f33293i = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                this.a |= 8;
+                this.f25643e = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -203,8 +205,8 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rpcMetaPb$RpcRequestMeta)) == null) {
                 if (rpcMetaPb$RpcRequestMeta != null) {
-                    this.f33290f = rpcMetaPb$RpcRequestMeta;
-                    this.f33289e |= 1;
+                    this.f25640b = rpcMetaPb$RpcRequestMeta;
+                    this.a |= 1;
                     return this;
                 }
                 throw null;
@@ -261,42 +263,42 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (e) null);
-                int i2 = this.f33289e;
-                int i3 = (i2 & 1) != 1 ? 0 : 1;
-                rpcMetaPb$RpcMeta.request_ = this.f33290f;
-                if ((i2 & 2) == 2) {
-                    i3 |= 2;
+                int i = this.a;
+                int i2 = (i & 1) != 1 ? 0 : 1;
+                rpcMetaPb$RpcMeta.request_ = this.f25640b;
+                if ((i & 2) == 2) {
+                    i2 |= 2;
                 }
-                rpcMetaPb$RpcMeta.response_ = this.f33291g;
-                if ((i2 & 4) == 4) {
-                    i3 |= 4;
+                rpcMetaPb$RpcMeta.response_ = this.f25641c;
+                if ((i & 4) == 4) {
+                    i2 |= 4;
                 }
-                rpcMetaPb$RpcMeta.compressType_ = this.f33292h;
-                if ((i2 & 8) == 8) {
-                    i3 |= 8;
+                rpcMetaPb$RpcMeta.compressType_ = this.f25642d;
+                if ((i & 8) == 8) {
+                    i2 |= 8;
                 }
-                rpcMetaPb$RpcMeta.correlationId_ = this.f33293i;
-                if ((i2 & 16) == 16) {
-                    i3 |= 16;
+                rpcMetaPb$RpcMeta.correlationId_ = this.f25643e;
+                if ((i & 16) == 16) {
+                    i2 |= 16;
                 }
-                rpcMetaPb$RpcMeta.attachmentSize_ = this.f33294j;
-                if ((i2 & 32) == 32) {
-                    i3 |= 32;
+                rpcMetaPb$RpcMeta.attachmentSize_ = this.f25644f;
+                if ((i & 32) == 32) {
+                    i2 |= 32;
                 }
-                rpcMetaPb$RpcMeta.chunkInfo_ = this.k;
-                if ((i2 & 64) == 64) {
-                    i3 |= 64;
+                rpcMetaPb$RpcMeta.chunkInfo_ = this.f25645g;
+                if ((i & 64) == 64) {
+                    i2 |= 64;
                 }
-                rpcMetaPb$RpcMeta.authenticationData_ = this.l;
-                if ((i2 & 128) == 128) {
-                    i3 |= 128;
+                rpcMetaPb$RpcMeta.authenticationData_ = this.f25646h;
+                if ((i & 128) == 128) {
+                    i2 |= 128;
                 }
-                rpcMetaPb$RpcMeta.notify_ = this.m;
-                if ((i2 & 256) == 256) {
-                    i3 |= 256;
+                rpcMetaPb$RpcMeta.notify_ = this.i;
+                if ((i & 256) == 256) {
+                    i2 |= 256;
                 }
-                rpcMetaPb$RpcMeta.acceptCompressType_ = this.n;
-                rpcMetaPb$RpcMeta.bitField0_ = i3;
+                rpcMetaPb$RpcMeta.acceptCompressType_ = this.j;
+                rpcMetaPb$RpcMeta.bitField0_ = i2;
                 return rpcMetaPb$RpcMeta;
             }
             return (RpcMetaPb$RpcMeta) invokeV.objValue;
@@ -307,29 +309,29 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 super.clear();
-                this.f33290f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
-                this.f33289e &= -2;
-                this.f33291g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
-                int i2 = this.f33289e & (-3);
-                this.f33289e = i2;
-                this.f33292h = 0;
-                int i3 = i2 & (-5);
-                this.f33289e = i3;
-                this.f33293i = 0L;
-                int i4 = i3 & (-9);
-                this.f33289e = i4;
-                this.f33294j = 0;
-                this.f33289e = i4 & (-17);
-                this.k = RpcMetaPb$ChunkInfo.getDefaultInstance();
-                int i5 = this.f33289e & (-33);
-                this.f33289e = i5;
-                this.l = ByteString.EMPTY;
-                this.f33289e = i5 & (-65);
-                this.m = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
-                int i6 = this.f33289e & (-129);
-                this.f33289e = i6;
-                this.n = 0;
-                this.f33289e = i6 & (-257);
+                this.f25640b = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+                this.a &= -2;
+                this.f25641c = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+                int i = this.a & (-3);
+                this.a = i;
+                this.f25642d = 0;
+                int i2 = i & (-5);
+                this.a = i2;
+                this.f25643e = 0L;
+                int i3 = i2 & (-9);
+                this.a = i3;
+                this.f25644f = 0;
+                this.a = i3 & (-17);
+                this.f25645g = RpcMetaPb$ChunkInfo.getDefaultInstance();
+                int i4 = this.a & (-33);
+                this.a = i4;
+                this.f25646h = ByteString.EMPTY;
+                this.a = i4 & (-65);
+                this.i = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
+                int i5 = this.a & (-129);
+                this.a = i5;
+                this.j = 0;
+                this.a = i5 & (-257);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -352,7 +354,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         public RpcMetaPb$ChunkInfo r() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.k : (RpcMetaPb$ChunkInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f25645g : (RpcMetaPb$ChunkInfo) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -367,21 +369,21 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         public boolean t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? (this.f33289e & 32) == 32 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? (this.a & 32) == 32 : invokeV.booleanValue;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, rpcMetaPb$ChunkInfo)) == null) {
-                if ((this.f33289e & 32) == 32 && this.k != RpcMetaPb$ChunkInfo.getDefaultInstance()) {
-                    RpcMetaPb$ChunkInfo.b newBuilder = RpcMetaPb$ChunkInfo.newBuilder(this.k);
+                if ((this.a & 32) == 32 && this.f25645g != RpcMetaPb$ChunkInfo.getDefaultInstance()) {
+                    RpcMetaPb$ChunkInfo.b newBuilder = RpcMetaPb$ChunkInfo.newBuilder(this.f25645g);
                     newBuilder.u(rpcMetaPb$ChunkInfo);
-                    this.k = newBuilder.buildPartial();
+                    this.f25645g = newBuilder.buildPartial();
                 } else {
-                    this.k = rpcMetaPb$ChunkInfo;
+                    this.f25645g = rpcMetaPb$ChunkInfo;
                 }
-                this.f33289e |= 32;
+                this.a |= 32;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -469,14 +471,14 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, rpcMetaPb$RpcNotifyMeta)) == null) {
-                if ((this.f33289e & 128) == 128 && this.m != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
-                    RpcMetaPb$RpcNotifyMeta.b newBuilder = RpcMetaPb$RpcNotifyMeta.newBuilder(this.m);
+                if ((this.a & 128) == 128 && this.i != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
+                    RpcMetaPb$RpcNotifyMeta.b newBuilder = RpcMetaPb$RpcNotifyMeta.newBuilder(this.i);
                     newBuilder.s(rpcMetaPb$RpcNotifyMeta);
-                    this.m = newBuilder.buildPartial();
+                    this.i = newBuilder.buildPartial();
                 } else {
-                    this.m = rpcMetaPb$RpcNotifyMeta;
+                    this.i = rpcMetaPb$RpcNotifyMeta;
                 }
-                this.f33289e |= 128;
+                this.a |= 128;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -486,14 +488,14 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, rpcMetaPb$RpcRequestMeta)) == null) {
-                if ((this.f33289e & 1) == 1 && this.f33290f != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
-                    RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.f33290f);
+                if ((this.a & 1) == 1 && this.f25640b != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
+                    RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.f25640b);
                     newBuilder.s(rpcMetaPb$RpcRequestMeta);
-                    this.f33290f = newBuilder.buildPartial();
+                    this.f25640b = newBuilder.buildPartial();
                 } else {
-                    this.f33290f = rpcMetaPb$RpcRequestMeta;
+                    this.f25640b = rpcMetaPb$RpcRequestMeta;
                 }
-                this.f33289e |= 1;
+                this.a |= 1;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -503,14 +505,14 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, rpcMetaPb$RpcResponseMeta)) == null) {
-                if ((this.f33289e & 2) == 2 && this.f33291g != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
-                    RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.f33291g);
+                if ((this.a & 2) == 2 && this.f25641c != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
+                    RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.f25641c);
                     newBuilder.s(rpcMetaPb$RpcResponseMeta);
-                    this.f33291g = newBuilder.buildPartial();
+                    this.f25641c = newBuilder.buildPartial();
                 } else {
-                    this.f33291g = rpcMetaPb$RpcResponseMeta;
+                    this.f25641c = rpcMetaPb$RpcResponseMeta;
                 }
-                this.f33289e |= 2;
+                this.a |= 2;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -665,9 +667,9 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.memoizedSerializedSize;
-            if (i2 != -1) {
-                return i2;
+            int i = this.memoizedSerializedSize;
+            if (i != -1) {
+                return i;
             }
             int computeMessageSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.request_) : 0;
             if ((this.bitField0_ & 2) == 2) {
@@ -875,9 +877,9 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -913,9 +915,9 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -950,9 +952,9 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             newInitContext.initArgs = r2;
             Object[] objArr = {codedInputStream, extensionRegistryLite};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

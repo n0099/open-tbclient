@@ -25,7 +25,7 @@ import com.bumptech.glide.load.data.ExifOrientationStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ThumbFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStoreThumbFetcher";
@@ -34,7 +34,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
     public final Uri mediaStoreImageUri;
     public final ThumbnailStreamOpener opener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ImageThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
@@ -65,9 +65,9 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {contentResolver};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -84,7 +84,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class VideoThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
@@ -115,9 +115,9 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {contentResolver};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -142,9 +142,9 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, thumbnailStreamOpener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -228,7 +228,9 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
                 this.inputStream = openThumbInputStream;
                 dataCallback.onDataReady(openThumbInputStream);
             } catch (FileNotFoundException e2) {
-                Log.isLoggable(TAG, 3);
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to find thumbnail file", e2);
+                }
                 dataCallback.onLoadFailed(e2);
             }
         }

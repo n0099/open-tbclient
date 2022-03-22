@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,9 +23,9 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,16 +39,16 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
             intent.putExtra("fid", str);
             intent.putExtra("name", str2);
             if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
@@ -61,7 +62,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("fid", getIntent().getStringExtra("fid"));
             bundle2.putString("name", getIntent().getStringExtra("name"));
-            bundle2.putString(FrsGameStrategyMainFragment.KEY_FROM, FrsGameStrategyMainFragment.FROM_SINGLE_ACT);
+            bundle2.putString("key_from", "from_single_act");
             frsGameStrategyMainFragment.setArguments(bundle2);
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
             beginTransaction.add(16908290, frsGameStrategyMainFragment);

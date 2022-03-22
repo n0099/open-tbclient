@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.d1.s1.b.b;
-import c.a.r0.d1.s1.f.a;
+import c.a.p0.f1.s1.b.b;
+import c.a.p0.f1.s1.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
@@ -42,9 +42,9 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -81,61 +81,75 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // c.a.r0.d1.s1.b.b
-    public void commitCallback(int i2, String str, boolean z) {
+    @Override // c.a.p0.f1.s1.b.b
+    public void commitCallback(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            if (i == 0) {
                 Intent intent = getIntent();
                 if (z) {
                     this.mView.B();
-                    intent.putExtra("group_name", getString(R.string.save_success));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f1065));
                     intent.putExtra("from", true);
                 } else {
-                    intent.putExtra("group_name", getString(R.string.forum_rule_defalt_has_commit_toast));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f0675));
                     intent.putExtra("from", false);
                 }
                 setResult(-1, intent);
                 finish();
                 return;
             }
-            new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+            BdTopToast bdTopToast = new BdTopToast(this, 2000);
+            bdTopToast.i(false);
+            bdTopToast.h(str);
+            bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.obfuscated_res_0x7f0912f2));
         }
     }
 
-    @Override // c.a.r0.d1.s1.b.b
+    @Override // c.a.p0.f1.s1.b.b
     public void commitData(ForumRuleBaseData forumRuleBaseData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, forumRuleBaseData, z) == null) {
             if (TextUtils.isEmpty(this.mForumId)) {
-                new BdTopToast(this, 2000).setIcon(false).setContent(getString(R.string.forum_rule_defalt_commit_fail_no_forum)).show((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
-            } else {
-                this.mModel.z(this.mForumId, forumRuleBaseData, z);
+                BdTopToast bdTopToast = new BdTopToast(this, 2000);
+                bdTopToast.i(false);
+                bdTopToast.h(getString(R.string.obfuscated_res_0x7f0f0672));
+                bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.obfuscated_res_0x7f0912f2));
+                return;
             }
+            this.mModel.B(this.mForumId, forumRuleBaseData, z);
         }
     }
 
-    @Override // c.a.r0.d1.s1.b.b
-    public void draftCallback(int i2, ForumRuleBaseData forumRuleBaseData, String str) {
+    @Override // c.a.p0.f1.s1.b.b
+    public void draftCallback(int i, ForumRuleBaseData forumRuleBaseData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, forumRuleBaseData, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, forumRuleBaseData, str) == null) {
             if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_FRS.equals(this.mfrom) && forumRuleBaseData == null) {
                 this.mView.p();
             }
-            if (i2 != 0) {
-                if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
+            if (i == 0) {
+                if (forumRuleBaseData != null) {
+                    this.mView.N(forumRuleBaseData, true);
+                    return;
+                } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
                     this.mView.N(this.mBaseData, false);
+                    return;
+                } else {
+                    return;
                 }
-                new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
-            } else if (forumRuleBaseData != null) {
-                this.mView.N(forumRuleBaseData, true);
-            } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
+            }
+            if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
                 this.mView.N(this.mBaseData, false);
             }
+            BdTopToast bdTopToast = new BdTopToast(this, 2000);
+            bdTopToast.i(false);
+            bdTopToast.h(str);
+            bdTopToast.j((ViewGroup) this.rootView.findViewById(R.id.obfuscated_res_0x7f0912f2));
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,18 +159,18 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     public void loadDraftData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.mModel.A(str);
+            this.mModel.C(str);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.onChangeSkinType(i);
             a aVar = this.mView;
             if (aVar != null) {
-                aVar.u(i2);
+                aVar.u(i);
             }
         }
     }
@@ -167,7 +181,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             initParamsFromIntent(bundle);
-            this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_rule_edit_activity, (ViewGroup) null);
+            this.rootView = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02c3, (ViewGroup) null);
             this.mView = new a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, this.bawuHead, this.userLevel, this);
             this.mModel = new ForumRuleEditModel(getPageContext(), this, this.mForumId);
             setContentView(this.rootView);
@@ -188,24 +202,24 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 this.mView.G();
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i2, int i3) {
+    public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            super.overridePendingTransition(R.anim.activity_open_from_bottom, R.anim.activity_close_from_top);
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            super.overridePendingTransition(R.anim.obfuscated_res_0x7f01000d, R.anim.obfuscated_res_0x7f01000c);
         }
     }
 }

@@ -44,8 +44,8 @@ public class o extends b<List<ReportInfo>> {
                 JSONArray jSONArray = new JSONArray(string);
                 if (jSONArray.length() > 0) {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
                         ReportInfo reportInfo = new ReportInfo();
                         reportInfo.parseJson(optJSONObject);
                         arrayList.add(reportInfo);
@@ -67,8 +67,8 @@ public class o extends b<List<ReportInfo>> {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("reportItems")) != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     ReportInfo reportInfo = new ReportInfo();
                     reportInfo.parseJson(optJSONObject);

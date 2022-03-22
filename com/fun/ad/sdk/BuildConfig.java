@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILD_TYPE = "release";
@@ -16,8 +16,9 @@ public final class BuildConfig {
     public static final String FLAVOR = "baidu";
     public static final Boolean IS_ADM_REPORT;
     public static final String LIBRARY_PACKAGE_NAME = "com.fun.ad.sdk";
-    public static final int VERSION_CODE = 10051;
-    public static final String VERSION_NAME = "4.2.7";
+    public static final String PLUGIN_RC = null;
+    public static final int VERSION_CODE = 10095;
+    public static final String VERSION_NAME = "4.5.4";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,9 +42,9 @@ public final class BuildConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

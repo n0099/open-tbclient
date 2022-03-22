@@ -21,27 +21,27 @@ public class ErrorInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private void initDefault(int i2) {
+    private void initDefault(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            this.code = i2;
-            if (i2 == 2105) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            this.code = i;
+            if (i == 2105) {
                 this.errorMsg = ErrorConstant.ErrorMsg.META_ERROR_CONNECTION;
                 this.tipMsg = ErrorConstant.TipMsg.META_ERROR_CONNECTION;
-            } else if (i2 == 2120) {
+            } else if (i == 2120) {
                 this.errorMsg = ErrorConstant.ErrorMsg.META_ERROR_FATAL;
                 this.tipMsg = ErrorConstant.TipMsg.META_ERROR_FATAL;
-            } else if (i2 != 2407) {
-                switch (i2) {
+            } else if (i != 2407) {
+                switch (i) {
                     case 2101:
                         this.errorMsg = ErrorConstant.ErrorMsg.META_ERROR_FATAL;
                         this.tipMsg = ErrorConstant.TipMsg.META_ERROR_NETWORK;
@@ -54,7 +54,7 @@ public class ErrorInfo {
                         this.tipMsg = ErrorConstant.TipMsg.META_ERROR_RESPONSE;
                         return;
                     default:
-                        switch (i2) {
+                        switch (i) {
                             case 2200:
                                 this.errorMsg = ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS;
                                 this.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_SUCCESS;
@@ -68,7 +68,7 @@ public class ErrorInfo {
                                 this.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_MD5;
                                 return;
                             default:
-                                switch (i2) {
+                                switch (i) {
                                     case ErrorConstant.Code.DOWNLOAD_ERROR_PATH /* 2204 */:
                                         this.errorMsg = ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH;
                                         this.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_PATH;
@@ -147,17 +147,17 @@ public class ErrorInfo {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ErrorInfo(int i2) {
-        this(i2, null);
+    public ErrorInfo(int i) {
+        this(i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -167,22 +167,22 @@ public class ErrorInfo {
         }
     }
 
-    public ErrorInfo(int i2, String str) {
+    public ErrorInfo(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        initDefault(i2);
+        initDefault(i);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -193,22 +193,22 @@ public class ErrorInfo {
         this.errorMsg += str;
     }
 
-    public ErrorInfo(int i2, String str, String str2) {
+    public ErrorInfo(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2};
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        this.code = i2;
+        this.code = i;
         this.errorMsg = str;
         this.tipMsg = str2;
     }

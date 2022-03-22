@@ -50,9 +50,9 @@ public final class UnicastSubject<T> extends Subject<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {unicastSubject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -107,11 +107,11 @@ public final class UnicastSubject<T> extends Subject<T> {
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.this$0.enableOperatorFusion = true;
                     return 2;
                 }
@@ -121,22 +121,22 @@ public final class UnicastSubject<T> extends Subject<T> {
         }
     }
 
-    public UnicastSubject(int i2, boolean z) {
+    public UnicastSubject(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i2, "capacityHint"));
+        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i, "capacityHint"));
         this.onTerminate = new AtomicReference<>();
         this.delayError = z;
         this.actual = new AtomicReference<>();
@@ -163,10 +163,10 @@ public final class UnicastSubject<T> extends Subject<T> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.wip.getAndIncrement() == 0) {
             Observer<? super T> observer = this.actual.get();
-            int i2 = 1;
+            int i = 1;
             while (observer == null) {
-                i2 = this.wip.addAndGet(-i2);
-                if (i2 == 0) {
+                i = this.wip.addAndGet(-i);
+                if (i == 0) {
                     return;
                 }
                 observer = this.actual.get();
@@ -183,7 +183,7 @@ public final class UnicastSubject<T> extends Subject<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
             SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
-            int i2 = 1;
+            int i = 1;
             boolean z = !this.delayError;
             while (!this.disposed) {
                 boolean z2 = this.done;
@@ -195,8 +195,8 @@ public final class UnicastSubject<T> extends Subject<T> {
                     errorOrComplete(observer);
                     return;
                 }
-                i2 = this.wip.addAndGet(-i2);
-                if (i2 == 0) {
+                i = this.wip.addAndGet(-i);
+                if (i == 0) {
                     return;
                 }
             }
@@ -211,7 +211,7 @@ public final class UnicastSubject<T> extends Subject<T> {
             SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
             boolean z = !this.delayError;
             boolean z2 = true;
-            int i2 = 1;
+            int i = 1;
             while (!this.disposed) {
                 boolean z3 = this.done;
                 Object obj = (T) this.queue.poll();
@@ -229,8 +229,8 @@ public final class UnicastSubject<T> extends Subject<T> {
                     }
                 }
                 if (z4) {
-                    i2 = this.wip.addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = this.wip.addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 } else {
@@ -376,25 +376,25 @@ public final class UnicastSubject<T> extends Subject<T> {
     }
 
     @CheckReturnValue
-    public static <T> UnicastSubject<T> create(int i2) {
+    public static <T> UnicastSubject<T> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new UnicastSubject<>(i2, true) : (UnicastSubject) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new UnicastSubject<>(i, true) : (UnicastSubject) invokeI.objValue;
     }
 
     @CheckReturnValue
-    public static <T> UnicastSubject<T> create(int i2, Runnable runnable) {
+    public static <T> UnicastSubject<T> create(int i, Runnable runnable) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, runnable)) == null) ? new UnicastSubject<>(i2, runnable, true) : (UnicastSubject) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, runnable)) == null) ? new UnicastSubject<>(i, runnable, true) : (UnicastSubject) invokeIL.objValue;
     }
 
     @CheckReturnValue
     @Experimental
-    public static <T> UnicastSubject<T> create(int i2, Runnable runnable, boolean z) {
+    public static <T> UnicastSubject<T> create(int i, Runnable runnable, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), runnable, Boolean.valueOf(z)})) == null) ? new UnicastSubject<>(i2, runnable, z) : (UnicastSubject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), runnable, Boolean.valueOf(z)})) == null) ? new UnicastSubject<>(i, runnable, z) : (UnicastSubject) invokeCommon.objValue;
     }
 
     @CheckReturnValue
@@ -406,17 +406,17 @@ public final class UnicastSubject<T> extends Subject<T> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UnicastSubject(int i2, Runnable runnable) {
-        this(i2, runnable, true);
+    public UnicastSubject(int i, Runnable runnable) {
+        this(i, runnable, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), runnable};
+            Object[] objArr = {Integer.valueOf(i), runnable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (Runnable) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -426,22 +426,22 @@ public final class UnicastSubject<T> extends Subject<T> {
         }
     }
 
-    public UnicastSubject(int i2, Runnable runnable, boolean z) {
+    public UnicastSubject(int i, Runnable runnable, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), runnable, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), runnable, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i2, "capacityHint"));
+        this.queue = new SpscLinkedArrayQueue<>(ObjectHelper.verifyPositive(i, "capacityHint"));
         this.onTerminate = new AtomicReference<>(ObjectHelper.requireNonNull(runnable, "onTerminate"));
         this.delayError = z;
         this.actual = new AtomicReference<>();

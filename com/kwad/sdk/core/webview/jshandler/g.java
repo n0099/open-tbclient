@@ -5,11 +5,11 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.af;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public int a;
 

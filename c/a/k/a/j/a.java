@@ -16,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3896b;
+    public static a f3361b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        f3896b = new a();
+        f3361b = new a();
     }
 
     public a() {
@@ -41,9 +41,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -55,41 +55,41 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3896b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3361b : (a) invokeV.objValue;
     }
 
-    public void a(int i2, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
+    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, onRequestPermissionsResultCallback) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) == null) || this.a == null) {
             return;
         }
         synchronized (a.class) {
-            if (this.a.containsKey(Integer.valueOf(i2))) {
-                this.a.remove(Integer.valueOf(i2));
+            if (this.a.containsKey(Integer.valueOf(i))) {
+                this.a.remove(Integer.valueOf(i));
             }
-            this.a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
+            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
         }
     }
 
-    public ActivityCompat.OnRequestPermissionsResultCallback c(int i2) {
+    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
-            if (map == null || !map.containsKey(Integer.valueOf(i2))) {
+            if (map == null || !map.containsKey(Integer.valueOf(i))) {
                 return null;
             }
-            return this.a.get(Integer.valueOf(i2));
+            return this.a.get(Integer.valueOf(i));
         }
         return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
     }
 
-    public void d(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             synchronized (a.class) {
-                if (this.a != null && this.a.containsKey(Integer.valueOf(i2))) {
-                    this.a.remove(Integer.valueOf(i2));
+                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
+                    this.a.remove(Integer.valueOf(i));
                 }
             }
         }

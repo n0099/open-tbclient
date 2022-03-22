@@ -23,7 +23,7 @@ public final class AddressBookParsedResult extends ParsedResult {
     public final String note;
 
     /* renamed from: org  reason: collision with root package name */
-    public final String f53503org;
+    public final String f38714org;
     public final String[] phoneNumbers;
     public final String[] phoneTypes;
     public final String pronunciation;
@@ -39,9 +39,9 @@ public final class AddressBookParsedResult extends ParsedResult {
             newInitContext.initArgs = r3;
             Object[] objArr = {strArr, strArr2, strArr3, strArr4, strArr5, strArr6, strArr7};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String[]) objArr2[0], (String[]) objArr2[1], (String) objArr2[2], (String[]) objArr2[3], (String[]) objArr2[4], (String[]) objArr2[5], (String[]) objArr2[6], (String) objArr2[7], (String) objArr2[8], (String[]) objArr2[9], (String[]) objArr2[10], (String) objArr2[11], (String) objArr2[12], (String) objArr2[13], (String[]) objArr2[14], (String[]) objArr2[15]);
                 newInitContext.thisArg = this;
@@ -79,7 +79,7 @@ public final class AddressBookParsedResult extends ParsedResult {
             ParsedResult.maybeAppend(this.nicknames, sb);
             ParsedResult.maybeAppend(this.pronunciation, sb);
             ParsedResult.maybeAppend(this.title, sb);
-            ParsedResult.maybeAppend(this.f53503org, sb);
+            ParsedResult.maybeAppend(this.f38714org, sb);
             ParsedResult.maybeAppend(this.addresses, sb);
             ParsedResult.maybeAppend(this.phoneNumbers, sb);
             ParsedResult.maybeAppend(this.emails, sb);
@@ -138,7 +138,7 @@ public final class AddressBookParsedResult extends ParsedResult {
     public String getOrg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f53503org : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38714org : (String) invokeV.objValue;
     }
 
     public String[] getPhoneNumbers() {
@@ -180,9 +180,9 @@ public final class AddressBookParsedResult extends ParsedResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr, strArr2, str, strArr3, strArr4, strArr5, strArr6, str2, str3, strArr7, strArr8, str4, str5, str6, strArr9, strArr10};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -200,7 +200,7 @@ public final class AddressBookParsedResult extends ParsedResult {
         this.note = str3;
         this.addresses = strArr7;
         this.addressTypes = strArr8;
-        this.f53503org = str4;
+        this.f38714org = str4;
         this.birthday = str5;
         this.title = str6;
         this.urls = strArr9;

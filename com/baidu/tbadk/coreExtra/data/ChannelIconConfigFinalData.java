@@ -42,9 +42,9 @@ public class ChannelIconConfigFinalData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -81,10 +81,10 @@ public class ChannelIconConfigFinalData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTid : (String) invokeV.objValue;
     }
 
-    public void setChannelConfigDataType(int i2) {
+    public void setChannelConfigDataType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mChannelConfigDataType = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mChannelConfigDataType = i;
         }
     }
 

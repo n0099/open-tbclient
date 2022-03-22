@@ -1,6 +1,7 @@
 package com.baidu.searchbox.elasticthread.executor;
 
 import android.os.SystemClock;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
@@ -25,17 +26,17 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
     public long openTimeInRecordLifeCycle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseDredgeExecutorCell(int i2) {
-        super(i2);
+    public BaseDredgeExecutorCell(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -111,7 +112,7 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.isOpen) {
-                getTag();
+                Log.w(getTag(), "This executor cell is already opened.");
                 return;
             }
             this.isOpen = true;
@@ -127,7 +128,7 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!this.isOpen) {
-                getTag();
+                Log.w(getTag(), "This executor cell is already shutdown.");
                 return;
             }
             this.isOpen = false;

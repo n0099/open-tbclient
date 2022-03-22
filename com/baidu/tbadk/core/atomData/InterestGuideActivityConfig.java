@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class InterestGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOM_TITLE_DATA_LENGTH = 3;
@@ -33,9 +33,9 @@ public class InterestGuideActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,42 +49,42 @@ public class InterestGuideActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) || strArr == null || strArr.length < 3) {
             return;
         }
-        getIntent().putExtra("key_custom_title", strArr);
+        getIntent().putExtra(KEY_CUSTOM_TITLE, strArr);
     }
 
     public void setOnlyShowInterestedForum(boolean z, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, arrayList) == null) {
-            getIntent().putExtra("key_only_show_interested_forum", z);
+            getIntent().putExtra(KEY_ONLY_SHOW_INTERESTED_FORUM, z);
             getIntent().putExtra(KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM, arrayList);
         }
     }
 
-    public void setScene(int i2) {
+    public void setScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterestGuideActivityConfig(Context context, int i2) {
+    public InterestGuideActivityConfig(Context context, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i2);
+        getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
     }
 }

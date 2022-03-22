@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ForwardingTimeout extends Timeout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class ForwardingTimeout extends Timeout {
             newInitContext.initArgs = r2;
             Object[] objArr = {timeout};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,10 +93,10 @@ public class ForwardingTimeout extends Timeout {
     }
 
     @Override // okio.Timeout
-    public Timeout timeout(long j2, TimeUnit timeUnit) {
+    public Timeout timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, timeUnit)) == null) ? this.delegate.timeout(j2, timeUnit) : (Timeout) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, timeUnit)) == null) ? this.delegate.timeout(j, timeUnit) : (Timeout) invokeJL.objValue;
     }
 
     @Override // okio.Timeout
@@ -107,9 +107,9 @@ public class ForwardingTimeout extends Timeout {
     }
 
     @Override // okio.Timeout
-    public Timeout deadlineNanoTime(long j2) {
+    public Timeout deadlineNanoTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.delegate.deadlineNanoTime(j2) : (Timeout) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.delegate.deadlineNanoTime(j) : (Timeout) invokeJ.objValue;
     }
 }

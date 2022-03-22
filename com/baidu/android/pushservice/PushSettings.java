@@ -16,22 +16,22 @@ public class PushSettings {
     public static int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f30261b = -1;
+    public static int f24163b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f30262c = -1;
+    public static int f24164c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f30263d = -1;
+    public static int f24165d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f30264e = -1;
+    public static int f24166e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f30265f = -1;
+    public static int f24167f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f30266g = -1;
+    public static int f24168g = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,9 +54,9 @@ public class PushSettings {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -73,12 +73,12 @@ public class PushSettings {
         return (String) invokeL.objValue;
     }
 
-    public static void a(Context context, int i2) {
+    public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) || context == null) {
             return;
         }
-        com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.sd", i2);
+        com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.sd", i);
     }
 
     public static void a(Context context, String str) {
@@ -108,10 +108,10 @@ public class PushSettings {
         return (String) invokeL.objValue;
     }
 
-    public static void b(Context context, int i2) {
+    public static void b(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, context, i2) == null) {
-            com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.track.failcount", i2);
+        if (interceptable == null || interceptable.invokeLI(65543, null, context, i) == null) {
+            com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.track.failcount", i);
         }
     }
 
@@ -172,10 +172,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f30261b == -1) {
-                f30261b = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+            if (f24163b == -1) {
+                f24163b = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
             }
-            return f30261b == 1;
+            return f24163b == 1;
         }
         return invokeL.booleanValue;
     }
@@ -187,10 +187,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f30263d == -1) {
-                f30263d = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
+            if (f24165d == -1) {
+                f24165d = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", -1);
             }
-            return f30263d == 1;
+            return f24165d == 1;
         }
         return invokeL.booleanValue;
     }
@@ -202,10 +202,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f30264e == -1) {
-                f30264e = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
+            if (f24166e == -1) {
+                f24166e = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", -1);
             }
-            return f30264e == 1;
+            return f24166e == 1;
         }
         return invokeL.booleanValue;
     }
@@ -217,10 +217,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f30265f == -1) {
-                f30265f = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
+            if (f24167f == -1) {
+                f24167f = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", -1);
             }
-            return f30265f == 1;
+            return f24167f == 1;
         }
         return invokeL.booleanValue;
     }
@@ -232,10 +232,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f30262c == -1) {
-                f30262c = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
+            if (f24164c == -1) {
+                f24164c = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", -1);
             }
-            return f30262c == 1;
+            return f24164c == 1;
         }
         return invokeL.booleanValue;
     }
@@ -247,10 +247,10 @@ public class PushSettings {
             if (context == null) {
                 return false;
             }
-            if (f30266g == -1) {
-                f30266g = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_hms_down_mode", -1);
+            if (f24168g == -1) {
+                f24168g = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.hw_hms_down_mode", -1);
             }
-            return f30266g == 1;
+            return f24168g == 1;
         }
         return invokeL.booleanValue;
     }

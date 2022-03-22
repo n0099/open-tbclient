@@ -5,9 +5,9 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.a.b;
-import c.a.q0.r0.k;
-import c.a.q0.s.d.d;
-import c.a.q0.s.j.c;
+import c.a.o0.r0.k;
+import c.a.o0.s.d.d;
+import c.a.o0.s.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
@@ -29,17 +29,17 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x005a  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0063  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -49,7 +49,7 @@ public class InitAppSettingTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            int i2 = 0;
+            int i = 0;
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
             if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
                 if (Build.VERSION.SDK_INT >= 14 && (assets = TbadkCoreApplication.getInst().getContext().getAssets()) != null) {
@@ -63,18 +63,18 @@ public class InitAppSettingTask extends LaunchTask {
                         z = true;
                         if (z) {
                             TbadkCoreApplication.getInst().mCapableOfWebp = false;
-                            i2 = 6;
+                            i = 6;
                         } else {
                             TbadkCoreApplication.getInst().mCapableOfWebp = true;
                         }
-                        TbadkSettings.getInst().saveInt("webp_failure_count", i2);
+                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
                         TbadkSettings.getInst().saveBoolean("capable_of_webp_format", TbadkCoreApplication.getInst().mCapableOfWebp);
                     }
                 }
                 z = false;
                 if (z) {
                 }
-                TbadkSettings.getInst().saveInt("webp_failure_count", i2);
+                TbadkSettings.getInst().saveInt("webp_failure_count", i);
                 TbadkSettings.getInst().saveBoolean("capable_of_webp_format", TbadkCoreApplication.getInst().mCapableOfWebp);
             } else {
                 TbadkCoreApplication.getInst().mCapableOfWebp = TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false);
@@ -122,7 +122,7 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.q0.s.e.d dVar = new c.a.q0.s.e.d();
+            c.a.o0.s.e.d dVar = new c.a.o0.s.e.d();
             dVar.e(loadString);
             c a = c.a();
             a.g(dVar.b() == 1);

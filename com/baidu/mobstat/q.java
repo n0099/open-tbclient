@@ -21,9 +21,9 @@ public class q extends j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
@@ -34,11 +34,11 @@ public class q extends j {
     }
 
     @Override // com.baidu.mobstat.j
-    public ArrayList<i> a(int i2, int i3) {
+    public ArrayList<i> a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            Cursor a = a("time", i2, i3);
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            Cursor a = a("time", i, i2);
             ArrayList<i> a2 = a(a);
             if (a != null) {
                 a.close();
@@ -49,10 +49,10 @@ public class q extends j {
     }
 
     @Override // com.baidu.mobstat.j
-    public boolean b(long j2) {
+    public boolean b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? a(j2) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? a(j) : invokeJ.booleanValue;
     }
 
     @Override // com.baidu.mobstat.j

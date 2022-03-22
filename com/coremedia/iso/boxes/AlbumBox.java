@@ -19,7 +19,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AlbumBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "albm";
@@ -58,9 +58,9 @@ public class AlbumBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -113,9 +113,9 @@ public class AlbumBox extends AbstractFullBox {
             IsoTypeWriter.writeIso639(byteBuffer, this.language);
             byteBuffer.put(Utf8.convert(this.albumTitle));
             byteBuffer.put((byte) 0);
-            int i2 = this.trackNumber;
-            if (i2 != -1) {
-                IsoTypeWriter.writeUInt8(byteBuffer, i2);
+            int i = this.trackNumber;
+            if (i != -1) {
+                IsoTypeWriter.writeUInt8(byteBuffer, i);
             }
         }
     }
@@ -166,11 +166,11 @@ public class AlbumBox extends AbstractFullBox {
         }
     }
 
-    public void setTrackNumber(int i2) {
+    public void setTrackNumber(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i2)));
-            this.trackNumber = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+            this.trackNumber = i;
         }
     }
 

@@ -35,7 +35,7 @@ import com.tachikoma.core.utility.TKSpacing;
 import java.util.Arrays;
 import java.util.Locale;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKViewBackgroundDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL_BITS_SET = -1;
@@ -78,7 +78,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     public RectF mTempRectForCenterDrawPath;
 
     /* renamed from: com.tachikoma.core.component.view.TKViewBackgroundDrawable$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$tachikoma$core$component$view$TKViewBackgroundDrawable$BorderStyle;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class BorderRadiusLocation {
         public static final /* synthetic */ BorderRadiusLocation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -154,16 +154,16 @@ public class TKViewBackgroundDrawable extends Drawable {
             $VALUES = new BorderRadiusLocation[]{TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT, TOP_START, TOP_END, BOTTOM_START, borderRadiusLocation};
         }
 
-        public BorderRadiusLocation(String str, int i2) {
+        public BorderRadiusLocation(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -187,7 +187,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class BorderStyle {
         public static final /* synthetic */ BorderStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -216,16 +216,16 @@ public class TKViewBackgroundDrawable extends Drawable {
             $VALUES = new BorderStyle[]{SOLID, DASHED, borderStyle};
         }
 
-        public BorderStyle(String str, int i2) {
+        public BorderStyle(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -239,11 +239,11 @@ public class TKViewBackgroundDrawable extends Drawable {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, borderStyle, f2)) == null) {
-                int i2 = AnonymousClass1.$SwitchMap$com$tachikoma$core$component$view$TKViewBackgroundDrawable$BorderStyle[borderStyle.ordinal()];
-                if (i2 == 2) {
+                int i = AnonymousClass1.$SwitchMap$com$tachikoma$core$component$view$TKViewBackgroundDrawable$BorderStyle[borderStyle.ordinal()];
+                if (i == 2) {
                     float f3 = f2 * 3.0f;
                     return new DashPathEffect(new float[]{f3, f3, f3, f3}, 0.0f);
-                } else if (i2 != 3) {
+                } else if (i != 3) {
                     return null;
                 } else {
                     return new DashPathEffect(new float[]{f2, f2, f2, f2}, 0.0f);
@@ -265,7 +265,7 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Gradient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,9 +278,9 @@ public class TKViewBackgroundDrawable extends Drawable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -288,7 +288,7 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Shadow {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -297,16 +297,16 @@ public class TKViewBackgroundDrawable extends Drawable {
         public float dy;
         public float radius;
 
-        public Shadow(float f2, float f3, float f4, int i2) {
+        public Shadow(float f2, float f3, float f4, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2)};
+                Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -315,7 +315,7 @@ public class TKViewBackgroundDrawable extends Drawable {
             this.radius = f2;
             this.dx = f3;
             this.dy = f4;
-            this.color = i2;
+            this.color = i;
         }
     }
 
@@ -341,9 +341,9 @@ public class TKViewBackgroundDrawable extends Drawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -378,15 +378,15 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    private void drawQuadrilateral(Canvas canvas, int i2, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
+    private void drawQuadrilateral(Canvas canvas, int i, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{canvas, Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{canvas, Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) || i == 0) {
             return;
         }
         if (this.mPathForBorder == null) {
             this.mPathForBorder = new Path();
         }
-        this.mPaint.setColor(i2);
+        this.mPaint.setColor(i);
         this.mPathForBorder.reset();
         this.mPathForBorder.moveTo(f2, f3);
         this.mPathForBorder.lineTo(f4, f5);
@@ -402,15 +402,15 @@ public class TKViewBackgroundDrawable extends Drawable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void drawRectangularBackgroundWithBorders(Canvas canvas) {
+        int i;
         int i2;
-        int i3;
         int fastBorderCompatibleColorOrZero;
-        int i4;
+        int i3;
         TKViewBackgroundDrawable tKViewBackgroundDrawable;
+        int i4;
         int i5;
         int i6;
         int i7;
-        int i8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, canvas) == null) {
             int multiplyColorAlpha = TKColorUtil.multiplyColorAlpha(this.mColor, this.mAlpha);
@@ -437,7 +437,7 @@ public class TKViewBackgroundDrawable extends Drawable {
                     boolean z = getResolvedLayoutDirection() == 1;
                     int borderColor5 = getBorderColor(4);
                     int borderColor6 = getBorderColor(5);
-                    int i9 = z ? borderColor6 : borderColor5;
+                    int i8 = z ? borderColor6 : borderColor5;
                     if (!z) {
                         borderColor5 = borderColor6;
                     }
@@ -448,72 +448,72 @@ public class TKViewBackgroundDrawable extends Drawable {
                         isBorderColorDefined = isBorderColorDefined2;
                     }
                     if (z2) {
-                        borderColor = i9;
+                        borderColor = i8;
                     }
                     if (isBorderColorDefined) {
-                        i2 = borderColor;
-                        i3 = borderColor5;
-                        int i10 = boundsExcludeShadow.left;
-                        int i11 = boundsExcludeShadow.top;
-                        fastBorderCompatibleColorOrZero = fastBorderCompatibleColorOrZero(round, round2, round3, round4, i2, borderColor2, i3, borderColor4);
+                        i = borderColor;
+                        i2 = borderColor5;
+                        int i9 = boundsExcludeShadow.left;
+                        int i10 = boundsExcludeShadow.top;
+                        fastBorderCompatibleColorOrZero = fastBorderCompatibleColorOrZero(round, round2, round3, round4, i, borderColor2, i2, borderColor4);
                         if (fastBorderCompatibleColorOrZero != 0) {
                             this.mPaint.setAntiAlias(false);
                             int width = boundsExcludeShadow.width();
                             int height = boundsExcludeShadow.height();
                             if (round > 0) {
-                                float f2 = i10;
-                                float f3 = i10 + round;
-                                i4 = i10;
-                                drawQuadrilateral(canvas, i2, f2, i11, f3, i11 + round2, f3, i8 - round4, f2, i11 + height);
+                                float f2 = i9;
+                                float f3 = i9 + round;
+                                i3 = i9;
+                                drawQuadrilateral(canvas, i, f2, i10, f3, i10 + round2, f3, i7 - round4, f2, i10 + height);
                             } else {
-                                i4 = i10;
+                                i3 = i9;
                             }
                             if (round2 > 0) {
-                                float f4 = i11;
-                                float f5 = i11 + round2;
-                                drawQuadrilateral(canvas, borderColor2, i4, f4, i4 + round, f5, i7 - round3, f5, i4 + width, f4);
+                                float f4 = i10;
+                                float f5 = i10 + round2;
+                                drawQuadrilateral(canvas, borderColor2, i3, f4, i3 + round, f5, i6 - round3, f5, i3 + width, f4);
                             }
                             if (round3 > 0) {
-                                int i12 = i4 + width;
-                                float f6 = i12;
-                                float f7 = i12 - round3;
-                                drawQuadrilateral(canvas, i3, f6, i11, f6, i11 + height, f7, i6 - round4, f7, i11 + round2);
+                                int i11 = i3 + width;
+                                float f6 = i11;
+                                float f7 = i11 - round3;
+                                drawQuadrilateral(canvas, i2, f6, i10, f6, i10 + height, f7, i5 - round4, f7, i10 + round2);
                             }
                             if (round4 > 0) {
-                                int i13 = i11 + height;
-                                float f8 = i13;
-                                float f9 = i13 - round4;
+                                int i12 = i10 + height;
+                                float f8 = i12;
+                                float f9 = i12 - round4;
                                 tKViewBackgroundDrawable = this;
-                                tKViewBackgroundDrawable.drawQuadrilateral(canvas, borderColor4, i4, f8, i4 + width, f8, i5 - round3, f9, i4 + round, f9);
+                                tKViewBackgroundDrawable.drawQuadrilateral(canvas, borderColor4, i3, f8, i3 + width, f8, i4 - round3, f9, i3 + round, f9);
                             } else {
                                 tKViewBackgroundDrawable = this;
                             }
                             tKViewBackgroundDrawable.mPaint.setAntiAlias(true);
                             return;
                         } else if (Color.alpha(fastBorderCompatibleColorOrZero) != 0) {
-                            int i14 = boundsExcludeShadow.right;
-                            int i15 = boundsExcludeShadow.bottom;
+                            int i13 = boundsExcludeShadow.right;
+                            int i14 = boundsExcludeShadow.bottom;
                             this.mPaint.setColor(fastBorderCompatibleColorOrZero);
                             if (round > 0) {
-                                canvas.drawRect(i10, i11, i10 + round, i15 - round4, this.mPaint);
+                                canvas.drawRect(i9, i10, i9 + round, i14 - round4, this.mPaint);
                             }
                             if (round2 > 0) {
-                                canvas.drawRect(i10 + round, i11, i14, i11 + round2, this.mPaint);
+                                canvas.drawRect(i9 + round, i10, i13, i10 + round2, this.mPaint);
                             }
                             if (round3 > 0) {
-                                canvas.drawRect(i14 - round3, i11 + round2, i14, i15, this.mPaint);
+                                canvas.drawRect(i13 - round3, i10 + round2, i13, i14, this.mPaint);
                             }
                             if (round4 > 0) {
-                                canvas.drawRect(i10, i15 - round4, i14 - round3, i15, this.mPaint);
+                                canvas.drawRect(i9, i14 - round4, i13 - round3, i14, this.mPaint);
                             }
                         }
                     }
                 }
-                i2 = borderColor;
-                i3 = borderColor3;
-                int i102 = boundsExcludeShadow.left;
-                int i112 = boundsExcludeShadow.top;
-                fastBorderCompatibleColorOrZero = fastBorderCompatibleColorOrZero(round, round2, round3, round4, i2, borderColor2, i3, borderColor4);
+                i = borderColor;
+                i2 = borderColor3;
+                int i92 = boundsExcludeShadow.left;
+                int i102 = boundsExcludeShadow.top;
+                fastBorderCompatibleColorOrZero = fastBorderCompatibleColorOrZero(round, round2, round3, round4, i, borderColor2, i2, borderColor4);
                 if (fastBorderCompatibleColorOrZero != 0) {
                 }
             }
@@ -529,8 +529,8 @@ public class TKViewBackgroundDrawable extends Drawable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void drawRoundedBackgroundWithBorders(Canvas canvas) {
+        int i;
         int i2;
-        int i3;
         float f2;
         float f3;
         float f4;
@@ -565,7 +565,7 @@ public class TKViewBackgroundDrawable extends Drawable {
                         boolean z = getResolvedLayoutDirection() == 1;
                         int borderColor5 = getBorderColor(4);
                         int borderColor6 = getBorderColor(5);
-                        int i4 = z ? borderColor6 : borderColor5;
+                        int i3 = z ? borderColor6 : borderColor5;
                         if (!z) {
                             borderColor5 = borderColor6;
                         }
@@ -576,11 +576,11 @@ public class TKViewBackgroundDrawable extends Drawable {
                             isBorderColorDefined = isBorderColorDefined2;
                         }
                         if (z2) {
-                            borderColor = i4;
+                            borderColor = i3;
                         }
                         if (isBorderColorDefined) {
-                            i2 = borderColor;
-                            i3 = borderColor5;
+                            i = borderColor;
+                            i2 = borderColor5;
                             RectF rectF = this.mOuterClipTempRectForBorderRadius;
                             float f6 = rectF.left;
                             float f7 = rectF.right;
@@ -595,7 +595,7 @@ public class TKViewBackgroundDrawable extends Drawable {
                                 f3 = f8;
                                 f4 = f7;
                                 f5 = f6;
-                                drawQuadrilateral(canvas, i2, f6, f8, f10, f11, pointF2.x, pointF2.y, f6, f2);
+                                drawQuadrilateral(canvas, i, f6, f8, f10, f11, pointF2.x, pointF2.y, f6, f2);
                             } else {
                                 f2 = f9;
                                 f3 = f8;
@@ -614,7 +614,7 @@ public class TKViewBackgroundDrawable extends Drawable {
                                 float f14 = pointF5.x;
                                 float f15 = pointF5.y;
                                 PointF pointF6 = this.mInnerBottomRightCorner;
-                                drawQuadrilateral(canvas, i3, f4, f3, f14, f15, pointF6.x, pointF6.y, f4, f2);
+                                drawQuadrilateral(canvas, i2, f4, f3, f14, f15, pointF6.x, pointF6.y, f4, f2);
                             }
                             if (directionAwareBorderInsets.bottom > 0.0f) {
                                 PointF pointF7 = this.mInnerBottomLeftCorner;
@@ -625,8 +625,8 @@ public class TKViewBackgroundDrawable extends Drawable {
                             }
                         }
                     }
-                    i2 = borderColor;
-                    i3 = borderColor3;
+                    i = borderColor;
+                    i2 = borderColor3;
                     RectF rectF2 = this.mOuterClipTempRectForBorderRadius;
                     float f62 = rectF2.left;
                     float f72 = rectF2.right;
@@ -674,10 +674,10 @@ public class TKViewBackgroundDrawable extends Drawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, canvas) == null) {
             try {
-                int i2 = (int) (this.mShadow.radius * 2.4f);
-                Bitmap createBitmap = Bitmap.createBitmap(getBounds().width() + i2, getBounds().height() + i2, Bitmap.Config.ARGB_4444);
+                int i = (int) (this.mShadow.radius * 2.4f);
+                Bitmap createBitmap = Bitmap.createBitmap(getBounds().width() + i, getBounds().height() + i, Bitmap.Config.ARGB_4444);
                 Canvas canvas2 = new Canvas(createBitmap);
-                float f2 = i2;
+                float f2 = i;
                 canvas2.translate(f2, f2);
                 this.mShadowPaint.setColor(0);
                 this.mShadowPaint.setStyle(Paint.Style.FILL);
@@ -687,7 +687,7 @@ public class TKViewBackgroundDrawable extends Drawable {
                 } else {
                     canvas2.drawRect(getBoundsExcludeShadow(), this.mShadowPaint);
                 }
-                float f3 = -i2;
+                float f3 = -i;
                 canvas.drawBitmap(createBitmap, f3, f3, (Paint) null);
                 if (createBitmap.isRecycled()) {
                     return;
@@ -711,54 +711,54 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    public static int fastBorderCompatibleColorOrZero(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+    public static int fastBorderCompatibleColorOrZero(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)})) == null) {
-            int i10 = (i5 > 0 ? i9 : -1) & (i2 > 0 ? i6 : -1) & (i3 > 0 ? i7 : -1) & (i4 > 0 ? i8 : -1);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
+            int i9 = (i4 > 0 ? i8 : -1) & (i > 0 ? i5 : -1) & (i2 > 0 ? i6 : -1) & (i3 > 0 ? i7 : -1);
+            if (i <= 0) {
+                i5 = 0;
+            }
             if (i2 <= 0) {
                 i6 = 0;
             }
+            int i10 = i5 | i6;
             if (i3 <= 0) {
                 i7 = 0;
             }
-            int i11 = i6 | i7;
+            int i11 = i10 | i7;
             if (i4 <= 0) {
                 i8 = 0;
             }
-            int i12 = i11 | i8;
-            if (i5 <= 0) {
-                i9 = 0;
-            }
-            if (i10 == (i12 | i9)) {
-                return i10;
+            if (i9 == (i11 | i8)) {
+                return i9;
             }
             return 0;
         }
         return invokeCommon.intValue;
     }
 
-    private int getBorderColor(int i2) {
+    private int getBorderColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
             TKSpacing tKSpacing = this.mBorderRGB;
-            float f2 = tKSpacing != null ? tKSpacing.get(i2) : 0.0f;
+            float f2 = tKSpacing != null ? tKSpacing.get(i) : 0.0f;
             TKSpacing tKSpacing2 = this.mBorderAlpha;
-            return colorFromAlphaAndRGBComponents(tKSpacing2 != null ? tKSpacing2.get(i2) : 255.0f, f2);
+            return colorFromAlphaAndRGBComponents(tKSpacing2 != null ? tKSpacing2.get(i) : 255.0f, f2);
         }
         return invokeI.intValue;
     }
 
-    private int getBorderWidth(int i2) {
+    private int getBorderWidth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
             TKSpacing tKSpacing = this.mBorderWidth;
             if (tKSpacing == null) {
                 return 0;
             }
-            float f2 = tKSpacing.get(i2);
+            float f2 = tKSpacing.get(i);
             if (isUndefined(f2)) {
                 return -1;
             }
@@ -818,15 +818,15 @@ public class TKViewBackgroundDrawable extends Drawable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, gradient, rect)) == null) {
-            int i2 = ((gradient.deg % 360) + 360) % 360;
+            int i = ((gradient.deg % 360) + 360) % 360;
             float[] fArr = new float[4];
             float f2 = (rect.left + rect.right) / 2.0f;
             float f3 = (rect.top + rect.bottom) / 2.0f;
-            int i3 = i2 / 45;
-            int i4 = i2 % 45;
-            float tan = (float) Math.tan(Math.toRadians(i4));
-            float tan2 = (float) Math.tan(Math.toRadians(45 - i4));
-            switch (i3) {
+            int i2 = i / 45;
+            int i3 = i % 45;
+            float tan = (float) Math.tan(Math.toRadians(i3));
+            float tan2 = (float) Math.tan(Math.toRadians(45 - i3));
+            switch (i2) {
                 case 0:
                     float f4 = tan * f2;
                     fArr[0] = rect.left;
@@ -889,14 +889,14 @@ public class TKViewBackgroundDrawable extends Drawable {
         return (float[]) invokeLL.objValue;
     }
 
-    private boolean isBorderColorDefined(int i2) {
+    private boolean isBorderColorDefined(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i)) == null) {
             TKSpacing tKSpacing = this.mBorderRGB;
-            float f2 = tKSpacing != null ? tKSpacing.get(i2) : UNDEFINED;
+            float f2 = tKSpacing != null ? tKSpacing.get(i) : UNDEFINED;
             TKSpacing tKSpacing2 = this.mBorderAlpha;
-            return (isUndefined(f2) || isUndefined(tKSpacing2 != null ? tKSpacing2.get(i2) : UNDEFINED)) ? false : true;
+            return (isUndefined(f2) || isUndefined(tKSpacing2 != null ? tKSpacing2.get(i) : UNDEFINED)) ? false : true;
         }
         return invokeI.booleanValue;
     }
@@ -907,30 +907,30 @@ public class TKViewBackgroundDrawable extends Drawable {
         return (interceptable == null || (invokeF = interceptable.invokeF(65553, null, f2)) == null) ? Float.compare(f2, UNDEFINED) == 0 : invokeF.booleanValue;
     }
 
-    private void setBorderAlpha(int i2, float f2) {
+    private void setBorderAlpha(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             if (this.mBorderAlpha == null) {
                 this.mBorderAlpha = new TKSpacing(255.0f);
             }
-            if (TKFloatUtil.floatsEqual(this.mBorderAlpha.getRaw(i2), f2)) {
+            if (TKFloatUtil.floatsEqual(this.mBorderAlpha.getRaw(i), f2)) {
                 return;
             }
-            this.mBorderAlpha.set(i2, f2);
+            this.mBorderAlpha.set(i, f2);
             invalidateSelf();
         }
     }
 
-    private void setBorderRGB(int i2, float f2) {
+    private void setBorderRGB(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             if (this.mBorderRGB == null) {
                 this.mBorderRGB = new TKSpacing(0.0f);
             }
-            if (TKFloatUtil.floatsEqual(this.mBorderRGB.getRaw(i2), f2)) {
+            if (TKFloatUtil.floatsEqual(this.mBorderRGB.getRaw(i), f2)) {
                 return;
             }
-            this.mBorderRGB.set(i2, f2);
+            this.mBorderRGB.set(i, f2);
             invalidateSelf();
         }
     }
@@ -1133,15 +1133,15 @@ public class TKViewBackgroundDrawable extends Drawable {
         return invokeCommon.floatValue;
     }
 
-    public float getBorderWidthOrDefaultTo(float f2, int i2) {
+    public float getBorderWidthOrDefaultTo(float f2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) {
             TKSpacing tKSpacing = this.mBorderWidth;
             if (tKSpacing == null) {
                 return f2;
             }
-            float raw = tKSpacing.getRaw(i2);
+            float raw = tKSpacing.getRaw(i);
             return isUndefined(raw) ? f2 : raw;
         }
         return invokeCommon.floatValue;
@@ -1264,42 +1264,42 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    public boolean onResolvedLayoutDirectionChanged(int i2) {
+    public boolean onResolvedLayoutDirectionChanged(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
             return false;
         }
         return invokeI.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || i2 == this.mAlpha) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || i == this.mAlpha) {
             return;
         }
-        this.mAlpha = i2;
+        this.mAlpha = i;
         invalidateSelf();
     }
 
-    public void setBackgroundGradientColor(int i2, int[] iArr, float[] fArr) {
+    public void setBackgroundGradientColor(int i, int[] iArr, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048592, this, i2, iArr, fArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048592, this, i, iArr, fArr) == null) {
             Gradient gradient = new Gradient();
             this.mGradient = gradient;
-            gradient.deg = i2;
+            gradient.deg = i;
             gradient.colors = iArr;
             gradient.positions = fArr;
             invalidateSelf();
         }
     }
 
-    public void setBorderColor(int i2, float f2, float f3) {
+    public void setBorderColor(int i, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            setBorderRGB(i2, f2);
-            setBorderAlpha(i2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            setBorderRGB(i, f2);
+            setBorderAlpha(i, f3);
         }
     }
 
@@ -1322,27 +1322,27 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    public void setBorderWidth(int i2, float f2) {
+    public void setBorderWidth(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             if (this.mBorderWidth == null) {
                 this.mBorderWidth = new TKSpacing();
             }
-            if (TKFloatUtil.floatsEqual(this.mBorderWidth.getRaw(i2), f2)) {
+            if (TKFloatUtil.floatsEqual(this.mBorderWidth.getRaw(i), f2)) {
                 return;
             }
-            this.mBorderWidth.set(i2, f2);
-            if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5 || i2 == 8) {
+            this.mBorderWidth.set(i, f2);
+            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 8) {
                 this.mNeedUpdatePathForBorderRadius = true;
             }
             invalidateSelf();
         }
     }
 
-    public void setColor(int i2) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mColor = i;
             this.mGradient = null;
             invalidateSelf();
         }
@@ -1365,40 +1365,40 @@ public class TKViewBackgroundDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setRadius(float f2, int i2) {
+    public void setRadius(float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             if (this.mBorderCornerRadii == null) {
                 float[] fArr = new float[8];
                 this.mBorderCornerRadii = fArr;
                 Arrays.fill(fArr, UNDEFINED);
             }
-            if (TKFloatUtil.floatsEqual(this.mBorderCornerRadii[i2], f2)) {
+            if (TKFloatUtil.floatsEqual(this.mBorderCornerRadii[i], f2)) {
                 return;
             }
-            this.mBorderCornerRadii[i2] = f2;
+            this.mBorderCornerRadii[i] = f2;
             this.mNeedUpdatePathForBorderRadius = true;
             invalidateSelf();
         }
     }
 
-    public boolean setResolvedLayoutDirection(int i2) {
+    public boolean setResolvedLayoutDirection(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-            if (this.mLayoutDirection != i2) {
-                this.mLayoutDirection = i2;
-                return onResolvedLayoutDirectionChanged(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+            if (this.mLayoutDirection != i) {
+                this.mLayoutDirection = i;
+                return onResolvedLayoutDirectionChanged(i);
             }
             return false;
         }
         return invokeI.booleanValue;
     }
 
-    public void setShadow(float f2, float f3, float f4, int i2) {
+    public void setShadow(float f2, float f3, float f4, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2)}) == null) {
-            this.mShadow = new Shadow(f2, f3, f4, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)}) == null) {
+            this.mShadow = new Shadow(f2, f3, f4, i);
             this.mNeedUpdatePathForBorderRadius = true;
             invalidateSelf();
         }

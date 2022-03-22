@@ -16,21 +16,21 @@ public class AckMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static android.os.Message getSendMessage(int i2, Object obj) {
+    public static android.os.Message getSendMessage(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, obj)) == null) {
             android.os.Message message = new android.os.Message();
-            message.what = i2;
+            message.what = i;
             message.obj = obj;
             return message;
         }

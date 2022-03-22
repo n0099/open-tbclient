@@ -15,7 +15,7 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.h0.f;
+import c.a.a0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,48 +25,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ExpandIconView extends View {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int LESS = 1;
-    public static final int MORE = 0;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f36049e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f36050f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f36051g;
+    /* renamed from: b  reason: collision with root package name */
+    public float f27838b;
     @FloatRange(from = 0.0d, to = 1.0d)
 
-    /* renamed from: h  reason: collision with root package name */
-    public float f36052h;
+    /* renamed from: c  reason: collision with root package name */
+    public float f27839c;
 
-    /* renamed from: i  reason: collision with root package name */
-    public float f36053i;
+    /* renamed from: d  reason: collision with root package name */
+    public float f27840d;
 
-    /* renamed from: j  reason: collision with root package name */
-    public final int f36054j;
-    public final int k;
+    /* renamed from: e  reason: collision with root package name */
+    public final int f27841e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final int f27842f;
     @NonNull
-    public final Paint l;
-    public final Point m;
-    public final Point n;
-    public final Point o;
-    public final Point p;
-    public final Point q;
-    public final Path r;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final Paint f27843g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final Point f27844h;
+    public final Point i;
+    public final Point j;
+    public final Point k;
+    public final Point l;
+    public final Path m;
     @Nullable
-    public ValueAnimator s;
+    public ValueAnimator n;
 
     /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExpandIconView f36055e;
+        public final /* synthetic */ ExpandIconView a;
 
         public a(ExpandIconView expandIconView) {
             Interceptable interceptable = $ic;
@@ -75,24 +72,24 @@ public class ExpandIconView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {expandIconView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36055e = expandIconView;
+            this.a = expandIconView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f36055e.f36050f = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                this.f36055e.k();
-                this.f36055e.h();
+                this.a.a = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                this.a.k();
+                this.a.h();
             }
         }
     }
@@ -106,9 +103,9 @@ public class ExpandIconView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -121,49 +118,49 @@ public class ExpandIconView extends View {
     private int getFinalStateByFraction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.f36052h < 0.0f ? 0 : 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.f27839c < 0.0f ? 0 : 1 : invokeV.intValue;
     }
 
     public final void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
             g();
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f36050f, f2);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.a, f2);
             ofFloat.addUpdateListener(new a(this));
             ofFloat.setInterpolator(new DecelerateInterpolator());
             ofFloat.setDuration(e(f2));
             ofFloat.start();
-            this.s = ofFloat;
+            this.n = ofFloat;
         }
     }
 
     public final long e(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? Math.abs(f2 - this.f36050f) / this.f36053i : invokeF.longValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? Math.abs(f2 - this.a) / this.f27840d : invokeF.longValue;
     }
 
-    public final void f(int i2, int i3) {
+    public final void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.l.setStrokeWidth(this.k);
-            this.o.set(i2 / 2, i3 / 2);
-            double sqrt = Math.sqrt(Math.pow(this.f36054j / 2.0d, 2.0d) - Math.pow(this.o.y, 2.0d));
-            Point point = this.m;
-            Point point2 = this.o;
-            int i4 = (int) sqrt;
-            point.set(point2.x - i4, point2.y);
-            Point point3 = this.n;
-            Point point4 = this.o;
-            point3.set(point4.x + i4, point4.y);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.f27843g.setStrokeWidth(this.f27842f);
+            this.j.set(i / 2, i2 / 2);
+            double sqrt = Math.sqrt(Math.pow(this.f27841e / 2.0d, 2.0d) - Math.pow(this.j.y, 2.0d));
+            Point point = this.f27844h;
+            Point point2 = this.j;
+            int i3 = (int) sqrt;
+            point.set(point2.x - i3, point2.y);
+            Point point3 = this.i;
+            Point point4 = this.j;
+            point3.set(point4.x + i3, point4.y);
         }
     }
 
     public final void g() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (valueAnimator = this.s) != null && valueAnimator.isRunning()) {
-            this.s.cancel();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (valueAnimator = this.n) != null && valueAnimator.isRunning()) {
+            this.n.cancel();
         }
     }
 
@@ -178,23 +175,23 @@ public class ExpandIconView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{point, Double.valueOf(d2), point2}) == null) {
             double radians = Math.toRadians(d2);
-            int i2 = this.o.x;
-            int cos = (int) ((i2 + ((point.x - i2) * Math.cos(radians))) - ((point.y - this.o.y) * Math.sin(radians)));
-            Point point3 = this.o;
-            point2.set(cos, (int) (point3.y + ((point.x - point3.x) * Math.sin(radians)) + ((point.y - this.o.y) * Math.cos(radians))));
+            int i = this.j.x;
+            int cos = (int) ((i + ((point.x - i) * Math.cos(radians))) - ((point.y - this.j.y) * Math.sin(radians)));
+            Point point3 = this.j;
+            point2.set(cos, (int) (point3.y + ((point.x - point3.x) * Math.sin(radians)) + ((point.y - this.j.y) * Math.cos(radians))));
         }
     }
 
     public final void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            float f2 = this.f36052h * 45.0f;
+            float f2 = this.f27839c * 45.0f;
             if (z) {
                 d(f2);
                 return;
             }
             g();
-            this.f36050f = f2;
+            this.a = f2;
             k();
             invalidate();
         }
@@ -203,23 +200,23 @@ public class ExpandIconView extends View {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.r.reset();
-            Point point = this.m;
-            if (point == null || this.n == null) {
+            this.m.reset();
+            Point point = this.f27844h;
+            if (point == null || this.i == null) {
                 return;
             }
-            i(point, -this.f36050f, this.p);
-            i(this.n, this.f36050f, this.q);
-            int i2 = this.o.y;
-            Point point2 = this.p;
-            int i3 = point2.y;
-            this.f36051g = (int) ((i2 - i3) / 2.0d);
-            this.r.moveTo(point2.x, i3);
-            Path path = this.r;
-            Point point3 = this.o;
+            i(point, -this.a, this.k);
+            i(this.i, this.a, this.l);
+            int i = this.j.y;
+            Point point2 = this.k;
+            int i2 = point2.y;
+            this.f27838b = (int) ((i - i2) / 2.0d);
+            this.m.moveTo(point2.x, i2);
+            Path path = this.m;
+            Point point3 = this.j;
             path.lineTo(point3.x, point3.y);
-            Path path2 = this.r;
-            Point point4 = this.q;
+            Path path2 = this.m;
+            Point point4 = this.l;
             path2.lineTo(point4.x, point4.y);
         }
     }
@@ -229,56 +226,44 @@ public class ExpandIconView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.translate(0.0f, this.f36051g);
-            canvas.drawPath(this.r, this.l);
+            canvas.translate(0.0f, this.f27838b);
+            canvas.drawPath(this.m, this.f27843g);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048585, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            f(i2, i3);
+        if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            f(i, i2);
             k();
         }
     }
 
     public void setFraction(@FloatRange(from = -1.0d, to = 1.0d) float f2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) || f2 < -1.0f || f2 > 1.0f || this.f36052h == f2) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) || f2 < -1.0f || f2 > 1.0f || this.f27839c == f2) {
             return;
         }
-        this.f36052h = f2;
-        if (f2 == -1.0f) {
-            this.f36049e = 0;
-        } else if (f2 == 1.0f) {
-            this.f36049e = 1;
-        } else {
-            this.f36049e = 2;
+        this.f27839c = f2;
+        if (f2 != -1.0f) {
+            int i = (f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1));
         }
         j(z);
     }
 
-    public void setState(int i2, boolean z) {
+    public void setState(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f36049e = i2;
-            if (i2 == 0) {
-                this.f36052h = -1.0f;
-            } else if (i2 == 1) {
-                this.f36052h = 1.0f;
-            } else if (i2 == 2) {
-                this.f36052h = 0.0f;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i == 0) {
+                this.f27839c = -1.0f;
+            } else if (i == 1) {
+                this.f27839c = 1.0f;
+            } else if (i == 2) {
+                this.f27839c = 0.0f;
             }
             j(z);
-        }
-    }
-
-    public void switchState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            switchState(true);
         }
     }
 
@@ -291,9 +276,9 @@ public class ExpandIconView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -303,36 +288,20 @@ public class ExpandIconView extends View {
         }
     }
 
-    public void switchState(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            int i2 = this.f36049e;
-            int i3 = 0;
-            if (i2 != 0) {
-                if (i2 == 1) {
-                    i3 = 1;
-                } else if (i2 == 2) {
-                    i3 = getFinalStateByFraction();
-                }
-            }
-            setState(i3, z);
-        }
-    }
-
     /* JADX DEBUG: Incorrect finally slice size: {[INVOKE, CONSTRUCTOR] complete}, expected: {[INVOKE] complete} */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Finally extract failed */
-    public ExpandIconView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ExpandIconView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -340,31 +309,31 @@ public class ExpandIconView extends View {
                 return;
             }
         }
-        this.f36050f = -45.0f;
-        this.f36051g = 0.0f;
-        this.f36052h = 0.0f;
-        this.m = new Point();
-        this.n = new Point();
-        this.o = new Point();
-        this.p = new Point();
-        this.q = new Point();
-        this.r = new Path();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.animationDuration, R.attr.color, R.attr.length, R.attr.thick}, 0, 0);
+        this.a = -45.0f;
+        this.f27838b = 0.0f;
+        this.f27839c = 0.0f;
+        this.f27844h = new Point();
+        this.i = new Point();
+        this.j = new Point();
+        this.k = new Point();
+        this.l = new Point();
+        this.m = new Path();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04008e, R.attr.obfuscated_res_0x7f040154, R.attr.obfuscated_res_0x7f0403a0, R.attr.obfuscated_res_0x7f040627}, 0, 0);
         try {
-            this.f36054j = obtainStyledAttributes.getDimensionPixelSize(2, f.c.a(getContext(), 40.0f));
-            this.k = obtainStyledAttributes.getDimensionPixelSize(3, f.c.a(getContext(), 2.0f));
+            this.f27841e = obtainStyledAttributes.getDimensionPixelSize(2, f.c.a(getContext(), 40.0f));
+            this.f27842f = obtainStyledAttributes.getDimensionPixelSize(3, f.c.a(getContext(), 2.0f));
             int color = obtainStyledAttributes.getColor(1, -16777216);
             long integer = obtainStyledAttributes.getInteger(0, 150);
             obtainStyledAttributes.recycle();
             Paint paint = new Paint(1);
-            this.l = paint;
+            this.f27843g = paint;
             paint.setDither(true);
-            this.l.setColor(color);
-            this.l.setStyle(Paint.Style.STROKE);
-            this.l.setStrokeJoin(Paint.Join.ROUND);
-            this.l.setPathEffect(new CornerPathEffect(10.0f));
-            this.l.setStrokeCap(Paint.Cap.ROUND);
-            this.f36053i = 45.0f / ((float) integer);
+            this.f27843g.setColor(color);
+            this.f27843g.setStyle(Paint.Style.STROKE);
+            this.f27843g.setStrokeJoin(Paint.Join.ROUND);
+            this.f27843g.setPathEffect(new CornerPathEffect(10.0f));
+            this.f27843g.setStrokeCap(Paint.Cap.ROUND);
+            this.f27840d = 45.0f / ((float) integer);
             setState(1, true);
         } catch (Throwable th) {
             obtainStyledAttributes.recycle();

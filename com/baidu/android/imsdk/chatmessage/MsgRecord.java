@@ -13,23 +13,23 @@ public class MsgRecord {
     public long msgId;
     public long msgTime;
 
-    public MsgRecord(long j2, long j3) {
+    public MsgRecord(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.msgId = j2;
-        this.msgTime = j3;
+        this.msgId = j;
+        this.msgTime = j2;
     }
 
     public long getMsgId() {
@@ -44,17 +44,17 @@ public class MsgRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgTime : invokeV.longValue;
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.msgId = j;
         }
     }
 
-    public void setMsgTime(long j2) {
+    public void setMsgTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.msgTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.msgTime = j;
         }
     }
 }

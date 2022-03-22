@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.l0;
+import f.c.l0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecVideoDecoderFactory";
@@ -32,9 +32,9 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, strArr, strArr2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,9 +54,9 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
             if (Build.VERSION.SDK_INT < 19) {
                 return null;
             }
-            for (int i2 = 0; i2 < MediaCodecList.getCodecCount(); i2++) {
+            for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
                 try {
-                    mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
+                    mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
                 } catch (IllegalArgumentException e2) {
                     Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
                     mediaCodecInfo = null;
@@ -151,8 +151,8 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
             VideoCodecType[] videoCodecTypeArr = {VideoCodecType.VP8, VideoCodecType.VP9, VideoCodecType.H264};
-            for (int i2 = 0; i2 < 3; i2++) {
-                VideoCodecType videoCodecType = videoCodecTypeArr[i2];
+            for (int i = 0; i < 3; i++) {
+                VideoCodecType videoCodecType = videoCodecTypeArr[i];
                 MediaCodecInfo findCodecForType = findCodecForType(videoCodecType);
                 if (findCodecForType != null) {
                     String name = videoCodecType.name();

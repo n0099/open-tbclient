@@ -3,7 +3,7 @@ package com.baidu.android.imsdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -26,9 +26,9 @@ public class IMReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

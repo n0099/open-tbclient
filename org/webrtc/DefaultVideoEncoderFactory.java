@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,9 +72,9 @@ public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {videoEncoderFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

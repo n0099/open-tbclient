@@ -1,6 +1,6 @@
 package com.baidu.tieba.stampmission.mission;
 
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,13 +17,13 @@ public abstract class StampMission {
     public final Type a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46676b;
+    public int f36063b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f46677c;
+    public final int f36064c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f46678d;
+    public final String f36065d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -55,16 +55,16 @@ public abstract class StampMission {
             $VALUES = new Type[]{FOLLOW_FORUM, LIKE_THREAD, type};
         }
 
-        public Type(String str, int i2) {
+        public Type(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -93,10 +93,10 @@ public abstract class StampMission {
         public static int a = 3;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f46679b = 10;
+        public static int f36066b = 10;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f46680c = 5;
+        public static int f36067c = 5;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -115,70 +115,70 @@ public abstract class StampMission {
         }
     }
 
-    public StampMission(Type type, int i2) {
+    public StampMission(Type type, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, Integer.valueOf(i2)};
+            Object[] objArr = {type, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = type;
-        this.f46677c = i2;
-        this.f46678d = "key_cur_user_stamp_mission_progress_" + TbadkCoreApplication.getCurrentAccount() + type.name();
-        this.f46676b = b.k().l(this.f46678d, 0);
+        this.f36064c = i;
+        this.f36065d = "key_cur_user_stamp_mission_progress_" + TbadkCoreApplication.getCurrentAccount() + type.name();
+        this.f36063b = b.k().l(this.f36065d, 0);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46676b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36063b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46677c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36064c : invokeV.intValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int l = b.k().l(this.f46678d, 0) + 1;
-            this.f46676b = l;
-            int i2 = this.f46677c;
-            if (l > i2) {
+            int l = b.k().l(this.f36065d, 0) + 1;
+            this.f36063b = l;
+            int i = this.f36064c;
+            if (l > i) {
                 return true;
             }
-            if (l == i2) {
+            if (l == i) {
                 return false;
             }
-            b.k().w(this.f46678d, this.f46676b);
+            b.k().w(this.f36065d, this.f36063b);
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void d(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f46676b = Math.min(i2, this.f46677c);
-            b.k().w(this.f46678d, this.f46676b);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f36063b = Math.min(i, this.f36064c);
+            b.k().w(this.f36065d, this.f36063b);
         }
     }
 
     public void delete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.k().D(this.f46678d);
+            b.k().D(this.f36065d);
         }
     }
 

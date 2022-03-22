@@ -14,7 +14,7 @@ import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Logging {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger fallbackLogger;
@@ -25,7 +25,7 @@ public class Logging {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.Logging$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$Logging$Severity;
         public static /* synthetic */ Interceptable $ic;
@@ -62,7 +62,7 @@ public class Logging {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Severity {
         public static final /* synthetic */ Severity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -97,16 +97,16 @@ public class Logging {
             $VALUES = new Severity[]{LS_SENSITIVE, LS_VERBOSE, LS_INFO, LS_WARNING, LS_ERROR, severity};
         }
 
-        public Severity(String str, int i2) {
+        public Severity(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -131,7 +131,7 @@ public class Logging {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class TraceLevel {
         public static final /* synthetic */ TraceLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -185,16 +185,16 @@ public class Logging {
             $VALUES = new TraceLevel[]{TRACE_NONE, TRACE_STATEINFO, TRACE_WARNING, TRACE_ERROR, TRACE_CRITICAL, TRACE_APICALL, TRACE_DEFAULT, TRACE_MODULECALL, TRACE_MEMORY, TRACE_TIMER, TRACE_STREAM, TRACE_DEBUG, TRACE_INFO, TRACE_TERSEINFO, traceLevel};
         }
 
-        public TraceLevel(String str, int i2, int i3) {
+        public TraceLevel(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -203,7 +203,7 @@ public class Logging {
                     return;
                 }
             }
-            this.level = i3;
+            this.level = i2;
         }
 
         public static TraceLevel valueOf(String str) {
@@ -240,9 +240,9 @@ public class Logging {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -354,12 +354,12 @@ public class Logging {
                     nativeLog(severity.ordinal(), str, str2);
                     return;
                 } else {
-                    int i2 = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
-                    if (i2 == 1) {
+                    int i = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
+                    if (i == 1) {
                         level = Level.SEVERE;
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         level = Level.WARNING;
-                    } else if (i2 != 3) {
+                    } else if (i != 3) {
                         level = Level.FINE;
                     } else {
                         level = Level.INFO;
@@ -377,9 +377,9 @@ public class Logging {
 
     public static native void nativeEnableLogTimeStamps();
 
-    public static native void nativeEnableLogToDebugOutput(int i2);
+    public static native void nativeEnableLogToDebugOutput(int i);
 
-    public static native void nativeLog(int i2, String str, String str2);
+    public static native void nativeLog(int i, String str, String str2);
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;

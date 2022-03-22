@@ -27,9 +27,9 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -39,22 +39,22 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
         }
     }
 
-    public BrotliInputStream(InputStream inputStream, int i2) throws IOException {
+    public BrotliInputStream(InputStream inputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i2)};
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.decoder = new Decoder(Channels.newChannel(inputStream), i2);
+        this.decoder = new Decoder(Channels.newChannel(inputStream), i);
     }
 
     @Override // java.io.InputStream
@@ -114,10 +114,10 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
             Decoder decoder = this.decoder;
             if (decoder.closed) {
                 throw new IOException("read after close");
@@ -125,41 +125,41 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
             if (decoder.decode() == -1) {
                 return -1;
             }
-            int i4 = 0;
-            while (i3 > 0) {
-                int min = Math.min(i3, this.decoder.buffer.remaining());
-                this.decoder.buffer.get(bArr, i2, min);
-                i2 += min;
-                i3 -= min;
-                i4 += min;
+            int i3 = 0;
+            while (i2 > 0) {
+                int min = Math.min(i2, this.decoder.buffer.remaining());
+                this.decoder.buffer.get(bArr, i, min);
+                i += min;
+                i2 -= min;
+                i3 += min;
                 if (!this.decoder.buffer.hasRemaining()) {
                     break;
                 } else if (this.decoder.decode() == -1) {
                     break;
                 }
             }
-            return i4;
+            return i3;
         }
         return invokeLII.intValue;
     }
 
     @Override // java.io.InputStream
-    public long skip(long j2) throws IOException {
+    public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
             if (this.decoder.closed) {
                 throw new IOException("read after close");
             }
-            long j3 = 0;
-            while (j2 > 0 && this.decoder.decode() != -1) {
-                int min = (int) Math.min(j2, this.decoder.buffer.remaining());
+            long j2 = 0;
+            while (j > 0 && this.decoder.decode() != -1) {
+                int min = (int) Math.min(j, this.decoder.buffer.remaining());
                 this.decoder.discard(min);
-                long j4 = min;
-                j3 += j4;
-                j2 -= j4;
+                long j3 = min;
+                j2 += j3;
+                j -= j3;
             }
-            return j3;
+            return j2;
         }
         return invokeJ.longValue;
     }

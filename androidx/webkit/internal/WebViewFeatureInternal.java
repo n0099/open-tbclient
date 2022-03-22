@@ -95,9 +95,9 @@ public final class WebViewFeatureInternal {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -162,17 +162,17 @@ public final class WebViewFeatureInternal {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebViewFeatureInternal(@NonNull String str, @NonNull int i2, String str2, String str3) {
-        this(str, i2, str2, str3, -1);
+    public WebViewFeatureInternal(@NonNull String str, @NonNull int i, String str2, String str3) {
+        this(str, i, str2, str3, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -225,8 +225,8 @@ public final class WebViewFeatureInternal {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.mOsVersion;
-            return i2 != -1 && Build.VERSION.SDK_INT >= i2;
+            int i = this.mOsVersion;
+            return i != -1 && Build.VERSION.SDK_INT >= i;
         }
         return invokeV.booleanValue;
     }
@@ -237,16 +237,16 @@ public final class WebViewFeatureInternal {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BoundaryInterfaceReflectionUtil.containsFeature(LAZY_HOLDER.WEBVIEW_APK_FEATURES, this.mInternalFeatureValue) : invokeV.booleanValue;
     }
 
-    public WebViewFeatureInternal(@NonNull String str, @NonNull int i2, String str2, String str3, int i3) {
+    public WebViewFeatureInternal(@NonNull String str, @NonNull int i, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3, Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str4 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -257,6 +257,6 @@ public final class WebViewFeatureInternal {
         }
         this.mPublicFeatureValue = str2;
         this.mInternalFeatureValue = str3;
-        this.mOsVersion = i3;
+        this.mOsVersion = i2;
     }
 }

@@ -13,7 +13,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.nativecode.NativeBlurFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_ITERATIONS = 3;
@@ -23,17 +23,17 @@ public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
     public final int mIterations;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IterativeBoxBlurPostProcessor(int i2) {
-        this(3, i2);
+    public IterativeBoxBlurPostProcessor(int i) {
+        this(3, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -65,24 +65,24 @@ public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
         }
     }
 
-    public IterativeBoxBlurPostProcessor(int i2, int i3) {
+    public IterativeBoxBlurPostProcessor(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        Preconditions.checkArgument(i > 0);
         Preconditions.checkArgument(i2 > 0);
-        Preconditions.checkArgument(i3 > 0);
-        this.mIterations = i2;
-        this.mBlurRadius = i3;
+        this.mIterations = i;
+        this.mBlurRadius = i2;
     }
 }

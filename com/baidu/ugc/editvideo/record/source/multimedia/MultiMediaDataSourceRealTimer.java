@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.i;
+import c.a.v0.r.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,7 +42,7 @@ public class MultiMediaDataSourceRealTimer {
 
     /* loaded from: classes6.dex */
     public interface AnimatorUpdateListener {
-        void onAnimationUpdate(long j2);
+        void onAnimationUpdate(long j);
     }
 
     static {
@@ -66,9 +66,9 @@ public class MultiMediaDataSourceRealTimer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -87,9 +87,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -119,9 +119,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -150,9 +150,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -182,9 +182,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -213,9 +213,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -244,9 +244,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -277,9 +277,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -349,9 +349,9 @@ public class MultiMediaDataSourceRealTimer {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -370,14 +370,14 @@ public class MultiMediaDataSourceRealTimer {
                         i.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                         this.this$0.mBeginTime = currentTimeMillis;
                     }
-                    long j2 = currentTimeMillis + this.this$0.mCurrentPlayTime;
-                    if (j2 == this.this$0.mBeginTime + this.this$0.mCurrentPlayTime) {
+                    long j = currentTimeMillis + this.this$0.mCurrentPlayTime;
+                    if (j == this.this$0.mBeginTime + this.this$0.mCurrentPlayTime) {
                         this.this$0.mJobHandler.post(this.this$0.animatorStartRunnable);
                     }
-                    if (j2 - this.this$0.mBeginTime < this.this$0.mDuration) {
+                    if (j - this.this$0.mBeginTime < this.this$0.mDuration) {
                         Message obtain = Message.obtain();
                         obtain.what = 0;
-                        obtain.obj = Long.valueOf(j2 - this.this$0.mBeginTime);
+                        obtain.obj = Long.valueOf(j - this.this$0.mBeginTime);
                         this.this$0.mJobHandler.sendMessage(obtain);
                         return;
                     }
@@ -444,24 +444,24 @@ public class MultiMediaDataSourceRealTimer {
         }
     }
 
-    public void setCurrentPlayTime(long j2) {
+    public void setCurrentPlayTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.mCurrentPlayTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mCurrentPlayTime = j;
         }
     }
 
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.mDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.mDuration = j;
         }
     }
 
-    public void setFrameRate(int i2) {
+    public void setFrameRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mFrameRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mFrameRate = i;
         }
     }
 

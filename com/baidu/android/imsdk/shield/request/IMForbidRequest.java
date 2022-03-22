@@ -27,26 +27,26 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public int type;
     public long uid;
 
-    public IMForbidRequest(Context context, long j2, long j3, int i2, String str) {
+    public IMForbidRequest(Context context, long j, long j2, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.uid = j3;
-        this.type = i2;
+        this.uid = j2;
+        this.type = i;
         this.key = str;
-        this.touk = j2;
+        this.touk = j;
     }
 
     private int getReportType() {
@@ -54,22 +54,22 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (AccountManager.getMediaRole(this.mContext)) {
-                int i2 = this.type;
-                if (i2 == 0) {
+                int i = this.type;
+                if (i == 0) {
                     return 3;
                 }
-                if (i2 == 7) {
+                if (i == 7) {
                     return 4;
                 }
             } else {
-                int i3 = this.type;
-                if (i3 == 0) {
+                int i2 = this.type;
+                if (i2 == 0) {
                     return 0;
                 }
-                if (i3 == 7) {
+                if (i2 == 7) {
                     return 1;
                 }
-                if (i3 == 3) {
+                if (i2 == 3) {
                     return 2;
                 }
             }
@@ -133,7 +133,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
                 jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
                 jSONObject.put("timestamp", currentTimeMillis);
-                int i2 = 1;
+                int i = 1;
                 jSONObject.put("reason", 1);
                 int reportType = getReportType();
                 jSONObject.put("report_type", reportType);
@@ -142,9 +142,9 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 }
                 jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
                 if (!AccountManager.isCuidLogin(this.mContext)) {
-                    i2 = 0;
+                    i = 0;
                 }
-                jSONObject.put("account_type", i2);
+                jSONObject.put("account_type", i);
                 LogUtils.d(TAG, "IMForbidRequest msg :" + jSONObject.toString());
                 return jSONObject.toString().getBytes();
             } catch (Exception unused) {
@@ -155,22 +155,22 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             ShieldAndTopManager.getInstance(this.mContext).onForbidResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, true, "", this.key);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
         boolean z;
         String str2;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
             String str3 = new String(bArr);
             LogUtils.e(TAG, "IMForbidRequest onSuccess :" + str3);
             boolean z2 = true;
@@ -181,16 +181,16 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 z2 = jSONObject.optBoolean("display_toast", false);
                 str = z2 ? jSONObject.optString("toast", "") : "";
                 z = z2;
-                i3 = optInt;
+                i2 = optInt;
                 str2 = optString;
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "JSONException", e2);
                 str = "";
                 z = z2;
                 str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i3 = 1010;
+                i2 = 1010;
             }
-            ShieldAndTopManager.getInstance(this.mContext).onForbidResult(i3, str2, z, str, this.key);
+            ShieldAndTopManager.getInstance(this.mContext).onForbidResult(i2, str2, z, str, this.key);
         }
     }
 }

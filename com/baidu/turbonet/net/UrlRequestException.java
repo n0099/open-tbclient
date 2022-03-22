@@ -28,17 +28,17 @@ public class UrlRequestException extends IOException {
     public final int mErrorCode;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UrlRequestException(String str, int i2, int i3) {
+    public UrlRequestException(String str, int i, int i2) {
         super(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -46,8 +46,8 @@ public class UrlRequestException extends IOException {
                 return;
             }
         }
-        this.mErrorCode = i2;
-        this.mCronetInternalErrorCode = i3;
+        this.mErrorCode = i;
+        this.mCronetInternalErrorCode = i2;
     }
 
     public int getCronetInternalErrorCode() {
@@ -66,8 +66,8 @@ public class UrlRequestException extends IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.mErrorCode;
-            return i2 == 3 || i2 == 4 || i2 == 5 || i2 == 6 || i2 == 8 || i2 == 10;
+            int i = this.mErrorCode;
+            return i == 3 || i == 4 || i == 5 || i == 6 || i == 8 || i == 10;
         }
         return invokeV.booleanValue;
     }
@@ -81,9 +81,9 @@ public class UrlRequestException extends IOException {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, th};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;

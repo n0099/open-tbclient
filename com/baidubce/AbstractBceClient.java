@@ -1,5 +1,6 @@
 package com.baidubce;
 
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,9 +38,9 @@ public abstract class AbstractBceClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {bceClientConfiguration, httpResponseHandlerArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,7 +80,7 @@ public abstract class AbstractBceClient {
                 String substring = name.substring(str.length());
                 if (substring.indexOf(46) == -1) {
                     String name2 = getClass().getName();
-                    String str2 = name + '.' + Character.toUpperCase(substring.charAt(0)) + substring.substring(1) + "Client";
+                    String str2 = name + IStringUtil.EXTENSION_SEPARATOR + Character.toUpperCase(substring.charAt(0)) + substring.substring(1) + "Client";
                     if (name2.equals(str2)) {
                         return substring;
                     }

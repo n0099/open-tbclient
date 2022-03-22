@@ -28,7 +28,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.AppPayServiceImpl;
 import com.yy.mobile.framework.revenuesdk.reporter.EventReporter;
 import com.yy.mobile.framework.revenuesdk.reporter.MonitorReporter;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Revenue";
@@ -46,24 +46,24 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     public String serviceName;
     public long uid;
 
-    public Revenue(int i2, int i3) {
+    public Revenue(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mProtocolType = ProtocolType.UNKNOW;
-        this.mAppId = i2;
-        this.mUsedChannel = i3;
+        this.mAppId = i;
+        this.mUsedChannel = i2;
         RLog.info(TAG, "create Revenue mAppId:" + this.mAppId + " mUsedChannel:" + this.mUsedChannel);
     }
 
@@ -92,15 +92,15 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void cancelAllRequest(int i2, int i3) {
+    public void cancelAllRequest(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            RLog.info(TAG, "cancelAllRequest appId:" + i2 + " useChannel:" + i3);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            RLog.info(TAG, "cancelAllRequest appId:" + i + " useChannel:" + i2);
             RevenueConfig config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel);
             if (config == null || config.getDataSender() == null) {
                 return;
             }
-            config.getDataSender().cancelAllRequest(i2, i3);
+            config.getDataSender().cancelAllRequest(i, i2);
         }
     }
 
@@ -161,79 +161,79 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
-    public void onBroadcastData(int i2, PSCIMessageBroadcast pSCIMessageBroadcast) {
+    public void onBroadcastData(int i, PSCIMessageBroadcast pSCIMessageBroadcast) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, pSCIMessageBroadcast) == null) {
-            int i3 = this.mAppId;
-            if (i3 != i2) {
-                RLog.debug(TAG, "currentAppId = %d, BroadcastData appId not match!", Integer.valueOf(i3));
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, pSCIMessageBroadcast) == null) {
+            int i2 = this.mAppId;
+            if (i2 != i) {
+                RLog.debug(TAG, "currentAppId = %d, BroadcastData appId not match!", Integer.valueOf(i2));
                 return;
             }
             IAppPayService iAppPayService = this.iAppPayService;
             if (iAppPayService instanceof IRevenueDataReceiver) {
-                ((IRevenueDataReceiver) iAppPayService).onBroadcastData(i2, pSCIMessageBroadcast);
+                ((IRevenueDataReceiver) iAppPayService).onBroadcastData(i, pSCIMessageBroadcast);
             }
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
-    public void onRequestError(int i2, int i3, String str, int i4, int i5, String str2) {
+    public void onRequestError(int i, int i2, String str, int i3, int i4, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Integer.valueOf(i5), str2}) == null) {
-            if (this.mAppId != i2) {
-                RLog.debug(TAG, "onRequestError appId not match! mAppId:" + this.mAppId + " appId:" + i2);
-            } else if (this.mUsedChannel != i3) {
-                RLog.debug(TAG, "onRequestError userchannel not match! mUsedChannel:" + this.mUsedChannel + " userchannel:" + i3);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2}) == null) {
+            if (this.mAppId != i) {
+                RLog.debug(TAG, "onRequestError appId not match! mAppId:" + this.mAppId + " appId:" + i);
+            } else if (this.mUsedChannel != i2) {
+                RLog.debug(TAG, "onRequestError userchannel not match! mUsedChannel:" + this.mUsedChannel + " userchannel:" + i2);
             } else {
                 IAppPayService iAppPayService = this.iAppPayService;
                 if (iAppPayService instanceof IRevenueDataReceiver) {
-                    ((IRevenueDataReceiver) iAppPayService).onRequestError(i2, i3, str, i4, i5, str2);
+                    ((IRevenueDataReceiver) iAppPayService).onRequestError(i, i2, str, i3, i4, str2);
                 }
             }
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
-    public void onResponseData(int i2, int i3, PSCIMessageResponse pSCIMessageResponse) {
+    public void onResponseData(int i, int i2, PSCIMessageResponse pSCIMessageResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, pSCIMessageResponse) == null) {
-            if (this.mAppId != i2) {
-                RLog.debug(TAG, "onResponseData appId not match! mAppId:" + this.mAppId + " appId:" + i2);
-            } else if (this.mUsedChannel != i3) {
-                RLog.debug(TAG, "onResponseData userchannel not match! mUsedChannel:" + this.mUsedChannel + " userchannel:" + i3);
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, pSCIMessageResponse) == null) {
+            if (this.mAppId != i) {
+                RLog.debug(TAG, "onResponseData appId not match! mAppId:" + this.mAppId + " appId:" + i);
+            } else if (this.mUsedChannel != i2) {
+                RLog.debug(TAG, "onResponseData userchannel not match! mUsedChannel:" + this.mUsedChannel + " userchannel:" + i2);
             } else {
                 IAppPayService iAppPayService = this.iAppPayService;
                 if (iAppPayService instanceof IRevenueDataReceiver) {
-                    ((IRevenueDataReceiver) iAppPayService).onResponseData(i2, i3, pSCIMessageResponse);
+                    ((IRevenueDataReceiver) iAppPayService).onResponseData(i, i2, pSCIMessageResponse);
                 }
             }
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
-    public void onUnicastData(int i2, PSCIMessageUnicast pSCIMessageUnicast) {
+    public void onUnicastData(int i, PSCIMessageUnicast pSCIMessageUnicast) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, pSCIMessageUnicast) == null) {
-            int i3 = this.mAppId;
-            if (i3 != i2) {
-                RLog.debug(TAG, "currentAppId = %d, UnicastData appId not match!", Integer.valueOf(i3));
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, pSCIMessageUnicast) == null) {
+            int i2 = this.mAppId;
+            if (i2 != i) {
+                RLog.debug(TAG, "currentAppId = %d, UnicastData appId not match!", Integer.valueOf(i2));
                 return;
             }
             IAppPayService iAppPayService = this.iAppPayService;
             if (iAppPayService instanceof IRevenueDataReceiver) {
-                ((IRevenueDataReceiver) iAppPayService).onUnicastData(i2, pSCIMessageUnicast);
+                ((IRevenueDataReceiver) iAppPayService).onUnicastData(i, pSCIMessageUnicast);
             }
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void sendData(int i2, int i3, String str, ArrayList<Integer> arrayList, byte[] bArr) {
+    public void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr) {
         RevenueConfig config;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, arrayList, bArr}) == null) || (config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel)) == null || config.getDataSender() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, arrayList, bArr}) == null) || (config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel)) == null || config.getDataSender() == null) {
             return;
         }
-        config.getDataSender().sendData(this.mAppId, i3, str, arrayList, bArr);
+        config.getDataSender().sendData(this.mAppId, i2, str, arrayList, bArr);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue

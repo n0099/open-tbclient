@@ -25,9 +25,9 @@ public class DownloadInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -90,17 +90,17 @@ public class DownloadInfo {
         }
     }
 
-    public void setFinished(long j2) {
+    public void setFinished(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.finished = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.finished = j;
         }
     }
 
-    public void setLength(long j2) {
+    public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.length = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.length = j;
         }
     }
 
@@ -111,10 +111,10 @@ public class DownloadInfo {
         }
     }
 
-    public void setProgress(int i2) {
+    public void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.progress = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.progress = i;
         }
     }
 
@@ -132,9 +132,9 @@ public class DownloadInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, file};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

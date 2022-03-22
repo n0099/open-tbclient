@@ -16,31 +16,27 @@ public class DrawerArgs {
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29838b;
+    public boolean f23850b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29839c;
+    public boolean f23851c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29840d;
+    public int f23852d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29841e;
+    public int f23853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f29842f;
+    public SkinType f23854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29843g;
+    public boolean f23855g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29844h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f29845i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f29846j;
+    public boolean f23856h;
+    public boolean i;
+    public int j;
     public float k;
     public Matrix l;
     public int m;
@@ -77,16 +73,16 @@ public class DrawerArgs {
             $VALUES = new SkinType[]{DAY, NIGHT, skinType};
         }
 
-        public SkinType(String str, int i2) {
+        public SkinType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -114,19 +110,19 @@ public class DrawerArgs {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new float[8];
-        this.f29842f = SkinType.DAY;
-        this.f29844h = false;
-        this.f29845i = true;
-        this.f29846j = b.a;
+        this.f23854f = SkinType.DAY;
+        this.f23856h = false;
+        this.i = true;
+        this.j = b.a;
         this.k = 1.0f;
         this.o = false;
     }

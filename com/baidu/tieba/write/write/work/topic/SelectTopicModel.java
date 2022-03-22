@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.topic;
 
 import androidx.annotation.NonNull;
-import c.a.r0.r1.f;
+import c.a.p0.t1.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,18 +22,16 @@ import tbclient.GetRecommendTopic.TopicList;
 public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c.a.d.c.g.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final c.a.d.c.g.a f48617e;
+    /* renamed from: b  reason: collision with root package name */
+    public b f37563b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f48618f;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f37564c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f48619g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<f> f48620h;
+    /* renamed from: d  reason: collision with root package name */
+    public List<f> f37565d;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -42,17 +40,17 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         public final /* synthetic */ SelectTopicModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(SelectTopicModel selectTopicModel, int i2, int i3) {
-            super(i2, i3);
+        public a(SelectTopicModel selectTopicModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {selectTopicModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {selectTopicModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -67,9 +65,9 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f48619g = false;
-                if (responsedMessage != null && (responsedMessage instanceof c.a.r0.q4.u.p.a0.a.a)) {
-                    this.a.z(((c.a.r0.q4.u.p.a0.a.a) responsedMessage).getTopicList());
+                this.a.f37564c = false;
+                if (responsedMessage != null && (responsedMessage instanceof c.a.p0.s4.u.p.a0.a.a)) {
+                    this.a.B(((c.a.p0.s4.u.p.a0.a.a) responsedMessage).getTopicList());
                 }
             }
         }
@@ -89,45 +87,51 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((c.a.d.a.f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48617e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
+        this.a = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
         initListener();
     }
 
-    public void A(b bVar) {
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f48618f = bVar;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f37564c && ListUtils.isEmpty(this.f37565d)) {
+            this.f37564c = true;
+            sendMessage(new GetRecommendTopicReqMessage());
+        }
+    }
+
+    public final void B(List<TopicList> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.f37565d = new ArrayList();
+        for (TopicList topicList : list) {
+            this.f37565d.add(new f(topicList));
+        }
+        b bVar = this.f37563b;
+        if (bVar != null) {
+            bVar.a(this.f37565d);
+        }
+    }
+
+    public void C(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f37563b = bVar;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void initListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.f48617e);
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -136,26 +140,20 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void y() {
+    public final void initListener() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f48619g && ListUtils.isEmpty(this.f48620h)) {
-            this.f48619g = true;
-            sendMessage(new GetRecommendTopicReqMessage());
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerListener(this.a);
         }
     }
 
-    public final void z(List<TopicList> list) {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
         }
-        this.f48620h = new ArrayList();
-        for (TopicList topicList : list) {
-            this.f48620h.add(new f(topicList));
-        }
-        b bVar = this.f48618f;
-        if (bVar != null) {
-            bVar.a(this.f48620h);
-        }
+        return invokeV.booleanValue;
     }
 }

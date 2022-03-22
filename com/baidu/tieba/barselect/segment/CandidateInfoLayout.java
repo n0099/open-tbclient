@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.r0.c0.b.d;
-import c.a.r0.c0.b.f;
+import c.a.p0.e0.b.d;
+import c.a.p0.e0.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,33 +32,29 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: d  reason: collision with root package name */
+    public Context f31567d;
+
     /* renamed from: e  reason: collision with root package name */
-    public Context f40893e;
+    public BazhuHeadView f31568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BazhuHeadView f40894f;
+    public LinearLayout f31569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f40895g;
+    public TextView f31570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f40896h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f40897i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ImageView f40898j;
-    public TextView k;
-    public View.OnClickListener l;
+    public TextView f31571h;
+    public ImageView i;
+    public TextView j;
+    public View.OnClickListener k;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateInfoLayout f40899e;
+        public final /* synthetic */ CandidateInfoLayout a;
 
         public a(CandidateInfoLayout candidateInfoLayout) {
             Interceptable interceptable = $ic;
@@ -67,30 +63,30 @@ public class CandidateInfoLayout extends CardBasicLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {candidateInfoLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40899e = candidateInfoLayout;
+            this.a = candidateInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f40899e.mElectionData) == null || dVar.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.a.f31573c) == null || dVar.l() == 0) {
                 return;
             }
             long g2 = b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = this.f40899e.mElectionData.l();
-            if (!(this.f40899e.getContext() instanceof Activity) || this.f40899e.mElectionData.f() == 2) {
+            long l = this.a.f31573c.l();
+            if (!(this.a.getContext() instanceof Activity) || this.a.f31573c.f() == 2) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f40899e.getContext()).createNormalConfig(l, l == g2, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(l, l == g2, false)));
         }
     }
 
@@ -103,9 +99,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -118,41 +114,41 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
-            this.f40894f = bazhuHeadView;
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092296);
+            this.f31568e = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
-                this.f40894f.getHeadView().setIsRound(true);
+                this.f31568e.getHeadView().setIsRound(true);
             }
-            this.f40895g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
-            this.f40896h = (TextView) findViewById(R.id.user_name);
-            this.f40897i = (TextView) findViewById(R.id.vote_id);
-            this.k = (TextView) findViewById(R.id.agree_post_reply_num);
-            this.f40898j = (ImageView) findViewById(R.id.grade);
+            this.f31569f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922bc);
+            this.f31570g = (TextView) findViewById(R.id.obfuscated_res_0x7f0922bb);
+            this.f31571h = (TextView) findViewById(R.id.obfuscated_res_0x7f09241c);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09015a);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce0);
         }
     }
 
-    public void initUI() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40893e = getContext();
+            this.f31567d = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
             setGravity(80);
             setMinimumHeight(n.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.candidate_info_layout, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0172, (ViewGroup) this, true);
             a();
         }
     }
 
-    public void onSkinChange(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f40896h, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f40897i, R.color.CAM_X0109, 1, i2);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
-            d dVar = this.mElectionData;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            SkinManager.setViewTextColor(this.f31570g, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.f31571h, R.color.CAM_X0109, 1, i);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
+            d dVar = this.f31573c;
             if (dVar != null) {
                 setGrade(dVar.d());
             }
@@ -160,61 +156,61 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i2, f fVar) {
-        int i3;
+    public void setData(int i, f fVar) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
-            super.setData(i2, fVar);
-            if (this.mData != null && this.mElectionData != null && (i3 = this.status) >= 0) {
-                if (i3 == c.a.r0.c0.e.a.f15246c) {
-                    int f2 = n.f(this.f40893e, R.dimen.tbds191);
-                    int f3 = n.f(this.f40893e, R.dimen.tbds157);
-                    int f4 = n.f(this.f40893e, R.dimen.tbds6);
-                    int f5 = n.f(this.f40893e, R.dimen.tbds24);
-                    int f6 = n.f(this.f40893e, R.dimen.tbds30);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, fVar) == null) {
+            super.setData(i, fVar);
+            if (this.f31572b != null && this.f31573c != null && (i2 = this.a) >= 0) {
+                if (i2 == c.a.p0.e0.e.a.f13758c) {
+                    int f2 = n.f(this.f31567d, R.dimen.tbds191);
+                    int f3 = n.f(this.f31567d, R.dimen.tbds157);
+                    int f4 = n.f(this.f31567d, R.dimen.tbds6);
+                    int f5 = n.f(this.f31567d, R.dimen.tbds24);
+                    int f6 = n.f(this.f31567d, R.dimen.tbds30);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f3, f2);
                     layoutParams.setMargins(layoutParams.leftMargin - f4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                    this.f40894f.setLayoutParams(layoutParams);
-                    this.f40894f.resizeView(true);
-                    this.f40894f.setBawuLogoView(R.drawable.pic_election_bazhu);
-                    this.f40894f.setPendantView(R.drawable.icon_crown);
-                    this.f40896h.setTextSize(0, n.f(this.f40893e, R.dimen.tbfontsize46));
+                    this.f31568e.setLayoutParams(layoutParams);
+                    this.f31568e.o(true);
+                    this.f31568e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080ef3);
+                    this.f31568e.setPendantView(R.drawable.obfuscated_res_0x7f0806df);
+                    this.f31570g.setTextSize(0, n.f(this.f31567d, R.dimen.tbfontsize46));
                     setGravity(16);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams2.setMargins(f6, f5, layoutParams2.rightMargin, f4);
-                    this.f40894f.setLayoutParams(layoutParams);
-                    this.f40895g.setLayoutParams(layoutParams2);
+                    this.f31568e.setLayoutParams(layoutParams);
+                    this.f31569f.setLayoutParams(layoutParams2);
                 } else {
-                    this.f40894f.resizeView(false);
+                    this.f31568e.o(false);
                 }
-                this.f40894f.startLoadOnlyHeadUrl(this.mElectionData.g());
-                this.f40894f.setOnClickListener(this.l);
-                this.f40896h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
-                setGrade(this.mElectionData.d());
-                if (this.mElectionData.f() == 2) {
-                    this.f40897i.setVisibility(8);
+                this.f31568e.l(this.f31573c.g());
+                this.f31568e.setOnClickListener(this.k);
+                this.f31570g.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f31573c.e(), 14, StringHelper.STRING_MORE));
+                setGrade(this.f31573c.d());
+                if (this.f31573c.f() == 2) {
+                    this.f31571h.setVisibility(8);
                 } else {
-                    this.f40897i.setVisibility(0);
-                    if (this.mElectionData.c() < 1000) {
-                        String str2 = "0000" + this.mElectionData.c();
+                    this.f31571h.setVisibility(0);
+                    if (this.f31573c.c() < 1000) {
+                        String str2 = "0000" + this.f31573c.c();
                         str = str2.substring(str2.length() - 4, str2.length());
                     } else {
-                        str = "" + this.mElectionData.c();
+                        str = "" + this.f31573c.c();
                     }
-                    this.f40897i.setText("NO." + str);
+                    this.f31571h.setText("NO." + str);
                 }
-                this.k.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.mElectionData.a()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.j()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.h())));
+                this.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00e0), StringHelper.numFormatOverWanWithNegative(this.f31573c.a()), StringHelper.numFormatOverWanWithNegative(this.f31573c.j()), StringHelper.numFormatOverWanWithNegative(this.f31573c.h())));
                 return;
             }
             setVisibility(8);
         }
     }
 
-    public void setGrade(int i2) {
+    public void setGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            SkinManager.setImageResource(this.f40898j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            SkinManager.setImageResource(this.i, BitmapHelper.getGradeResourceIdInEnterForum(i));
         }
     }
 
@@ -227,9 +223,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -237,7 +233,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
                 return;
             }
         }
-        this.l = new a(this);
-        initUI();
+        this.k = new a(this);
+        b();
     }
 }

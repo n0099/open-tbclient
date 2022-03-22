@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,7 +55,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
 
     public static native WebPImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
-    public static native WebPImage nativeCreateFromNativeMemory(long j2, int i2);
+    public static native WebPImage nativeCreateFromNativeMemory(long j, int i);
 
     private native void nativeDispose();
 
@@ -63,7 +63,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
 
     private native int nativeGetDuration();
 
-    private native WebPFrame nativeGetFrame(int i2);
+    private native WebPFrame nativeGetFrame(int i);
 
     private native int nativeGetFrameCount();
 
@@ -78,10 +78,10 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j2, int i2) {
+    public AnimatedImage decode(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? create(j2, i2) : (AnimatedImage) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? create(j, i) : (AnimatedImage) invokeCommon.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -131,13 +131,13 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            WebPFrame frame = getFrame(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            WebPFrame frame = getFrame(i);
             try {
-                return new AnimatedDrawableFrameInfo(i2, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), frame.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, frame.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+                return new AnimatedDrawableFrameInfo(i, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), frame.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, frame.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
             } finally {
                 frame.dispose();
             }
@@ -174,22 +174,22 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @DoNotStrip
-    public WebPImage(long j2) {
+    public WebPImage(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mNativeContext = j2;
+        this.mNativeContext = j;
     }
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
@@ -201,10 +201,10 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public WebPFrame getFrame(int i2) {
+    public WebPFrame getFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? nativeGetFrame(i2) : (WebPFrame) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? nativeGetFrame(i) : (WebPFrame) invokeI.objValue;
     }
 
     public static WebPImage create(ByteBuffer byteBuffer) {
@@ -218,13 +218,13 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         return (WebPImage) invokeL.objValue;
     }
 
-    public static WebPImage create(long j2, int i2) {
+    public static WebPImage create(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             StaticWebpNativeLoader.ensure();
-            Preconditions.checkArgument(j2 != 0);
-            return nativeCreateFromNativeMemory(j2, i2);
+            Preconditions.checkArgument(j != 0);
+            return nativeCreateFromNativeMemory(j, i);
         }
         return (WebPImage) invokeCommon.objValue;
     }

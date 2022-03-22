@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,17 +20,17 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
     public long interval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaMGetLiveStatusHttpResponseMessage(int i2) {
-        super(i2);
+    public AlaMGetLiveStatusHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,11 +40,11 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null) {
                 return;
             }
@@ -57,9 +57,9 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
                         this.closeLives = new ArrayList();
                     }
                     this.closeLives.clear();
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        if (optJSONArray.get(i3) instanceof Integer) {
-                            this.closeLives.add(Long.valueOf(((Integer) optJSONArray.get(i3)).longValue()));
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        if (optJSONArray.get(i2) instanceof Integer) {
+                            this.closeLives.add(Long.valueOf(((Integer) optJSONArray.get(i2)).longValue()));
                         }
                     }
                 }

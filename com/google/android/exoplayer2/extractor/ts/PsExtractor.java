@@ -22,7 +22,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PsExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_STREAM = 192;
@@ -46,7 +46,7 @@ public final class PsExtractor implements Extractor {
     public final SparseArray<PesReader> psPayloadReaders;
     public final TimestampAdjuster timestampAdjuster;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PesReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PES_SCRATCH_SIZE = 64;
@@ -67,9 +67,9 @@ public final class PsExtractor implements Extractor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {elementaryStreamReader, timestampAdjuster};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -160,9 +160,9 @@ public final class PsExtractor implements Extractor {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -185,9 +185,9 @@ public final class PsExtractor implements Extractor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((TimestampAdjuster) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -230,25 +230,25 @@ public final class PsExtractor implements Extractor {
                     extractorInput.skipFully(1);
                     return 0;
                 } else {
-                    int i2 = readInt & 255;
-                    PesReader pesReader = this.psPayloadReaders.get(i2);
+                    int i = readInt & 255;
+                    PesReader pesReader = this.psPayloadReaders.get(i);
                     if (!this.foundAllTracks) {
                         if (pesReader == null) {
                             ElementaryStreamReader elementaryStreamReader = null;
-                            if (!this.foundAudioTrack && i2 == 189) {
+                            if (!this.foundAudioTrack && i == 189) {
                                 elementaryStreamReader = new Ac3Reader();
                                 this.foundAudioTrack = true;
-                            } else if (!this.foundAudioTrack && (i2 & 224) == 192) {
+                            } else if (!this.foundAudioTrack && (i & 224) == 192) {
                                 elementaryStreamReader = new MpegAudioReader();
                                 this.foundAudioTrack = true;
-                            } else if (!this.foundVideoTrack && (i2 & 240) == 224) {
+                            } else if (!this.foundVideoTrack && (i & 240) == 224) {
                                 elementaryStreamReader = new H262Reader();
                                 this.foundVideoTrack = true;
                             }
                             if (elementaryStreamReader != null) {
-                                elementaryStreamReader.createTracks(this.output, new TsPayloadReader.TrackIdGenerator(i2, 256));
+                                elementaryStreamReader.createTracks(this.output, new TsPayloadReader.TrackIdGenerator(i, 256));
                                 pesReader = new PesReader(elementaryStreamReader, this.timestampAdjuster);
-                                this.psPayloadReaders.put(i2, pesReader);
+                                this.psPayloadReaders.put(i, pesReader);
                             }
                         }
                         if ((this.foundAudioTrack && this.foundVideoTrack) || extractorInput.getPosition() > 1048576) {
@@ -285,12 +285,12 @@ public final class PsExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.timestampAdjuster.reset();
-            for (int i2 = 0; i2 < this.psPayloadReaders.size(); i2++) {
-                this.psPayloadReaders.valueAt(i2).seek();
+            for (int i = 0; i < this.psPayloadReaders.size(); i++) {
+                this.psPayloadReaders.valueAt(i).seek();
             }
         }
     }
@@ -319,9 +319,9 @@ public final class PsExtractor implements Extractor {
             newInitContext.initArgs = r2;
             Object[] objArr = {timestampAdjuster};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

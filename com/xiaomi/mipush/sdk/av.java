@@ -14,14 +14,14 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class av implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f83a;
+    public final /* synthetic */ boolean f59a;
 
     public av(Context context, boolean z) {
         Interceptable interceptable = $ic;
@@ -30,16 +30,16 @@ public final class av implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f83a = z;
+        this.f59a = z;
     }
 
     @Override // java.lang.Runnable
@@ -53,23 +53,23 @@ public final class av implements Runnable {
         String c3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("do sync info");
+            com.xiaomi.channel.commonutils.logger.b.m112a("do sync info");
             ie ieVar = new ie(com.xiaomi.push.service.at.a(), false);
-            b m174a = b.m174a(this.a);
-            ieVar.c(hp.v.f514a);
-            ieVar.b(m174a.m175a());
+            b m153a = b.m153a(this.a);
+            ieVar.c(hp.v.f490a);
+            ieVar.b(m153a.m154a());
             ieVar.d(this.a.getPackageName());
             HashMap hashMap = new HashMap();
-            ieVar.f655a = hashMap;
+            ieVar.f631a = hashMap;
             Context context = this.a;
-            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.g.m401a(context, context.getPackageName()));
-            Map<String, String> map2 = ieVar.f655a;
+            com.xiaomi.push.n.a(hashMap, "app_version", com.xiaomi.push.g.m380a(context, context.getPackageName()));
+            Map<String, String> map2 = ieVar.f631a;
             Context context2 = this.a;
             com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(context2, context2.getPackageName())));
-            com.xiaomi.push.n.a(ieVar.f655a, "push_sdk_vn", "3_8_5");
-            com.xiaomi.push.n.a(ieVar.f655a, "push_sdk_vc", Integer.toString(30805));
-            com.xiaomi.push.n.a(ieVar.f655a, "token", m174a.b());
-            com.xiaomi.push.i.a(this.a, ieVar.f655a);
+            com.xiaomi.push.n.a(ieVar.f631a, "push_sdk_vn", "3_8_5");
+            com.xiaomi.push.n.a(ieVar.f631a, "push_sdk_vc", Integer.toString(30805));
+            com.xiaomi.push.n.a(ieVar.f631a, "token", m153a.b());
+            com.xiaomi.push.i.a(this.a, ieVar.f631a);
             if (!com.xiaomi.push.l.d()) {
                 String a = bm.a(com.xiaomi.push.i.f(this.a));
                 String h2 = com.xiaomi.push.i.h(this.a);
@@ -77,36 +77,36 @@ public final class av implements Runnable {
                     a = a + "," + h2;
                 }
                 if (!TextUtils.isEmpty(a)) {
-                    com.xiaomi.push.n.a(ieVar.f655a, Constants.EXTRA_KEY_IMEI_MD5, a);
+                    com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_IMEI_MD5, a);
                 }
             }
-            ax.a(this.a).a(ieVar.f655a);
-            com.xiaomi.push.n.a(ieVar.f655a, Constants.EXTRA_KEY_REG_ID, m174a.m182c());
-            com.xiaomi.push.n.a(ieVar.f655a, Constants.EXTRA_KEY_REG_SECRET, m174a.d());
-            com.xiaomi.push.n.a(ieVar.f655a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
-            if (this.f83a) {
-                Map<String, String> map3 = ieVar.f655a;
+            ax.a(this.a).a(ieVar.f631a);
+            com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_REG_ID, m153a.m161c());
+            com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_REG_SECRET, m153a.d());
+            com.xiaomi.push.n.a(ieVar.f631a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", "-"));
+            if (this.f59a) {
+                Map<String, String> map3 = ieVar.f631a;
                 c2 = au.c(MiPushClient.getAllAlias(this.a));
                 com.xiaomi.push.n.a(map3, Constants.EXTRA_KEY_ALIASES_MD5, c2);
-                Map<String, String> map4 = ieVar.f655a;
+                Map<String, String> map4 = ieVar.f631a;
                 c3 = au.c(MiPushClient.getAllTopic(this.a));
                 com.xiaomi.push.n.a(map4, Constants.EXTRA_KEY_TOPICS_MD5, c3);
-                map = ieVar.f655a;
+                map = ieVar.f631a;
                 d4 = au.c(MiPushClient.getAllUserAccount(this.a));
                 str = Constants.EXTRA_KEY_ACCOUNTS_MD5;
             } else {
-                Map<String, String> map5 = ieVar.f655a;
+                Map<String, String> map5 = ieVar.f631a;
                 d2 = au.d(MiPushClient.getAllAlias(this.a));
                 com.xiaomi.push.n.a(map5, Constants.EXTRA_KEY_ALIASES, d2);
-                Map<String, String> map6 = ieVar.f655a;
+                Map<String, String> map6 = ieVar.f631a;
                 d3 = au.d(MiPushClient.getAllTopic(this.a));
                 com.xiaomi.push.n.a(map6, Constants.EXTRA_KEY_TOPICS, d3);
-                map = ieVar.f655a;
+                map = ieVar.f631a;
                 d4 = au.d(MiPushClient.getAllUserAccount(this.a));
                 str = Constants.EXTRA_KEY_ACCOUNTS;
             }
             com.xiaomi.push.n.a(map, str, d4);
-            an.a(this.a).a((an) ieVar, hf.f59728i, false, (hs) null);
+            an.a(this.a).a((an) ieVar, hf.i, false, (hs) null);
         }
     }
 }

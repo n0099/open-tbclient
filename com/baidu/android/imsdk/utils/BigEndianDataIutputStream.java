@@ -24,9 +24,9 @@ public class BigEndianDataIutputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,19 +36,19 @@ public class BigEndianDataIutputStream {
         this.buff = new byte[8];
     }
 
-    private int readToBuff(int i2) throws IOException {
+    private int readToBuff(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int read = this.mDis.read(this.buff, i3, i2 - i3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int i2 = 0;
+            while (i2 < i) {
+                int read = this.mDis.read(this.buff, i2, i - i2);
                 if (read == -1) {
                     return read;
                 }
-                i3 += read;
+                i2 += read;
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -118,10 +118,10 @@ public class BigEndianDataIutputStream {
         return invokeV.shortValue;
     }
 
-    public final void skipBytes(int i2) throws IOException {
+    public final void skipBytes(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mDis.skipBytes(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mDis.skipBytes(i);
         }
     }
 }

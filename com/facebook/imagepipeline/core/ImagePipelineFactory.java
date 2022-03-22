@@ -44,7 +44,7 @@ import com.facebook.imagepipeline.transcoder.SimpleImageTranscoderFactory;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImagePipelineFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -93,9 +93,9 @@ public class ImagePipelineFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {imagePipelineConfig};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

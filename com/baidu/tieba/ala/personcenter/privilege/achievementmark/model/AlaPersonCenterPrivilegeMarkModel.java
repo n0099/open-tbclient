@@ -22,12 +22,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f40776e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f40777f;
+    /* renamed from: b  reason: collision with root package name */
+    public HttpMessageListener f31472b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -36,17 +34,17 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         public final /* synthetic */ AlaPersonCenterPrivilegeMarkModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel, int i2) {
-            super(i2);
+        public a(AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaPersonCenterPrivilegeMarkModel, Integer.valueOf(i2)};
+                Object[] objArr = {alaPersonCenterPrivilegeMarkModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -61,14 +59,14 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
-                this.a.f40776e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                this.a.a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i2, String str, Object obj);
+        void a(int i, String str, Object obj);
     }
 
     public AlaPersonCenterPrivilegeMarkModel(BdUniqueId bdUniqueId, b bVar) {
@@ -78,26 +76,36 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {bdUniqueId, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40777f = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+        this.f31472b = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         this.unique_id = bdUniqueId;
-        this.f40776e = bVar;
+        this.a = bVar;
         registerTask();
-        registerListener(this.f40777f);
+        registerListener(this.f31472b);
+    }
+
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.setTag(this.unique_id);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -105,7 +113,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     public void destory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
             MessageManager.getInstance().unRegisterListener(this.unique_id);
         }
@@ -115,7 +123,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -123,20 +131,10 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_PRIVILEGE_MARK_LIST);
             tbHttpMessageTask.setResponsedClass(AlaAchievementMarkResponsedMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.unique_id);
-            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

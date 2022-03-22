@@ -7,6 +7,7 @@ import com.baidu.searchbox.account.data.BoxAccount;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.account.params.LoginParams;
 import com.baidu.searchbox.account.params.LogoutParams;
+import com.baidu.searchbox.live.interfaces.DI;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -15,7 +16,7 @@ public interface BoxAccountManager {
     public static final int BOX_GET_ACCOUNT_FORCE_MODE = 12;
     public static final int BOX_GET_ACCOUNT_LAZY_MODE = 11;
     public static final int NO_SUPPORT_GUEST_LOGIN = 2;
-    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference("account", "login");
+    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(DI.ACCOUNT, "login");
     public static final String SESSION_BDUSS = "BoxAccount_bduss";
     public static final String SESSION_DISPLAYNAME = "BoxAccount_displayname";
     public static final String SESSION_NICKNAME = "user_login_nickname_key";
@@ -35,7 +36,7 @@ public interface BoxAccountManager {
 
     void checkBdussAndAlert(Activity activity, boolean z, String str, ILoginResultListener iLoginResultListener);
 
-    void combineLogin(Context context, LoginParams loginParams, int i2, ILoginResultListener iLoginResultListener);
+    void combineLogin(Context context, LoginParams loginParams, int i, ILoginResultListener iLoginResultListener);
 
     List<String> getAuthorizedDomains(Context context);
 
@@ -44,7 +45,7 @@ public interface BoxAccountManager {
     BoxAccount getBoxAccount();
 
     @Deprecated
-    BoxAccount getBoxAccount(int i2, IGetBoxAccountListener iGetBoxAccountListener);
+    BoxAccount getBoxAccount(int i, IGetBoxAccountListener iGetBoxAccountListener);
 
     @Deprecated
     String getSession(String str);
@@ -59,9 +60,9 @@ public interface BoxAccountManager {
     @Deprecated
     boolean isLogin();
 
-    boolean isLogin(int i2);
+    boolean isLogin(int i);
 
-    boolean isShow(int i2);
+    boolean isShow(int i);
 
     boolean isWxAppInstalledAndSupported();
 
@@ -81,7 +82,7 @@ public interface BoxAccountManager {
 
     void logout(LogoutParams logoutParams);
 
-    void modifyUserInfo(long j2, BoxAccount boxAccount, IAccountRequestListener iAccountRequestListener);
+    void modifyUserInfo(long j, BoxAccount boxAccount, IAccountRequestListener iAccountRequestListener);
 
     void modifyUserInfo(JSONObject jSONObject, IAccountRequestListener iAccountRequestListener);
 
@@ -91,11 +92,11 @@ public interface BoxAccountManager {
 
     void selectAddress(Context context, boolean z, String str, IAddressManageCallback iAddressManageCallback);
 
-    void setThirdLoginSwitch(int i2);
+    void setThirdLoginSwitch(int i);
 
     void showNickNameGuideDialog(Activity activity, String str);
 
-    void startAccountNickNameActivity(Activity activity, String str, String str2, int i2);
+    void startAccountNickNameActivity(Activity activity, String str, String str2, int i);
 
     void verifyUserFaceId(Context context, String str, IVerifyUserFaceIDListener iVerifyUserFaceIDListener);
 }

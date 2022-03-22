@@ -11,7 +11,7 @@ public class NullLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(Canvas canvas, Matrix matrix, int i2) {
+    public void drawLayer(Canvas canvas, Matrix matrix, int i) {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.animation.content.DrawingContent

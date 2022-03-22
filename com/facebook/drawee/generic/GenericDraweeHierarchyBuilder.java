@@ -20,7 +20,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeHierarchyBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ScalingUtils.ScaleType DEFAULT_ACTUAL_IMAGE_SCALE_TYPE;
@@ -73,9 +73,9 @@ public class GenericDraweeHierarchyBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -328,11 +328,11 @@ public class GenericDraweeHierarchyBuilder {
         return (GenericDraweeHierarchyBuilder) invokeF.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setFadeDuration(int i2) {
+    public GenericDraweeHierarchyBuilder setFadeDuration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
-            this.mFadeDuration = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+            this.mFadeDuration = i;
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeI.objValue;
@@ -478,41 +478,41 @@ public class GenericDraweeHierarchyBuilder {
         return (GenericDraweeHierarchyBuilder) invokeZ.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setFailureImage(int i2) {
+    public GenericDraweeHierarchyBuilder setFailureImage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-            this.mFailureImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            this.mFailureImage = this.mResources.getDrawable(i);
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeI.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i2) {
+    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
-            this.mPlaceholderImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) {
+            this.mPlaceholderImage = this.mResources.getDrawable(i);
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeI.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setProgressBarImage(int i2) {
+    public GenericDraweeHierarchyBuilder setProgressBarImage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
-            this.mProgressBarImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
+            this.mProgressBarImage = this.mResources.getDrawable(i);
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeI.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setRetryImage(int i2) {
+    public GenericDraweeHierarchyBuilder setRetryImage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
-            this.mRetryImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i)) == null) {
+            this.mRetryImage = this.mResources.getDrawable(i);
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeI.objValue;
@@ -562,44 +562,44 @@ public class GenericDraweeHierarchyBuilder {
         return (GenericDraweeHierarchyBuilder) invokeLL.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setFailureImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+    public GenericDraweeHierarchyBuilder setFailureImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048604, this, i2, scaleType)) == null) {
-            this.mFailureImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048604, this, i, scaleType)) == null) {
+            this.mFailureImage = this.mResources.getDrawable(i);
             this.mFailureImageScaleType = scaleType;
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+    public GenericDraweeHierarchyBuilder setPlaceholderImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i2, scaleType)) == null) {
-            this.mPlaceholderImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i, scaleType)) == null) {
+            this.mPlaceholderImage = this.mResources.getDrawable(i);
             this.mPlaceholderImageScaleType = scaleType;
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setProgressBarImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+    public GenericDraweeHierarchyBuilder setProgressBarImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048617, this, i2, scaleType)) == null) {
-            this.mProgressBarImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048617, this, i, scaleType)) == null) {
+            this.mProgressBarImage = this.mResources.getDrawable(i);
             this.mProgressBarImageScaleType = scaleType;
             return this;
         }
         return (GenericDraweeHierarchyBuilder) invokeIL.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setRetryImage(int i2, @Nullable ScalingUtils.ScaleType scaleType) {
+    public GenericDraweeHierarchyBuilder setRetryImage(int i, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048622, this, i2, scaleType)) == null) {
-            this.mRetryImage = this.mResources.getDrawable(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048622, this, i, scaleType)) == null) {
+            this.mRetryImage = this.mResources.getDrawable(i);
             this.mRetryImageScaleType = scaleType;
             return this;
         }

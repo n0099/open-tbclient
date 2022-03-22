@@ -1,6 +1,6 @@
 package com.baidu.tbadk.trackConfig;
 
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -19,17 +19,17 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
     public boolean isOpenTrack;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TrackConfigResponseMessage(int i2) {
-        super(i2);
+    public TrackConfigResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,13 +40,13 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) && jSONObject != null && isSuccess()) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && isSuccess()) {
             try {
-                int i3 = jSONObject.getInt("is_open_track");
+                int i2 = jSONObject.getInt("is_open_track");
                 boolean z = true;
-                if (i3 != 1) {
+                if (i2 != 1) {
                     z = false;
                 }
                 this.isOpenTrack = z;

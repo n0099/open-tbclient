@@ -5,7 +5,7 @@ import java.util.List;
 public interface IAuthenticateCallback {
     void onAvailFeaturesChanged(List<Integer> list);
 
-    void onFeatureRejected(int i2);
+    void onFeatureRejected(int i);
 
     void onResult(boolean z, List<Integer> list);
 }

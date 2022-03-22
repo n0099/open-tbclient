@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.Zan;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PraiseData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2658065756886586666L;
@@ -34,9 +34,9 @@ public class PraiseData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,25 +115,25 @@ public class PraiseData extends OrmObject implements Serializable {
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            String l = list.get(i2).toString();
+        for (int i = 0; i < list.size(); i++) {
+            String l = list.get(i).toString();
             if (this.userMap != null && l != null && !l.equals("0") && (metaData = this.userMap.get(l)) != null) {
                 this.users.add(metaData);
             }
         }
     }
 
-    public void setIsLike(int i2) {
+    public void setIsLike(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.isLike = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.isLike = i;
         }
     }
 
-    public void setNum(long j2) {
+    public void setNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.num = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.num = j;
         }
     }
 
@@ -178,8 +178,8 @@ public class PraiseData extends OrmObject implements Serializable {
             if (jSONArray == null || jSONArray.length() <= 0) {
                 return;
             }
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                String optString = jSONArray.optString(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String optString = jSONArray.optString(i);
                 if (this.userMap != null && optString != null && optString.length() > 0 && (metaData = this.userMap.get(optString)) != null) {
                     this.users.add(metaData);
                 }

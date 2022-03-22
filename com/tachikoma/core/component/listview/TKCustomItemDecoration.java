@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.recyclerview.export.TKWaterLayoutConfiguration;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
             newInitContext.initArgs = r2;
             Object[] objArr = {tKWaterLayoutConfiguration};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,7 +37,7 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     private void offsetGridLayoutRowAndEdge(Rect rect, View view, RecyclerView recyclerView) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65537, this, rect, view, recyclerView) == null) && (recyclerView.getLayoutManager() instanceof GridLayoutManager)) {
             int spanCount = ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
@@ -50,20 +50,20 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
             int itemCount = recyclerView.getLayoutManager().getItemCount();
-            int i3 = childAdapterPosition + 1;
-            if (i3 % spanCount != 0) {
+            int i2 = childAdapterPosition + 1;
+            if (i2 % spanCount != 0) {
                 TKWaterLayoutConfiguration tKWaterLayoutConfiguration = this.mConfiguration;
                 rect.left = tKWaterLayoutConfiguration.edgePadding;
                 if (childAdapterPosition != itemCount) {
-                    i2 = tKWaterLayoutConfiguration.centerPadding;
+                    i = tKWaterLayoutConfiguration.centerPadding;
                 }
-                if (itemCount > spanCount || i3 <= spanCount) {
+                if (itemCount > spanCount || i2 <= spanCount) {
                 }
                 rect.top = this.mConfiguration.rowPadding;
                 return;
             }
-            i2 = this.mConfiguration.edgePadding;
-            rect.right = i2;
+            i = this.mConfiguration.edgePadding;
+            rect.right = i;
             if (itemCount > spanCount) {
             }
         }
@@ -72,7 +72,7 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
     private void offsetLinearLayoutRowAndEdge(Rect rect, View view, RecyclerView recyclerView) {
         int childAdapterPosition;
         RecyclerView.Adapter adapter;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65538, this, rect, view, recyclerView) == null) || (childAdapterPosition = recyclerView.getChildAdapterPosition(view)) == -1 || (adapter = recyclerView.getAdapter()) == null || !(recyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
             return;
@@ -81,8 +81,8 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
             if (childAdapterPosition != adapter.getItemCount() - 1 && childAdapterPosition != 0) {
                 rect.top = this.mConfiguration.rowPadding;
             }
-            i2 = this.mConfiguration.edgePadding;
-            rect.left = i2;
+            i = this.mConfiguration.edgePadding;
+            rect.left = i;
         } else {
             if (childAdapterPosition != adapter.getItemCount() - 1) {
                 rect.right = this.mConfiguration.centerPadding;
@@ -93,9 +93,9 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
             if (childAdapterPosition != adapter.getItemCount() - 1) {
                 return;
             }
-            i2 = this.mConfiguration.edgePadding;
+            i = this.mConfiguration.edgePadding;
         }
-        rect.right = i2;
+        rect.right = i;
     }
 
     private void offsetStaggerGridLayoutRowAndEdge(Rect rect, View view, RecyclerView recyclerView) {
@@ -112,11 +112,11 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
                 if (spanIndex == 0) {
                     rect.left = this.mConfiguration.edgePadding;
                 }
-                int i2 = spanCount - 1;
-                if (spanIndex != i2) {
+                int i = spanCount - 1;
+                if (spanIndex != i) {
                     rect.right = this.mConfiguration.centerPadding;
                 }
-                if (spanIndex == i2) {
+                if (spanIndex == i) {
                     rect.right = this.mConfiguration.edgePadding;
                 }
                 if (childAdapterPosition + 1 <= spanCount) {
@@ -125,9 +125,9 @@ public class TKCustomItemDecoration extends RecyclerView.ItemDecoration {
                 tKWaterLayoutConfiguration = this.mConfiguration;
             } else {
                 tKWaterLayoutConfiguration = this.mConfiguration;
-                int i3 = tKWaterLayoutConfiguration.edgePadding;
-                rect.left = i3;
-                rect.right = i3;
+                int i2 = tKWaterLayoutConfiguration.edgePadding;
+                rect.left = i2;
+                rect.right = i2;
                 if (childAdapterPosition + 1 <= spanCount) {
                     return;
                 }

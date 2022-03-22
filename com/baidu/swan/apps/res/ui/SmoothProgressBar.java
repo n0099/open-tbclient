@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37777e;
+    public static final int f29139e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,24 +36,24 @@ public class SmoothProgressBar extends RotateProgressBar {
             }
         }
         if (Build.VERSION.SDK_INT > 15) {
-            f37777e = 36;
+            f29139e = 36;
         } else {
-            f37777e = 25;
+            f29139e = 25;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SmoothProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SmoothProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -67,7 +67,7 @@ public class SmoothProgressBar extends RotateProgressBar {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mFrameDuration = (int) ((((this.mFrameDuration * 12.0f) / f37777e) / 2.0f) + 0.5f);
+            this.f29119d = (int) ((((this.f29119d * 12.0f) / f29139e) / 2.0f) + 0.5f);
         }
     }
 
@@ -76,18 +76,18 @@ public class SmoothProgressBar extends RotateProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.mCurrentDrawable;
+                Drawable drawable = this.f29117b;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    if (SystemClock.uptimeMillis() - this.mLastDrawTime >= this.mFrameDuration) {
-                        this.mLastDrawTime = SystemClock.uptimeMillis();
-                        int i2 = this.mDegree + (10000 / f37777e);
-                        this.mDegree = i2;
-                        if (i2 >= 10000) {
-                            this.mDegree = i2 - 10000;
+                    if (SystemClock.uptimeMillis() - this.f29118c >= this.f29119d) {
+                        this.f29118c = SystemClock.uptimeMillis();
+                        int i = this.a + (10000 / f29139e);
+                        this.a = i;
+                        if (i >= 10000) {
+                            this.a = i - 10000;
                         }
-                        drawable.setLevel(this.mDegree);
-                        postInvalidateDelayed(this.mFrameDuration);
+                        drawable.setLevel(this.a);
+                        postInvalidateDelayed(this.f29119d);
                     }
                 }
             }
@@ -103,9 +103,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -125,9 +125,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

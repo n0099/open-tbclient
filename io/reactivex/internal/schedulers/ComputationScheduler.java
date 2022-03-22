@@ -41,48 +41,48 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         public final PoolWorker[] eventLoops;
         public long n;
 
-        public FixedSchedulerPool(int i2, ThreadFactory threadFactory) {
+        public FixedSchedulerPool(int i, ThreadFactory threadFactory) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), threadFactory};
+                Object[] objArr = {Integer.valueOf(i), threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.cores = i2;
-            this.eventLoops = new PoolWorker[i2];
-            for (int i5 = 0; i5 < i2; i5++) {
-                this.eventLoops[i5] = new PoolWorker(threadFactory);
+            this.cores = i;
+            this.eventLoops = new PoolWorker[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                this.eventLoops[i4] = new PoolWorker(threadFactory);
             }
         }
 
         @Override // io.reactivex.internal.schedulers.SchedulerMultiWorkerSupport
-        public void createWorkers(int i2, SchedulerMultiWorkerSupport.WorkerCallback workerCallback) {
+        public void createWorkers(int i, SchedulerMultiWorkerSupport.WorkerCallback workerCallback) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, workerCallback) == null) {
-                int i3 = this.cores;
-                if (i3 == 0) {
-                    for (int i4 = 0; i4 < i2; i4++) {
-                        workerCallback.onWorker(i4, ComputationScheduler.SHUTDOWN_WORKER);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, workerCallback) == null) {
+                int i2 = this.cores;
+                if (i2 == 0) {
+                    for (int i3 = 0; i3 < i; i3++) {
+                        workerCallback.onWorker(i3, ComputationScheduler.SHUTDOWN_WORKER);
                     }
                     return;
                 }
-                int i5 = ((int) this.n) % i3;
-                for (int i6 = 0; i6 < i2; i6++) {
-                    workerCallback.onWorker(i6, new EventLoopWorker(this.eventLoops[i5]));
-                    i5++;
-                    if (i5 == i3) {
-                        i5 = 0;
+                int i4 = ((int) this.n) % i2;
+                for (int i5 = 0; i5 < i; i5++) {
+                    workerCallback.onWorker(i5, new EventLoopWorker(this.eventLoops[i4]));
+                    i4++;
+                    if (i4 == i2) {
+                        i4 = 0;
                     }
                 }
-                this.n = i5;
+                this.n = i4;
             }
         }
 
@@ -90,14 +90,14 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.cores;
-                if (i2 == 0) {
+                int i = this.cores;
+                if (i == 0) {
                     return ComputationScheduler.SHUTDOWN_WORKER;
                 }
                 PoolWorker[] poolWorkerArr = this.eventLoops;
-                long j2 = this.n;
-                this.n = 1 + j2;
-                return poolWorkerArr[(int) (j2 % i2)];
+                long j = this.n;
+                this.n = 1 + j;
+                return poolWorkerArr[(int) (j % i)];
             }
             return (PoolWorker) invokeV.objValue;
         }
@@ -126,9 +126,9 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
                 newInitContext.initArgs = r2;
                 Object[] objArr = {threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ThreadFactory) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -169,9 +169,9 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ThreadFactory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -180,10 +180,10 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         }
     }
 
-    public static int cap(int i2, int i3) {
+    public static int cap(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? (i3 <= 0 || i3 > i2) ? i2 : i3 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? (i2 <= 0 || i2 > i) ? i : i2 : invokeII.intValue;
     }
 
     @Override // io.reactivex.Scheduler
@@ -195,28 +195,28 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     }
 
     @Override // io.reactivex.internal.schedulers.SchedulerMultiWorkerSupport
-    public void createWorkers(int i2, SchedulerMultiWorkerSupport.WorkerCallback workerCallback) {
+    public void createWorkers(int i, SchedulerMultiWorkerSupport.WorkerCallback workerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, workerCallback) == null) {
-            ObjectHelper.verifyPositive(i2, "number > 0 required");
-            this.pool.get().createWorkers(i2, workerCallback);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, workerCallback) == null) {
+            ObjectHelper.verifyPositive(i, "number > 0 required");
+            this.pool.get().createWorkers(i, workerCallback);
         }
     }
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) ? this.pool.get().getEventLoop().scheduleDirect(runnable, j2, timeUnit) : (Disposable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) ? this.pool.get().getEventLoop().scheduleDirect(runnable, j, timeUnit) : (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? this.pool.get().getEventLoop().schedulePeriodicallyDirect(runnable, j2, j3, timeUnit) : (Disposable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? this.pool.get().getEventLoop().schedulePeriodicallyDirect(runnable, j, j2, timeUnit) : (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
@@ -255,9 +255,9 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
             newInitContext.initArgs = r2;
             Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -285,9 +285,9 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
                 newInitContext.initArgs = r2;
                 Object[] objArr = {poolWorker};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -335,14 +335,14 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
                 if (this.disposed) {
                     return EmptyDisposable.INSTANCE;
                 }
-                return this.poolWorker.scheduleActual(runnable, j2, timeUnit, this.timed);
+                return this.poolWorker.scheduleActual(runnable, j, timeUnit, this.timed);
             }
             return (Disposable) invokeCommon.objValue;
         }

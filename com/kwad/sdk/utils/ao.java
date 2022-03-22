@@ -6,7 +6,7 @@ import com.kwad.sdk.api.KsCustomController;
 import com.kwad.sdk.api.SdkConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ao {
     public static boolean a() {
         KsCustomController ksCustomController;

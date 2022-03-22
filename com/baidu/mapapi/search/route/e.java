@@ -19,9 +19,9 @@ public final class e implements Parcelable.Creator<DrivingRouteLine.DrivingStep>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,9 +40,9 @@ public final class e implements Parcelable.Creator<DrivingRouteLine.DrivingStep>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public DrivingRouteLine.DrivingStep[] newArray(int i2) {
+    public DrivingRouteLine.DrivingStep[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new DrivingRouteLine.DrivingStep[i2] : (DrivingRouteLine.DrivingStep[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new DrivingRouteLine.DrivingStep[i] : (DrivingRouteLine.DrivingStep[]) invokeI.objValue;
     }
 }

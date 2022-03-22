@@ -9,32 +9,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<co> f200a;
+    public final ArrayList<co> f176a;
 
     public cp() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f200a = new ArrayList<>();
+        this.f176a = new ArrayList<>();
     }
 
     public cp(String str) {
@@ -44,15 +43,15 @@ public class cp {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f200a = new ArrayList<>();
+        this.f176a = new ArrayList<>();
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
@@ -64,10 +63,10 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                for (int size = this.f200a.size() - 1; size >= 0; size--) {
-                    co coVar = this.f200a.get(size);
-                    if (coVar.m285a()) {
-                        cs.a().m295a(coVar.a());
+                for (int size = this.f176a.size() - 1; size >= 0; size--) {
+                    co coVar = this.f176a.get(size);
+                    if (coVar.m264a()) {
+                        cs.a().m274a(coVar.a());
                         return coVar;
                     }
                 }
@@ -84,8 +83,8 @@ public class cp {
             synchronized (this) {
                 this.a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.f200a.add(new co(this.a).a(jSONArray.getJSONObject(i2)));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    this.f176a.add(new co(this.a).a(jSONArray.getJSONObject(i)));
                 }
             }
             return this;
@@ -94,21 +93,21 @@ public class cp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m286a() {
+    public String m265a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<co> m287a() {
+    public ArrayList<co> m266a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f200a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f176a : (ArrayList) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m288a() {
+    public synchronized JSONObject m267a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -117,9 +116,9 @@ public class cp {
                 jSONObject = new JSONObject();
                 jSONObject.put("host", this.a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<co> it = this.f200a.iterator();
+                Iterator<co> it = this.f176a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m283a());
+                    jSONArray.put(it.next().m262a());
                 }
                 jSONObject.put("fbs", jSONArray);
             }
@@ -132,19 +131,19 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, coVar) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= this.f200a.size()) {
+                    if (i >= this.f176a.size()) {
                         break;
-                    } else if (this.f200a.get(i2).a(coVar)) {
-                        this.f200a.set(i2, coVar);
+                    } else if (this.f176a.get(i).a(coVar)) {
+                        this.f176a.set(i, coVar);
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
-                if (i2 >= this.f200a.size()) {
-                    this.f200a.add(coVar);
+                if (i >= this.f176a.size()) {
+                    this.f176a.add(coVar);
                 }
             }
         }
@@ -155,15 +154,15 @@ public class cp {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             synchronized (this) {
-                for (int size = this.f200a.size() - 1; size >= 0; size--) {
-                    co coVar = this.f200a.get(size);
+                for (int size = this.f176a.size() - 1; size >= 0; size--) {
+                    co coVar = this.f176a.get(size);
                     if (z) {
                         if (coVar.c()) {
-                            arrayList = this.f200a;
+                            arrayList = this.f176a;
                             arrayList.remove(size);
                         }
                     } else if (!coVar.b()) {
-                        arrayList = this.f200a;
+                        arrayList = this.f176a;
                         arrayList.remove(size);
                     }
                 }
@@ -177,8 +176,8 @@ public class cp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
-            sb.append(StringUtils.LF);
-            Iterator<co> it = this.f200a.iterator();
+            sb.append("\n");
+            Iterator<co> it = this.f176a.iterator();
             while (it.hasNext()) {
                 sb.append(it.next());
             }

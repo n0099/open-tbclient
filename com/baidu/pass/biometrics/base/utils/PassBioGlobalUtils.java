@@ -27,54 +27,54 @@ public final class PassBioGlobalUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String getZid(Context context, String str, int i2) {
+    public static String getZid(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i2)) == null) {
-            String gzfi = FH.gzfi(context, str, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
+            String gzfi = FH.gzfi(context, str, i);
             return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
         }
         return (String) invokeLLI.objValue;
     }
 
-    public static void toast(Context context, CharSequence charSequence, int i2, int i3) {
+    public static void toast(Context context, CharSequence charSequence, int i, int i2) {
         View inflate;
         TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65538, null, context, charSequence, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65538, null, context, charSequence, i, i2) == null) {
             if (context.getApplicationContext() != null) {
                 context = context.getApplicationContext();
             }
-            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.pass_bio_toast_tips, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.rim_base_toast_message)) == null) {
+            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0658, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091abf)) == null) {
                 return;
             }
             textView.setText(charSequence);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.rim_base_toast_icon);
-            if (imageView != null && i2 > 0) {
-                imageView.setImageResource(i2);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091abe);
+            if (imageView != null && i > 0) {
+                imageView.setImageResource(i);
                 imageView.setVisibility(0);
             }
             Toast toast = new Toast(context);
             toast.setGravity(17, 0, 0);
-            toast.setDuration(i3);
+            toast.setDuration(i2);
             toast.setView(inflate);
             toast.show();
         }
     }
 
-    public static void toastWithText(Context context, CharSequence charSequence, int i2) {
+    public static void toastWithText(Context context, CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, charSequence, i2) == null) {
-            toast(context, charSequence, -1, i2);
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, charSequence, i) == null) {
+            toast(context, charSequence, -1, i);
         }
     }
 }

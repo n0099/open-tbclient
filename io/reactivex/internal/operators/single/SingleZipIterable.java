@@ -36,9 +36,9 @@ public final class SingleZipIterable<T, R> extends Single<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleZipIterable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,9 +63,9 @@ public final class SingleZipIterable<T, R> extends Single<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,28 +81,28 @@ public final class SingleZipIterable<T, R> extends Single<R> {
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             SingleSource[] singleSourceArr = new SingleSource[8];
             try {
-                int i2 = 0;
+                int i = 0;
                 for (SingleSource<? extends T> singleSource : this.sources) {
                     if (singleSource == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), singleObserver);
                         return;
                     }
-                    if (i2 == singleSourceArr.length) {
-                        singleSourceArr = (SingleSource[]) Arrays.copyOf(singleSourceArr, (i2 >> 2) + i2);
+                    if (i == singleSourceArr.length) {
+                        singleSourceArr = (SingleSource[]) Arrays.copyOf(singleSourceArr, (i >> 2) + i);
                     }
-                    int i3 = i2 + 1;
-                    singleSourceArr[i2] = singleSource;
-                    i2 = i3;
+                    int i2 = i + 1;
+                    singleSourceArr[i] = singleSource;
+                    i = i2;
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     EmptyDisposable.error(new NoSuchElementException(), singleObserver);
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     singleSourceArr[0].subscribe(new SingleMap.MapSingleObserver(singleObserver, new SingletonArrayFunc(this)));
                 } else {
-                    SingleZipArray.ZipCoordinator zipCoordinator = new SingleZipArray.ZipCoordinator(singleObserver, i2, this.zipper);
+                    SingleZipArray.ZipCoordinator zipCoordinator = new SingleZipArray.ZipCoordinator(singleObserver, i, this.zipper);
                     singleObserver.onSubscribe(zipCoordinator);
-                    for (int i4 = 0; i4 < i2 && !zipCoordinator.isDisposed(); i4++) {
-                        singleSourceArr[i4].subscribe(zipCoordinator.observers[i4]);
+                    for (int i3 = 0; i3 < i && !zipCoordinator.isDisposed(); i3++) {
+                        singleSourceArr[i3].subscribe(zipCoordinator.observers[i3]);
                     }
                 }
             } catch (Throwable th) {

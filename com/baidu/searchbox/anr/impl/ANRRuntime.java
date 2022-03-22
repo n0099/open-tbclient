@@ -1,11 +1,13 @@
 package com.baidu.searchbox.anr.impl;
 
-import c.a.i0.a.b.b;
-import c.a.i0.a.b.d;
+import android.util.Log;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
+import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,9 +27,9 @@ public class ANRRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -62,7 +64,10 @@ public class ANRRuntime {
             }
             for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
                 if (iANRRegister != null && iANRRegister.checkEnable()) {
-                    AppConfig.isDebug();
+                    if (AppConfig.isDebug()) {
+                        Log.d(BlockMonitor.TAG, "enableANR = true");
+                        return true;
+                    }
                     return true;
                 }
             }

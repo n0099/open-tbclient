@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.FormatHolder;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MetadataRenderer extends BaseRenderer implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PENDING_METADATA_COUNT = 5;
@@ -35,7 +35,7 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
     public final long[] pendingMetadataTimestamps;
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Output extends MetadataOutput {
     }
 
@@ -48,9 +48,9 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
             newInitContext.initArgs = r2;
             Object[] objArr = {metadataOutput, looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((MetadataOutput) objArr2[0], (Looper) objArr2[1], (MetadataDecoderFactory) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -129,26 +129,26 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onPositionReset(long j2, boolean z) {
+    public void onPositionReset(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             flushPendingMetadata();
             this.inputStreamEnded = false;
         }
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onStreamChanged(Format[] formatArr, long j2) throws ExoPlaybackException {
+    public void onStreamChanged(Format[] formatArr, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, formatArr, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, formatArr, j) == null) {
             this.decoder = this.decoderFactory.createDecoder(formatArr[0]);
         }
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public void render(long j2, long j3) throws ExoPlaybackException {
+    public void render(long j, long j2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             if (!this.inputStreamEnded && this.pendingMetadataCount < 5) {
                 this.buffer.clear();
                 if (readSource(this.formatHolder, this.buffer, false) == -4) {
@@ -159,9 +159,9 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
                         metadataInputBuffer.subsampleOffsetUs = this.formatHolder.format.subsampleOffsetUs;
                         metadataInputBuffer.flip();
                         try {
-                            int i2 = (this.pendingMetadataIndex + this.pendingMetadataCount) % 5;
-                            this.pendingMetadata[i2] = this.decoder.decode(this.buffer);
-                            this.pendingMetadataTimestamps[i2] = this.buffer.timeUs;
+                            int i = (this.pendingMetadataIndex + this.pendingMetadataCount) % 5;
+                            this.pendingMetadata[i] = this.decoder.decode(this.buffer);
+                            this.pendingMetadataTimestamps[i] = this.buffer.timeUs;
                             this.pendingMetadataCount++;
                         } catch (MetadataDecoderException e2) {
                             throw ExoPlaybackException.createForRenderer(e2, getIndex());
@@ -171,13 +171,13 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
             }
             if (this.pendingMetadataCount > 0) {
                 long[] jArr = this.pendingMetadataTimestamps;
-                int i3 = this.pendingMetadataIndex;
-                if (jArr[i3] <= j2) {
-                    invokeRenderer(this.pendingMetadata[i3]);
+                int i2 = this.pendingMetadataIndex;
+                if (jArr[i2] <= j) {
+                    invokeRenderer(this.pendingMetadata[i2]);
                     Metadata[] metadataArr = this.pendingMetadata;
-                    int i4 = this.pendingMetadataIndex;
-                    metadataArr[i4] = null;
-                    this.pendingMetadataIndex = (i4 + 1) % 5;
+                    int i3 = this.pendingMetadataIndex;
+                    metadataArr[i3] = null;
+                    this.pendingMetadataIndex = (i3 + 1) % 5;
                     this.pendingMetadataCount--;
                 }
             }
@@ -206,9 +206,9 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
             newInitContext.initArgs = r2;
             Object[] objArr = {metadataOutput, looper, metadataDecoderFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

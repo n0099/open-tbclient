@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.s0.a;
-import c.a.p0.i.a.i.c;
+import c.a.n0.a.s0.a;
+import c.a.n0.i.a.i.c;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
@@ -32,9 +33,9 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,7 +63,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             Intent intent = new Intent(AppRuntime.getAppContext(), InstallNotifyReceiver.class);
             intent.setAction(str);
             intent.setData(Uri.parse(installPageUrlScheme));
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.addFlags(134217728);
             return intent;
         }
@@ -103,7 +104,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            c.a.p0.i.a.a.n().q(stringExtra, this.mOpportunity);
+            c.a.n0.i.a.a.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -151,8 +152,8 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            c.a.p0.i.a.h.a.f().l();
-            c.a.p0.i.a.h.a.f().n("todayfirst");
+            c.a.n0.i.a.h.a.f().l();
+            c.a.n0.i.a.h.a.f().n("todayfirst");
         }
     }
 

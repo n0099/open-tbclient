@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.download.DownloadLaunchRunnable;
 import com.kwai.filedownloader.y;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwai.filedownloader.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f56914b;
+    public final h f41778b;
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,20 +35,20 @@ public class g implements y {
         }
         com.kwai.filedownloader.download.b a = com.kwai.filedownloader.download.b.a();
         this.a = a.c();
-        this.f56914b = new h(a.d());
+        this.f41778b = new h(a.d());
     }
 
     @Override // com.kwai.filedownloader.y
-    public int a(String str, int i2) {
+    public int a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? this.f56914b.a(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? this.f41778b.a(str, i) : invokeLI.intValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            List<Integer> b2 = this.f56914b.b();
+            List<Integer> b2 = this.f41778b.b();
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(this, "pause all tasks %d", Integer.valueOf(b2.size()));
             }
@@ -62,11 +62,11 @@ public class g implements y {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
+    public synchronized void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
         com.kwai.filedownloader.c.c cVar;
         List<com.kwai.filedownloader.c.a> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)}) == null) {
             synchronized (this) {
                 boolean z4 = false;
                 if (com.kwai.filedownloader.e.d.a) {
@@ -131,7 +131,7 @@ public class g implements y {
                     if (z4) {
                         this.a.a(cVar);
                     }
-                    this.f56914b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
+                    this.f41778b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i2)).b(Integer.valueOf(i)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i3)).a());
                 } else {
                     this.a.e(cVar.a());
                     this.a.d(cVar.a());
@@ -147,15 +147,15 @@ public class g implements y {
                 z4 = true;
                 if (z4) {
                 }
-                this.f56914b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i3)).b(Integer.valueOf(i2)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i4)).a());
+                this.f41778b.a(new DownloadLaunchRunnable.a().a(cVar).a(bVar).a(this).a(Integer.valueOf(i2)).b(Integer.valueOf(i)).a(Boolean.valueOf(z2)).b(Boolean.valueOf(z3)).c(Integer.valueOf(i3)).a());
             }
         }
     }
 
-    public boolean a(int i2) {
+    public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? a(this.a.b(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? a(this.a.b(i)) : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.y
@@ -166,7 +166,7 @@ public class g implements y {
             if (cVar == null) {
                 return false;
             }
-            boolean c2 = this.f56914b.c(cVar.a());
+            boolean c2 = this.f41778b.c(cVar.a());
             if (com.kwai.filedownloader.c.d.a(cVar.f())) {
                 if (!c2) {
                     return false;
@@ -189,32 +189,32 @@ public class g implements y {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56914b.a() <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41778b.a() <= 0 : invokeV.booleanValue;
     }
 
-    public boolean b(int i2) {
+    public boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "request pause the task %d", Integer.valueOf(i2));
+                com.kwai.filedownloader.e.d.c(this, "request pause the task %d", Integer.valueOf(i));
             }
-            com.kwai.filedownloader.c.c b2 = this.a.b(i2);
+            com.kwai.filedownloader.c.c b2 = this.a.b(i);
             if (b2 == null) {
                 return false;
             }
             b2.a((byte) -2);
-            this.f56914b.b(i2);
+            this.f41778b.b(i);
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    public long c(int i2) {
+    public long c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            com.kwai.filedownloader.c.c b2 = this.a.b(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            com.kwai.filedownloader.c.c b2 = this.a.b(i);
             if (b2 == null) {
                 return 0L;
             }
@@ -222,7 +222,7 @@ public class g implements y {
             if (n <= 1) {
                 return b2.g();
             }
-            List<com.kwai.filedownloader.c.a> c2 = this.a.c(i2);
+            List<com.kwai.filedownloader.c.a> c2 = this.a.c(i);
             if (c2 == null || c2.size() != n) {
                 return 0L;
             }
@@ -238,11 +238,11 @@ public class g implements y {
         }
     }
 
-    public long d(int i2) {
+    public long d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            com.kwai.filedownloader.c.c b2 = this.a.b(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            com.kwai.filedownloader.c.c b2 = this.a.b(i);
             if (b2 == null) {
                 return 0L;
             }
@@ -251,11 +251,11 @@ public class g implements y {
         return invokeI.longValue;
     }
 
-    public byte e(int i2) {
+    public byte e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            com.kwai.filedownloader.c.c b2 = this.a.b(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            com.kwai.filedownloader.c.c b2 = this.a.b(i);
             if (b2 == null) {
                 return (byte) 0;
             }
@@ -264,32 +264,32 @@ public class g implements y {
         return invokeI.byteValue;
     }
 
-    public synchronized boolean f(int i2) {
+    public synchronized boolean f(int i) {
         InterceptResult invokeI;
         boolean a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             synchronized (this) {
-                a = this.f56914b.a(i2);
+                a = this.f41778b.a(i);
             }
             return a;
         }
         return invokeI.booleanValue;
     }
 
-    public boolean g(int i2) {
+    public boolean g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            if (i2 == 0) {
-                com.kwai.filedownloader.e.d.d(this, "The task[%d] id is invalid, can't clear it.", Integer.valueOf(i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            if (i == 0) {
+                com.kwai.filedownloader.e.d.d(this, "The task[%d] id is invalid, can't clear it.", Integer.valueOf(i));
                 return false;
-            } else if (a(i2)) {
-                com.kwai.filedownloader.e.d.d(this, "The task[%d] is downloading, can't clear it.", Integer.valueOf(i2));
+            } else if (a(i)) {
+                com.kwai.filedownloader.e.d.d(this, "The task[%d] is downloading, can't clear it.", Integer.valueOf(i));
                 return false;
             } else {
-                this.a.e(i2);
-                this.a.d(i2);
+                this.a.e(i);
+                this.a.d(i);
                 return true;
             }
         }

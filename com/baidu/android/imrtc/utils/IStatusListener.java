@@ -3,5 +3,5 @@ package com.baidu.android.imrtc.utils;
 import com.baidu.android.imsdk.IMListener;
 /* loaded from: classes3.dex */
 public interface IStatusListener extends IMListener {
-    void onResult(int i2, String str);
+    void onResult(int i, String str);
 }

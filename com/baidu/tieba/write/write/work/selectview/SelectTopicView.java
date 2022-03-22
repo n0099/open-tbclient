@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,18 +36,28 @@ import kotlin.jvm.internal.Intrinsics;
 public class SelectTopicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f37548b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f37549c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public AutoChangeLineView f37550d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f48603e;
+    public ImageView f37551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoChangeLineView.b<String> f48604f;
-    public View mBottomLine;
-    public AutoChangeLineView mCenterContent;
-    public TextView mCenterContentTips;
-    public TextView mLeftTitle;
-    public ImageView mRightArrow;
-    public ImageView mTopicTitleSign;
+    public View f37552f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ArrayList<String> f37553g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public AutoChangeLineView.b<String> f37554h;
 
     /* loaded from: classes6.dex */
     public static final class a implements AutoChangeLineView.b<String> {
@@ -59,9 +69,9 @@ public class SelectTopicView extends LinearLayout {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -71,18 +81,18 @@ public class SelectTopicView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
         /* renamed from: b */
-        public CharSequence a(TextView label, int i2, String data) {
+        public CharSequence a(TextView label, int i, String data) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label, i2, data)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label, i, data)) == null) {
                 Intrinsics.checkNotNullParameter(label, "label");
                 Intrinsics.checkNotNullParameter(data, "data");
-                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_post_topic12, R.color.CAM_X0109, null);
+                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0109, null);
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
                 label.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 label.setCompoundDrawables(pureDrawable, null, null, null);
-                String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, "...");
+                String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, StringHelper.STRING_MORE);
                 c d2 = c.d(label);
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0204);
@@ -102,45 +112,45 @@ public class SelectTopicView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48603e = new ArrayList<>();
-        this.f48604f = new a();
-        init();
+        this.f37553g = new ArrayList<>();
+        this.f37554h = new a();
+        b();
     }
 
-    public static final void a(SelectTopicView this$0, TextView textView, Object obj, int i2) {
+    public static final void c(SelectTopicView this$0, TextView textView, Object obj, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65539, null, this$0, textView, obj, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65539, null, this$0, textView, obj, i) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this$0.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
-            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f48603e);
+            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f37553g);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
         }
     }
 
-    public static final void b(SelectTopicView this$0, View view) {
+    public static final void d(SelectTopicView this$0, View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this$0.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
-            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f48603e);
+            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f37553g);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
         }
     }
 
-    public final void bindData(ArrayList<String> bean) {
+    public final void a(ArrayList<String> bean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bean) == null) {
             Intrinsics.checkNotNullParameter(bean, "bean");
-            this.f48603e = bean;
+            this.f37553g = bean;
             if (bean.isEmpty()) {
                 getMCenterContent().setVisibility(8);
                 getMCenterContentTips().setVisibility(0);
@@ -148,21 +158,84 @@ public class SelectTopicView extends LinearLayout {
             }
             getMCenterContent().setVisibility(0);
             getMCenterContentTips().setVisibility(8);
-            getMCenterContent().setLabels(bean, this.f48604f);
+            getMCenterContent().setLabels(bean, this.f37554h);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a4, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092498);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
+            setMTopicTitleSign((ImageView) findViewById);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091229);
+            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
+            setMLeftTitle((TextView) findViewById2);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905d3);
+            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
+            setMCenterContentTips((TextView) findViewById3);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905d1);
+            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
+            setMCenterContent((AutoChangeLineView) findViewById4);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091aa5);
+            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
+            setMRightArrow((ImageView) findViewById5);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ca);
+            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
+            setMBottomLine(findViewById6);
+            e();
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: c.a.p0.s4.u.p.z.b
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
+                public final void a(TextView textView, Object obj, int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, textView, obj, i) == null) {
+                        SelectTopicView.c(SelectTopicView.this, textView, obj, i);
+                    }
+                }
+            });
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.p0.s4.u.p.z.f
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        SelectTopicView.d(SelectTopicView.this, view);
+                    }
+                }
+            });
+            a(new ArrayList<>());
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            getMCenterContent().setLabelTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            getMCenterContent().setLabels(this.f37553g, this.f37554h);
+            SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f08079c, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
+            getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
         }
     }
 
     public final AutoChangeLineView.b<String> getLabelTextProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48604f : (AutoChangeLineView.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37554h : (AutoChangeLineView.b) invokeV.objValue;
     }
 
     public final View getMBottomLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View view = this.mBottomLine;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            View view = this.f37552f;
             if (view != null) {
                 return view;
             }
@@ -175,8 +248,8 @@ public class SelectTopicView extends LinearLayout {
     public final AutoChangeLineView getMCenterContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AutoChangeLineView autoChangeLineView = this.mCenterContent;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AutoChangeLineView autoChangeLineView = this.f37550d;
             if (autoChangeLineView != null) {
                 return autoChangeLineView;
             }
@@ -189,8 +262,8 @@ public class SelectTopicView extends LinearLayout {
     public final TextView getMCenterContentTips() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TextView textView = this.mCenterContentTips;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            TextView textView = this.f37549c;
             if (textView != null) {
                 return textView;
             }
@@ -203,8 +276,8 @@ public class SelectTopicView extends LinearLayout {
     public final TextView getMLeftTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TextView textView = this.mLeftTitle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TextView textView = this.f37548b;
             if (textView != null) {
                 return textView;
             }
@@ -217,8 +290,8 @@ public class SelectTopicView extends LinearLayout {
     public final ImageView getMRightArrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ImageView imageView = this.mRightArrow;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ImageView imageView = this.f37551e;
             if (imageView != null) {
                 return imageView;
             }
@@ -231,8 +304,8 @@ public class SelectTopicView extends LinearLayout {
     public final ImageView getMTopicTitleSign() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ImageView imageView = this.mTopicTitleSign;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ImageView imageView = this.a;
             if (imageView != null) {
                 return imageView;
             }
@@ -242,74 +315,11 @@ public class SelectTopicView extends LinearLayout {
         return (ImageView) invokeV.objValue;
     }
 
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.view_select_topic, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.work_publish_topic_sign);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
-            setMTopicTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.left_title);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
-            setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.center_content_tips);
-            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
-            setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.center_content);
-            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
-            setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.right_arrow);
-            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
-            setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.bottom_line);
-            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
-            setMBottomLine(findViewById6);
-            onChangeSkin();
-            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: c.a.r0.q4.u.p.z.b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tbadk.core.view.AutoChangeLineView.c
-                public final void onLabelClick(TextView textView, Object obj, int i2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, textView, obj, i2) == null) {
-                        SelectTopicView.a(SelectTopicView.this, textView, obj, i2);
-                    }
-                }
-            });
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.q4.u.p.z.f
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        SelectTopicView.b(SelectTopicView.this, view);
-                    }
-                }
-            });
-            bindData(new ArrayList<>());
-        }
-    }
-
-    public void onChangeSkin() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            getMCenterContent().setLabelTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            getMCenterContent().setLabels(this.f48603e, this.f48604f);
-            SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
-            SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
-            getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-        }
-    }
-
     public final void setLabelTextProvider(AutoChangeLineView.b<String> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             Intrinsics.checkNotNullParameter(bVar, "<set-?>");
-            this.f48604f = bVar;
+            this.f37554h = bVar;
         }
     }
 
@@ -317,7 +327,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
             Intrinsics.checkNotNullParameter(view, "<set-?>");
-            this.mBottomLine = view;
+            this.f37552f = view;
         }
     }
 
@@ -325,7 +335,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, autoChangeLineView) == null) {
             Intrinsics.checkNotNullParameter(autoChangeLineView, "<set-?>");
-            this.mCenterContent = autoChangeLineView;
+            this.f37550d = autoChangeLineView;
         }
     }
 
@@ -333,7 +343,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mCenterContentTips = textView;
+            this.f37549c = textView;
         }
     }
 
@@ -341,7 +351,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mLeftTitle = textView;
+            this.f37548b = textView;
         }
     }
 
@@ -349,7 +359,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.mRightArrow = imageView;
+            this.f37551e = imageView;
         }
     }
 
@@ -357,7 +367,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.mTopicTitleSign = imageView;
+            this.a = imageView;
         }
     }
 
@@ -370,9 +380,9 @@ public class SelectTopicView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -380,23 +390,23 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f48603e = new ArrayList<>();
-        this.f48604f = new a();
-        init();
+        this.f37553g = new ArrayList<>();
+        this.f37554h = new a();
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SelectTopicView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -404,8 +414,8 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f48603e = new ArrayList<>();
-        this.f48604f = new a();
-        init();
+        this.f37553g = new ArrayList<>();
+        this.f37554h = new a();
+        b();
     }
 }

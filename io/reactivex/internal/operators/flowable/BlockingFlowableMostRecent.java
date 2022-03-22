@@ -13,20 +13,20 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.subscribers.DefaultSubscriber;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class BlockingFlowableMostRecent<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final T initialValue;
     public final Flowable<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class MostRecentSubscriber<T> extends DefaultSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile Object value;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class Iterator implements java.util.Iterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +40,9 @@ public final class BlockingFlowableMostRecent<T> implements Iterable<T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {mostRecentSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -102,9 +102,9 @@ public final class BlockingFlowableMostRecent<T> implements Iterable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,9 +151,9 @@ public final class BlockingFlowableMostRecent<T> implements Iterable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

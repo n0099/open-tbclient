@@ -11,7 +11,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LruBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,24 +21,24 @@ public class LruBitmapPool implements BitmapPool {
     public final PoolStatsTracker mPoolStatsTracker;
     public final PoolBackend<Bitmap> mStrategy;
 
-    public LruBitmapPool(int i2, int i3, PoolStatsTracker poolStatsTracker, @Nullable MemoryTrimmableRegistry memoryTrimmableRegistry) {
+    public LruBitmapPool(int i, int i2, PoolStatsTracker poolStatsTracker, @Nullable MemoryTrimmableRegistry memoryTrimmableRegistry) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), poolStatsTracker, memoryTrimmableRegistry};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), poolStatsTracker, memoryTrimmableRegistry};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mStrategy = new BitmapPoolBackend();
-        this.mMaxPoolSize = i2;
-        this.mMaxBitmapSize = i3;
+        this.mMaxPoolSize = i;
+        this.mMaxBitmapSize = i2;
         this.mPoolStatsTracker = poolStatsTracker;
         if (memoryTrimmableRegistry != null) {
             memoryTrimmableRegistry.registerMemoryTrimmable(this);
@@ -46,22 +46,22 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @VisibleForTesting
-    private Bitmap alloc(int i2) {
+    private Bitmap alloc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            this.mPoolStatsTracker.onAlloc(i2);
-            return Bitmap.createBitmap(1, i2, Bitmap.Config.ALPHA_8);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            this.mPoolStatsTracker.onAlloc(i);
+            return Bitmap.createBitmap(1, i, Bitmap.Config.ALPHA_8);
         }
         return (Bitmap) invokeI.objValue;
     }
 
-    private synchronized void trimTo(int i2) {
+    private synchronized void trimTo(int i) {
         Bitmap pop;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
             synchronized (this) {
-                while (this.mCurrentSize > i2 && (pop = this.mStrategy.pop()) != null) {
+                while (this.mCurrentSize > i && (pop = this.mStrategy.pop()) != null) {
                     int size = this.mStrategy.getSize(pop);
                     this.mCurrentSize -= size;
                     this.mPoolStatsTracker.onFree(size);
@@ -81,22 +81,22 @@ public class LruBitmapPool implements BitmapPool {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
-    public synchronized Bitmap get(int i2) {
+    public synchronized Bitmap get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             synchronized (this) {
                 if (this.mCurrentSize > this.mMaxPoolSize) {
                     trimTo(this.mMaxPoolSize);
                 }
-                Bitmap bitmap = this.mStrategy.get(i2);
+                Bitmap bitmap = this.mStrategy.get(i);
                 if (bitmap != null) {
                     int size = this.mStrategy.getSize(bitmap);
                     this.mCurrentSize -= size;
                     this.mPoolStatsTracker.onValueReuse(size);
                     return bitmap;
                 }
-                return alloc(i2);
+                return alloc(i);
             }
         }
         return (Bitmap) invokeI.objValue;

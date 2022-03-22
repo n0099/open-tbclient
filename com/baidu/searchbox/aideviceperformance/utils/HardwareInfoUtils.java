@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -56,9 +57,9 @@ public class HardwareInfoUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -70,8 +71,8 @@ public class HardwareInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             float[] fArr = new float[getNumCores()];
-            for (int i2 = 0; i2 < getNumCores(); i2++) {
-                fArr[i2] = getSingleCpuFrequency(getCpuInfoFilePath(i2));
+            for (int i = 0; i < getNumCores(); i++) {
+                fArr[i] = getSingleCpuFrequency(getCpuInfoFilePath(i));
             }
             return fArr;
         }
@@ -83,8 +84,8 @@ public class HardwareInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < getNumCores(); i2++) {
-                float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i2));
+            for (int i = 0; i < getNumCores(); i++) {
+                float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i));
                 sb.append(SevenZipUtils.FILE_SEP + singleCpuFrequency);
             }
             return sb.toString();
@@ -96,28 +97,28 @@ public class HardwareInfoUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i2 = 0;
+            int i = 0;
             float f2 = 0.0f;
-            for (int i3 = 0; i3 < getNumCores(); i3++) {
-                float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i3));
+            for (int i2 = 0; i2 < getNumCores(); i2++) {
+                float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i2));
                 if (singleCpuFrequency > 0.0f) {
                     f2 += singleCpuFrequency;
-                    i2++;
+                    i++;
                 }
             }
-            if (i2 > 0) {
-                return f2 / i2;
+            if (i > 0) {
+                return f2 / i;
             }
             return -1.0f;
         }
         return invokeV.floatValue;
     }
 
-    public static String getCpuInfoFilePath(int i2) {
+    public static String getCpuInfoFilePath(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            return "/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            return "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
         }
         return (String) invokeI.objValue;
     }
@@ -135,9 +136,9 @@ public class HardwareInfoUtils {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -155,8 +156,10 @@ public class HardwareInfoUtils {
                 try {
                     File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(fileFilter);
                     sCoreNum = listFiles == null ? -1 : listFiles.length;
-                } catch (Exception unused) {
-                    boolean z = DEBUG;
+                } catch (Exception e2) {
+                    if (DEBUG) {
+                        Log.e(TAG, "getNumCores exception occurred, e= ", e2);
+                    }
                     sCoreNum = -1;
                 }
             }
@@ -177,10 +180,10 @@ public class HardwareInfoUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             float f2 = displayMetrics.density;
-            int i2 = displayMetrics.densityDpi;
-            int i3 = displayMetrics.widthPixels;
-            int i4 = displayMetrics.heightPixels;
-            return "densityDPI=" + i2 + "; screenWidth=" + i3 + "; screenHeight=" + i4;
+            int i = displayMetrics.densityDpi;
+            int i2 = displayMetrics.widthPixels;
+            int i3 = displayMetrics.heightPixels;
+            return "densityDPI=" + i + "; screenWidth=" + i2 + "; screenHeight=" + i3;
         }
         return (String) invokeL.objValue;
     }
@@ -207,8 +210,8 @@ public class HardwareInfoUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getResources().getDisplayMetrics().ydpi : invokeL.floatValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0054 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -217,15 +220,25 @@ public class HardwareInfoUtils {
         FileInputStream fileInputStream;
         Throwable th;
         BufferedReader bufferedReader;
+        Exception e2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65548, null, str)) != null) {
             return invokeL.floatValue;
         }
-        FileInputStream fileInputStream2 = null;
         try {
             fileInputStream = new FileInputStream(new File(str));
+        } catch (Exception e3) {
+            fileInputStream = null;
+            e2 = e3;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            fileInputStream = null;
+            th = th2;
+            bufferedReader = null;
+        }
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
                     float parseLong = (((float) Long.parseLong(bufferedReader.readLine())) / 1000.0f) / 1000.0f;
                     try {
@@ -237,169 +250,155 @@ public class HardwareInfoUtils {
                     } catch (IOException unused2) {
                     }
                     return parseLong;
-                } catch (Exception unused3) {
-                    fileInputStream2 = fileInputStream;
-                    try {
-                        boolean z = DEBUG;
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                            } catch (IOException unused4) {
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException unused5) {
-                            }
-                        }
-                        return -1.0f;
-                    } catch (Throwable th2) {
-                        fileInputStream = fileInputStream2;
-                        th = th2;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException unused6) {
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException unused7) {
-                            }
-                        }
-                        throw th;
+                } catch (Exception e4) {
+                    e2 = e4;
+                    if (DEBUG) {
+                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e2);
                     }
-                } catch (Throwable th3) {
-                    th = th3;
                     if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused3) {
+                        }
                     }
                     if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused4) {
+                        }
                     }
-                    throw th;
+                    return -1.0f;
                 }
-            } catch (Exception unused8) {
-                bufferedReader = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused5) {
+                    }
+                }
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused6) {
+                    }
+                }
+                throw th;
             }
-        } catch (Exception unused9) {
+        } catch (Exception e5) {
+            e2 = e5;
             bufferedReader = null;
-        } catch (Throwable th5) {
-            fileInputStream = null;
-            th = th5;
+        } catch (Throwable th4) {
+            th = th4;
             bufferedReader = null;
+            if (fileInputStream != null) {
+            }
+            if (bufferedReader != null) {
+            }
+            throw th;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x006d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0047 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0076 */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: java.io.FileReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: java.io.FileReader */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.io.FileReader */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v9, types: [java.io.FileReader, java.io.Reader] */
     public static float getTotalMemory() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
         Throwable th;
-        FileReader fileReader;
-        Throwable th2;
+        BufferedReader bufferedReader2;
+        Exception e2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65549, null)) != null) {
             return invokeV.floatValue;
         }
         float f2 = sTotalMemory;
-        if (f2 >= 0.0f) {
+        FileReader fileReader = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+        if (fileReader >= 0) {
             return f2;
         }
-        FileReader fileReader2 = null;
         try {
-            fileReader = new FileReader(MEM_INFO_FILE);
-        } catch (Exception unused) {
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            th = th3;
-            fileReader = null;
-        }
-        try {
-            bufferedReader = new BufferedReader(fileReader, 8192);
             try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    String[] split = readLine.split("\\s+");
-                    if (split.length >= 2) {
-                        long parseLong = Long.parseLong(split[1]);
-                        if (parseLong > 0) {
-                            sTotalMemory = (((float) parseLong) / 1024.0f) / 1024.0f;
+                fileReader = new FileReader(MEM_INFO_FILE);
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            try {
+                bufferedReader2 = new BufferedReader(fileReader, 8192);
+                try {
+                    String readLine = bufferedReader2.readLine();
+                    if (readLine != null) {
+                        String[] split = readLine.split("\\s+");
+                        if (split.length >= 2) {
+                            long parseLong = Long.parseLong(split[1]);
+                            if (parseLong > 0) {
+                                sTotalMemory = (((float) parseLong) / 1024.0f) / 1024.0f;
+                            }
                         }
                     }
-                }
-                float f3 = sTotalMemory;
-                try {
-                    bufferedReader.close();
-                } catch (IOException unused2) {
-                }
-                try {
-                    fileReader.close();
-                } catch (IOException unused3) {
-                }
-                return f3;
-            } catch (Exception unused4) {
-                fileReader2 = fileReader;
-                try {
-                    boolean z = DEBUG;
-                    if (bufferedReader != null) {
+                    float f3 = sTotalMemory;
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException unused) {
+                    }
+                    try {
+                        fileReader.close();
+                    } catch (IOException unused2) {
+                    }
+                    return f3;
+                } catch (Exception e3) {
+                    e2 = e3;
+                    if (DEBUG) {
+                        Log.e(TAG, "getTotalMemory Exception occured,e=", e2);
+                    }
+                    if (bufferedReader2 != null) {
                         try {
-                            bufferedReader.close();
-                        } catch (IOException unused5) {
+                            bufferedReader2.close();
+                        } catch (IOException unused3) {
                         }
                     }
-                    if (fileReader2 != null) {
+                    if (fileReader != 0) {
                         try {
-                            fileReader2.close();
-                        } catch (IOException unused6) {
+                            fileReader.close();
+                        } catch (IOException unused4) {
                         }
                     }
                     return -1.0f;
-                } catch (Throwable th4) {
-                    th2 = th4;
-                    fileReader = fileReader2;
-                    th = th2;
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException unused7) {
-                        }
-                    }
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (IOException unused8) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Exception e4) {
+                bufferedReader2 = null;
+                e2 = e4;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
                 if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused5) {
+                    }
                 }
-                if (fileReader != null) {
+                if (fileReader != 0) {
+                    try {
+                        fileReader.close();
+                    } catch (IOException unused6) {
+                    }
                 }
                 throw th;
             }
-        } catch (Exception unused9) {
+        } catch (Exception e5) {
+            bufferedReader2 = null;
+            e2 = e5;
+            fileReader = 0;
+        } catch (Throwable th4) {
             bufferedReader = null;
-        } catch (Throwable th6) {
-            th2 = th6;
-            bufferedReader = null;
-            th = th2;
-            if (bufferedReader != null) {
-            }
-            if (fileReader != null) {
-            }
-            throw th;
+            th = th4;
+            fileReader = 0;
         }
     }
 

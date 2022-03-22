@@ -3,7 +3,7 @@ package com.baidu.tieba.quickWebView;
 import android.content.Context;
 import android.webkit.JsPromptResult;
 import c.a.d.f.m.e;
-import c.a.r0.y3.o0.d.c;
+import c.a.p0.a4.o0.d.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -17,23 +17,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
 @c.a.f.a.a
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public c.a.r0.h3.a mProxy;
+    public c.a.p0.j3.a mProxy;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ QuickWebViewBridgeData a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QuickWebViewBridgeData f46089e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ QuickWebViewBridge f46090f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ QuickWebViewBridge f35700b;
 
         public a(QuickWebViewBridge quickWebViewBridge, QuickWebViewBridgeData quickWebViewBridgeData) {
             Interceptable interceptable = $ic;
@@ -42,31 +40,31 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {quickWebViewBridge, quickWebViewBridgeData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46090f = quickWebViewBridge;
-            this.f46089e = quickWebViewBridgeData;
+            this.f35700b = quickWebViewBridge;
+            this.a = quickWebViewBridgeData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.h3.a aVar = this.f46090f.mProxy;
-                QuickWebViewBridgeData quickWebViewBridgeData = this.f46089e;
+                c.a.p0.j3.a aVar = this.f35700b.mProxy;
+                QuickWebViewBridgeData quickWebViewBridgeData = this.a;
                 aVar.j(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, c.a.r0.h3.a aVar) {
+    public QuickWebViewBridge(Context context, c.a.p0.j3.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,9 +72,9 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -87,7 +85,7 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.r0.y3.o0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.p0.a4.o0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

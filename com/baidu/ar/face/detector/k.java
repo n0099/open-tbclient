@@ -28,9 +28,9 @@ public class k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,16 +48,16 @@ public class k {
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
-            int i2 = this.pr;
-            int i3 = this.pq;
-            if (i2 < i3) {
-                int i4 = i2 + 1;
-                this.pr = i4;
-                this.py = (((i4 - 1) * this.py) + d2) / i4;
+            int i = this.pr;
+            int i2 = this.pq;
+            if (i < i2) {
+                int i3 = i + 1;
+                this.pr = i3;
+                this.py = (((i3 - 1) * this.py) + d2) / i3;
                 return;
             }
-            if (i2 == i3) {
-                this.pr = i2 + 1;
+            if (i == i2) {
+                this.pr = i + 1;
             }
             this.pr = 0;
             this.py = 0.0d;
@@ -67,16 +67,16 @@ public class k {
     public void b(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            int i2 = this.ps;
-            int i3 = this.pq;
-            if (i2 < i3) {
-                int i4 = i2 + 1;
-                this.ps = i4;
-                this.px = (((i4 - 1) * this.px) + d2) / i4;
+            int i = this.ps;
+            int i2 = this.pq;
+            if (i < i2) {
+                int i3 = i + 1;
+                this.ps = i3;
+                this.px = (((i3 - 1) * this.px) + d2) / i3;
                 return;
             }
-            if (i2 == i3) {
-                this.ps = i2 + 1;
+            if (i == i2) {
+                this.ps = i + 1;
             }
             this.ps = 0;
             this.px = 0.0d;
@@ -86,16 +86,16 @@ public class k {
     public void c(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2)}) == null) {
-            int i2 = this.pt;
-            int i3 = this.pq;
-            if (i2 < i3) {
-                int i4 = i2 + 1;
-                this.pt = i4;
-                this.pz = (((i4 - 1) * this.pz) + d2) / i4;
+            int i = this.pt;
+            int i2 = this.pq;
+            if (i < i2) {
+                int i3 = i + 1;
+                this.pt = i3;
+                this.pz = (((i3 - 1) * this.pz) + d2) / i3;
                 return;
             }
-            if (i2 == i3) {
-                this.pt = i2 + 1;
+            if (i == i2) {
+                this.pt = i + 1;
             }
             this.pt = 0;
             this.pz = 0.0d;
@@ -105,16 +105,16 @@ public class k {
     public void d(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            int i2 = this.pu;
-            int i3 = this.pq;
-            if (i2 < i3) {
-                int i4 = i2 + 1;
-                this.pu = i4;
-                this.pA = (((i4 - 1) * this.pA) + d2) / i4;
+            int i = this.pu;
+            int i2 = this.pq;
+            if (i < i2) {
+                int i3 = i + 1;
+                this.pu = i3;
+                this.pA = (((i3 - 1) * this.pA) + d2) / i3;
                 return;
             }
-            if (i2 == i3) {
-                this.pu = i2 + 1;
+            if (i == i2) {
+                this.pu = i + 1;
             }
             this.pu = 0;
             this.pA = 0.0d;
@@ -124,16 +124,16 @@ public class k {
     public void e(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)}) == null) {
-            int i2 = this.pv;
-            int i3 = this.pq;
-            if (i2 < i3) {
-                int i4 = i2 + 1;
-                this.pv = i4;
-                this.pB = (((i4 - 1) * this.pB) + d2) / i4;
+            int i = this.pv;
+            int i2 = this.pq;
+            if (i < i2) {
+                int i3 = i + 1;
+                this.pv = i3;
+                this.pB = (((i3 - 1) * this.pB) + d2) / i3;
                 return;
             }
-            if (i2 == i3) {
-                this.pv = i2 + 1;
+            if (i == i2) {
+                this.pv = i + 1;
             }
             this.pv = 0;
             this.pB = 0.0d;
@@ -155,16 +155,16 @@ public class k {
     public void f(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
-            int i2 = this.pw;
-            int i3 = this.pq;
-            if (i2 < i3) {
-                int i4 = i2 + 1;
-                this.pw = i4;
-                this.pC = (((i4 - 1) * this.pC) + d2) / i4;
+            int i = this.pw;
+            int i2 = this.pq;
+            if (i < i2) {
+                int i3 = i + 1;
+                this.pw = i3;
+                this.pC = (((i3 - 1) * this.pC) + d2) / i3;
                 return;
             }
-            if (i2 == i3) {
-                this.pw = i2 + 1;
+            if (i == i2) {
+                this.pw = i + 1;
             }
             this.pw = 0;
             this.pC = 0.0d;

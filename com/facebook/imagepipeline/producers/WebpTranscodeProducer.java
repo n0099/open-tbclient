@@ -20,7 +20,7 @@ import com.facebook.imagepipeline.nativecode.WebpTranscoderFactory;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_JPEG_QUALITY = 80;
@@ -30,7 +30,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {webpTranscodeProducer, consumer, producerContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -63,19 +63,19 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i2) {
+        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
                 if (this.mShouldTranscodeWhenFinished == TriState.UNSET && encodedImage != null) {
                     this.mShouldTranscodeWhenFinished = WebpTranscodeProducer.shouldTranscode(encodedImage);
                 }
                 if (this.mShouldTranscodeWhenFinished == TriState.NO) {
-                    getConsumer().onNewResult(encodedImage, i2);
-                } else if (BaseConsumer.isLast(i2)) {
+                    getConsumer().onNewResult(encodedImage, i);
+                } else if (BaseConsumer.isLast(i)) {
                     if (this.mShouldTranscodeWhenFinished == TriState.YES && encodedImage != null) {
                         this.this$0.transcodeLastResult(encodedImage, getConsumer(), this.mContext);
                     } else {
-                        getConsumer().onNewResult(encodedImage, i2);
+                        getConsumer().onNewResult(encodedImage, i);
                     }
                 }
             }
@@ -89,9 +89,9 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {executor, pooledByteBufferFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,9 +161,9 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, consumer, r12, r13, r14, r15};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;

@@ -40,9 +40,9 @@ public class KVStorageFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,10 +71,10 @@ public class KVStorageFactory {
     }
 
     @SuppressLint({"LogConditional"})
-    public static SharedPreferences getSharedPreferences(String str, int i2) {
+    public static SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
             try {
                 if (KVStorageRuntime.getKVStorageControl().getKVStorageType() != 0) {
                     SharedPreferences proxy = KVStorageRuntime.getKVStorageProxy().getProxy(str);
@@ -85,7 +85,7 @@ public class KVStorageFactory {
             } catch (UnsatisfiedLinkError unused) {
                 sIsKVInitSuccessfully = false;
             }
-            return AppRuntime.getAppContext().getSharedPreferences(str, i2);
+            return AppRuntime.getAppContext().getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }

@@ -42,9 +42,9 @@ public class FaceAttributesJni {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -57,7 +57,7 @@ public class FaceAttributesJni {
 
     public static native synchronized int initGenderDetectFromAssets(String str);
 
-    public static native synchronized int predictGenderDetect(ByteBuffer byteBuffer, int i2, int i3, float[] fArr, float[] fArr2);
+    public static native synchronized int predictGenderDetect(ByteBuffer byteBuffer, int i, int i2, float[] fArr, float[] fArr2);
 
     public static native synchronized int releaseGenderDetect();
 

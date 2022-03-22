@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
@@ -29,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"InlinedApi"})
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final SparseIntArray AVC_LEVEL_NUMBER_TO_CONST;
@@ -49,13 +50,13 @@ public final class MediaCodecUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.mediacodec.MediaCodecUtil$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CodecKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +70,9 @@ public final class MediaCodecUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,7 +109,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DecoderQueryException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +127,9 @@ public final class MediaCodecUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -139,18 +140,18 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface MediaCodecListCompat {
         int getCodecCount();
 
-        android.media.MediaCodecInfo getCodecInfoAt(int i2);
+        android.media.MediaCodecInfo getCodecInfoAt(int i);
 
         boolean isSecurePlaybackSupported(String str, MediaCodecInfo.CodecCapabilities codecCapabilities);
 
         boolean secureDecodersExplicit();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaCodecListCompatV16 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,9 +161,9 @@ public final class MediaCodecUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -177,10 +178,10 @@ public final class MediaCodecUtil {
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
-        public android.media.MediaCodecInfo getCodecInfoAt(int i2) {
+        public android.media.MediaCodecInfo getCodecInfoAt(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? MediaCodecList.getCodecInfoAt(i2) : (android.media.MediaCodecInfo) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? MediaCodecList.getCodecInfoAt(i) : (android.media.MediaCodecInfo) invokeI.objValue;
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
@@ -206,7 +207,7 @@ public final class MediaCodecUtil {
     }
 
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaCodecListCompatV21 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,9 +221,9 @@ public final class MediaCodecUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -250,12 +251,12 @@ public final class MediaCodecUtil {
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
-        public android.media.MediaCodecInfo getCodecInfoAt(int i2) {
+        public android.media.MediaCodecInfo getCodecInfoAt(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
                 ensureMediaCodecInfosInitialized();
-                return this.mediaCodecInfos[i2];
+                return this.mediaCodecInfos[i];
             }
             return (android.media.MediaCodecInfo) invokeI.objValue;
         }
@@ -354,9 +355,9 @@ public final class MediaCodecUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -371,24 +372,24 @@ public final class MediaCodecUtil {
         if (list.size() <= 1 || !MTK_RAW_DECODER_NAME.equals(list.get(0).name)) {
             return;
         }
-        for (int i2 = 1; i2 < list.size(); i2++) {
-            MediaCodecInfo mediaCodecInfo = list.get(i2);
+        for (int i = 1; i < list.size(); i++) {
+            MediaCodecInfo mediaCodecInfo = list.get(i);
             if (GOOGLE_RAW_DECODER_NAME.equals(mediaCodecInfo.name)) {
-                list.remove(i2);
+                list.remove(i);
                 list.add(0, mediaCodecInfo);
                 return;
             }
         }
     }
 
-    public static int avcLevelToMaxFrameSize(int i2) {
+    public static int avcLevelToMaxFrameSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 == 1 || i2 == 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1 || i == 2) {
                 return 25344;
             }
-            switch (i2) {
+            switch (i) {
                 case 8:
                 case 16:
                 case 32:
@@ -432,7 +433,7 @@ public final class MediaCodecUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, strArr)) == null) {
             if (strArr.length < 2) {
-                String str2 = "Ignoring malformed AVC codec string: " + str;
+                Log.w(TAG, "Ignoring malformed AVC codec string: " + str);
                 return null;
             }
             try {
@@ -444,22 +445,22 @@ public final class MediaCodecUtil {
                     valueOf = Integer.valueOf(Integer.parseInt(strArr[2]));
                     num = valueOf2;
                 } else {
-                    String str3 = "Ignoring malformed AVC codec string: " + str;
+                    Log.w(TAG, "Ignoring malformed AVC codec string: " + str);
                     return null;
                 }
                 Integer valueOf3 = Integer.valueOf(AVC_PROFILE_NUMBER_TO_CONST.get(num.intValue()));
                 if (valueOf3 == null) {
-                    String str4 = "Unknown AVC profile: " + num;
+                    Log.w(TAG, "Unknown AVC profile: " + num);
                     return null;
                 }
                 Integer valueOf4 = Integer.valueOf(AVC_LEVEL_NUMBER_TO_CONST.get(valueOf.intValue()));
                 if (valueOf4 == null) {
-                    String str5 = "Unknown AVC level: " + valueOf;
+                    Log.w(TAG, "Unknown AVC level: " + valueOf);
                     return null;
                 }
                 return new Pair<>(valueOf3, valueOf4);
             } catch (NumberFormatException unused) {
-                String str6 = "Ignoring malformed AVC codec string: " + str;
+                Log.w(TAG, "Ignoring malformed AVC codec string: " + str);
                 return null;
             }
         }
@@ -549,7 +550,7 @@ public final class MediaCodecUtil {
                 if (z && decoderInfosInternal.isEmpty() && 21 <= Util.SDK_INT && Util.SDK_INT <= 23) {
                     decoderInfosInternal = getDecoderInfosInternal(codecKey, new MediaCodecListCompatV16(null));
                     if (!decoderInfosInternal.isEmpty()) {
-                        String str2 = "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + decoderInfosInternal.get(0).name;
+                        Log.w(TAG, "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + decoderInfosInternal.get(0).name);
                     }
                 }
                 applyWorkarounds(decoderInfosInternal);
@@ -571,16 +572,16 @@ public final class MediaCodecUtil {
                 String str = codecKey.mimeType;
                 int codecCount = mediaCodecListCompat.getCodecCount();
                 boolean secureDecodersExplicit = mediaCodecListCompat.secureDecodersExplicit();
-                int i2 = 0;
-                while (i2 < codecCount) {
-                    android.media.MediaCodecInfo codecInfoAt = mediaCodecListCompat2.getCodecInfoAt(i2);
+                int i = 0;
+                while (i < codecCount) {
+                    android.media.MediaCodecInfo codecInfoAt = mediaCodecListCompat2.getCodecInfoAt(i);
                     String name = codecInfoAt.getName();
                     if (isCodecUsableDecoder(codecInfoAt, name, secureDecodersExplicit)) {
                         String[] supportedTypes = codecInfoAt.getSupportedTypes();
                         int length = supportedTypes.length;
-                        int i3 = 0;
-                        while (i3 < length) {
-                            String str2 = supportedTypes[i3];
+                        int i2 = 0;
+                        while (i2 < length) {
+                            String str2 = supportedTypes[i2];
                             if (str2.equalsIgnoreCase(str)) {
                                 try {
                                     MediaCodecInfo.CodecCapabilities capabilitiesForType = codecInfoAt.getCapabilitiesForType(str2);
@@ -599,19 +600,19 @@ public final class MediaCodecUtil {
                                     }
                                 } catch (Exception e2) {
                                     if (Util.SDK_INT <= 23 && !arrayList.isEmpty()) {
-                                        String str3 = "Skipping codec " + name + " (failed to query capabilities)";
+                                        Log.e(TAG, "Skipping codec " + name + " (failed to query capabilities)");
                                     } else {
-                                        String str4 = "Failed to query codec " + name + " (" + str2 + SmallTailInfo.EMOTION_SUFFIX;
+                                        Log.e(TAG, "Failed to query codec " + name + " (" + str2 + SmallTailInfo.EMOTION_SUFFIX);
                                         throw e2;
                                     }
                                 }
                             }
-                            i3++;
+                            i2++;
                             mediaCodecListCompat2 = mediaCodecListCompat;
                         }
                         continue;
                     }
-                    i2++;
+                    i++;
                     mediaCodecListCompat2 = mediaCodecListCompat;
                 }
                 return arrayList;
@@ -624,33 +625,33 @@ public final class MediaCodecUtil {
 
     public static Pair<Integer, Integer> getHevcProfileAndLevel(String str, String[] strArr) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, strArr)) == null) {
             if (strArr.length < 4) {
-                String str2 = "Ignoring malformed HEVC codec string: " + str;
+                Log.w(TAG, "Ignoring malformed HEVC codec string: " + str);
                 return null;
             }
             Matcher matcher = PROFILE_PATTERN.matcher(strArr[1]);
             if (!matcher.matches()) {
-                String str3 = "Ignoring malformed HEVC codec string: " + str;
+                Log.w(TAG, "Ignoring malformed HEVC codec string: " + str);
                 return null;
             }
             String group = matcher.group(1);
             if ("1".equals(group)) {
-                i2 = 1;
+                i = 1;
             } else if (!"2".equals(group)) {
-                String str4 = "Unknown HEVC profile string: " + group;
+                Log.w(TAG, "Unknown HEVC profile string: " + group);
                 return null;
             } else {
-                i2 = 2;
+                i = 2;
             }
             Integer num = HEVC_CODEC_STRING_TO_PROFILE_LEVEL.get(strArr[3]);
             if (num == null) {
-                String str5 = "Unknown HEVC level string: " + matcher.group(1);
+                Log.w(TAG, "Unknown HEVC level string: " + matcher.group(1));
                 return null;
             }
-            return new Pair<>(Integer.valueOf(i2), num);
+            return new Pair<>(Integer.valueOf(i), num);
         }
         return (Pair) invokeLL.objValue;
     }
@@ -699,19 +700,19 @@ public final class MediaCodecUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             if (maxH264DecodableFrameSize == -1) {
-                int i2 = 0;
+                int i = 0;
                 MediaCodecInfo decoderInfo = getDecoderInfo("video/avc", false);
                 if (decoderInfo != null) {
                     MediaCodecInfo.CodecProfileLevel[] profileLevels = decoderInfo.getProfileLevels();
                     int length = profileLevels.length;
-                    int i3 = 0;
-                    while (i2 < length) {
-                        i3 = Math.max(avcLevelToMaxFrameSize(profileLevels[i2].level), i3);
-                        i2++;
+                    int i2 = 0;
+                    while (i < length) {
+                        i2 = Math.max(avcLevelToMaxFrameSize(profileLevels[i].level), i2);
+                        i++;
                     }
-                    i2 = Math.max(i3, Util.SDK_INT >= 21 ? 345600 : 172800);
+                    i = Math.max(i2, Util.SDK_INT >= 21 ? 345600 : 172800);
                 }
-                maxH264DecodableFrameSize = i2;
+                maxH264DecodableFrameSize = i;
             }
             return maxH264DecodableFrameSize;
         }
@@ -723,7 +724,8 @@ public final class MediaCodecUtil {
         if (interceptable == null || interceptable.invokeLZ(65550, null, str, z) == null) {
             try {
                 getDecoderInfos(str, z);
-            } catch (DecoderQueryException unused) {
+            } catch (DecoderQueryException e2) {
+                Log.e(TAG, "Codec warming failed", e2);
             }
         }
     }

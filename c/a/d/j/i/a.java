@@ -25,29 +25,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f2991b;
+    public static volatile a f2492b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, ArrayList<Message<?>>> a;
 
     /* renamed from: c.a.d.j.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0116a extends CustomMessageListener {
+    public class C0105a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0116a(a aVar, int i2) {
-            super(i2);
+        public C0105a(a aVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                Object[] objArr = {aVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -65,7 +65,7 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                 PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                if (aVar.f29858b == 0 && this.a.a.size() > 0 && (arrayList = (ArrayList) this.a.a.get(aVar.a)) != null && arrayList.size() > 0) {
+                if (aVar.f23865b == 0 && this.a.a.size() > 0 && (arrayList = (ArrayList) this.a.a.get(aVar.a)) != null && arrayList.size() > 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         MessageManager.getInstance().sendMessage((Message) it.next());
@@ -89,9 +89,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -146,9 +146,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -161,14 +161,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f2991b == null) {
+            if (f2492b == null) {
                 synchronized (a.class) {
-                    if (f2991b == null) {
-                        f2991b = new a();
+                    if (f2492b == null) {
+                        f2492b = new a();
                     }
                 }
             }
-            return f2991b;
+            return f2492b;
         }
         return (a) invokeV.objValue;
     }
@@ -205,7 +205,7 @@ public class a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(2000997, new C0116a(this, 0));
+            MessageManager.getInstance().registerListener(2000997, new C0105a(this, 0));
         }
     }
 }

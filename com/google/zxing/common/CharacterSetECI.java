@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.base.CharEncoding;
 import org.apache.http.protocol.HTTP;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes7.dex */
@@ -86,7 +87,7 @@ public final class CharacterSetECI {
         Cp1251 = new CharacterSetECI("Cp1251", 18, 22, "windows-1251");
         Cp1252 = new CharacterSetECI("Cp1252", 19, 23, "windows-1252");
         Cp1256 = new CharacterSetECI("Cp1256", 20, 24, "windows-1256");
-        UnicodeBigUnmarked = new CharacterSetECI("UnicodeBigUnmarked", 21, 25, "UTF-16BE", "UnicodeBig");
+        UnicodeBigUnmarked = new CharacterSetECI("UnicodeBigUnmarked", 21, 25, CharEncoding.UTF_16BE, "UnicodeBig");
         UTF8 = new CharacterSetECI(StringUtils.UTF8, 22, 26, "UTF-8");
         ASCII = new CharacterSetECI(HTTP.ASCII, 23, new int[]{27, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID}, "US-ASCII");
         Big5 = new CharacterSetECI("Big5", 24, 28);
@@ -97,8 +98,8 @@ public final class CharacterSetECI {
         VALUE_TO_ECI = new HashMap();
         NAME_TO_ECI = new HashMap();
         for (CharacterSetECI characterSetECI2 : values()) {
-            for (int i2 : characterSetECI2.values) {
-                VALUE_TO_ECI.put(Integer.valueOf(i2), characterSetECI2);
+            for (int i : characterSetECI2.values) {
+                VALUE_TO_ECI.put(Integer.valueOf(i), characterSetECI2);
             }
             NAME_TO_ECI.put(characterSetECI2.name(), characterSetECI2);
             for (String str : characterSetECI2.otherEncodingNames) {
@@ -108,17 +109,17 @@ public final class CharacterSetECI {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CharacterSetECI(String str, int i2, int i3) {
-        this(str, i2, new int[]{i3}, new String[0]);
+    public CharacterSetECI(String str, int i, int i2) {
+        this(str, i, new int[]{i2}, new String[0]);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (int[]) objArr2[2], (String[]) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -134,12 +135,12 @@ public final class CharacterSetECI {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? NAME_TO_ECI.get(str) : (CharacterSetECI) invokeL.objValue;
     }
 
-    public static CharacterSetECI getCharacterSetECIByValue(int i2) throws FormatException {
+    public static CharacterSetECI getCharacterSetECIByValue(int i) throws FormatException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (i2 >= 0 && i2 < 900) {
-                return VALUE_TO_ECI.get(Integer.valueOf(i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i >= 0 && i < 900) {
+                return VALUE_TO_ECI.get(Integer.valueOf(i));
             }
             throw FormatException.getFormatInstance();
         }
@@ -164,16 +165,16 @@ public final class CharacterSetECI {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.values[0] : invokeV.intValue;
     }
 
-    public CharacterSetECI(String str, int i2, int i3, String... strArr) {
+    public CharacterSetECI(String str, int i, int i2, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), strArr};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), strArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -182,20 +183,20 @@ public final class CharacterSetECI {
                 return;
             }
         }
-        this.values = new int[]{i3};
+        this.values = new int[]{i2};
         this.otherEncodingNames = strArr;
     }
 
-    public CharacterSetECI(String str, int i2, int[] iArr, String... strArr) {
+    public CharacterSetECI(String str, int i, int[] iArr, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), iArr, strArr};
+            Object[] objArr = {str, Integer.valueOf(i), iArr, strArr};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

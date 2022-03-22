@@ -1,10 +1,10 @@
 package com.baidu.tieba.interest;
 
 import android.content.Context;
-import c.a.q0.r.j0.b;
-import c.a.q0.s.c.a0;
-import c.a.r0.w1.a.a;
-import c.a.r0.w1.a.c;
+import c.a.o0.r.j0.b;
+import c.a.o0.s.c.a0;
+import c.a.p0.y1.a.a;
+import c.a.p0.y1.a.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,12 +28,12 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile InterestPanelShowManager f43985c;
+    public static volatile InterestPanelShowManager f34148c;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43986b;
+    public boolean f34149b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -63,16 +63,16 @@ public class InterestPanelShowManager {
             $VALUES = new InterestPanelShowState[]{ALL, interestPanelShowState};
         }
 
-        public InterestPanelShowState(String str, int i2) {
+        public InterestPanelShowState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -100,9 +100,9 @@ public class InterestPanelShowManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -113,28 +113,28 @@ public class InterestPanelShowManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f43985c == null) {
+            if (f34148c == null) {
                 synchronized (InterestPanelShowManager.class) {
-                    if (f43985c == null) {
-                        f43985c = new InterestPanelShowManager();
+                    if (f34148c == null) {
+                        f34148c = new InterestPanelShowManager();
                     }
                 }
             }
-            return f43985c;
+            return f34148c;
         }
         return (InterestPanelShowManager) invokeV.objValue;
     }
 
-    public final boolean b(long j2) {
+    public final boolean b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             a0 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
             long m = b.k().m("key_app_launch_time", 0L);
-            return m != 0 && ((int) (((((j2 - m) / 1000) / 60) / 60) / 24)) >= interestBoardConfigData.f13615b && TbSingleton.getInstance().interestGuideShowCountInLimit(b.k().q("key_interest_guide_show", ""), interestBoardConfigData);
+            return m != 0 && ((int) (((((j - m) / 1000) / 60) / 60) / 24)) >= interestBoardConfigData.f11173b && TbSingleton.getInstance().interestGuideShowCountInLimit(b.k().q("key_interest_guide_show", ""), interestBoardConfigData);
         }
         return invokeJ.booleanValue;
     }
@@ -163,10 +163,10 @@ public class InterestPanelShowManager {
         if (InterestPanelShowState.INTEREST_FORUM == f2 && this.a.a() != null) {
             interestGuideActivityConfig.setOnlyShowInterestedForum(true, this.a.a().a());
         }
-        if (this.f43986b) {
+        if (this.f34149b) {
             interestGuideActivityConfig.setScene(8);
         } else {
-            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.interest_main_title), context.getResources().getString(R.string.interest_select_second_title), context.getResources().getString(R.string.interest_forum_second_title)});
+            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f08f6), context.getResources().getString(R.string.obfuscated_res_0x7f0f08f7), context.getResources().getString(R.string.obfuscated_res_0x7f0f08f2)});
             interestGuideActivityConfig.setScene(9);
         }
         if (z) {
@@ -185,21 +185,21 @@ public class InterestPanelShowManager {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
                 a a = this.a.a();
-                List<c.a.r0.w1.a.b> b2 = a.b();
+                List<c.a.p0.y1.a.b> b2 = a.b();
                 if (ListUtils.isEmpty(b2)) {
                     return null;
                 }
-                for (int i2 = 0; i2 < b2.size(); i2++) {
-                    if (b2.get(i2).a() == registerTime) {
-                        if (i2 == 0) {
-                            this.f43986b = true;
+                for (int i = 0; i < b2.size(); i++) {
+                    if (b2.get(i).a() == registerTime) {
+                        if (i == 0) {
+                            this.f34149b = true;
                             return InterestPanelShowState.ALL;
                         }
-                        this.f43986b = false;
-                        if (a.c() < b2.get(i2).b() && a.d() == 0) {
+                        this.f34149b = false;
+                        if (a.c() < b2.get(i).b() && a.d() == 0) {
                             return InterestPanelShowState.ALL;
                         }
-                        if (a.c() < b2.get(i2).b() && a.d() == 1) {
+                        if (a.c() < b2.get(i).b() && a.d() == 1) {
                             return InterestPanelShowState.INTEREST_FORUM;
                         }
                     }

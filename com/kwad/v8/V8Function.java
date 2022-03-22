@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8Function extends V8Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class V8Function extends V8Object {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((V8) objArr2[0], (JavaCallback) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -41,9 +41,9 @@ public class V8Function extends V8Object {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8, javaCallback};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((V8) objArr2[0], objArr2[1]);
                 newInitContext.thisArg = this;
@@ -83,14 +83,14 @@ public class V8Function extends V8Object {
     }
 
     @Override // com.kwad.v8.V8Value
-    public void initialize(long j2, Object obj) {
+    public void initialize(long j, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, obj) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, obj) == null) {
             if (obj == null) {
-                super.initialize(j2, null);
+                super.initialize(j, null);
                 return;
             }
-            long[] initNewV8Function = this.v8.initNewV8Function(j2);
+            long[] initNewV8Function = this.v8.initNewV8Function(j);
             this.v8.createAndRegisterMethodDescriptor((JavaCallback) obj, initNewV8Function[1]);
             this.released = false;
             addObjectReference(initNewV8Function[0]);

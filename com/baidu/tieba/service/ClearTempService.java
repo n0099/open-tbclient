@@ -7,6 +7,7 @@ import android.os.Message;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.mutiprocess.SubProcessManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FILE_COUNT = 300;
@@ -26,7 +27,7 @@ public class ClearTempService extends BdBaseService {
     public volatile boolean interrupted;
     public Thread thread;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +40,9 @@ public class ClearTempService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {clearTempService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,13 +62,11 @@ public class ClearTempService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClearTempService f46344e;
+        public final /* synthetic */ ClearTempService a;
 
         public b(ClearTempService clearTempService) {
             Interceptable interceptable = $ic;
@@ -76,15 +75,15 @@ public class ClearTempService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {clearTempService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46344e = clearTempService;
+            this.a = clearTempService;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -97,14 +96,14 @@ public class ClearTempService extends BdBaseService {
                     File file2 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share");
                     File file3 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/voice");
                     File file4 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
-                    this.f46344e.deleteCache(file, false);
-                    this.f46344e.deleteDir(file2);
-                    this.f46344e.deleteDir(file3);
-                    this.f46344e.deleteDir(file4);
+                    this.a.deleteCache(file, false);
+                    this.a.deleteDir(file2);
+                    this.a.deleteDir(file3);
+                    this.a.deleteDir(file4);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                this.f46344e.handler.sendMessage(this.f46344e.handler.obtainMessage());
+                this.a.handler.sendMessage(this.a.handler.obtainMessage());
             }
         }
     }
@@ -114,9 +113,9 @@ public class ClearTempService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,15 +133,15 @@ public class ClearTempService extends BdBaseService {
             try {
                 File[] listFiles = file.listFiles();
                 long time = new Date().getTime();
-                int length = listFiles.length > 500 ? listFiles.length - 300 : 0;
+                int length = listFiles.length > 500 ? listFiles.length + SubProcessManager.PROVIDER_ERROR_UNSUPPORT_OPERATION : 0;
                 if (listFiles != null) {
-                    for (int i2 = 0; i2 < listFiles.length && !this.interrupted; i2++) {
-                        File file2 = listFiles[i2];
+                    for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
+                        File file2 = listFiles[i];
                         if (file2.isDirectory()) {
                             deleteCache(file2, false);
-                        } else if (length > 0 && i2 < length) {
+                        } else if (length > 0 && i < length) {
                             file2.delete();
-                        } else if (time - listFiles[i2].lastModified() > 259200000) {
+                        } else if (time - listFiles[i].lastModified() > 259200000) {
                             file2.delete();
                         }
                     }
@@ -165,9 +164,9 @@ public class ClearTempService extends BdBaseService {
                 File[] listFiles = file.listFiles();
                 long time = new Date().getTime();
                 if (listFiles != null) {
-                    for (int i2 = 0; i2 < listFiles.length && !this.interrupted; i2++) {
-                        if (time - listFiles[i2].lastModified() > 259200000) {
-                            listFiles[i2].delete();
+                    for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
+                        if (time - listFiles[i].lastModified() > 259200000) {
+                            listFiles[i].delete();
                         }
                     }
                 }
@@ -181,8 +180,8 @@ public class ClearTempService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/image";
-            for (int i2 = 0; i2 < 20; i2++) {
-                File file = new File(str + "/" + i2);
+            for (int i = 0; i < 20; i++) {
+                File file = new File(str + "/" + i);
                 if (file.exists() && file.isDirectory()) {
                     deleteCache(file, true);
                 }
@@ -210,10 +209,10 @@ public class ClearTempService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
+            super.onStart(intent, i);
             this.interrupted = false;
             try {
                 if (this.thread == null) {

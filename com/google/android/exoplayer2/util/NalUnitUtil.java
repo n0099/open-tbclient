@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.util;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class NalUnitUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] ASPECT_RATIO_IDC_VALUES;
@@ -24,7 +25,7 @@ public final class NalUnitUtil {
     public static final Object scratchEscapePositionsLock;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,28 +33,28 @@ public final class NalUnitUtil {
         public final int picParameterSetId;
         public final int seqParameterSetId;
 
-        public PpsData(int i2, int i3, boolean z) {
+        public PpsData(int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.picParameterSetId = i2;
-            this.seqParameterSetId = i3;
+            this.picParameterSetId = i;
+            this.seqParameterSetId = i2;
             this.bottomFieldPicOrderInFramePresentFlag = z;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,30 +69,30 @@ public final class NalUnitUtil {
         public final int seqParameterSetId;
         public final int width;
 
-        public SpsData(int i2, int i3, int i4, float f2, boolean z, boolean z2, int i5, int i6, int i7, boolean z3) {
+        public SpsData(int i, int i2, int i3, float f2, boolean z, boolean z2, int i4, int i5, int i6, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Boolean.valueOf(z3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i8 = newInitContext.flag;
-                if ((i8 & 1) != 0) {
-                    int i9 = i8 & 2;
+                int i7 = newInitContext.flag;
+                if ((i7 & 1) != 0) {
+                    int i8 = i7 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.seqParameterSetId = i2;
-            this.width = i3;
-            this.height = i4;
+            this.seqParameterSetId = i;
+            this.width = i2;
+            this.height = i3;
             this.pixelWidthAspectRatio = f2;
             this.separateColorPlaneFlag = z;
             this.frameMbsOnlyFlag = z2;
-            this.frameNumLength = i5;
-            this.picOrderCountType = i6;
-            this.picOrderCntLsbLength = i7;
+            this.frameNumLength = i4;
+            this.picOrderCountType = i5;
+            this.picOrderCntLsbLength = i6;
             this.deltaPicOrderAlwaysZeroFlag = z3;
         }
     }
@@ -120,9 +121,9 @@ public final class NalUnitUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -144,28 +145,28 @@ public final class NalUnitUtil {
             return;
         }
         int position = byteBuffer.position();
+        int i = 0;
         int i2 = 0;
-        int i3 = 0;
         while (true) {
-            int i4 = i2 + 1;
-            if (i4 < position) {
-                int i5 = byteBuffer.get(i2) & 255;
-                if (i3 == 3) {
-                    if (i5 == 1 && (byteBuffer.get(i4) & 31) == 7) {
+            int i3 = i + 1;
+            if (i3 < position) {
+                int i4 = byteBuffer.get(i) & 255;
+                if (i2 == 3) {
+                    if (i4 == 1 && (byteBuffer.get(i3) & 31) == 7) {
                         ByteBuffer duplicate = byteBuffer.duplicate();
-                        duplicate.position(i2 - 3);
+                        duplicate.position(i - 3);
                         duplicate.limit(position);
                         byteBuffer.position(0);
                         byteBuffer.put(duplicate);
                         return;
                     }
-                } else if (i5 == 0) {
-                    i3++;
+                } else if (i4 == 0) {
+                    i2++;
                 }
-                if (i5 != 0) {
-                    i3 = 0;
+                if (i4 != 0) {
+                    i2 = 0;
                 }
-                i2 = i4;
+                i = i3;
             } else {
                 byteBuffer.clear();
                 return;
@@ -179,78 +180,78 @@ public final class NalUnitUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int findNalUnit(byte[] bArr, int i2, int i3, boolean[] zArr) {
+    public static int findNalUnit(byte[] bArr, int i, int i2, boolean[] zArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), zArr})) == null) {
-            int i4 = i3 - i2;
-            Assertions.checkState(i4 >= 0);
-            if (i4 == 0) {
-                return i3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), zArr})) == null) {
+            int i3 = i2 - i;
+            Assertions.checkState(i3 >= 0);
+            if (i3 == 0) {
+                return i2;
             }
             if (zArr != null) {
                 if (zArr[0]) {
                     clearPrefixFlags(zArr);
-                    return i2 - 3;
-                } else if (i4 > 1 && zArr[1] && bArr[i2] == 1) {
+                    return i - 3;
+                } else if (i3 > 1 && zArr[1] && bArr[i] == 1) {
                     clearPrefixFlags(zArr);
-                    return i2 - 2;
-                } else if (i4 > 2 && zArr[2] && bArr[i2] == 0 && bArr[i2 + 1] == 1) {
+                    return i - 2;
+                } else if (i3 > 2 && zArr[2] && bArr[i] == 0 && bArr[i + 1] == 1) {
                     clearPrefixFlags(zArr);
-                    return i2 - 1;
+                    return i - 1;
                 }
             }
-            int i5 = i3 - 1;
-            int i6 = i2 + 2;
-            while (i6 < i5) {
-                if ((bArr[i6] & 254) == 0) {
-                    int i7 = i6 - 2;
-                    if (bArr[i7] == 0 && bArr[i6 - 1] == 0 && bArr[i6] == 1) {
+            int i4 = i2 - 1;
+            int i5 = i + 2;
+            while (i5 < i4) {
+                if ((bArr[i5] & 254) == 0) {
+                    int i6 = i5 - 2;
+                    if (bArr[i6] == 0 && bArr[i5 - 1] == 0 && bArr[i5] == 1) {
                         if (zArr != null) {
                             clearPrefixFlags(zArr);
                         }
-                        return i7;
+                        return i6;
                     }
-                    i6 -= 2;
+                    i5 -= 2;
                 }
-                i6 += 3;
+                i5 += 3;
             }
             if (zArr != null) {
-                boolean z = i4 > 2 ? false : false;
+                boolean z = i3 > 2 ? false : false;
                 zArr[0] = z;
-                zArr[1] = i4 <= 1 ? zArr[2] && bArr[i5] == 0 : bArr[i3 + (-2)] == 0 && bArr[i5] == 0;
-                zArr[2] = bArr[i5] == 0;
+                zArr[1] = i3 <= 1 ? zArr[2] && bArr[i4] == 0 : bArr[i2 + (-2)] == 0 && bArr[i4] == 0;
+                zArr[2] = bArr[i4] == 0;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    public static int findNextUnescapeIndex(byte[] bArr, int i2, int i3) {
+    public static int findNextUnescapeIndex(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i2, i3)) == null) {
-            while (i2 < i3 - 2) {
-                if (bArr[i2] == 0 && bArr[i2 + 1] == 0 && bArr[i2 + 2] == 3) {
-                    return i2;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i, i2)) == null) {
+            while (i < i2 - 2) {
+                if (bArr[i] == 0 && bArr[i + 1] == 0 && bArr[i + 2] == 3) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeLII.intValue;
     }
 
-    public static int getH265NalUnitType(byte[] bArr, int i2) {
+    public static int getH265NalUnitType(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i2)) == null) ? (bArr[i2 + 3] & 126) >> 1 : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) ? (bArr[i + 3] & 126) >> 1 : invokeLI.intValue;
     }
 
-    public static int getNalUnitType(byte[] bArr, int i2) {
+    public static int getNalUnitType(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i2)) == null) ? bArr[i2 + 3] & 31 : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) ? bArr[i + 3] & 31 : invokeLI.intValue;
     }
 
     public static boolean isNalUnitSei(String str, byte b2) {
@@ -265,11 +266,11 @@ public final class NalUnitUtil {
         return invokeCommon.booleanValue;
     }
 
-    public static PpsData parsePpsNalUnit(byte[] bArr, int i2, int i3) {
+    public static PpsData parsePpsNalUnit(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) {
-            ParsableNalUnitBitArray parsableNalUnitBitArray = new ParsableNalUnitBitArray(bArr, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i, i2)) == null) {
+            ParsableNalUnitBitArray parsableNalUnitBitArray = new ParsableNalUnitBitArray(bArr, i, i2);
             parsableNalUnitBitArray.skipBits(8);
             int readUnsignedExpGolombCodedInt = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             int readUnsignedExpGolombCodedInt2 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
@@ -286,20 +287,20 @@ public final class NalUnitUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static SpsData parseSpsNalUnit(byte[] bArr, int i2, int i3) {
+    public static SpsData parseSpsNalUnit(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         int readUnsignedExpGolombCodedInt;
         boolean z;
+        int i3;
         int i4;
-        int i5;
         boolean z2;
         boolean readBit;
         float f2;
         int readBits;
-        int i6;
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, bArr, i2, i3)) == null) {
-            ParsableNalUnitBitArray parsableNalUnitBitArray = new ParsableNalUnitBitArray(bArr, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, bArr, i, i2)) == null) {
+            ParsableNalUnitBitArray parsableNalUnitBitArray = new ParsableNalUnitBitArray(bArr, i, i2);
             parsableNalUnitBitArray.skipBits(8);
             int readBits2 = parsableNalUnitBitArray.readBits(8);
             parsableNalUnitBitArray.skipBits(16);
@@ -311,13 +312,13 @@ public final class NalUnitUtil {
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.skipBit();
                 if (parsableNalUnitBitArray.readBit()) {
-                    int i7 = readUnsignedExpGolombCodedInt != 3 ? 8 : 12;
-                    int i8 = 0;
-                    while (i8 < i7) {
+                    int i6 = readUnsignedExpGolombCodedInt != 3 ? 8 : 12;
+                    int i7 = 0;
+                    while (i7 < i6) {
                         if (parsableNalUnitBitArray.readBit()) {
-                            skipScalingList(parsableNalUnitBitArray, i8 < 6 ? 16 : 64);
+                            skipScalingList(parsableNalUnitBitArray, i7 < 6 ? 16 : 64);
                         }
-                        i8++;
+                        i7++;
                     }
                 }
                 z = readBit2;
@@ -328,19 +329,19 @@ public final class NalUnitUtil {
             int readUnsignedExpGolombCodedInt3 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 4;
             int readUnsignedExpGolombCodedInt4 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             if (readUnsignedExpGolombCodedInt4 == 0) {
-                i4 = readUnsignedExpGolombCodedInt2;
-                i5 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 4;
+                i3 = readUnsignedExpGolombCodedInt2;
+                i4 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 4;
             } else if (readUnsignedExpGolombCodedInt4 == 1) {
                 boolean readBit3 = parsableNalUnitBitArray.readBit();
                 parsableNalUnitBitArray.readSignedExpGolombCodedInt();
                 parsableNalUnitBitArray.readSignedExpGolombCodedInt();
                 long readUnsignedExpGolombCodedInt5 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
-                i4 = readUnsignedExpGolombCodedInt2;
-                for (int i9 = 0; i9 < readUnsignedExpGolombCodedInt5; i9++) {
+                i3 = readUnsignedExpGolombCodedInt2;
+                for (int i8 = 0; i8 < readUnsignedExpGolombCodedInt5; i8++) {
                     parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 }
                 z2 = readBit3;
-                i5 = 0;
+                i4 = 0;
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.skipBit();
                 int readUnsignedExpGolombCodedInt6 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt() + 1;
@@ -350,25 +351,25 @@ public final class NalUnitUtil {
                     parsableNalUnitBitArray.skipBit();
                 }
                 parsableNalUnitBitArray.skipBit();
-                int i10 = readUnsignedExpGolombCodedInt6 * 16;
-                int i11 = readUnsignedExpGolombCodedInt7 * 16;
+                int i9 = readUnsignedExpGolombCodedInt6 * 16;
+                int i10 = readUnsignedExpGolombCodedInt7 * 16;
                 if (parsableNalUnitBitArray.readBit()) {
                     int readUnsignedExpGolombCodedInt8 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     int readUnsignedExpGolombCodedInt9 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     int readUnsignedExpGolombCodedInt10 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     int readUnsignedExpGolombCodedInt11 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                     if (readUnsignedExpGolombCodedInt == 0) {
-                        i6 = 2 - (readBit ? 1 : 0);
+                        i5 = 2 - (readBit ? 1 : 0);
                     } else {
-                        int i12 = readUnsignedExpGolombCodedInt == 3 ? 1 : 2;
-                        i6 = (2 - (readBit ? 1 : 0)) * (readUnsignedExpGolombCodedInt == 1 ? 2 : 1);
-                        r7 = i12;
+                        int i11 = readUnsignedExpGolombCodedInt == 3 ? 1 : 2;
+                        i5 = (2 - (readBit ? 1 : 0)) * (readUnsignedExpGolombCodedInt == 1 ? 2 : 1);
+                        r7 = i11;
                     }
-                    i10 -= (readUnsignedExpGolombCodedInt8 + readUnsignedExpGolombCodedInt9) * r7;
-                    i11 -= (readUnsignedExpGolombCodedInt10 + readUnsignedExpGolombCodedInt11) * i6;
+                    i9 -= (readUnsignedExpGolombCodedInt8 + readUnsignedExpGolombCodedInt9) * r7;
+                    i10 -= (readUnsignedExpGolombCodedInt10 + readUnsignedExpGolombCodedInt11) * i5;
                 }
-                int i13 = i11;
-                int i14 = i10;
+                int i12 = i10;
+                int i13 = i9;
                 float f3 = 1.0f;
                 if (parsableNalUnitBitArray.readBit() && parsableNalUnitBitArray.readBit()) {
                     readBits = parsableNalUnitBitArray.readBits(8);
@@ -384,16 +385,16 @@ public final class NalUnitUtil {
                         if (readBits < fArr.length) {
                             f2 = fArr[readBits];
                         } else {
-                            String str = "Unexpected aspect_ratio_idc value: " + readBits;
+                            Log.w(TAG, "Unexpected aspect_ratio_idc value: " + readBits);
                         }
                     }
-                    return new SpsData(i4, i14, i13, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i5, z2);
+                    return new SpsData(i3, i13, i12, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
                 }
                 f2 = 1.0f;
-                return new SpsData(i4, i14, i13, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i5, z2);
+                return new SpsData(i3, i13, i12, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
             } else {
-                i4 = readUnsignedExpGolombCodedInt2;
-                i5 = 0;
+                i3 = readUnsignedExpGolombCodedInt2;
+                i4 = 0;
             }
             z2 = false;
             parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
@@ -404,80 +405,80 @@ public final class NalUnitUtil {
             if (!readBit) {
             }
             parsableNalUnitBitArray.skipBit();
-            int i102 = readUnsignedExpGolombCodedInt62 * 16;
-            int i112 = readUnsignedExpGolombCodedInt72 * 16;
+            int i92 = readUnsignedExpGolombCodedInt62 * 16;
+            int i102 = readUnsignedExpGolombCodedInt72 * 16;
             if (parsableNalUnitBitArray.readBit()) {
             }
-            int i132 = i112;
-            int i142 = i102;
+            int i122 = i102;
+            int i132 = i92;
             float f32 = 1.0f;
             if (parsableNalUnitBitArray.readBit()) {
                 readBits = parsableNalUnitBitArray.readBits(8);
                 if (readBits != 255) {
                 }
-                return new SpsData(i4, i142, i132, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i5, z2);
+                return new SpsData(i3, i132, i122, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
             }
             f2 = 1.0f;
-            return new SpsData(i4, i142, i132, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i5, z2);
+            return new SpsData(i3, i132, i122, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
         }
         return (SpsData) invokeLII.objValue;
     }
 
-    public static void skipScalingList(ParsableNalUnitBitArray parsableNalUnitBitArray, int i2) {
+    public static void skipScalingList(ParsableNalUnitBitArray parsableNalUnitBitArray, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, parsableNalUnitBitArray, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65547, null, parsableNalUnitBitArray, i) == null) {
+            int i2 = 8;
             int i3 = 8;
-            int i4 = 8;
-            for (int i5 = 0; i5 < i2; i5++) {
-                if (i3 != 0) {
-                    i3 = ((parsableNalUnitBitArray.readSignedExpGolombCodedInt() + i4) + 256) % 256;
+            for (int i4 = 0; i4 < i; i4++) {
+                if (i2 != 0) {
+                    i2 = ((parsableNalUnitBitArray.readSignedExpGolombCodedInt() + i3) + 256) % 256;
                 }
-                if (i3 != 0) {
-                    i4 = i3;
+                if (i2 != 0) {
+                    i3 = i2;
                 }
             }
         }
     }
 
-    public static int unescapeStream(byte[] bArr, int i2) {
+    public static int unescapeStream(byte[] bArr, int i) {
         InterceptResult invokeLI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, bArr, i)) == null) {
             synchronized (scratchEscapePositionsLock) {
+                int i3 = 0;
                 int i4 = 0;
-                int i5 = 0;
-                while (i4 < i2) {
+                while (i3 < i) {
                     try {
-                        i4 = findNextUnescapeIndex(bArr, i4, i2);
-                        if (i4 < i2) {
-                            if (scratchEscapePositions.length <= i5) {
+                        i3 = findNextUnescapeIndex(bArr, i3, i);
+                        if (i3 < i) {
+                            if (scratchEscapePositions.length <= i4) {
                                 scratchEscapePositions = Arrays.copyOf(scratchEscapePositions, scratchEscapePositions.length * 2);
                             }
-                            scratchEscapePositions[i5] = i4;
-                            i4 += 3;
-                            i5++;
+                            scratchEscapePositions[i4] = i3;
+                            i3 += 3;
+                            i4++;
                         }
                     } catch (Throwable th) {
                         throw th;
                     }
                 }
-                i3 = i2 - i5;
+                i2 = i - i4;
+                int i5 = 0;
                 int i6 = 0;
-                int i7 = 0;
-                for (int i8 = 0; i8 < i5; i8++) {
-                    int i9 = scratchEscapePositions[i8] - i7;
-                    System.arraycopy(bArr, i7, bArr, i6, i9);
-                    int i10 = i6 + i9;
-                    int i11 = i10 + 1;
+                for (int i7 = 0; i7 < i4; i7++) {
+                    int i8 = scratchEscapePositions[i7] - i6;
+                    System.arraycopy(bArr, i6, bArr, i5, i8);
+                    int i9 = i5 + i8;
+                    int i10 = i9 + 1;
+                    bArr[i9] = 0;
+                    i5 = i10 + 1;
                     bArr[i10] = 0;
-                    i6 = i11 + 1;
-                    bArr[i11] = 0;
-                    i7 += i9 + 3;
+                    i6 += i8 + 3;
                 }
-                System.arraycopy(bArr, i7, bArr, i6, i3 - i6);
+                System.arraycopy(bArr, i6, bArr, i5, i2 - i5);
             }
-            return i3;
+            return i2;
         }
         return invokeLI.intValue;
     }

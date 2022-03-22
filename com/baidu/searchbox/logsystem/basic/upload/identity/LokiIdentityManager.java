@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.basic.upload.LokiRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,9 +48,9 @@ public final class LokiIdentityManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,7 +72,7 @@ public final class LokiIdentityManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                return URLEncoder.encode(str, "utf-8");
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
                 return str;

@@ -17,15 +17,15 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction add(int i2, KsFragment ksFragment) {
-        this.mBase.add(i2, ksFragment.getBase());
+    public KsFragmentTransaction add(int i, KsFragment ksFragment) {
+        this.mBase.add(i, ksFragment.getBase());
         return this;
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction add(int i2, KsFragment ksFragment, @Nullable String str) {
-        this.mBase.add(i2, ksFragment.getBase(), str);
+    public KsFragmentTransaction add(int i, KsFragment ksFragment, @Nullable String str) {
+        this.mBase.add(i, ksFragment.getBase(), str);
         return this;
     }
 
@@ -127,15 +127,15 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction replace(int i2, KsFragment ksFragment) {
-        this.mBase.replace(i2, ksFragment.getBase());
+    public KsFragmentTransaction replace(int i, KsFragment ksFragment) {
+        this.mBase.replace(i, ksFragment.getBase());
         return this;
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction replace(int i2, KsFragment ksFragment, @Nullable String str) {
-        this.mBase.replace(i2, ksFragment.getBase(), str);
+    public KsFragmentTransaction replace(int i, KsFragment ksFragment, @Nullable String str) {
+        this.mBase.replace(i, ksFragment.getBase(), str);
         return this;
     }
 
@@ -156,8 +156,8 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setBreadCrumbShortTitle(int i2) {
-        this.mBase.setBreadCrumbShortTitle(i2);
+    public KsFragmentTransaction setBreadCrumbShortTitle(int i) {
+        this.mBase.setBreadCrumbShortTitle(i);
         return this;
     }
 
@@ -170,8 +170,8 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setBreadCrumbTitle(int i2) {
-        this.mBase.setBreadCrumbTitle(i2);
+    public KsFragmentTransaction setBreadCrumbTitle(int i) {
+        this.mBase.setBreadCrumbTitle(i);
         return this;
     }
 
@@ -184,15 +184,15 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setCustomAnimations(int i2, int i3) {
-        this.mBase.setCustomAnimations(i2, i3);
+    public KsFragmentTransaction setCustomAnimations(int i, int i2) {
+        this.mBase.setCustomAnimations(i, i2);
         return this;
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setCustomAnimations(int i2, int i3, int i4, int i5) {
-        this.mBase.setCustomAnimations(i2, i3, i4, i5);
+    public KsFragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4) {
+        this.mBase.setCustomAnimations(i, i2, i3, i4);
         return this;
     }
 
@@ -212,15 +212,15 @@ public class KsFragmentTransaction {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setTransition(int i2) {
-        this.mBase.setTransition(i2);
+    public KsFragmentTransaction setTransition(int i) {
+        this.mBase.setTransition(i);
         return this;
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragmentTransaction setTransitionStyle(int i2) {
-        this.mBase.setTransitionStyle(i2);
+    public KsFragmentTransaction setTransitionStyle(int i) {
+        this.mBase.setTransitionStyle(i);
         return this;
     }
 

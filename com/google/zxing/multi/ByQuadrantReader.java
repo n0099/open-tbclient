@@ -28,9 +28,9 @@ public final class ByQuadrantReader implements Reader {
             newInitContext.initArgs = r2;
             Object[] objArr = {reader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,14 +39,14 @@ public final class ByQuadrantReader implements Reader {
         this.delegate = reader;
     }
 
-    public static void makeAbsolute(ResultPoint[] resultPointArr, int i2, int i3) {
+    public static void makeAbsolute(ResultPoint[] resultPointArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, resultPointArr, i2, i3) == null) || resultPointArr == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65537, null, resultPointArr, i, i2) == null) || resultPointArr == null) {
             return;
         }
-        for (int i4 = 0; i4 < resultPointArr.length; i4++) {
-            ResultPoint resultPoint = resultPointArr[i4];
-            resultPointArr[i4] = new ResultPoint(resultPoint.getX() + i2, resultPoint.getY() + i3);
+        for (int i3 = 0; i3 < resultPointArr.length; i3++) {
+            ResultPoint resultPoint = resultPointArr[i3];
+            resultPointArr[i3] = new ResultPoint(resultPoint.getX() + i, resultPoint.getY() + i2);
         }
     }
 
@@ -88,10 +88,10 @@ public final class ByQuadrantReader implements Reader {
                         return decode2;
                     }
                 } catch (NotFoundException unused3) {
-                    int i2 = width / 2;
-                    int i3 = height / 2;
-                    Result decode3 = this.delegate.decode(binaryBitmap.crop(i2, i3, width, height), map);
-                    makeAbsolute(decode3.getResultPoints(), i2, i3);
+                    int i = width / 2;
+                    int i2 = height / 2;
+                    Result decode3 = this.delegate.decode(binaryBitmap.crop(i, i2, width, height), map);
+                    makeAbsolute(decode3.getResultPoints(), i, i2);
                     return decode3;
                 }
             } catch (NotFoundException unused4) {

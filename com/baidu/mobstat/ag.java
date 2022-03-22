@@ -17,7 +17,7 @@ public class ag extends TextView {
     public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PaintFlagsDrawFilter f35011b;
+    public PaintFlagsDrawFilter f27166b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ag(Context context) {
@@ -28,9 +28,9 @@ public class ag extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,7 +38,7 @@ public class ag extends TextView {
             }
         }
         this.a = new Paint();
-        this.f35011b = new PaintFlagsDrawFilter(0, 3);
+        this.f27166b = new PaintFlagsDrawFilter(0, 3);
         this.a.setColor(-1);
         this.a.setAntiAlias(true);
     }
@@ -47,27 +47,27 @@ public class ag extends TextView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.f35011b);
+            canvas.setDrawFilter(this.f27166b);
             canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.a);
             super.draw(canvas);
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             int max = Math.max(getMeasuredWidth(), getMeasuredHeight());
             setMeasuredDimension(max, max);
         }
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.a.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a.setColor(i);
         }
     }
 }

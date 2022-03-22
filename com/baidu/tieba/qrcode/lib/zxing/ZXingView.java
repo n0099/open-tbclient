@@ -3,7 +3,7 @@ package com.baidu.tieba.qrcode.lib.zxing;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import c.a.r0.g3.b.b.a;
+import c.a.p0.i3.b.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +16,11 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZXingView extends QRCodeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: g  reason: collision with root package name */
-    public MultiFormatReader f46072g;
+    public MultiFormatReader j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ZXingView(Context context, AttributeSet attributeSet) {
@@ -33,9 +31,9 @@ public class ZXingView extends QRCodeView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -45,34 +43,25 @@ public class ZXingView extends QRCodeView {
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MultiFormatReader multiFormatReader = new MultiFormatReader();
-            this.f46072g = multiFormatReader;
-            multiFormatReader.setHints(a.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView, c.a.r0.g3.b.a.c.a
-    public String processData(byte[] bArr, int i2, int i3, boolean z) {
+    @Override // c.a.p0.i3.b.a.c.a
+    public String a(byte[] bArr, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Result result;
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             try {
                 try {
-                    Rect scanBoxAreaRect = this.mScanBoxView.getScanBoxAreaRect(i3);
-                    if (scanBoxAreaRect != null) {
-                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, scanBoxAreaRect.left, scanBoxAreaRect.top, scanBoxAreaRect.width(), scanBoxAreaRect.height(), false);
+                    Rect h2 = this.f35672c.h(i2);
+                    if (h2 != null) {
+                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, h2.left, h2.top, h2.width(), h2.height(), false);
                     } else {
-                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i2, i3, 0, 0, i2, i3, false);
+                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                     }
-                    result = this.f46072g.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                    result = this.j.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f46072g.reset();
+                    this.j.reset();
                     result = null;
                 }
                 if (result != null) {
@@ -80,34 +69,33 @@ public class ZXingView extends QRCodeView {
                 }
                 return null;
             } finally {
-                this.f46072g.reset();
+                this.j.reset();
             }
         }
         return (String) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView
-    public String processData(int[] iArr, int i2, int i3) {
-        InterceptResult invokeLII;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, iArr, i2, i3)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MultiFormatReader multiFormatReader = new MultiFormatReader();
+            this.j = multiFormatReader;
+            multiFormatReader.setHints(a.a);
         }
-        return (String) invokeLII.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ZXingView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ZXingView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -115,6 +103,6 @@ public class ZXingView extends QRCodeView {
                 return;
             }
         }
-        c();
+        o();
     }
 }

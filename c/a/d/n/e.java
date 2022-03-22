@@ -1,23 +1,16 @@
 package c.a.d.n;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.url.UrlUtil;
-import com.baidu.android.common.util.CommonParam;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.DeviceUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.ConnectManager;
-import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,52 +18,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import com.tencent.open.SocialConstants;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashMap;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class e {
+public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean q;
-    public static e r;
-    public static HashMap<String, Integer> s;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f3034b;
+    /* loaded from: classes.dex */
+    public static abstract class a implements b<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f3035c;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    /* renamed from: d  reason: collision with root package name */
-    public String f3036d;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // c.a.d.n.e.b
+        /* renamed from: c */
+        public JSONObject a(int i, String str, InputStream inputStream) throws IOException {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, inputStream)) == null) {
+                if (i != 200) {
+                    throw new IOException("parse response error: statuscode is " + i);
+                } else if (inputStream != null) {
+                    try {
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = inputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        }
+                        JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
+                        if (e.a) {
+                            Log.d(TitanDownloadService.TAG, jSONObject.toString());
+                        }
+                        return jSONObject;
+                    } catch (Exception e2) {
+                        throw new IOException(e2);
+                    }
+                } else {
+                    throw new IOException("parse response error: input stream is null");
+                }
+            }
+            return (JSONObject) invokeILL.objValue;
+        }
+    }
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f3037e;
+    /* loaded from: classes.dex */
+    public interface b<T> {
+        T a(int i, String str, InputStream inputStream) throws IOException;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f3038f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f3039g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f3040h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f3041i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f3042j;
-    public String k;
-    public SharedPreferences l;
-    public String m;
-    public Context n;
-    public String o;
-    public boolean p;
+        void b(int i, String str, T t);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -85,354 +108,13 @@ public final class e {
                 return;
             }
         }
-        q = a.a;
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        s = hashMap;
-        hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-        s.put("3GNET", 21);
-        s.put("3GWAP", 22);
-        s.put("CMNET", 31);
-        s.put("UNINET", 32);
-        s.put("CTNET", 33);
-        s.put("CMWAP", 41);
-        s.put("UNIWAP", 42);
-        s.put("CTWAP", 43);
+        a = c.a.d.n.b.a;
     }
 
-    public e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.p = false;
-        this.n = context;
-    }
-
-    public static synchronized e p() {
-        InterceptResult invokeV;
-        e eVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e.class) {
-                if (r == null) {
-                    r = new e(AppRuntime.getAppContext());
-                }
-                eVar = r;
-            }
-            return eVar;
-        }
-        return (e) invokeV.objValue;
-    }
-
-    public final String a(String str) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? g(str, "cfrom", "tieba") : (String) invokeL.objValue;
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String g2 = g(g(h(str, "bdbox"), "uid", new String(Base64Encoder.B64Encode("0".getBytes()))), "from", "757b");
-            String d2 = d(d(d(null, "uid"), "ua"), "ut");
-            String g3 = g(g(g(g(g(g2, "ua", o(new String(Base64Encoder.B64Encode("320_480_android_0.8_1".getBytes())))), "ut", o(new String(Base64Encoder.B64Encode((j(Build.MODEL, null) + "_" + j(Build.VERSION.RELEASE, "0.0") + "_" + Build.VERSION.SDK_INT + "_" + j(Build.MANUFACTURER, null)).getBytes())))), "osname", BaseWebViewActivity.SHOUBAI_SCHEME), "osbranch", "a0"), "pkgname", this.n.getPackageName());
-            int B64GetVersion = Base64Encoder.B64GetVersion();
-            if (B64GetVersion != 0) {
-                str2 = B64GetVersion + "";
-            } else {
-                str2 = "1";
-            }
-            if (!TextUtils.isEmpty(d2) && !TextUtils.equals(str2, "1")) {
-                g3 = g(g3, "cen", d2);
-            }
-            g(str, "network", NetworkParam.NET_TYPE_ID_DISCONNECT);
-            g(g3, "cfrom", "757b");
-            g(g3, SocialConstants.PARAM_TYPE_ID, "0");
-            return g3;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? g(str, "from", s()) : (String) invokeL.objValue;
-    }
-
-    public final String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2.replace("_", "-");
-            }
-            return str + "_" + str2.replace("_", "-");
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String e(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            if (z) {
-                String m = m();
-                if (TextUtils.equals(m, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
-                    return g(str, "network", PreferenceManager.getDefaultSharedPreferences(this.n.getApplicationContext()).getString(NetworkParam.LAST_NETWORK_TYPE, NetworkParam.NET_TYPE_ID_DISCONNECT));
-                }
-                if (TextUtils.isEmpty(m)) {
-                    return str;
-                }
-                if (!TextUtils.equals(m, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
-                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.n.getApplicationContext()).edit();
-                    edit.putString(NetworkParam.LAST_NETWORK_TYPE, m);
-                    edit.apply();
-                }
-                return g(str, "network", m);
-            }
-            return g(str, "network", m());
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public final String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? g(str, "pkgname", this.n.getPackageName()) : (String) invokeL.objValue;
-    }
-
-    public String g(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, str3)) == null) ? UrlUtil.addParam(str, str2, str3) : (String) invokeLLL.objValue;
-    }
-
-    public final String h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? g(str, "service", str2) : (String) invokeLL.objValue;
-    }
-
-    public final void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            String string = this.l.getString("tntrace", "");
-            if (!TextUtils.isEmpty(string)) {
-                str = string + "_" + str;
-            }
-            SharedPreferences.Editor edit = this.l.edit();
-            edit.putString("tntrace", str);
-            edit.apply();
-        }
-    }
-
-    public final String j(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "NUL";
-            }
-            return TextUtils.isEmpty(str) ? str2 : str.replace("_", "-");
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? CommonParam.getCUID(context) : (String) invokeL.objValue;
-    }
-
-    public final String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            if (q) {
-                String str = "load tn from R.raw.tnconfig, tn = ";
-            }
-            return TextUtils.isEmpty("") ? "757b" : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (q) {
-                SystemClock.uptimeMillis();
-            }
-            ConnectManager connectManager = new ConnectManager(this.n);
-            String netType = connectManager.getNetType();
-            int subType = connectManager.getSubType();
-            if (!TextUtils.isEmpty(netType)) {
-                Integer num = s.get(netType.toUpperCase());
-                if (num == null) {
-                    num = 5;
-                }
-                return num + "_" + subType;
-            }
-            return ((Object) 5) + "_" + subType;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String str = this.f3039g + "_" + this.f3041i + "_" + Build.VERSION.SDK_INT + "_" + this.f3040h;
-            if (q) {
-                String str2 = "device info : " + str;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            try {
-                return URLEncoder.encode(str, "utf-8");
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.f3038f == null) {
-                this.f3038f = r(this.n);
-            }
-            return this.f3038f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String r(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) {
-            String string = this.l.getString("lasttn", "");
-            String l = l(context);
-            if (!(!TextUtils.equals(string, l)) && !TextUtils.isEmpty(string)) {
-                if (q) {
-                    String str = "load tn from local, lastTn = " + string;
-                    return string;
-                }
-                return string;
-            }
-            SharedPreferences.Editor edit = this.l.edit();
-            edit.putString("lasttn", l);
-            edit.apply();
-            i(l);
-            if (q) {
-                String str2 = "load tn from apk, lastTn = " + l;
-            }
-            return l;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.f3037e == null) {
-                this.f3037e = t(this.n);
-            }
-            return this.f3037e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String t(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
-            String string = this.l.getString("tnconfig", "");
-            if (TextUtils.isEmpty(string)) {
-                String q2 = TextUtils.isEmpty("") ? q() : "";
-                SharedPreferences.Editor edit = this.l.edit();
-                edit.putString("tnconfig", q2);
-                edit.apply();
-                string = q2;
-            } else if (q) {
-                String str = "load tn from local, tn = " + string;
-            }
-            return TextUtils.isEmpty(string) ? "757b" : string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "BaiduIdentityManager [mUid=" + this.a + ", mEnUid=" + this.f3034b + ", mUa=" + this.f3035c + ", mEnUa=" + this.f3036d + ", mTn=" + s() + ", mLastTn=" + q() + ", mModel=" + this.f3039g + ", mManufacturer=" + this.f3040h + ", mOSVersion=" + this.f3041i + ", mDeviceInfo=" + this.f3042j + ", mEnDeviceInfo=" + this.k + ", mSettings=" + this.l + ", mVersionName=" + this.m + ", mCtv=" + this.o + ", mProcessedUa=" + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String u(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) {
-            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
-            String str = String.valueOf(displayWidth) + "_" + DeviceUtil.ScreenInfo.getDisplayHeight(context) + "_android_" + this.m + "_" + DeviceUtil.ScreenInfo.getDensityDpi(context);
-            if (q) {
-                String str2 = "ua = " + str;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String v(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
-            String string = this.l.getString("uid_v3", "");
-            if (TextUtils.isEmpty(string)) {
-                string = k(context);
-                if (q) {
-                    String str = "new generated uid " + string;
-                }
-                SharedPreferences.Editor edit = this.l.edit();
-                edit.putString("uid_v3", string);
-                edit.apply();
-            } else if (q) {
-                String str2 = "load uid from local " + string;
-            }
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String w(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (PackageManager.NameNotFoundException e2) {
@@ -443,73 +125,195 @@ public final class e {
         return (String) invokeL.objValue;
     }
 
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.l = this.n.getSharedPreferences("identity", 0);
-            String v = v(this.n);
-            this.a = v;
-            if (!TextUtils.isEmpty(v)) {
-                this.f3034b = new String(Base64Encoder.B64Encode(this.a.getBytes()));
-            }
-            String str = Build.MODEL;
-            this.f3039g = str;
-            if (TextUtils.isEmpty(str)) {
-                this.f3039g = "NUL";
-            } else {
-                this.f3039g = this.f3039g.replace("_", "-");
-            }
-            String str2 = Build.MANUFACTURER;
-            this.f3040h = str2;
-            if (TextUtils.isEmpty(str2)) {
-                this.f3040h = "NUL";
-            } else {
-                this.f3040h = this.f3040h.replace("_", "-");
-            }
-            String str3 = Build.VERSION.RELEASE;
-            this.f3041i = str3;
-            if (TextUtils.isEmpty(str3)) {
-                this.f3041i = "0.0";
-            } else {
-                this.f3041i = this.f3041i.replace("_", "-");
-            }
-            this.f3042j = n();
-            this.k = new String(Base64Encoder.B64Encode(this.f3042j.getBytes()));
-            this.m = w(this.n);
-            y();
-            int B64GetVersion = Base64Encoder.B64GetVersion();
-            if (B64GetVersion == 0) {
-                this.o = "1";
-            } else {
-                this.o = B64GetVersion + "";
-            }
-            this.p = true;
-        }
-    }
-
-    public final synchronized void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            synchronized (this) {
-                this.f3035c = u(this.n);
-                this.f3036d = new String(Base64Encoder.B64Encode(this.f3035c.getBytes()));
-            }
-        }
-    }
-
-    public String z(String str) {
+    public static String c(Context context) {
         InterceptResult invokeL;
+        String sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            try {
-                if (!this.p) {
-                    x();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt <= 31 || charAt >= 127) {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                    } else {
+                        sb2.append(charAt);
+                    }
                 }
-                return g(a(e(f(g(g(c(g(str, "uid", o(this.f3034b))), "ua", o(this.f3035c)), "ut", o(this.f3042j))), false)), SocialConstants.PARAM_TYPE_ID, "0");
-            } catch (Throwable unused) {
-                return b(str);
+                sb = sb2.toString();
             }
+            String str = Build.VERSION.RELEASE;
+            String replace = TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
+            return sb + " baiduboxapp/" + b(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0112 A[Catch: all -> 0x0125, TRY_LEAVE, TryCatch #3 {all -> 0x0125, blocks: (B:67:0x010d, B:69:0x0112), top: B:83:0x010d }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0121  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0131  */
+    /* JADX WARN: Removed duplicated region for block: B:96:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static <T> void d(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream;
+        OutputStream outputStream;
+        HttpURLConnection httpURLConnection2;
+        InputStream inputStream2;
+        OutputStream outputStream2;
+        HttpURLConnection httpURLConnection3;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, bArr, map, bVar}) != null) {
+            return;
+        }
+        OutputStream outputStream3 = null;
+        try {
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            try {
+                httpURLConnection.setConnectTimeout(30000);
+                httpURLConnection.setReadTimeout(30000);
+                httpURLConnection.setRequestProperty("User-Agent", c(context));
+                httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                httpURLConnection.setRequestMethod(str2);
+                if (map != null) {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                    }
+                }
+                if (!TextUtils.equals(str2, "POST")) {
+                    outputStream2 = null;
+                } else if (bArr == null) {
+                    if (a) {
+                        Log.d(TitanDownloadService.TAG, "post requestSync body is null");
+                    }
+                    if (bVar != null) {
+                        bVar.b(-1, "post requestSync body is null", null);
+                    }
+                    Closeables.closeSafely((Closeable) null);
+                    Closeables.closeSafely((Closeable) null);
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                        return;
+                    }
+                    return;
+                } else {
+                    httpURLConnection.setDoOutput(true);
+                    if (map == null || !map.containsKey("Content-Type")) {
+                        httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    }
+                    outputStream2 = httpURLConnection.getOutputStream();
+                    try {
+                        outputStream2.write(bArr);
+                    } catch (Exception e2) {
+                        inputStream2 = null;
+                        httpURLConnection3 = httpURLConnection;
+                        outputStream = outputStream2;
+                        e = e2;
+                        httpURLConnection2 = httpURLConnection3;
+                        try {
+                            e.printStackTrace();
+                            if (bVar != null) {
+                                bVar.b(-1, e.getMessage(), null);
+                            }
+                            Closeables.closeSafely(outputStream);
+                            Closeables.closeSafely(inputStream2);
+                            if (httpURLConnection2 == null) {
+                                httpURLConnection2.disconnect();
+                                return;
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            outputStream3 = outputStream;
+                            httpURLConnection = httpURLConnection2;
+                            inputStream = inputStream2;
+                            Closeables.closeSafely(outputStream3);
+                            Closeables.closeSafely(inputStream);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        outputStream3 = outputStream2;
+                        th = th2;
+                        inputStream = null;
+                        Closeables.closeSafely(outputStream3);
+                        Closeables.closeSafely(inputStream);
+                        if (httpURLConnection != null) {
+                        }
+                        throw th;
+                    }
+                }
+                int responseCode = httpURLConnection.getResponseCode();
+                Log.d(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
+                if (responseCode == 200) {
+                    inputStream = httpURLConnection.getInputStream();
+                    if (bVar != null) {
+                        try {
+                            t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
+                        } catch (Exception e3) {
+                            httpURLConnection3 = httpURLConnection;
+                            outputStream = outputStream2;
+                            e = e3;
+                            inputStream2 = inputStream;
+                            httpURLConnection2 = httpURLConnection3;
+                            e.printStackTrace();
+                            if (bVar != null) {
+                            }
+                            Closeables.closeSafely(outputStream);
+                            Closeables.closeSafely(inputStream2);
+                            if (httpURLConnection2 == null) {
+                            }
+                        } catch (Throwable th3) {
+                            outputStream3 = outputStream2;
+                            th = th3;
+                            Closeables.closeSafely(outputStream3);
+                            Closeables.closeSafely(inputStream);
+                            if (httpURLConnection != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        t = null;
+                    }
+                } else {
+                    inputStream = null;
+                    t = null;
+                }
+                if (bVar != null) {
+                    bVar.b(responseCode, httpURLConnection.getResponseMessage(), t);
+                }
+                Closeables.closeSafely(outputStream2);
+                Closeables.closeSafely(inputStream);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+            } catch (Exception e4) {
+                e = e4;
+                httpURLConnection2 = httpURLConnection;
+                outputStream = null;
+                inputStream2 = null;
+            } catch (Throwable th4) {
+                th = th4;
+                inputStream = null;
+            }
+        } catch (Exception e5) {
+            e = e5;
+            outputStream = null;
+            httpURLConnection2 = null;
+            inputStream2 = null;
+        } catch (Throwable th5) {
+            th = th5;
+            httpURLConnection = null;
+            inputStream = null;
+        }
     }
 }

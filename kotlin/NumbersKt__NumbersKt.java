@@ -27,30 +27,30 @@ public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
-    public static final byte rotateLeft(byte b2, int i2) {
-        int i3 = i2 & 7;
-        return (byte) (((b2 & 255) >>> (8 - i3)) | (b2 << i3));
+    public static final byte rotateLeft(byte b2, int i) {
+        int i2 = i & 7;
+        return (byte) (((b2 & 255) >>> (8 - i2)) | (b2 << i2));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
-    public static final short rotateLeft(short s, int i2) {
-        int i3 = i2 & 15;
-        return (short) (((s & 65535) >>> (16 - i3)) | (s << i3));
+    public static final short rotateLeft(short s, int i) {
+        int i2 = i & 15;
+        return (short) (((s & 65535) >>> (16 - i2)) | (s << i2));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
-    public static final byte rotateRight(byte b2, int i2) {
-        int i3 = i2 & 7;
-        return (byte) (((b2 & 255) >>> i3) | (b2 << (8 - i3)));
+    public static final byte rotateRight(byte b2, int i) {
+        int i2 = i & 7;
+        return (byte) (((b2 & 255) >>> i2) | (b2 << (8 - i2)));
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
-    public static final short rotateRight(short s, int i2) {
-        int i3 = i2 & 15;
-        return (short) (((s & 65535) >>> i3) | (s << (16 - i3)));
+    public static final short rotateRight(short s, int i) {
+        int i2 = i & 15;
+        return (short) (((s & 65535) >>> i2) | (s << (16 - i2)));
     }
 
     @SinceKotlin(version = "1.4")

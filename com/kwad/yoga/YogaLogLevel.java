@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.proguard.annotations.DoNotStrip;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class YogaLogLevel {
     public static final /* synthetic */ YogaLogLevel[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -47,16 +47,16 @@ public final class YogaLogLevel {
         $VALUES = new YogaLogLevel[]{ERROR, WARN, INFO, DEBUG, VERBOSE, yogaLogLevel};
     }
 
-    public YogaLogLevel(String str, int i2, int i3) {
+    public YogaLogLevel(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -65,22 +65,22 @@ public final class YogaLogLevel {
                 return;
             }
         }
-        this.mIntValue = i3;
+        this.mIntValue = i2;
     }
 
-    public static YogaLogLevel fromInt(int i2) {
+    public static YogaLogLevel fromInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
-                                if (i2 == 5) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i == 5) {
                                     return FATAL;
                                 }
-                                throw new IllegalArgumentException("Unknown enum value: " + i2);
+                                throw new IllegalArgumentException("Unknown enum value: " + i);
                             }
                             return VERBOSE;
                         }

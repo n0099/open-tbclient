@@ -1,5 +1,6 @@
 package com.sdk.base.framework.f.h;
 
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +15,13 @@ import java.io.ByteArrayOutputStream;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f57824b;
+    public static Boolean f42591b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f57824b = Boolean.valueOf(f.f57798b);
+        f42591b = Boolean.valueOf(f.f42567b);
     }
 
     public a() {
@@ -44,9 +45,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -64,9 +65,9 @@ public class a {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 aVar.a(byteArrayInputStream, byteArrayOutputStream);
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
             } catch (Exception e2) {
-                c.b(a, e2.toString(), f57824b);
+                c.b(a, e2.toString(), f42591b);
                 return null;
             }
         }

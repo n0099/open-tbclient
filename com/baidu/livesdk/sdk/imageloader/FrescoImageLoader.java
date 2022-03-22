@@ -46,9 +46,9 @@ public class FrescoImageLoader implements ImageLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,9 +82,9 @@ public class FrescoImageLoader implements ImageLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, process};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -161,30 +161,30 @@ public class FrescoImageLoader implements ImageLoader {
     }
 
     @Override // com.baidu.livesdk.api.imageloader.ImageLoader
-    public void loadImage(String str, ImageView imageView, int i2, int i3, ImageLoadListener imageLoadListener, ImageProcessor imageProcessor) {
+    public void loadImage(String str, ImageView imageView, int i, int i2, ImageLoadListener imageLoadListener, ImageProcessor imageProcessor) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, imageView, Integer.valueOf(i2), Integer.valueOf(i3), imageLoadListener, imageProcessor}) == null) || this.mRelease) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, imageView, Integer.valueOf(i), Integer.valueOf(i2), imageLoadListener, imageProcessor}) == null) || this.mRelease) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
             if (imageLoadListener != null) {
                 imageLoadListener.onLoadingFail(str);
             }
-            if (imageView == null || i3 <= 0) {
+            if (imageView == null || i2 <= 0) {
                 return;
             }
-            imageView.setImageResource(i3);
+            imageView.setImageResource(i2);
         } else if (imageView instanceof SimpleDraweeView) {
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) imageView;
             GenericDraweeHierarchy hierarchy = simpleDraweeView.getHierarchy();
-            hierarchy.setFailureImage(i3);
-            hierarchy.setPlaceholderImage(i2);
+            hierarchy.setFailureImage(i2);
+            hierarchy.setPlaceholderImage(i);
             simpleDraweeView.setImageURI(Uri.parse(str));
         } else {
-            if (imageView != null && i2 > 0) {
-                imageView.setImageResource(i2);
+            if (imageView != null && i > 0) {
+                imageView.setImageResource(i);
             }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH).build(), this).subscribe(new BaseBitmapDataSubscriber(this, imageProcessor, imageLoadListener, str, imageView, i3) { // from class: com.baidu.livesdk.sdk.imageloader.FrescoImageLoader.1
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH).build(), this).subscribe(new BaseBitmapDataSubscriber(this, imageProcessor, imageLoadListener, str, imageView, i2) { // from class: com.baidu.livesdk.sdk.imageloader.FrescoImageLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FrescoImageLoader this$0;
@@ -199,11 +199,11 @@ public class FrescoImageLoader implements ImageLoader {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, imageProcessor, imageLoadListener, str, imageView, Integer.valueOf(i3)};
+                        Object[] objArr = {this, imageProcessor, imageLoadListener, str, imageView, Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -214,7 +214,7 @@ public class FrescoImageLoader implements ImageLoader {
                     this.val$listener = imageLoadListener;
                     this.val$url = str;
                     this.val$imageView = imageView;
-                    this.val$failureImage = i3;
+                    this.val$failureImage = i2;
                 }
 
                 @Override // com.facebook.datasource.BaseDataSubscriber
@@ -241,9 +241,9 @@ public class FrescoImageLoader implements ImageLoader {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
+                                    int i3 = newInitContext.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -295,9 +295,9 @@ public class FrescoImageLoader implements ImageLoader {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, bitmap};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i4 = newInitContext.flag;
-                                            if ((i4 & 1) != 0) {
-                                                int i5 = i4 & 2;
+                                            int i3 = newInitContext.flag;
+                                            if ((i3 & 1) != 0) {
+                                                int i4 = i3 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -339,9 +339,9 @@ public class FrescoImageLoader implements ImageLoader {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
+                                    int i3 = newInitContext.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;

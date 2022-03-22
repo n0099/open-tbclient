@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.danmu;
 
-import c.a.r0.l0.i.c;
+import c.a.p0.n0.i.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ public final class VideoDanmuController$renderer$2 extends Lambda implements Fun
             newInitContext.initArgs = r2;
             Object[] objArr = {videoDanmuController};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class AsynTaskMgr {
     public static final /* synthetic */ AsynTaskMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,7 +43,7 @@ public final class AsynTaskMgr {
     public HandlerThread mHandlerThread;
     public AtomicBoolean mMonitorStarted;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class AsynTaskHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public final class AsynTaskMgr {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -102,16 +102,16 @@ public final class AsynTaskMgr {
         KTaskParseLocalDns = 2;
     }
 
-    public AsynTaskMgr(String str, int i2) {
+    public AsynTaskMgr(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -183,10 +183,10 @@ public final class AsynTaskMgr {
         List<HostTB> allHost = dBAccessMgr.getAllHost();
         int size = allHost.size();
         if (size > GlobalTools.KEEP_HOST_NUM) {
-            for (int i2 = size - 1; i2 > 0; i2--) {
-                if (allHost.get(i2).getIsPre() != 1) {
-                    LogTools.printDebug(TAG, "remove host " + allHost.get(i2).getHost());
-                    dBAccessMgr.delHost(allHost.get(i2));
+            for (int i = size - 1; i > 0; i--) {
+                if (allHost.get(i).getIsPre() != 1) {
+                    LogTools.printDebug(TAG, "remove host " + allHost.get(i).getHost());
+                    dBAccessMgr.delHost(allHost.get(i));
                     size += -1;
                     if (size <= GlobalTools.KEEP_HOST_NUM) {
                         break;
@@ -240,11 +240,11 @@ public final class AsynTaskMgr {
         }
     }
 
-    public void postDelayed(Runnable runnable, long j2) {
+    public void postDelayed(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, runnable, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, runnable, j) == null) {
             this.mHandler.removeCallbacks(runnable);
-            this.mHandler.postDelayed(runnable, j2);
+            this.mHandler.postDelayed(runnable, j);
         }
     }
 
@@ -275,9 +275,9 @@ public final class AsynTaskMgr {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

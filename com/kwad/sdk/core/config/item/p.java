@@ -23,23 +23,23 @@ public class p extends b<a> {
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f54210b = new ArrayList();
+        public List<String> f39345b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f54211c = new ArrayList();
+        public List<String> f39346c = new ArrayList();
 
         /* renamed from: d  reason: collision with root package name */
-        public int f54212d;
+        public int f39347d;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f54213e;
+        public JSONObject f39348e;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f54213e = jSONObject;
+            this.f39348e = jSONObject;
             JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
@@ -50,22 +50,22 @@ public class p extends b<a> {
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
             if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.f54210b.add(optJSONArray.optString(i2));
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.f39345b.add(optJSONArray.optString(i));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
             if (optJSONArray2 != null) {
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.f54211c.add(optJSONArray2.optString(i3));
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    this.f39346c.add(optJSONArray2.optString(i2));
                 }
             }
-            this.f54212d = jSONObject.optInt("handleType");
+            this.f39347d = jSONObject.optInt("handleType");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            return this.f54213e;
+            return this.f39348e;
         }
     }
 

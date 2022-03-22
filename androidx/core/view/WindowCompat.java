@@ -23,9 +23,9 @@ public final class WindowCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,14 +33,14 @@ public final class WindowCompat {
     }
 
     @NonNull
-    public static <T extends View> T requireViewById(@NonNull Window window, @IdRes int i2) {
+    public static <T extends View> T requireViewById(@NonNull Window window, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, window, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, window, i)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return (T) window.requireViewById(i2);
+                return (T) window.requireViewById(i);
             }
-            T t = (T) window.findViewById(i2);
+            T t = (T) window.findViewById(i);
             if (t != null) {
                 return t;
             }

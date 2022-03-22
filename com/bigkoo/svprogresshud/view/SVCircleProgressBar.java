@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SVCircleProgressBar extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL = 1;
@@ -38,9 +38,9 @@ public class SVCircleProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -64,26 +64,26 @@ public class SVCircleProgressBar extends View {
 
     public synchronized int getMax() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                i2 = this.max;
+                i = this.max;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public synchronized int getProgress() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                i2 = this.progress;
+                i = this.progress;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -96,57 +96,57 @@ public class SVCircleProgressBar extends View {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
             int width = getWidth() / 2;
             float f2 = width;
-            int i3 = (int) (f2 - (this.roundWidth / 2.0f));
+            int i2 = (int) (f2 - (this.roundWidth / 2.0f));
             this.paint.setAntiAlias(true);
             this.paint.setColor(this.roundColor);
             this.paint.setStyle(Paint.Style.STROKE);
             this.paint.setStrokeWidth(this.roundWidth);
-            canvas.drawCircle(f2, f2, i3, this.paint);
+            canvas.drawCircle(f2, f2, i2, this.paint);
             this.paint.setStrokeWidth(this.roundWidth);
             this.paint.setColor(this.roundProgressColor);
-            float f3 = width - i3;
-            float f4 = width + i3;
+            float f3 = width - i2;
+            float f4 = width + i2;
             RectF rectF = new RectF(f3, f3, f4, f4);
-            int i4 = this.style;
-            if (i4 == 0) {
+            int i3 = this.style;
+            if (i3 == 0) {
                 this.paint.setStyle(Paint.Style.STROKE);
                 canvas.drawArc(rectF, 270.0f, (this.progress * 360) / this.max, false, this.paint);
-            } else if (i4 != 1) {
+            } else if (i3 != 1) {
             } else {
                 this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
                 if (this.progress != 0) {
-                    canvas.drawArc(rectF, 270.0f, (i2 * 360) / this.max, true, this.paint);
+                    canvas.drawArc(rectF, 270.0f, (i * 360) / this.max, true, this.paint);
                 }
             }
         }
     }
 
-    public void setCircleColor(int i2) {
+    public void setCircleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.roundColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.roundColor = i;
         }
     }
 
-    public void setCircleProgressColor(int i2) {
+    public void setCircleProgressColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.roundProgressColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.roundProgressColor = i;
         }
     }
 
-    public synchronized void setMax(int i2) {
+    public synchronized void setMax(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             synchronized (this) {
-                if (i2 >= 0) {
-                    this.max = i2;
+                if (i >= 0) {
+                    this.max = i;
                 } else {
                     throw new IllegalArgumentException("max not less than 0");
                 }
@@ -154,16 +154,16 @@ public class SVCircleProgressBar extends View {
         }
     }
 
-    public synchronized void setProgress(int i2) {
+    public synchronized void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             synchronized (this) {
-                if (i2 >= 0) {
-                    if (i2 > this.max) {
-                        i2 = this.max;
+                if (i >= 0) {
+                    if (i > this.max) {
+                        i = this.max;
                     }
-                    if (i2 <= this.max) {
-                        this.progress = i2;
+                    if (i <= this.max) {
+                        this.progress = i;
                         postInvalidate();
                     }
                 } else {
@@ -189,9 +189,9 @@ public class SVCircleProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -202,17 +202,17 @@ public class SVCircleProgressBar extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SVCircleProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SVCircleProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -221,7 +221,7 @@ public class SVCircleProgressBar extends View {
             }
         }
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.svprogress_max, R.attr.svprogress_roundColor, R.attr.svprogress_roundProgressColor, R.attr.svprogress_roundWidth, R.attr.svprogress_style});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405a0, R.attr.obfuscated_res_0x7f0405a1, R.attr.obfuscated_res_0x7f0405a2, R.attr.obfuscated_res_0x7f0405a3, R.attr.obfuscated_res_0x7f0405a4});
         this.roundColor = obtainStyledAttributes.getColor(1, -16776961);
         this.roundProgressColor = obtainStyledAttributes.getColor(2, -7829368);
         this.roundWidth = obtainStyledAttributes.getDimension(3, 5.0f);

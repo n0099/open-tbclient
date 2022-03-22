@@ -36,13 +36,13 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.BDPTask$subscribeStore$3$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class C17601 extends Lambda implements Function0<String> {
+        public static final class C17211 extends Lambda implements Function0<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SubTaskState $subState;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17601(SubTaskState subTaskState) {
+            public C17211(SubTaskState subTaskState) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -50,9 +50,9 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
                     newInitContext.initArgs = r2;
                     Object[] objArr = {subTaskState};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -90,9 +90,9 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDPTask$subscribeStore$3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -112,7 +112,7 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
                 if (dVar != null) {
                     O = this.this$0.this$0.O();
                     SubTaskState k = O.k(dVar.f());
-                    DebugTrace.a.c(new C17601(k));
+                    DebugTrace.a.c(new C17211(k));
                     return new Pair<>(k, dVar);
                 }
                 return new Pair<>(null, dVar);
@@ -130,9 +130,9 @@ public final class BDPTask$subscribeStore$3 extends Lambda implements Function1<
             newInitContext.initArgs = r2;
             Object[] objArr = {bDPTask};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

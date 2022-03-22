@@ -45,9 +45,9 @@ public class DefaultPoolExecutor {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -76,23 +76,23 @@ public class DefaultPoolExecutor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ThreadPoolExecutor newDefaultPoolExecutor(int i2) {
+    public static ThreadPoolExecutor newDefaultPoolExecutor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
                 return null;
             }
-            int min = Math.min(i2, MAX_CORE_POOL_SIZE);
+            int min = Math.min(i, MAX_CORE_POOL_SIZE);
             ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(min, min, 30L, TimeUnit.SECONDS, new ArrayBlockingQueue(64), sThreadFactory);
             executor = threadPoolExecutor;
             threadPoolExecutor.allowCoreThreadTimeOut(true);
